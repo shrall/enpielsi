@@ -1,0 +1,370 @@
+@import url("../abyssopelagic.otf");
+@import url("../exolight.otf");
+@import url("../exoregular.otf");
+
+html {
+  overflow: hidden;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+}
+
+centering {
+  right: 0;
+  left: 0;
+  text-align: center;
+  margin: 0 auto;
+  position: absolute;
+}
+
+.act01 {
+  right: 0;
+  left: 0;
+  top: 10px;
+  bottom: 0;
+  margin-right: auto;
+  margin-left: auto;
+  width: 1280px;
+  height: 720px;
+  position: absolute;
+}
+.act01 .transitionBG {
+  z-index: 1;
+  opacity: 1;
+  visibility: visible;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: black;
+}
+.act01 .chatBlockTouch {
+  z-index: 3;
+  display: none;
+  opacity: 0;
+  background-color: black;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+.act01 .toiletBG {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: url(../playerthree/bg/toilet.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+
+.chatBtn {
+  cursor: pointer;
+  position: absolute;
+  left: 25px;
+  bottom: 25px;
+  width: 100px;
+  height: 100px;
+  background-image: url(../playerone/img/infobtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.chatBtn:hover {
+  background-image: url(../playerone/img/infobtnhl.webp);
+}
+.chatBox {
+  cursor: pointer;
+  z-index: 5;
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  bottom: 10px;
+  width: 1000px;
+  height: 200px;
+  background-image: url(../playerone/img/chatbox.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.checkPlayerthree {
+  font-family: "Exo";
+  position: absolute;
+  top: 45px;
+  left: 60px;
+  font-size: 24px;
+}
+#chatGuide {
+  color: #cce9ef;
+  font-family: "Exo";
+  position: absolute;
+  top: 90px;
+  left: 50px;
+  font-size: 24px;
+}
+.chatTriangle {
+  position: absolute;
+  right: 40px;
+  bottom: 40px;
+  width: 35px;
+  height: 35px;
+  background-color: #99afb7;
+  clip-path: polygon(50% 50%, 0 0, 100% 0);
+  animation: jumpstat 0.3s linear infinite;
+  animation-direction: alternate;
+}
+@keyframes jumpstat {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(3px);
+  }
+}
+.inventoryBtn {
+  cursor: pointer;
+  position: absolute;
+  right: 25px;
+  bottom: 25px;
+  width: 100px;
+  height: 100px;
+  background-image: url(../playerone/img/inventorybtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.inventoryBtn:hover {
+  background-image: url(../playerone/img/inventorybtnhl.webp);
+}
+.inventoryBox {
+  z-index: 4;
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  top: 100px;
+  width: 600px;
+  height: 458px;
+  background-image: url(../playerone/img/inventorybox.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.inventoryBox .items {
+  cursor: pointer;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+  width: 65px;
+  height: 65px;
+}
+
+.inventoryBox .x1 {
+  left: 30px;
+}
+.inventoryBox .x2 {
+  left: 125px;
+}
+.inventoryBox .x3 {
+  left: 220px;
+}
+.inventoryBox .x4 {
+  left: 315px;
+}
+.inventoryBox .x5 {
+  left: 410px;
+}
+.inventoryBox .x6 {
+  left: 505px;
+}
+.inventoryBox .y1 {
+  top: 88px;
+}
+.inventoryBox .y2 {
+  top: 178px;
+}
+.inventoryBox .y3 {
+  top: 268px;
+}
+.inventoryBox .y4 {
+  top: 358px;
+}
+.itemBox1 {
+  background-image: url(../playerone/img/itemwalkietalkie.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.itemBox1:hover {
+  background-image: url(../playerone/img/itemwalkietalkiehl.webp);
+}
+
+.toiletBG .btnVent {
+  cursor: pointer;
+  position: absolute;
+  top: 200px;
+  left: 200px;
+  width: 125px;
+  height: 82px;
+  background-image: url(../playerthree/img/ventlid.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.toiletBG .btnVent:hover {
+  background-image: url(../playerthree/img/ventlidhl.webp);
+}
+
+.btnJanitor {
+  cursor: pointer;
+  top: 0;
+  bottom: -200px;
+  right: 25px;
+  text-align: center;
+  margin: auto 0;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-image: url(../playerone/img/backbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+
+.btnJanitor:hover {
+  background-image: url(../playerone/img/backbtnhl.webp);
+}
+
+.janitorBG {
+  z-index: 4;
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  height: 666px;
+  width: 480px;
+  top: 10px;
+  position: absolute;
+  background-image: url(../playerthree/img/janitor.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+
+.janitorToolbox {
+  cursor: pointer;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+  top: 145px;
+  left: 180px;
+  width: 100px;
+  height: 68px;
+  background-image: url(../playerthree/img/janitortoolbox.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.janitorToolbox:hover {
+  background-image: url(../playerthree/img/janitortoolboxhl.webp);
+}
+.act01 .toiletVentBG {
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: url(../playerthree/bg/toiletvent.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.toiletVentBG .btnBack {
+  cursor: pointer;
+  bottom: 50px;
+  right: 0;
+  left: 0;
+  text-align: center;
+  margin: 0 auto;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-image: url(../playerone/img/downbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.toiletVentBG .btnBack:hover {
+  background-image: url(../playerone/img/downbtnhl.webp);
+}
+.toiletVentBG .btnRight {
+  cursor: pointer;
+  top: -50px;
+  bottom: 0;
+  right: 275px;
+  text-align: center;
+  margin: auto 0;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-image: url(../playerone/img/backbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.toiletVentBG .btnRight:hover {
+  background-image: url(../playerone/img/backbtnhl.webp);
+}
+.toiletVentBG .btnLeft {
+  cursor: pointer;
+  top: -50px;
+  bottom: 0;
+  left: 275px;
+  text-align: center;
+  margin: auto 0;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-image: url(../playerone/img/leftbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.toiletVentBG .btnLeft:hover {
+  background-image: url(../playerone/img/leftbtnhl.webp);
+}
+.act01 .toiletVentLeftBG {
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: url(../playerthree/bg/toiletvent01.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.act01 .toiletVentRightBG {
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: url(../playerthree/bg/toiletvent01.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
