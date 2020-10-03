@@ -1,114 +1,74 @@
 $(document).ready(function () {
-  setInterval(function () {
-    $(".playertwo-counter").load("playerone.php");
-    if ($(".playertwo-counter").html() == "11") {
-      $(".playertwostage01indicator").css("background-color", "green");
-      $(".playerthreestage01indicator").css("background-color", "green");
-    } else if ($(".playertwo-counter").html() == "10") {
-      $(".playertwostage01indicator").css("background-color", "green");
-      $(".playerthreestage01indicator").css("background-color", "#333");
-    } else if ($(".mplayertwo-counter").html() == "01") {
-      $(".playertwostage01indicator").css("background-color", "#333");
-      $(".playerthreestage01indicator").css("background-color", "green");
-    } else {
-      $(".playertwostage01indicator").css("background-color", "#333");
-      $(".playerthreestage01indicator").css("background-color", "#333");
-    }
-  }, 1000);
   setTimeout(function () {
     $(".checkPlayerone").load("checkPlayerone.php");
     $(".anna01Counter").load("playerone.php?p=anna01");
   }, 1);
-  $(".logoutBtn").click(function () {
-    $(".checkPlayerone").load("../logout.php");
-  });
-});
-
-$(".nextStageBtn").click(function () {
-  if ($(".playertwo-counter").html() == "11") {
-    $(".stage01hint").html("Stage 01 Clear!");
-    $.ajax({
-      type: "post",
-      url: "../scoring.php?p=add",
-      data: { stage01: 1 },
-    });
-    $.ajax({
-      type: "post",
-      url: "playerone.php?p=add",
-      data: { stage01: 1 },
-    });
-  }
 });
 
 //ini start act01
 
 var isTyping = true;
 var act01intro = 0;
+var chatArrayIndex = 0;
+
 window.onload = function () {
   sceneTransition();
   setTimeout(function () {
     setTimeout(function () {
-      $(".act01 .transitionBG").css("visibility", "hidden");
-      $(".act01 .chatBox").css("visibility", "visible");
-      $(".act01 .chatBox").animate({ opacity: "1" }, 300);
-      $(".act01 .chatBlockTouch").css("display", "block");
-      $(".act01 .chatBlockTouch").animate({ opacity: "50%" }, 300);
+      $(".gameHUD .transitionBG").css("visibility", "hidden");
+      openChatbox();
       guideArray = guideAct01;
       setTimeout(typeWriter, 300);
     }, 300);
   }, 600);
 };
 
-function sceneTransition(){
-  $(".act01 .transitionBG").css("visibility", "visible");
-  $(".act01 .transitionBG").animate({ opacity: "1" }, 300);
-  $(".act01 .transitionBG").delay(300).animate({ opacity: "0" }, 300);
+function closeChatBlockTouch() {
+  $(".gameHUD .chatBlockTouch").css("display", "none");
+  $(".gameHUD .chatBlockTouch").css("opacity", "0");
 }
-function closeChatbox() {
-  $(".act01 .chatBox").css("visibility", "hidden");
-  $(".act01 .chatBox").animate({ opacity: "0" }, 300);
-  $(".act01 .chatBlockTouch").css("display", "none");
-  $(".act01 .chatBlockTouch").css("opacity", "0");
+function openChatBlockTouch() {
+  $(".gameHUD .chatBlockTouch").css("display", "block");
+  $(".gameHUD .chatBlockTouch").animate({ opacity: "50%" }, 300);
 }
 function openChatbox() {
-  $(".act01 .chatBox").css("visibility", "visible");
-  $(".act01 .chatBox").animate({ opacity: "1" }, 300);
-  $(".act01 .chatBlockTouch").css("display", "block");
-  $(".act01 .chatBlockTouch").animate({ opacity: "50%" }, 300);
+  $(".gameHUD .chatBox").css("visibility", "visible");
+  $(".gameHUD .chatBox").animate({ opacity: "1" }, 300);
+  openChatBlockTouch();
 }
-
-$(".btnAnna01Note").click(function () {
-  setTimeout(function () {
-    sceneTransition();
-    setTimeout(function () {
-      setTimeout(function () {
-        $(".act01 .transitionBG").css("visibility", "hidden");
-      }, 300);
-      $(".act01 .btnAnna01Note").css("visibility", "hidden");
-      $(".act01 .labNoteBG").css("visibility", "visible");
-    }, 600);
-  }, 1);
-});
-
-$(".labNoteBG .btnBack").click(function () {
-  setTimeout(function () {
-    sceneTransition();
-    setTimeout(function () {
-      setTimeout(function () {
-        $(".act01 .transitionBG").css("visibility", "hidden");
-      }, 300);
-      $(".act01 .btnAnna01Note").css("visibility", "visible");
-      $(".act01 .labNoteBG").css("visibility", "hidden");
-    }, 600);
-  }, 1);
-});
-
-$(".labBG .chatBtn").click(function () {
-  guideZ = 3;
+function closeChatbox() {
+  $(".gameHUD .chatBox").css("visibility", "hidden");
+  $(".gameHUD .chatBox").animate({ opacity: "0" }, 300);
+  closeChatBlockTouch();
+}
+function openInventorybox() {
+  $(".gameHUD .inventoryBox").css("visibility", "visible");
+  $(".gameHUD .inventoryBox").animate({ opacity: "1" }, 300);
+  openChatBlockTouch();
+}
+function closeInventorybox() {
+  $(".gameHUD .inventoryBox").css("visibility", "hidden");
+  $(".gameHUD .inventoryBox").animate({ opacity: "0" }, 300);
+  closeChatBlockTouch();
+}
+function closeUniversal() {
+  if (
+    $(".act01 .janitorBG").css("visibility") == "visible" &&
+    $(".gameHUD .chatBox").css("visibility") != "visible"
+  ) {
+    closeJanitor();
+  }
+}
+function sceneTransition() {
+  $(".gameHUD .transitionBG").css("visibility", "visible");
+  $(".gameHUD .transitionBG").animate({ opacity: "1" }, 300);
+  $(".gameHUD .transitionBG").delay(300).animate({ opacity: "0" }, 300);
+}
+function clickTrusChatPopUp(chatArrayIndex) {
+  guideZ = chatArrayIndex;
   openChatbox();
   setTimeout(typeWriter, 300);
-});
-
+}
 var guideY = 0;
 var guideZ = 0;
 var guideAct01 = [
@@ -116,6 +76,7 @@ var guideAct01 = [
   "Huh? Wait. Where's Mr. Clark?",
   "Uh... the door's closed...",
   "I should look around...",
+  
   "Ah! The door is now opened!",
 ];
 
@@ -136,6 +97,14 @@ function typeWriter() {
   }
 }
 
+
+$(".gameHUD .chatBtn").click(function () {
+  if (guideArray == guideAct01) {
+    chatArrayIndex = 3;
+  }
+  clickTrusChatPopUp(chatArrayIndex);
+});
+
 $(".chatBox").click(function () {
   if (guideArray[guideZ] != document.getElementById("chatGuide").innerHTML) {
     //ini buat lansung ngefullin textbox dibawah.
@@ -151,44 +120,67 @@ $(".chatBox").click(function () {
     if (act01intro == 1 || guideZ == 4) {
       act01intro = 1;
       closeChatbox();
+      closeUniversal();
     } else {
       setTimeout(typeWriter, 50);
     }
   }
 });
-
-$(".labBG .btnBack").click(function () {
-  setTimeout(function () {
-    if ($(".anna01Counter").html() == "1") {
-      guideZ = 4;
-    } else {
-      guideZ = 2;
-    }
-    openChatbox();
-    setTimeout(typeWriter, 300);
-  }, 100);
+$(".gameHUD .chatBlockTouch").click(function () {
+  if ($(".gameHUD .inventoryBox").css("visibility") == "visible") {
+    closeInventorybox();
+  }
+  closeUniversal();
 });
 
-function openInventorybox() {
-  $(".act01 .inventoryBox").css("visibility", "visible");
-  $(".act01 .inventoryBox").animate({ opacity: "1" }, 300);
-  $(".act01 .chatBlockTouch").css("display", "block");
-  $(".act01 .chatBlockTouch").animate({ opacity: "50%" }, 300);
-}
-function closeInventorybox() {
-  $(".act01 .inventoryBox").css("visibility", "hidden");
-  $(".act01 .inventoryBox").animate({ opacity: "0" }, 300);
-  $(".act01 .chatBlockTouch").css("display", "none");
-  $(".act01 .chatBlockTouch").css("opacity", "0");
-}
 
+var inventoryIndex = 2;
+var acquiredItem = "";
 
 $(".inventoryBtn").click(function () {
   openInventorybox();
 });
+function addItem() {
+  $(".gameHUD .itemBox" + inventoryIndex).css("background-image", acquiredItem);
+  $(".gameHUD .itemBox").css(
+    "background-image",
+    $(".gameHUD .itemBox" + inventoryIndex).css("background-image")
+  );
+  inventoryIndex++;
+  acquiredItem = "";
+}
 
-$(".chatBlockTouch").click(function () {
-  if ($(".act01 .inventoryBox").css("visibility") == "visible") {
-    closeInventorybox();
-  }
+
+$(".btnAnna01Note").click(function () {
+  setTimeout(function () {
+    sceneTransition();
+    setTimeout(function () {
+      setTimeout(function () {
+        $(".gameHUD .transitionBG").css("visibility", "hidden");
+      }, 300);
+      $(".act01 .labNoteBG").css("visibility", "visible");
+    }, 600);
+  }, 1);
+});
+
+$(".labNoteBG .btnBack").click(function () {
+  setTimeout(function () {
+    sceneTransition();
+    setTimeout(function () {
+      setTimeout(function () {
+        $(".gameHUD .transitionBG").css("visibility", "hidden");
+      }, 300);
+      $(".act01 .labNoteBG").css("visibility", "hidden");
+    }, 600);
+  }, 1);
+});
+$(".labBG .btnBack").click(function () {
+  setTimeout(function () {
+    if ($(".anna01Counter").html() == "1") {
+      chatArrayIndex = 4;
+    } else {
+      chatArrayIndex = 2;
+    }
+    clickTrusChatPopUp(chatArrayIndex);
+  }, 100);
 });

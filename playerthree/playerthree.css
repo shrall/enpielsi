@@ -22,7 +22,7 @@ centering {
   margin: 0 auto;
   position: absolute;
 }
-
+/* GAME MENU */
 .container{
   right: 0;
   left: 0;
@@ -31,18 +31,6 @@ centering {
   position: absolute;
   width: 1280px;
   height: 720px;
-}
-
-.act01 {
-  right: 0;
-  left: 0;
-  top: 10px;
-  bottom: 0;
-  margin-right: auto;
-  margin-left: auto;
-  width: 1280px;
-  height: 720px;
-  position: absolute;
 }
 .transitionBG {
   z-index: 1;
@@ -205,6 +193,21 @@ centering {
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: center top;
+}
+
+/* PUZZLE COUNTERS */
+
+/* ACT01 */
+.act01 {
+  right: 0;
+  left: 0;
+  top: 10px;
+  bottom: 0;
+  margin-right: auto;
+  margin-left: auto;
+  width: 1280px;
+  height: 720px;
+  position: absolute;
 }
 
 .act01 .toiletBG {

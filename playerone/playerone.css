@@ -2,14 +2,9 @@
 @import url("../exolight.otf");
 @import url("../exoregular.otf");
 
-centering {
-  right: 0;
-  left: 0;
-  text-align: center;
-  margin: 0 auto;
-  position: absolute;
+html {
+  overflow: hidden;
 }
-
 .noselect {
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
@@ -18,51 +13,24 @@ centering {
   -ms-user-select: none; /* Internet Explorer/Edge */
   user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
 }
-/* PUZZLE COUNTERS */
-.anna01Counter {
-  display: none;
-}
-/* ACT01 */
-.act01 {
+centering {
   right: 0;
   left: 0;
-  top: 10px;
-  bottom: 0;
-  margin-right: auto;
-  margin-left: auto;
+  text-align: center;
+  margin: 0 auto;
+  position: absolute;
+}
+/* GAME MENU */
+.container{
+  right: 0;
+  left: 0;
+  text-align: center;
+  margin: 0 auto;
+  position: absolute;
   width: 1280px;
   height: 720px;
-  position: absolute;
 }
-.act01 .chatBlockTouch{
-  z-index: 3;
-  display: none;
-  opacity: 0;
-  background-color: black;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-}
-.act01 .labBG {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  background-image: url(../playerone/bg/lab.webp);
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-position: center top;
-}
-.act01 .labNoteBG {
-  visibility: hidden;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  background-image: url(../playerone/bg/labnote.webp);
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-position: center top;
-}
-.act01 .transitionBG {
+.transitionBG {
   z-index: 1;
   opacity: 1;
   visibility: visible;
@@ -71,25 +39,17 @@ centering {
   position: absolute;
   background-color: black;
 }
-.labBG .btnBack {
-  cursor: pointer;
-  top: 0;
-  bottom: 0;
-  right: 25px;
-  text-align: center;
-  margin: auto 0;
-  width: 50px;
-  height: 50px;
+.chatBlockTouch {
+  z-index: 3;
+  display: none;
+  opacity: 0;
+  background-color: black;
+  width: 100%;
+  height: 100%;
   position: absolute;
-  background-image: url(../playerone/img/backbtn.webp);
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-position: center top;
 }
-.labBG .btnBack:hover {
-  background-image: url(../playerone/img/backbtnhl.webp);
-}
-.labBG .chatBtn {
+
+.chatBtn {
   cursor: pointer;
   position: absolute;
   left: 25px;
@@ -101,12 +61,12 @@ centering {
   background-size: 100%;
   background-position: center top;
 }
-.labBG .chatBtn:hover {
+.chatBtn:hover {
   background-image: url(../playerone/img/infobtnhl.webp);
 }
 .chatBox {
   cursor: pointer;
-  z-index: 4;
+  z-index: 5;
   visibility: hidden;
   opacity: 0;
   position: absolute;
@@ -135,6 +95,156 @@ centering {
   top: 90px;
   left: 50px;
   font-size: 24px;
+}
+.chatTriangle {
+  position: absolute;
+  right: 40px;
+  bottom: 40px;
+  width: 35px;
+  height: 35px;
+  background-color: #99afb7;
+  clip-path: polygon(50% 50%, 0 0, 100% 0);
+  animation: jumpstat 0.3s linear infinite;
+  animation-direction: alternate;
+}
+@keyframes jumpstat {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(3px);
+  }
+}
+.inventoryBtn {
+  cursor: pointer;
+  position: absolute;
+  right: 25px;
+  bottom: 25px;
+  width: 100px;
+  height: 100px;
+  background-image: url(../playerone/img/inventorybtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.inventoryBtn:hover {
+  background-image: url(../playerone/img/inventorybtnhl.webp);
+}
+.inventoryBox {
+  z-index: 4;
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  top: 100px;
+  width: 600px;
+  height: 458px;
+  background-image: url(../playerone/img/inventorybox.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.inventoryBox .items {
+  cursor: pointer;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+  width: 65px;
+  height: 65px;
+}
+
+.inventoryBox .x1 {
+  left: 30px;
+}
+.inventoryBox .x2 {
+  left: 125px;
+}
+.inventoryBox .x3 {
+  left: 220px;
+}
+.inventoryBox .x4 {
+  left: 315px;
+}
+.inventoryBox .x5 {
+  left: 410px;
+}
+.inventoryBox .x6 {
+  left: 505px;
+}
+.inventoryBox .y1 {
+  top: 88px;
+}
+.inventoryBox .y2 {
+  top: 178px;
+}
+.inventoryBox .y3 {
+  top: 268px;
+}
+.inventoryBox .y4 {
+  top: 358px;
+}
+.itemBox1 {
+  background-image: url(../playerone/img/itemwalkietalkie.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+
+/* PUZZLE COUNTERS */
+.anna01Counter {
+  display: none;
+}
+/* ACT01 */
+.act01 {
+  right: 0;
+  left: 0;
+  top: 10px;
+  bottom: 0;
+  margin-right: auto;
+  margin-left: auto;
+  width: 1280px;
+  height: 720px;
+  position: absolute;
+}
+.act01 .labBG {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: url(../playerone/bg/lab.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.act01 .labNoteBG {
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: url(../playerone/bg/labnote.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.labBG .btnBack {
+  cursor: pointer;
+  top: 0;
+  bottom: 0;
+  right: 25px;
+  text-align: center;
+  margin: auto 0;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-image: url(../playerone/img/backbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.labBG .btnBack:hover {
+  background-image: url(../playerone/img/backbtnhl.webp);
 }
 .btnAnna01Note {
   cursor: pointer;
@@ -177,215 +287,4 @@ centering {
 }
 .labNoteBG .btnBack:hover {
   background-image: url(../playerone/img/backbtnbighl.webp);
-}
-.chatTriangle{
-  position: absolute;
-  right: 40px;
-  bottom: 40px;
-  width: 35px;
-  height: 35px;
-  background-color:#99AFB7;
-  clip-path: polygon(50% 50%, 0 0, 100% 0);
-  animation: jumpstat 0.3s linear infinite;
-  animation-direction: alternate;
-}
-@keyframes jumpstat {
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(3px);
-  }
-}
-.inventoryBtn{
-  cursor: pointer;
-  position: absolute;
-  right: 25px;
-  bottom: 25px;
-  width: 100px;
-  height: 100px;
-  background-image: url(../playerone/img/inventorybtn.webp);
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-position: center top;
-}
-.inventoryBtn:hover {
-  background-image: url(../playerone/img/inventorybtnhl.webp);
-}
-.inventoryBox {
-  z-index: 4;
-  visibility: hidden;
-  opacity: 0;
-  position: absolute;
-  margin: 0 auto;
-  left: 0;
-  right: 0;
-  top: 100px;
-  width: 600px;
-  height: 458px;
-  background-image: url(../playerone/img/inventorybox.webp);
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-position: center top;
-}
-.inventoryBox .items{
-  cursor: pointer;
-  position: absolute;
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-position: center top;
-  width: 65px;
-  height: 65px;
-}
-
-.inventoryBox .x1{
-  left: 30px;
-}
-.inventoryBox .x2{
-  left: 125px;
-}
-.inventoryBox .x3{
-  left: 220px;
-}
-.inventoryBox .x4{
-  left: 315px;
-}
-.inventoryBox .x5{
-  left: 410px;
-}
-.inventoryBox .x6{
-  left: 505px;
-}
-.inventoryBox .y1{
-  top: 88px;
-}
-.inventoryBox .y2{
-  top: 178px;
-}
-.inventoryBox .y3{
-  top: 268px;
-}
-.inventoryBox .y4{
-  top: 358px;
-}
-.itemBox01{
-  background-image: url(../playerone/img/itemwalkietalkie.webp);
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-position: center top;
-}
-.itemBox01:hover{
-  background-image: url(../playerone/img/itemwalkietalkiehl.webp);
-}
-
-/* NOTES */
-
-.playertwo-counter {
-  display: none;
-}
-.title {
-  text-align: center;
-  right: 0;
-  left: 0;
-  top: 50px;
-  margin: 0 auto;
-  width: 200px;
-  height: 20px;
-  position: absolute;
-}
-
-.playertwotitle {
-  text-align: left;
-  width: 200px;
-  height: 20px;
-  position: absolute;
-  bottom: 200px;
-  width: 200px;
-  height: 20px;
-  position: absolute;
-}
-.playerthreetitle {
-  text-align: right;
-  width: 200px;
-  height: 20px;
-  position: absolute;
-  bottom: 200px;
-  right: 0;
-}
-
-.board {
-  display: none;
-  right: 0;
-  left: 0;
-  top: 10px;
-  bottom: 0;
-  margin-right: auto;
-  margin-left: auto;
-  width: 1280px;
-  height: 720px;
-  position: absolute;
-  border: 1px solid black;
-}
-
-.playertwostage01indicator {
-  position: absolute;
-  bottom: 100px;
-  width: 120px;
-  height: 100px;
-  background-color: #333;
-}
-
-.playerthreestage01indicator {
-  position: absolute;
-  width: 120px;
-  height: 100px;
-  right: 0;
-  bottom: 100px;
-  background-color: #333;
-}
-
-.nextStageBtn {
-  cursor: pointer;
-  padding: 5px;
-  box-sizing: border-box;
-  color: white;
-  text-align: center;
-  right: 0;
-  left: 0;
-  top: 500px;
-  margin: 0 auto;
-  width: 200px;
-  height: 20px;
-  position: absolute;
-  background-color: crimson;
-}
-.nextStageBtn:hover {
-  background-color: red;
-}
-
-.logoutBtn {
-  cursor: pointer;
-  padding: 5px;
-  box-sizing: border-box;
-  color: white;
-  text-align: center;
-  right: 0;
-  left: 0;
-  top: 600px;
-  margin: 0 auto;
-  width: 200px;
-  height: 20px;
-  position: absolute;
-  background-color: royalblue;
-}
-
-.stage01hint {
-  text-align: center;
-  right: 0;
-  left: 0;
-  top: 250px;
-  margin: 0 auto;
-  width: 200px;
-  height: 20px;
-  position: absolute;
 }

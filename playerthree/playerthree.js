@@ -48,16 +48,6 @@ function closeInventorybox() {
   $(".gameHUD .inventoryBox").animate({ opacity: "0" }, 300);
   closeChatBlockTouch();
 }
-function openJanitor() {
-  $(".act01 .janitorBG").css("visibility", "visible");
-  $(".act01 .janitorBG").animate({ opacity: "1" }, 300);
-  openChatBlockTouch();
-}
-function closeJanitor() {
-  $(".act01 .janitorBG").css("visibility", "hidden");
-  $(".act01 .janitorBG").animate({ opacity: "0" }, 300);
-  closeChatBlockTouch();
-}
 function closeUniversal() {
   if (
     $(".act01 .janitorBG").css("visibility") == "visible" &&
@@ -77,13 +67,16 @@ function clickTrusChatPopUp(chatArrayIndex) {
   setTimeout(typeWriter, 300);
 }
 
-$(".gameHUD .chatBtn").click(function () {
-  if (guideArray == guideAct01) {
-    chatArrayIndex = 3;
-  }
-  clickTrusChatPopUp(chatArrayIndex);
-});
-
+function openJanitor() {
+  $(".act01 .janitorBG").css("visibility", "visible");
+  $(".act01 .janitorBG").animate({ opacity: "1" }, 300);
+  openChatBlockTouch();
+}
+function closeJanitor() {
+  $(".act01 .janitorBG").css("visibility", "hidden");
+  $(".act01 .janitorBG").animate({ opacity: "0" }, 300);
+  closeChatBlockTouch();
+}
 var guideY = 0;
 var guideZ = 0;
 var guideAct01 = [
@@ -114,6 +107,13 @@ function typeWriter() {
   }
 }
 
+$(".gameHUD .chatBtn").click(function () {
+  if (guideArray == guideAct01) {
+    chatArrayIndex = 3;
+  }
+  clickTrusChatPopUp(chatArrayIndex);
+});
+
 $(".gameHUD .chatBox").click(function () {
   if (guideArray[guideZ] != document.getElementById("chatGuide").innerHTML) {
     //ini buat lansung ngefullin textbox dibawah.
@@ -143,16 +143,14 @@ $(".gameHUD .chatBlockTouch").click(function () {
   closeUniversal();
 });
 
-$(".inventoryBtn").click(function () {
-  openInventorybox();
-});
-$(".act01 .btnJanitor").click(function () {
-  openJanitor();
-});
-
 var inventoryIndex = 2;
 var acquiredItem = "";
 var screwdriver = 0;
+
+$(".inventoryBtn").click(function () {
+  openInventorybox();
+});
+
 
 function addItem() {
   $(".gameHUD .itemBox" + inventoryIndex).css("background-image", acquiredItem);
@@ -163,6 +161,9 @@ function addItem() {
   inventoryIndex++;
   acquiredItem = "";
 }
+$(".act01 .btnJanitor").click(function () {
+  openJanitor();
+});
 
 $(".janitorToolbox").click(function () {
   if (screwdriver != 1) {
@@ -207,6 +208,7 @@ $(".toiletVentBG .btnBack").click(function () {
     }, 600);
   }, 1);
 });
+
 $(".toiletVentBG .btnLeft").click(function () {
   setTimeout(function () {
     sceneTransition();

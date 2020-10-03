@@ -1,6 +1,9 @@
 @import url("../abyssopelagic.otf");
 @import url("../exolight.otf");
 @import url("../exoregular.otf");
+html {
+  overflow: hidden;
+}
 .noselect {
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
@@ -17,6 +20,179 @@ centering {
   margin: 0 auto;
   position: absolute;
 }
+/* GAME MENU */
+.container{
+  right: 0;
+  left: 0;
+  text-align: center;
+  margin: 0 auto;
+  position: absolute;
+  width: 1280px;
+  height: 720px;
+}
+.transitionBG {
+  z-index: 1;
+  opacity: 1;
+  visibility: visible;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: black;
+}
+.chatBlockTouch {
+  z-index: 3;
+  display: none;
+  opacity: 0;
+  background-color: black;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.chatBtn {
+  cursor: pointer;
+  position: absolute;
+  left: 25px;
+  bottom: 25px;
+  width: 100px;
+  height: 100px;
+  background-image: url(../playerone/img/infobtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.chatBtn:hover {
+  background-image: url(../playerone/img/infobtnhl.webp);
+}
+.chatBox {
+  cursor: pointer;
+  z-index: 5;
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  bottom: 10px;
+  width: 1000px;
+  height: 200px;
+  background-image: url(../playerone/img/chatbox.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.checkPlayertwo {
+  font-family: "Exo";
+  position: absolute;
+  top: 45px;
+  left: 60px;
+  font-size: 24px;
+}
+#chatGuide {
+  color: #cce9ef;
+  font-family: "Exo";
+  position: absolute;
+  top: 90px;
+  left: 50px;
+  font-size: 24px;
+}
+.chatTriangle {
+  position: absolute;
+  right: 40px;
+  bottom: 40px;
+  width: 35px;
+  height: 35px;
+  background-color: #99afb7;
+  clip-path: polygon(50% 50%, 0 0, 100% 0);
+  animation: jumpstat 0.3s linear infinite;
+  animation-direction: alternate;
+}
+@keyframes jumpstat {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(3px);
+  }
+}
+.inventoryBtn {
+  cursor: pointer;
+  position: absolute;
+  right: 25px;
+  bottom: 25px;
+  width: 100px;
+  height: 100px;
+  background-image: url(../playerone/img/inventorybtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.inventoryBtn:hover {
+  background-image: url(../playerone/img/inventorybtnhl.webp);
+}
+.inventoryBox {
+  z-index: 4;
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  top: 100px;
+  width: 600px;
+  height: 458px;
+  background-image: url(../playerone/img/inventorybox.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.inventoryBox .items {
+  cursor: pointer;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+  width: 65px;
+  height: 65px;
+}
+
+.inventoryBox .x1 {
+  left: 30px;
+}
+.inventoryBox .x2 {
+  left: 125px;
+}
+.inventoryBox .x3 {
+  left: 220px;
+}
+.inventoryBox .x4 {
+  left: 315px;
+}
+.inventoryBox .x5 {
+  left: 410px;
+}
+.inventoryBox .x6 {
+  left: 505px;
+}
+.inventoryBox .y1 {
+  top: 88px;
+}
+.inventoryBox .y2 {
+  top: 178px;
+}
+.inventoryBox .y3 {
+  top: 268px;
+}
+.inventoryBox .y4 {
+  top: 358px;
+}
+.itemBox1 {
+  background-image: url(../playerone/img/itemwalkietalkie.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+
 /* PUZZLE COUNTERS */
 .anna01Counter {
   display: none;
@@ -33,15 +209,6 @@ centering {
   height: 720px;
   position: absolute;
 }
-.act01 .chatBlockTouch{
-  z-index: 3;
-  display: none;
-  opacity: 0;
-  background-color: black;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-}
 
 .act01 .controlRoomBG {
   width: 100%;
@@ -51,15 +218,6 @@ centering {
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: center top;
-}
-.act01 .transitionBG {
-  z-index: 1;
-  opacity: 1;
-  visibility: visible;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  background-color: black;
 }
 .act01 .anna01BG {
   color: #d2fffd;
@@ -342,385 +500,5 @@ centering {
   bottom: 130px;
   width: 150px;
   height: 40px;
-  background-color: #333;
-}
-.chatBtn {
-  cursor: pointer;
-  position: absolute;
-  left: 25px;
-  bottom: 25px;
-  width: 100px;
-  height: 100px;
-  background-image: url(../playerone/img/infobtn.webp);
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-position: center top;
-}
-.chatBtn:hover {
-  background-image: url(../playerone/img/infobtnhl.webp);
-}
-.chatBox {
-  cursor: pointer;
-  z-index: 4;
-  visibility: hidden;
-  opacity: 0;
-  position: absolute;
-  margin: 0 auto;
-  left: 0;
-  right: 0;
-  bottom: 10px;
-  width: 1000px;
-  height: 200px;
-  background-image: url(../playerone/img/chatbox.webp);
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-position: center top;
-}
-.checkPlayertwo {
-  font-family: "Exo";
-  position: absolute;
-  top: 45px;
-  left: 60px;
-  font-size: 24px;
-}
-#chatGuide{
-  color: #CCE9EF;
-  font-family: "Exo";
-  position: absolute;
-  top: 90px;
-  left: 50px;
-  font-size: 24px;
-}
-.chatTriangle{
-  position: absolute;
-  right: 40px;
-  bottom: 40px;
-  width: 35px;
-  height: 35px;
-  background-color:#99AFB7;
-  clip-path: polygon(50% 50%, 0 0, 100% 0);
-  animation: jumpstat 0.3s linear infinite;
-  animation-direction: alternate;
-}
-@keyframes jumpstat {
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(3px);
-  }
-}
-.inventoryBtn{
-  cursor: pointer;
-  position: absolute;
-  right: 25px;
-  bottom: 25px;
-  width: 100px;
-  height: 100px;
-  background-image: url(../playerone/img/inventorybtn.webp);
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-position: center top;
-}
-.inventoryBtn:hover {
-  background-image: url(../playerone/img/inventorybtnhl.webp);
-}
-.inventoryBox {
-  z-index: 4;
-  visibility: hidden;
-  opacity: 0;
-  position: absolute;
-  margin: 0 auto;
-  left: 0;
-  right: 0;
-  top: 100px;
-  width: 600px;
-  height: 458px;
-  background-image: url(../playerone/img/inventorybox.webp);
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-position: center top;
-}
-.inventoryBox .items{
-  cursor: pointer;
-  position: absolute;
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-position: center top;
-  width: 65px;
-  height: 65px;
-}
-
-.inventoryBox .x1{
-  left: 30px;
-}
-.inventoryBox .x2{
-  left: 125px;
-}
-.inventoryBox .x3{
-  left: 220px;
-}
-.inventoryBox .x4{
-  left: 315px;
-}
-.inventoryBox .x5{
-  left: 410px;
-}
-.inventoryBox .x6{
-  left: 505px;
-}
-.inventoryBox .y1{
-  top: 88px;
-}
-.inventoryBox .y2{
-  top: 178px;
-}
-.inventoryBox .y3{
-  top: 268px;
-}
-.inventoryBox .y4{
-  top: 358px;
-}
-.itemBox01{
-  background-image: url(../playerone/img/itemwalkietalkie.webp);
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-position: center top;
-}
-.itemBox01:hover{
-  background-image: url(../playerone/img/itemwalkietalkiehl.webp);
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.title {
-  text-align: center;
-  right: 0;
-  left: 0;
-  bottom: -50px;
-  margin: 0 auto;
-  width: 200px;
-  height: 20px;
-  position: absolute;
-}
-
-.board {
-  display: none;
-  right: 0;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  margin-right: auto;
-  margin-left: auto;
-  width: 1280px;
-  height: 720px;
-  position: absolute;
-  background-color: goldenrod;
-}
-
-#tile1 {
-  left: 0;
-  top: 0;
-  margin-right: auto;
-  margin-left: auto;
-  width: 160px;
-  height: 160px;
-  position: absolute;
-}
-#tile2 {
-  left: 160px;
-  top: 0;
-  margin-right: auto;
-  margin-left: auto;
-  width: 160px;
-  height: 160px;
-  position: absolute;
-  background-color: blueviolet;
-}
-#tile3 {
-  left: 320px;
-  top: 0;
-  margin-right: auto;
-  margin-left: auto;
-  width: 160px;
-  height: 160px;
-  position: absolute;
-  background-color: blue;
-}
-#tile4 {
-  left: 480px;
-  top: 0;
-  margin-right: auto;
-  margin-left: auto;
-  width: 160px;
-  height: 160px;
-  position: absolute;
-}
-#tile5 {
-  left: 0;
-  top: 160px;
-  margin-right: auto;
-  margin-left: auto;
-  width: 160px;
-  height: 160px;
-  position: absolute;
-  background-color: blueviolet;
-}
-#tile6 {
-  left: 160px;
-  top: 160px;
-  margin-right: auto;
-  margin-left: auto;
-  width: 160px;
-  height: 160px;
-  position: absolute;
-  background-color: blue;
-}
-#tile7 {
-  left: 320px;
-  top: 160px;
-  margin-right: auto;
-  margin-left: auto;
-  width: 160px;
-  height: 160px;
-  position: absolute;
-  background-color: blueviolet;
-}
-#tile8 {
-  left: 480px;
-  top: 160px;
-  margin-right: auto;
-  margin-left: auto;
-  width: 160px;
-  height: 160px;
-  position: absolute;
-  background-color: blue;
-}
-#tile9 {
-  left: 0;
-  top: 320px;
-  margin-right: auto;
-  margin-left: auto;
-  width: 160px;
-  height: 160px;
-  position: absolute;
-  background-color: blue;
-}
-#tile10 {
-  left: 160px;
-  top: 320px;
-  margin-right: auto;
-  margin-left: auto;
-  width: 160px;
-  height: 160px;
-  position: absolute;
-  background-color: blueviolet;
-}
-#tile11 {
-  left: 320px;
-  top: 320px;
-  margin-right: auto;
-  margin-left: auto;
-  width: 160px;
-  height: 160px;
-  position: absolute;
-  background-color: blue;
-}
-#tile12 {
-  left: 480px;
-  top: 320px;
-  margin-right: auto;
-  margin-left: auto;
-  width: 160px;
-  height: 160px;
-  position: absolute;
-  background-color: blueviolet;
-}
-#tile13 {
-  left: 0;
-  top: 480px;
-  margin-right: auto;
-  margin-left: auto;
-  width: 160px;
-  height: 160px;
-  position: absolute;
-}
-#tile14 {
-  left: 160px;
-  top: 480px;
-  margin-right: auto;
-  margin-left: auto;
-  width: 160px;
-  height: 160px;
-  position: absolute;
-  background-color: blue;
-}
-#tile15 {
-  left: 320px;
-  top: 480px;
-  margin-right: auto;
-  margin-left: auto;
-  width: 160px;
-  height: 160px;
-  position: absolute;
-  background-color: blueviolet;
-}
-#tile16 {
-  left: 480px;
-  top: 480px;
-  margin-right: auto;
-  margin-left: auto;
-  width: 160px;
-  height: 160px;
-  position: absolute;
-}
-
-.kudaSubmit {
-  cursor: pointer;
-  right: 0;
-  left: 0;
-  bottom: -100px;
-  margin: 0 auto;
-  width: 200px;
-  height: 20px;
-  position: absolute;
-  background-color: crimson;
-}
-.kudaSubmit:hover {
-  background-color: red;
-}
-.logoutBtn {
-  color: white;
-  text-align: center;
-  cursor: pointer;
-  right: 0;
-  left: 0;
-  bottom: -200px;
-  margin: 0 auto;
-  width: 200px;
-  height: 20px;
-  position: absolute;
-  background-color: royalblue;
-}
-.kudaIndicator {
-  right: 0;
-  left: 0;
-  bottom: -175px;
-  margin: 0 auto;
-  width: 50px;
-  height: 50px;
-  position: absolute;
   background-color: #333;
 }
