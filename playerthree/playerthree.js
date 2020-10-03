@@ -6,12 +6,13 @@ $(document).ready(function () {
 
 var isTyping = true;
 var act01intro = 0;
+var chatArrayIndex = 0;
 
 window.onload = function () {
   sceneTransition();
   setTimeout(function () {
     setTimeout(function () {
-      $(".act01 .transitionBG").css("visibility", "hidden");
+      $(".gameHUD .transitionBG").css("visibility", "hidden");
       openChatbox();
       guideArray = guideAct01;
       setTimeout(typeWriter, 300);
@@ -20,31 +21,31 @@ window.onload = function () {
 };
 
 function closeChatBlockTouch() {
-  $(".act01 .chatBlockTouch").css("display", "none");
-  $(".act01 .chatBlockTouch").css("opacity", "0");
+  $(".gameHUD .chatBlockTouch").css("display", "none");
+  $(".gameHUD .chatBlockTouch").css("opacity", "0");
 }
 function openChatBlockTouch() {
-  $(".act01 .chatBlockTouch").css("display", "block");
-  $(".act01 .chatBlockTouch").animate({ opacity: "50%" }, 300);
+  $(".gameHUD .chatBlockTouch").css("display", "block");
+  $(".gameHUD .chatBlockTouch").animate({ opacity: "50%" }, 300);
 }
 function openChatbox() {
-  $(".act01 .chatBox").css("visibility", "visible");
-  $(".act01 .chatBox").animate({ opacity: "1" }, 300);
+  $(".gameHUD .chatBox").css("visibility", "visible");
+  $(".gameHUD .chatBox").animate({ opacity: "1" }, 300);
   openChatBlockTouch();
 }
 function closeChatbox() {
-  $(".act01 .chatBox").css("visibility", "hidden");
-  $(".act01 .chatBox").animate({ opacity: "0" }, 300);
+  $(".gameHUD .chatBox").css("visibility", "hidden");
+  $(".gameHUD .chatBox").animate({ opacity: "0" }, 300);
   closeChatBlockTouch();
 }
 function openInventorybox() {
-  $(".act01 .inventoryBox").css("visibility", "visible");
-  $(".act01 .inventoryBox").animate({ opacity: "1" }, 300);
+  $(".gameHUD .inventoryBox").css("visibility", "visible");
+  $(".gameHUD .inventoryBox").animate({ opacity: "1" }, 300);
   openChatBlockTouch();
 }
 function closeInventorybox() {
-  $(".act01 .inventoryBox").css("visibility", "hidden");
-  $(".act01 .inventoryBox").animate({ opacity: "0" }, 300);
+  $(".gameHUD .inventoryBox").css("visibility", "hidden");
+  $(".gameHUD .inventoryBox").animate({ opacity: "0" }, 300);
   closeChatBlockTouch();
 }
 function openJanitor() {
@@ -60,21 +61,27 @@ function closeJanitor() {
 function closeUniversal() {
   if (
     $(".act01 .janitorBG").css("visibility") == "visible" &&
-    $(".act01 .chatBox").css("visibility") != "visible"
+    $(".gameHUD .chatBox").css("visibility") != "visible"
   ) {
     closeJanitor();
   }
 }
 function sceneTransition() {
-  $(".act01 .transitionBG").css("visibility", "visible");
-  $(".act01 .transitionBG").animate({ opacity: "1" }, 300);
-  $(".act01 .transitionBG").delay(300).animate({ opacity: "0" }, 300);
+  $(".gameHUD .transitionBG").css("visibility", "visible");
+  $(".gameHUD .transitionBG").animate({ opacity: "1" }, 300);
+  $(".gameHUD .transitionBG").delay(300).animate({ opacity: "0" }, 300);
 }
-
-$(".chatBtn").click(function () {
-  guideZ = 3;
+function clickTrusChatPopUp(chatArrayIndex) {
+  guideZ = chatArrayIndex;
   openChatbox();
   setTimeout(typeWriter, 300);
+}
+
+$(".gameHUD .chatBtn").click(function () {
+  if (guideArray == guideAct01) {
+    chatArrayIndex = 3;
+  }
+  clickTrusChatPopUp(chatArrayIndex);
 });
 
 var guideY = 0;
@@ -86,6 +93,8 @@ var guideAct01 = [
   "What should I do now...",
 
   "Ooh.. a screwdriver.. this could be handy..",
+  "Urgh.. it's screwed tight..",
+  "It won't budge..",
 ];
 
 var guideArray = [];
@@ -105,7 +114,7 @@ function typeWriter() {
   }
 }
 
-$(".chatBox").click(function () {
+$(".gameHUD .chatBox").click(function () {
   if (guideArray[guideZ] != document.getElementById("chatGuide").innerHTML) {
     //ini buat lansung ngefullin textbox dibawah.
     guideY = 1000;
@@ -126,8 +135,9 @@ $(".chatBox").click(function () {
     }
   }
 });
-$(".chatBlockTouch").click(function () {
-  if ($(".act01 .inventoryBox").css("visibility") == "visible") {
+
+$(".gameHUD .chatBlockTouch").click(function () {
+  if ($(".gameHUD .inventoryBox").css("visibility") == "visible") {
     closeInventorybox();
   }
   closeUniversal();
@@ -136,59 +146,53 @@ $(".chatBlockTouch").click(function () {
 $(".inventoryBtn").click(function () {
   openInventorybox();
 });
-$(".btnJanitor").click(function () {
+$(".act01 .btnJanitor").click(function () {
   openJanitor();
 });
 
 var inventoryIndex = 2;
 var acquiredItem = "";
-var itemChecking = "";
-var screwdriver = "url(../playerthree/img/janitortoolboxclicked.webp)";
+var screwdriver = 0;
+
 function addItem() {
-  $(".itemBox" + inventoryIndex).css("background-image", acquiredItem);
-  $(".itemBox").css(
+  $(".gameHUD .itemBox" + inventoryIndex).css("background-image", acquiredItem);
+  $(".gameHUD .itemBox").css(
     "background-image",
-    $(".itemBox" + inventoryIndex).css("background-image")
+    $(".gameHUD .itemBox" + inventoryIndex).css("background-image")
   );
   inventoryIndex++;
   acquiredItem = "";
 }
-function checkItem(checkedItem) {
-  for (checki = 1; checki <= inventoryIndex; checki++) {
-    if ($(".itemBox" + checki).css("background-image") == checkedItem) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-}
+
 $(".janitorToolbox").click(function () {
-  acquiredItem = "url(../playerthree/img/janitortoolboxclicked.webp)";
-  $(".janitorToolbox").css(
-    "background-image",
-    "url(../playerthree/img/janitortoolboxclicked.webp)"
-  );
-  $(".janitorToolbox").css("cursor", "default");
-  guideZ = 4;
-  openChatbox();
-  addItem();
-  setTimeout(typeWriter, 300);
+  if (screwdriver != 1) {
+    acquiredItem = "url(../playerthree/img/screwdriver.webp)";
+    $(".janitorToolbox").css(
+      "background-image",
+      "url(../playerthree/img/janitortoolboxclicked.webp)"
+    );
+    $(".janitorToolbox").css("cursor", "default");
+    screwdriver = 1;
+    addItem();
+    chatArrayIndex = 4;
+    clickTrusChatPopUp(chatArrayIndex);
+  }
 });
 
 $(".toiletBG .btnVent").click(function () {
-  itemChecking = checkItem(screwdriver);
-  itemChecking = true;
-  if (itemChecking == true) {
+  if (screwdriver == 1) {
     setTimeout(function () {
       sceneTransition();
       setTimeout(function () {
         setTimeout(function () {
-          $(".act01 .transitionBG").css("visibility", "hidden");
+          $(".gameHUD .transitionBG").css("visibility", "hidden");
         }, 300);
-        $(".act01 .toiletBG .btnVent").css("visibility", "hidden");
         $(".act01 .toiletVentBG").css("visibility", "visible");
       }, 600);
     }, 1);
+  } else {
+    chatArrayIndex = 5;
+    clickTrusChatPopUp(chatArrayIndex);
   }
 });
 
@@ -197,34 +201,84 @@ $(".toiletVentBG .btnBack").click(function () {
     sceneTransition();
     setTimeout(function () {
       setTimeout(function () {
-        $(".act01 .transitionBG").css("visibility", "hidden");
+        $(".gameHUD .transitionBG").css("visibility", "hidden");
       }, 300);
-      $(".act01 .toiletBG .btnVent").css("visibility", "visible");
       $(".act01 .toiletVentBG").css("visibility", "hidden");
     }, 600);
   }, 1);
 });
-$(".btnLeft").click(function () {
+$(".toiletVentBG .btnLeft").click(function () {
   setTimeout(function () {
     sceneTransition();
     setTimeout(function () {
       setTimeout(function () {
-        $(".act01 .transitionBG").css("visibility", "hidden");
+        $(".gameHUD .transitionBG").css("visibility", "hidden");
       }, 300);
-      $(".act01 .btnLeft").css("visibility", "hidden");
       $(".act01 .toiletVentLeftBG").css("visibility", "visible");
     }, 600);
   }, 1);
 });
-$(".btnRight").click(function () {
+$(".toiletVentBG .btnRight").click(function () {
   setTimeout(function () {
     sceneTransition();
     setTimeout(function () {
       setTimeout(function () {
-        $(".act01 .transitionBG").css("visibility", "hidden");
+        $(".gameHUD .transitionBG").css("visibility", "hidden");
       }, 300);
-      $(".act01 .btnRight").css("visibility", "hidden");
       $(".act01 .toiletVentRightBG").css("visibility", "visible");
+    }, 600);
+  }, 1);
+});
+
+$(".toiletVentLeftBG .btnBack").click(function () {
+  setTimeout(function () {
+    sceneTransition();
+    setTimeout(function () {
+      setTimeout(function () {
+        $(".gameHUD .transitionBG").css("visibility", "hidden");
+      }, 300);
+      $(".act01 .toiletVentLeftBG").css("visibility", "hidden");
+    }, 600);
+  }, 1);
+});
+$(".toiletVentRightBG .btnBack").click(function () {
+  setTimeout(function () {
+    sceneTransition();
+    setTimeout(function () {
+      setTimeout(function () {
+        $(".gameHUD .transitionBG").css("visibility", "hidden");
+      }, 300);
+      $(".act01 .toiletVentRightBG").css("visibility", "hidden");
+    }, 600);
+  }, 1);
+});
+
+$(".toiletVentLeftBG .btnVent").click(function () {
+  chatArrayIndex = 6;
+  clickTrusChatPopUp(chatArrayIndex);
+});
+
+$(".toiletVentRightBG .btnVent").click(function () {
+  setTimeout(function () {
+    sceneTransition();
+    setTimeout(function () {
+      setTimeout(function () {
+        $(".gameHUD .transitionBG").css("visibility", "hidden");
+      }, 300);
+      $(".act01 .toiletWomenBG").css("visibility", "visible");
+    }, 600);
+  }, 1);
+});
+$(".toiletWomenBG .btnVent").click(function () {
+  setTimeout(function () {
+    sceneTransition();
+    setTimeout(function () {
+      setTimeout(function () {
+        $(".gameHUD .transitionBG").css("visibility", "hidden");
+      }, 300);
+      $(".act01 .toiletWomenBG").css("visibility", "hidden");
+      $(".act01 .toiletVentRightBG").css("visibility", "hidden");
+      $(".act01 .toiletVentBG").css("visibility", "hidden");
     }, 600);
   }, 1);
 });
