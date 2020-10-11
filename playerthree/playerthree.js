@@ -7,6 +7,8 @@ $(document).ready(function () {
 var isTyping = true;
 var act01intro = 0;
 var chatArrayIndex = 0;
+var hide = "";
+var show = "";
 
 window.onload = function () {
   sceneTransition();
@@ -19,6 +21,18 @@ window.onload = function () {
     }, 300);
   }, 600);
 };
+function changeBG(hide, show) {
+  setTimeout(function () {
+    sceneTransition();
+    setTimeout(function () {
+      setTimeout(function () {
+        $(".gameHUD .transitionBG").css("visibility", "hidden");
+      }, 300);
+      $(".act01 " + hide).css("visibility", "hidden");
+      $(".act01 " + show).css("visibility", "visible");
+    }, 600);
+  }, 1);
+}
 
 function closeChatBlockTouch() {
   $(".gameHUD .chatBlockTouch").css("display", "none");
@@ -50,9 +64,9 @@ function closeInventorybox() {
 }
 function closeUniversal() {
   if (
-    $(".act01 .janitorBG").css("visibility") == "visible" &&
     $(".gameHUD .chatBox").css("visibility") != "visible"
   ) {
+    closeInventorybox();
     closeJanitor();
   }
 }
@@ -182,15 +196,9 @@ $(".janitorToolbox").click(function () {
 
 $(".toiletBG .btnVent").click(function () {
   if (screwdriver == 1) {
-    setTimeout(function () {
-      sceneTransition();
-      setTimeout(function () {
-        setTimeout(function () {
-          $(".gameHUD .transitionBG").css("visibility", "hidden");
-        }, 300);
-        $(".act01 .toiletVentBG").css("visibility", "visible");
-      }, 600);
-    }, 1);
+    hide = ".toiletBG";
+    show = ".toiletVentBG";
+    changeBG(hide, show);
   } else {
     chatArrayIndex = 5;
     clickTrusChatPopUp(chatArrayIndex);
@@ -198,61 +206,32 @@ $(".toiletBG .btnVent").click(function () {
 });
 
 $(".toiletVentBG .btnBack").click(function () {
-  setTimeout(function () {
-    sceneTransition();
-    setTimeout(function () {
-      setTimeout(function () {
-        $(".gameHUD .transitionBG").css("visibility", "hidden");
-      }, 300);
-      $(".act01 .toiletVentBG").css("visibility", "hidden");
-    }, 600);
-  }, 1);
+
+  hide = ".toiletVentBG";
+  show = ".toiletBG";
+  changeBG(hide, show);
 });
 
 $(".toiletVentBG .btnLeft").click(function () {
-  setTimeout(function () {
-    sceneTransition();
-    setTimeout(function () {
-      setTimeout(function () {
-        $(".gameHUD .transitionBG").css("visibility", "hidden");
-      }, 300);
-      $(".act01 .toiletVentLeftBG").css("visibility", "visible");
-    }, 600);
-  }, 1);
+  hide = ".toiletVentBG";
+  show = ".toiletVentLeftBG";
+  changeBG(hide, show);
 });
 $(".toiletVentBG .btnRight").click(function () {
-  setTimeout(function () {
-    sceneTransition();
-    setTimeout(function () {
-      setTimeout(function () {
-        $(".gameHUD .transitionBG").css("visibility", "hidden");
-      }, 300);
-      $(".act01 .toiletVentRightBG").css("visibility", "visible");
-    }, 600);
-  }, 1);
+  hide = ".toiletVentBG";
+  show = ".toiletVentRightBG";
+  changeBG(hide, show);
 });
 
 $(".toiletVentLeftBG .btnBack").click(function () {
-  setTimeout(function () {
-    sceneTransition();
-    setTimeout(function () {
-      setTimeout(function () {
-        $(".gameHUD .transitionBG").css("visibility", "hidden");
-      }, 300);
-      $(".act01 .toiletVentLeftBG").css("visibility", "hidden");
-    }, 600);
-  }, 1);
+  hide = ".toiletVentLeftBG";
+  show = ".toiletVentBG";
+  changeBG(hide, show);
 });
 $(".toiletVentRightBG .btnBack").click(function () {
-  setTimeout(function () {
-    sceneTransition();
-    setTimeout(function () {
-      setTimeout(function () {
-        $(".gameHUD .transitionBG").css("visibility", "hidden");
-      }, 300);
-      $(".act01 .toiletVentRightBG").css("visibility", "hidden");
-    }, 600);
-  }, 1);
+  hide = ".toiletVentRightBG";
+  show = ".toiletVentBG";
+  changeBG(hide, show);
 });
 
 $(".toiletVentLeftBG .btnVent").click(function () {
@@ -261,26 +240,12 @@ $(".toiletVentLeftBG .btnVent").click(function () {
 });
 
 $(".toiletVentRightBG .btnVent").click(function () {
-  setTimeout(function () {
-    sceneTransition();
-    setTimeout(function () {
-      setTimeout(function () {
-        $(".gameHUD .transitionBG").css("visibility", "hidden");
-      }, 300);
-      $(".act01 .toiletWomenBG").css("visibility", "visible");
-    }, 600);
-  }, 1);
+  hide = ".toiletVentRightBG";
+  show = ".toiletWomenBG";
+  changeBG(hide, show);
 });
 $(".toiletWomenBG .btnVent").click(function () {
-  setTimeout(function () {
-    sceneTransition();
-    setTimeout(function () {
-      setTimeout(function () {
-        $(".gameHUD .transitionBG").css("visibility", "hidden");
-      }, 300);
-      $(".act01 .toiletWomenBG").css("visibility", "hidden");
-      $(".act01 .toiletVentRightBG").css("visibility", "hidden");
-      $(".act01 .toiletVentBG").css("visibility", "hidden");
-    }, 600);
-  }, 1);
+  hide = ".toiletWomenBG";
+  show = ".toiletBG";
+  changeBG(hide, show);
 });

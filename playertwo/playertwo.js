@@ -11,12 +11,13 @@ $(document).ready(function () {
   }, 1);
 });
 
-
-
 var anna01 = 0;
 var isTyping = true;
 var act01intro = 0;
 var chatArrayIndex = 0;
+var hide = "";
+var show = "";
+var dbcheck = "";
 
 window.onload = function () {
   sceneTransition();
@@ -29,6 +30,19 @@ window.onload = function () {
     }, 300);
   }, 600);
 };
+
+function changeBG(hide, show) {
+  setTimeout(function () {
+    sceneTransition();
+    setTimeout(function () {
+      setTimeout(function () {
+        $(".gameHUD .transitionBG").css("visibility", "hidden");
+      }, 300);
+      $(".act01 " + hide).css("visibility", "hidden");
+      $(".act01 " + show).css("visibility", "visible");
+    }, 600);
+  }, 1);
+}
 function closeChatBlockTouch() {
   $(".gameHUD .chatBlockTouch").css("display", "none");
   $(".gameHUD .chatBlockTouch").css("opacity", "0");
@@ -58,13 +72,13 @@ function closeInventorybox() {
   closeChatBlockTouch();
 }
 function closeUniversal() {
-  if (
-    $(".act01 .janitorBG").css("visibility") == "visible" &&
-    $(".gameHUD .chatBox").css("visibility") != "visible"
-  ) {
+  if ($(".gameHUD .chatBox").css("visibility") != "visible") {
+    closeInventorybox();
+    closeLocker();
     closeJanitor();
   }
 }
+
 function sceneTransition() {
   $(".gameHUD .transitionBG").css("visibility", "visible");
   $(".gameHUD .transitionBG").animate({ opacity: "1" }, 300);
@@ -75,13 +89,23 @@ function clickTrusChatPopUp(chatArrayIndex) {
   openChatbox();
   setTimeout(typeWriter, 300);
 }
+function openLocker() {
+  $(".act01 .lockerBG").css("visibility", "visible");
+  $(".act01 .lockerBG").animate({ opacity: "1" }, 300);
+  openChatBlockTouch();
+}
+function closeLocker() {
+  $(".act01 .lockerBG").css("visibility", "hidden");
+  $(".act01 .lockerBG").animate({ opacity: "0" }, 300);
+  closeChatBlockTouch();
+} 
 var guideY = 0;
 var guideZ = 0;
 var guideAct01 = [
   "Oh crap, where am I..?",
   "Looks like a security room..",
   "I should look around...",
-  "What should I do now...",
+  "There's so many computers here..",
 ];
 var guideArray = [];
 
@@ -100,13 +124,12 @@ function typeWriter() {
   }
 }
 
-
 $(".gameHUD .chatBtn").click(function () {
   if (guideArray == guideAct01) {
     if (anna01 == 1) {
-      chatArrayIndex = 3;
-    } else {
       chatArrayIndex = 2;
+    } else {
+      chatArrayIndex = 3;
     }
   }
   clickTrusChatPopUp(chatArrayIndex);
@@ -139,7 +162,6 @@ $(".gameHUD .chatBlockTouch").click(function () {
   }
   closeUniversal();
 });
-
 
 var inventoryIndex = 2;
 var acquiredItem = "";
@@ -209,50 +231,49 @@ $(".anna01BG .labBtn03").click(function () {
 
 $(".anna01BG .btnSubmit").click(function () {
   if ($(".anna01BG .indicator").css("background-color") == "rgb(51, 51, 51)") {
-    if (
-      parseInt($(".anna01BG .input01").text()) == 6 &&
-      parseInt($(".anna01BG .input02").text()) == 8 &&
-      parseInt($(".anna01BG .input03").text()) == 9 &&
-      parseInt($(".anna01BG .labInput01").text()) == 0 &&
-      parseInt($(".anna01BG .labInput02").text()) == 5 &&
-      parseInt($(".anna01BG .labInput03").text()) == 1
-    ) {
-      $(".anna01BG .indicator").animate({ backgroundColor: "green" }, 100);
-      anna01 = 1;
-      $.ajax({
-        type: "post",
-        url: "playertwo.php?p=anna01",
-        data: { stat: 1 },
-      });
-    } else {
-      $(".anna01BG .indicator").animate({ backgroundColor: "red" }, 100);
-      $(".anna01BG .indicator").animate({ backgroundColor: "#333" }, 5000);
-    }
+    dbcheck =
+      $(".anna01BG .labInput01").text() +
+      $(".anna01BG .labInput02").text() +
+      $(".anna01BG .labInput03").text() +
+      $(".anna01BG .input01").text() +
+      $(".anna01BG .input02").text() +
+      $(".anna01BG .input03").text();
+    $.ajax({
+      type: "post",
+      url: "playertwo.php?p=anna01pw",
+      data: { stat: dbcheck },
+      dataType: "html",
+      success: function (result) {
+        dbcheck = result;
+      },
+    });
+    setTimeout(function () {
+      if (dbcheck == "yes") {
+        $(".anna01BG .indicator").animate({ backgroundColor: "green" }, 100);
+        anna01 = 1;
+        $.ajax({
+          type: "post",
+          url: "playertwo.php?p=anna01",
+          data: { stat: 1 },
+        });
+      } else {
+        $(".anna01BG .indicator").animate({ backgroundColor: "red" }, 100);
+        $(".anna01BG .indicator").animate({ backgroundColor: "#333" }, 5000);
+      }
+    }, 100);
   }
 });
 
 $(".btnAnna01").click(function () {
-  setTimeout(function () {
-    sceneTransition();
-    setTimeout(function () {
-      setTimeout(function () {
-        $(".gameHUD .transitionBG").css("visibility", "hidden");
-      }, 300);
-      $(".act01 .anna01BG").css("visibility", "visible");
-    }, 600);
-  }, 1);
+  hide = ".controlRoomBG";
+  show = ".anna01BG";
+  changeBG(hide, show);
 });
 
 $(".anna01BG .btnBack").click(function () {
-  setTimeout(function () {
-    sceneTransition();
-    setTimeout(function () {
-      setTimeout(function () {
-        $(".gameHUD .transitionBG").css("visibility", "hidden");
-      }, 300);
-      $(".act01 .anna01BG").css("visibility", "hidden");
-    }, 600);
-  }, 1);
+  hide = ".anna01BG";
+  show = ".controlRoomBG";
+  changeBG(hide, show);
 });
 
 function currentTime() {
@@ -263,32 +284,32 @@ function currentTime() {
   min = updateTime(min);
   if (hour < 10) {
     hour -= 0;
-    document.getElementById("hourTime").innerText = "0 " + hour;
+    $(".hourTime").text("0 " + hour) 
   } else if (hour < 20) {
     hour -= 10;
-    document.getElementById("hourTime").innerText = "1 " + hour;
+    $(".hourTime").text("1 " + hour) 
   } else {
     hour -= 20;
-    document.getElementById("hourTime").innerText = "2 " + hour;
+    $(".hourTime").text("2 " + hour) 
   }
   if (min < 10) {
     min -= 0;
-    document.getElementById("minuteTime").innerText = "0 " + min;
+    $(".minuteTime").text("0 " + min) 
   } else if (min < 20) {
     min -= 10;
-    document.getElementById("minuteTime").innerText = "1 " + min;
+    $(".minuteTime").text("1 " + min) 
   } else if (min < 30) {
     min -= 20;
-    document.getElementById("minuteTime").innerText = "2 " + min;
+    $(".minuteTime").text("2 " + min) 
   } else if (min < 40) {
     min -= 30;
-    document.getElementById("minuteTime").innerText = "3 " + min;
+    $(".minuteTime").text("3 " + min) 
   } else if (min < 50) {
     min -= 40;
-    document.getElementById("minuteTime").innerText = "4 " + min;
+    $(".minuteTime").text("4 " + min) 
   } else if (min < 60) {
     min -= 50;
-    document.getElementById("minuteTime").innerText = "5 " + min;
+    $(".minuteTime").text("5 " + min) 
   }
   var t = setTimeout(function () {
     currentTime();
@@ -304,3 +325,47 @@ function updateTime(k) {
 }
 
 currentTime();
+
+$(".act01 .btnLocker").click(function () {
+  openLocker();
+});
+
+$(".act01 .btnControlPanel").click(function () {
+  hide = ".controlRoomBG";
+  show = ".controlPanelBG";
+  changeBG(hide, show);
+});
+
+$(".controlPanelBG .btnBack").click(function () {
+  hide = ".controlPanelBG";
+  show = ".controlRoomBG";
+  changeBG(hide, show);
+});
+
+$(".panelPassInput").keypress(function (event) {
+  if (event.key === "Enter") {
+    $.ajax({
+      type: "post",
+      url: "playertwo.php?p=panelpw",
+      data: { stat: $(".panelPassInput").val() },
+      dataType: "html",
+      success: function (result) {
+        dbcheck = result;
+      },
+    });
+    setTimeout(function () {
+      if (dbcheck == "yes") {
+        setTimeout(function () {
+          $(".act01 .panelLoginScreen").animate({ opacity: "0" }, 300);
+          setTimeout(function () {
+            setTimeout(function () {
+              $(".act01 .panelLoginScreen").css("visibility", "hidden");
+            }, 300);
+            $(".act01 .panelLoggedinScreen").css("visibility", "inherit");
+            $(".act01 .panelLoggedinScreen").animate({ opacity: "1" }, 300);
+          }, 600);
+        }, 1);
+      }
+    }, 1000);
+  }
+});

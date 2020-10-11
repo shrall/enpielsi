@@ -1,15 +1,26 @@
+var isTyping = true;
+var act01intro = 0;
+var chatArrayIndex = 0;
+var hide = "";
+var show = "";
+var guideY = 0;
+var guideZ = 0;
+var guideArray = [];
+var guideAct01 = [
+  "Uh oh, that doesn't sound good..",
+  "Huh? Wait. Where's Mr. Clark?",
+  "Uh... the door's closed...",
+  "I should look around...",
+  
+  "Ah! The door is now opened!",
+];
+
 $(document).ready(function () {
   setTimeout(function () {
     $(".checkPlayerone").load("checkPlayerone.php");
     $(".anna01Counter").load("playerone.php?p=anna01");
   }, 1);
 });
-
-//ini start act01
-
-var isTyping = true;
-var act01intro = 0;
-var chatArrayIndex = 0;
 
 window.onload = function () {
   sceneTransition();
@@ -23,6 +34,19 @@ window.onload = function () {
   }, 600);
 };
 
+
+function changeBG(hide, show) {
+  setTimeout(function () {
+    sceneTransition();
+    setTimeout(function () {
+      setTimeout(function () {
+        $(".gameHUD .transitionBG").css("visibility", "hidden");
+      }, 300);
+      $(".act01 " + hide).css("visibility", "hidden");
+      $(".act01 " + show).css("visibility", "visible");
+    }, 600);
+  }, 1);
+}
 function closeChatBlockTouch() {
   $(".gameHUD .chatBlockTouch").css("display", "none");
   $(".gameHUD .chatBlockTouch").css("opacity", "0");
@@ -53,10 +77,9 @@ function closeInventorybox() {
 }
 function closeUniversal() {
   if (
-    $(".act01 .janitorBG").css("visibility") == "visible" &&
     $(".gameHUD .chatBox").css("visibility") != "visible"
   ) {
-    closeJanitor();
+    closeInventorybox();
   }
 }
 function sceneTransition() {
@@ -69,19 +92,6 @@ function clickTrusChatPopUp(chatArrayIndex) {
   openChatbox();
   setTimeout(typeWriter, 300);
 }
-var guideY = 0;
-var guideZ = 0;
-var guideAct01 = [
-  "Uh oh, that doesn't sound good..",
-  "Huh? Wait. Where's Mr. Clark?",
-  "Uh... the door's closed...",
-  "I should look around...",
-  
-  "Ah! The door is now opened!",
-];
-
-var guideArray = [];
-
 function typeWriter() {
   if (guideY < guideArray[guideZ].length) {
     document.getElementById("chatGuide").innerHTML += guideArray[guideZ].charAt(
@@ -96,7 +106,19 @@ function typeWriter() {
     }
   }
 }
+function addItem() {
+  $(".gameHUD .itemBox" + inventoryIndex).css("background-image", acquiredItem);
+  $(".gameHUD .itemBox").css(
+    "background-image",
+    $(".gameHUD .itemBox" + inventoryIndex).css("background-image")
+  );
+  inventoryIndex++;
+  acquiredItem = "";
+}
 
+
+
+//ngoding
 
 $(".gameHUD .chatBtn").click(function () {
   if (guideArray == guideAct01) {
@@ -140,39 +162,18 @@ var acquiredItem = "";
 $(".inventoryBtn").click(function () {
   openInventorybox();
 });
-function addItem() {
-  $(".gameHUD .itemBox" + inventoryIndex).css("background-image", acquiredItem);
-  $(".gameHUD .itemBox").css(
-    "background-image",
-    $(".gameHUD .itemBox" + inventoryIndex).css("background-image")
-  );
-  inventoryIndex++;
-  acquiredItem = "";
-}
 
 
 $(".btnAnna01Note").click(function () {
-  setTimeout(function () {
-    sceneTransition();
-    setTimeout(function () {
-      setTimeout(function () {
-        $(".gameHUD .transitionBG").css("visibility", "hidden");
-      }, 300);
-      $(".act01 .labNoteBG").css("visibility", "visible");
-    }, 600);
-  }, 1);
+  hide = ".labBG";
+  show = ".labNoteBG";
+  changeBG(hide, show);
 });
 
 $(".labNoteBG .btnBack").click(function () {
-  setTimeout(function () {
-    sceneTransition();
-    setTimeout(function () {
-      setTimeout(function () {
-        $(".gameHUD .transitionBG").css("visibility", "hidden");
-      }, 300);
-      $(".act01 .labNoteBG").css("visibility", "hidden");
-    }, 600);
-  }, 1);
+  hide = ".labNoteBG";
+  show = ".labBG";
+  changeBG(hide, show);
 });
 $(".labBG .btnBack").click(function () {
   setTimeout(function () {

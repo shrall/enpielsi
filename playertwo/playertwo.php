@@ -23,4 +23,32 @@ if ($page == 'add') {
       $anna01counter = $row['anna01'];
       echo $anna01counter;
    }
+} else if ($page == 'panelpw') {
+   $stat = $_POST['stat'];
+   $result = $conn->query("SELECT panelpw FROM password WHERE id=1");
+   if ($result->num_rows > 0) {
+      $row = $result->fetch_assoc();
+      $check = $row['panelpw'];
+   }
+   if ($stat == $check) {
+      $check = "yes";
+      echo $check;
+   } else {
+      $check = "no";
+      echo $check;
+   }
+} else if ($page == 'anna01pw') {
+   $stat = $_POST['stat'];
+   $result = $conn->query("SELECT anna01pw FROM password WHERE id=1");
+   if ($result->num_rows > 0) {
+      $row = $result->fetch_assoc();
+      $check = $row['anna01pw'];
+   }
+   if ($stat == $check) {
+      $check = "yes";
+      echo $check;
+   } else {
+      $check = "no";
+      echo $check;
+   }
 }
