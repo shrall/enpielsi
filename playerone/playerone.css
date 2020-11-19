@@ -288,3 +288,133 @@ centering {
 .labNoteBG .btnBack:hover {
   background-image: url(../playerone/img/backbtnbighl.webp);
 }
+
+/* outside */
+
+.act01 .outsideLab {
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: url(../playerone/bg/outsidelab.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.outsideLab .btnRight {
+  cursor: pointer;
+  top: 0;
+  bottom: 0;
+  right: 25px;
+  text-align: center;
+  margin: auto 0;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-image: url(../playerone/img/backbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.outsideLab .btnRight:hover {
+  background-image: url(../playerone/img/backbtnhl.webp);
+}
+
+/* pertigaan */
+
+.act01 .threeLab {
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: url(../playerone/bg/threelab.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.threeLab .btnRight {
+  cursor: pointer;
+  top: 0;
+  bottom: 0;
+  right: 250px;
+  text-align: center;
+  margin: auto 0;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-image: url(../playerone/img/backbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.threeLab .btnRight:hover {
+  background-image: url(../playerone/img/backbtnhl.webp);
+}
+.threeLab .btnLeft {
+  cursor: pointer;
+  top: 0;
+  bottom: 0;
+  left: 250px;
+  text-align: center;
+  margin: auto 0;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-image: url(../playerone/img/leftbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.threeLab .btnLeft:hover {
+  background-image: url(../playerone/img/leftbtnhl.webp);
+}
+.threeLab .btnDown {
+  cursor: pointer;
+  bottom: 50px;
+  right: 0;
+  left: 0;
+  text-align: center;
+  margin: 0 auto;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-image: url(../playerone/img/downbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.threeLab .btnDown:hover {
+  background-image: url(../playerone/img/downbtnhl.webp);
+}
+
+/* otw ke bridge */
+.act01 .doorToBridge {
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: url(../playerone/bg/doortobridge.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.doorToBridge .btnDown {
+  cursor: pointer;
+  bottom: 50px;
+  right: 0;
+  left: 0;
+  text-align: center;
+  margin: 0 auto;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-image: url(../playerone/img/downbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.doorToBridge .btnDown:hover {
+  background-image: url(../playerone/img/downbtnhl.webp);
+}

@@ -1,13 +1,22 @@
 $(document).ready(function () {
   setTimeout(function () {
     $(".checkPlayertwo").load("checkPlayertwo.php");
-    $(".anna01Counter").load("playertwo.php?p=checkAnna01");
+    $.ajax({
+      type: "post",
+      url: "playertwo.php?p=checkAnna01",
+      data: { stat: dbcheck },
+      dataType: "html",
+      success: function (result) {
+        dbcheck = result;
+      },
+    });
     setTimeout(function () {
-      if ($(".anna01Counter").html() == "1") {
+      if (dbcheck == "1") {
         anna01 = 1;
         $(".anna01BG .indicator").css("background-color", "green");
+      } else {
       }
-    }, 1000);
+    }, 100);
   }, 1);
 });
 
@@ -368,4 +377,30 @@ $(".panelPassInput").keypress(function (event) {
       }
     }, 1000);
   }
+});
+
+$(".panelLoginScreen .submitInput").click(function () {
+  $.ajax({
+    type: "post",
+    url: "playertwo.php?p=panelpw",
+    data: { stat: $(".panelPassInput").val() },
+    dataType: "html",
+    success: function (result) {
+      dbcheck = result;
+    },
+  });
+  setTimeout(function () {
+    if (dbcheck == "yes") {
+      setTimeout(function () {
+        $(".act01 .panelLoginScreen").animate({ opacity: "0" }, 300);
+        setTimeout(function () {
+          setTimeout(function () {
+            $(".act01 .panelLoginScreen").css("visibility", "hidden");
+          }, 300);
+          $(".act01 .panelLoggedinScreen").css("visibility", "inherit");
+          $(".act01 .panelLoggedinScreen").animate({ opacity: "1" }, 300);
+        }, 600);
+      }, 1);
+    }
+  }, 1000);
 });

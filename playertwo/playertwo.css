@@ -702,3 +702,23 @@ centering {
   width: 330px;
   height: 140px;
 }
+
+.panelLoginScreen .submitInput{
+  cursor: pointer;
+  right: 0;
+  left: -15px;
+  bottom: 100px;
+  text-align: center;
+  margin: 0 auto;
+  width: 138px;
+  height: 40px;
+  position: absolute;
+  background-image: url(../playertwo/img/anna01submit.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+
+.panelLoginScreen .submitInput:hover {
+  background-image: url(../playertwo/img/anna01submithl.webp);
+}

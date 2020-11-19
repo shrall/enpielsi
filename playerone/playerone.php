@@ -12,7 +12,7 @@ if ($page == 'add') {
     $stmt->execute();
   }
 }
-if ($page == 'anna01') {
+if ($page == 'checkanna01') {
   $result = $conn->query("SELECT * FROM stage01 WHERE team_id=" . $_SESSION['teamid']);
   if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();

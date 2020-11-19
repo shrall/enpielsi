@@ -11,14 +11,14 @@ var guideAct01 = [
   "Huh? Wait. Where's Mr. Clark?",
   "Uh... the door's closed...",
   "I should look around...",
-  
-  "Ah! The door is now opened!",
+];
+var guideOutside = [
+  "Where should I go now..",
 ];
 
 $(document).ready(function () {
   setTimeout(function () {
     $(".checkPlayerone").load("checkPlayerone.php");
-    $(".anna01Counter").load("playerone.php?p=anna01");
   }, 1);
 });
 
@@ -33,7 +33,6 @@ window.onload = function () {
     }, 300);
   }, 600);
 };
-
 
 function changeBG(hide, show) {
   setTimeout(function () {
@@ -76,9 +75,7 @@ function closeInventorybox() {
   closeChatBlockTouch();
 }
 function closeUniversal() {
-  if (
-    $(".gameHUD .chatBox").css("visibility") != "visible"
-  ) {
+  if ($(".gameHUD .chatBox").css("visibility") != "visible") {
     closeInventorybox();
   }
 }
@@ -116,13 +113,14 @@ function addItem() {
   acquiredItem = "";
 }
 
-
-
 //ngoding
 
 $(".gameHUD .chatBtn").click(function () {
   if (guideArray == guideAct01) {
     chatArrayIndex = 3;
+  }
+  if (guideArray == guideOutside) {
+    chatArrayIndex = 0;
   }
   clickTrusChatPopUp(chatArrayIndex);
 });
@@ -155,14 +153,12 @@ $(".gameHUD .chatBlockTouch").click(function () {
   closeUniversal();
 });
 
-
 var inventoryIndex = 2;
 var acquiredItem = "";
 
 $(".inventoryBtn").click(function () {
   openInventorybox();
 });
-
 
 $(".btnAnna01Note").click(function () {
   hide = ".labBG";
@@ -175,13 +171,55 @@ $(".labNoteBG .btnBack").click(function () {
   show = ".labBG";
   changeBG(hide, show);
 });
+var dbcheck = "";
 $(".labBG .btnBack").click(function () {
-  setTimeout(function () {
-    if ($(".anna01Counter").html() == "1") {
-      chatArrayIndex = 4;
-    } else {
-      chatArrayIndex = 2;
-    }
-    clickTrusChatPopUp(chatArrayIndex);
-  }, 100);
+    $.ajax({
+      type: "post",
+      url: "playerone.php?p=checkanna01",
+      data: { stat: dbcheck },
+      dataType: "html",
+      success: function (result) {
+        dbcheck = result;
+      },
+    });
+    setTimeout(function () {
+      if (dbcheck == "1") {
+        guideArray = guideOutside;
+        hide = ".labBG";
+        show = ".outsideLab";
+        changeBG(hide, show);
+      } else {
+        chatArrayIndex = 2;
+        clickTrusChatPopUp(chatArrayIndex);
+      }
+    }, 100);
+});
+
+// outside
+
+$(".outsideLab .btnRight").click(function () {
+  hide = ".outsideLab";
+  show = ".threeLab";
+  changeBG(hide, show);
+});
+
+// pertigaan
+
+$(".threeLab .btnRight").click(function () {
+  hide = ".threeLab";
+  show = ".doorToBridge";
+  changeBG(hide, show);
+});
+$(".threeLab .btnDown").click(function () {
+  hide = ".threeLab";
+  show = ".outsideLab";
+  changeBG(hide, show);
+});
+
+// otw ke bridge
+
+$(".doorToBridge .btnDown").click(function () {
+  hide = ".doorToBridge";
+  show = ".threeLab";
+  changeBG(hide, show);
 });
