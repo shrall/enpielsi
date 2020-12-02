@@ -9,14 +9,15 @@ $(document).ready(function () {
       success: function (result) {
         dbcheck = result;
       },
+    }).done(function () {
+      setTimeout(function () {
+        if (dbcheck == "1") {
+          anna01 = 1;
+          $(".anna01BG .indicator").css("background-color", "green");
+        } else {
+        }
+      }, 100);
     });
-    setTimeout(function () {
-      if (dbcheck == "1") {
-        anna01 = 1;
-        $(".anna01BG .indicator").css("background-color", "green");
-      } else {
-      }
-    }, 100);
   }, 1);
 });
 
@@ -107,7 +108,7 @@ function closeLocker() {
   $(".act01 .lockerBG").css("visibility", "hidden");
   $(".act01 .lockerBG").animate({ opacity: "0" }, 300);
   closeChatBlockTouch();
-} 
+}
 var guideY = 0;
 var guideZ = 0;
 var guideAct01 = [
@@ -255,21 +256,22 @@ $(".anna01BG .btnSubmit").click(function () {
       success: function (result) {
         dbcheck = result;
       },
+    }).done(function () {
+      setTimeout(function () {
+        if (dbcheck == "yes") {
+          $(".anna01BG .indicator").animate({ backgroundColor: "green" }, 100);
+          anna01 = 1;
+          $.ajax({
+            type: "post",
+            url: "playertwo.php?p=anna01",
+            data: { stat: 1 },
+          });
+        } else {
+          $(".anna01BG .indicator").animate({ backgroundColor: "red" }, 100);
+          $(".anna01BG .indicator").animate({ backgroundColor: "#333" }, 5000);
+        }
+      }, 100);
     });
-    setTimeout(function () {
-      if (dbcheck == "yes") {
-        $(".anna01BG .indicator").animate({ backgroundColor: "green" }, 100);
-        anna01 = 1;
-        $.ajax({
-          type: "post",
-          url: "playertwo.php?p=anna01",
-          data: { stat: 1 },
-        });
-      } else {
-        $(".anna01BG .indicator").animate({ backgroundColor: "red" }, 100);
-        $(".anna01BG .indicator").animate({ backgroundColor: "#333" }, 5000);
-      }
-    }, 100);
   }
 });
 
@@ -293,32 +295,32 @@ function currentTime() {
   min = updateTime(min);
   if (hour < 10) {
     hour -= 0;
-    $(".hourTime").text("0 " + hour) 
+    $(".hourTime").text("0 " + hour);
   } else if (hour < 20) {
     hour -= 10;
-    $(".hourTime").text("1 " + hour) 
+    $(".hourTime").text("1 " + hour);
   } else {
     hour -= 20;
-    $(".hourTime").text("2 " + hour) 
+    $(".hourTime").text("2 " + hour);
   }
   if (min < 10) {
     min -= 0;
-    $(".minuteTime").text("0 " + min) 
+    $(".minuteTime").text("0 " + min);
   } else if (min < 20) {
     min -= 10;
-    $(".minuteTime").text("1 " + min) 
+    $(".minuteTime").text("1 " + min);
   } else if (min < 30) {
     min -= 20;
-    $(".minuteTime").text("2 " + min) 
+    $(".minuteTime").text("2 " + min);
   } else if (min < 40) {
     min -= 30;
-    $(".minuteTime").text("3 " + min) 
+    $(".minuteTime").text("3 " + min);
   } else if (min < 50) {
     min -= 40;
-    $(".minuteTime").text("4 " + min) 
+    $(".minuteTime").text("4 " + min);
   } else if (min < 60) {
     min -= 50;
-    $(".minuteTime").text("5 " + min) 
+    $(".minuteTime").text("5 " + min);
   }
   var t = setTimeout(function () {
     currentTime();
@@ -361,7 +363,35 @@ $(".panelPassInput").keypress(function (event) {
       success: function (result) {
         dbcheck = result;
       },
+    }).done(function () {
+      setTimeout(function () {
+        if (dbcheck == "yes") {
+          setTimeout(function () {
+            $(".act01 .panelLoginScreen").animate({ opacity: "0" }, 300);
+            setTimeout(function () {
+              setTimeout(function () {
+                $(".act01 .panelLoginScreen").css("visibility", "hidden");
+              }, 300);
+              $(".act01 .panelLoggedinScreen").css("visibility", "inherit");
+              $(".act01 .panelLoggedinScreen").animate({ opacity: "1" }, 300);
+            }, 600);
+          }, 1);
+        }
+      }, 1000);
     });
+  }
+});
+
+$(".panelLoginScreen .submitInput").click(function () {
+  $.ajax({
+    type: "post",
+    url: "playertwo.php?p=panelpw",
+    data: { stat: $(".panelPassInput").val() },
+    dataType: "html",
+    success: function (result) {
+      dbcheck = result;
+    },
+  }).done(function () {
     setTimeout(function () {
       if (dbcheck == "yes") {
         setTimeout(function () {
@@ -376,31 +406,5 @@ $(".panelPassInput").keypress(function (event) {
         }, 1);
       }
     }, 1000);
-  }
-});
-
-$(".panelLoginScreen .submitInput").click(function () {
-  $.ajax({
-    type: "post",
-    url: "playertwo.php?p=panelpw",
-    data: { stat: $(".panelPassInput").val() },
-    dataType: "html",
-    success: function (result) {
-      dbcheck = result;
-    },
   });
-  setTimeout(function () {
-    if (dbcheck == "yes") {
-      setTimeout(function () {
-        $(".act01 .panelLoginScreen").animate({ opacity: "0" }, 300);
-        setTimeout(function () {
-          setTimeout(function () {
-            $(".act01 .panelLoginScreen").css("visibility", "hidden");
-          }, 300);
-          $(".act01 .panelLoggedinScreen").css("visibility", "inherit");
-          $(".act01 .panelLoggedinScreen").animate({ opacity: "1" }, 300);
-        }, 600);
-      }, 1);
-    }
-  }, 1000);
 });

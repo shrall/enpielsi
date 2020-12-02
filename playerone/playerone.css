@@ -20,8 +20,9 @@ centering {
   margin: 0 auto;
   position: absolute;
 }
+
 /* GAME MENU */
-.container{
+.container {
   right: 0;
   left: 0;
   text-align: center;
@@ -193,15 +194,11 @@ centering {
   background-position: center top;
 }
 
-/* PUZZLE COUNTERS */
-.anna01Counter {
-  display: none;
-}
-/* ACT01 */
+/* lab */
 .act01 {
   right: 0;
   left: 0;
-  top: 10px;
+  top: 0;
   bottom: 0;
   margin-right: auto;
   margin-left: auto;
@@ -214,16 +211,6 @@ centering {
   height: 100%;
   position: absolute;
   background-image: url(../playerone/bg/lab.webp);
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-position: center top;
-}
-.act01 .labNoteBG {
-  visibility: hidden;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  background-image: url(../playerone/bg/labnote.webp);
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: center top;
@@ -249,7 +236,7 @@ centering {
 .btnAnna01Note {
   cursor: pointer;
   bottom: 285px;
-  right: 380px;
+  left: 380px;
   padding: 5px;
   color: white;
   text-align: center;
@@ -264,10 +251,41 @@ centering {
 }
 .btnAnna01Note:hover {
   bottom: 282px;
-  right: 378px;
+  left: 378px;
   width: 35px;
   height: 35px;
   background-image: url(../playerone/img/labnoteshl.webp);
+}
+.btnLabCoat {
+  cursor: pointer;
+  top: 320px;
+  right: 85px;
+  color: white;
+  text-align: center;
+  margin: 0 auto;
+  width: 130px;
+  height: 245px;
+  position: absolute;
+  background-image: url(../playerone/img/labcoat.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.btnLabCoat:hover {
+  background-image: url(../playerone/img/labcoathl.webp);
+}
+
+/* labnote */
+
+.act01 .labNoteBG {
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: url(../playerone/bg/labnote.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
 }
 .labNoteBG .btnBack {
   cursor: pointer;
@@ -300,6 +318,25 @@ centering {
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: center top;
+}
+.outsideBigDoor {
+  cursor: pointer;
+  top: 227px;
+  left: 0;
+  right: -75px;
+  color: white;
+  text-align: center;
+  margin: 0 auto;
+  width: 400px;
+  height: 350px;
+  position: absolute;
+  background-image: url(../playerone/img/bigdoor.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.outsideBigDoor:hover {
+  background-image: url(../playerone/img/bigdoorhl.webp);
 }
 .outsideLab .btnRight {
   cursor: pointer;
@@ -387,7 +424,7 @@ centering {
 .threeLab .btnDown:hover {
   background-image: url(../playerone/img/downbtnhl.webp);
 }
-
+/* * ini jalur ke kanan */
 /* otw ke bridge */
 .act01 .doorToBridge {
   visibility: hidden;
@@ -398,6 +435,49 @@ centering {
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: center top;
+}
+.bridgeDoor {
+  cursor: pointer;
+  top: 268px;
+  left: -250px;
+  right: 0px;
+  color: white;
+  text-align: center;
+  margin: 0 auto;
+  width: 200px;
+  height: 311px;
+  position: absolute;
+  background-image: url(../playerone/img/bridgedoor.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.bridgeDoor:hover {
+  top: 262px;
+  width: 210px;
+  height: 326px;
+  background-image: url(../playerone/img/bridgedoorhl.webp);
+}
+.doorToBridge .bridgeDoorLock {
+  cursor: pointer;
+  top: 330px;
+  right: -75px;
+  left: 0;
+  text-align: center;
+  margin: 0 auto;
+  position: absolute;
+  width: 50px;
+  height: 101px;
+  position: absolute;
+  background-image: url(../playerone/img/bridgelock.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.doorToBridge .bridgeDoorLock:hover {
+  width: 55px;
+  height: 111px;
+  background-image: url(../playerone/img/bridgelockhl.webp);
 }
 .doorToBridge .btnDown {
   cursor: pointer;
@@ -416,5 +496,794 @@ centering {
   background-position: center top;
 }
 .doorToBridge .btnDown:hover {
+  background-image: url(../playerone/img/downbtnhl.webp);
+}
+
+/* jembatan */
+
+.act01 .bridgeToMainLab {
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: url(../playerone/bg/bridgetolablocked.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.btnReiner01Panel {
+  cursor: pointer;
+  bottom: 60px;
+  right: 92px;
+  color: white;
+  text-align: center;
+  margin: 0 auto;
+  width: 100px;
+  height: 175px;
+  position: absolute;
+  background-image: url(../playerone/img/bridgepanel.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.btnReiner01Panel:hover {
+  background-image: url(../playerone/img/bridgepanelhl.webp);
+}
+.bridgeLift {
+  cursor: pointer;
+  top: 10px;
+  left: 0;
+  right: 0;
+  color: white;
+  text-align: center;
+  margin: 0 auto;
+  width: 400px;
+  height: 547px;
+  position: absolute;
+  background-image: url(../playerone/img/bridgelift.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.bridgeLift:hover {
+  background-image: url(../playerone/img/bridgelifthl.webp);
+}
+.bridgeToMainLab .btnDown {
+  cursor: pointer;
+  bottom: 50px;
+  right: 0;
+  left: 0;
+  text-align: center;
+  margin: 0 auto;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-image: url(../playerone/img/downbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.bridgeToMainLab .btnDown:hover {
+  background-image: url(../playerone/img/downbtnhl.webp);
+}
+
+/* panelnya reiner */
+
+.act01 .bridgePanelBG {
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: url(../playerone/bg/bridgepanel.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+
+.switch1 {
+  top: 150px;
+}
+.switch2 {
+  top: 212px;
+}
+.switch3 {
+  top: 274px;
+}
+.switch4 {
+  top: 336px;
+}
+.switch5 {
+  top: 398px;
+}
+
+.bridgePanelBG .switch {
+  left: 200px;
+  width: 60px;
+  height: 40px;
+  text-align: center;
+  margin: 0 auto;
+  cursor: pointer;
+  position: absolute;
+  background-image: url(../playerone/img/switchoff.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+
+.panelInput {
+  left: 280px;
+  width: 245px;
+  height: 35px;
+  text-align: center;
+  margin: 0 auto;
+  position: absolute;
+  background-image: url(../playerone/img/panelinput.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+
+.panelBridgeInput {
+  color: #eeeeee !important;
+  text-align: center;
+  font-family: "Exo";
+  font-size: 20px;
+  background: transparent;
+  text-align: left;
+  border: none;
+  width: inherit;
+  height: inherit;
+}
+
+.panelBridgeInput:focus {
+  outline: none;
+}
+.panelBridgeInput::placeholder {
+  color: #eeeeee !important;
+}
+
+.panelInput1 {
+  top: 150px;
+}
+.panelInput2 {
+  top: 212px;
+}
+.panelInput3 {
+  top: 274px;
+}
+.panelInput4 {
+  top: 336px;
+}
+.panelInput5 {
+  top: 398px;
+}
+
+.panelLight{
+  left: 535px;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  margin: 0 auto;
+  position: absolute;
+  background-image: url(../playerone/img/panellight.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+
+.panelLight1{
+  top: 148px;
+}
+.panelLight2{
+  top: 210px;
+}
+.panelLight3{
+  top: 272px;
+}
+.panelLight4{
+  top: 334px;
+}
+.panelLight5{
+  top: 396px;
+}
+.panelLightCSS{
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  text-align: center;
+  margin: 0 auto;
+  position: absolute;
+  background-color: #333;
+  top: 8px;
+  left: 8px;
+}
+.panelSubmitBtn{
+  cursor: pointer;
+  top: 342px;
+  right: 222px;
+  text-align: center;
+  margin: 0 auto;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  background-image: url(../playerone/img/panelbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.panelSubmitBtn:hover{
+  background-image: url(../playerone/img/panelbtnhl.webp);
+}
+.bridgePanelBG .btnBack {
+  cursor: pointer;
+  top: 70px;
+  right: 10px;
+  padding: 5px;
+  text-align: center;
+  margin: 0 auto;
+  width: 150px;
+  height: 38px;
+  position: absolute;
+  background-image: url(../playerone/img/backbtnbig.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.bridgePanelBG .btnBack:hover {
+  background-image: url(../playerone/img/backbtnbighl.webp);
+}
+
+/* * de main lab */
+/* ini lift di mainlab */
+.mainLabLift{
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: url(../playerone/bg/mainlablift.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.mainLabLift .btnLift {
+  cursor: pointer;
+  top: 400px;
+  left: 180px;
+  text-align: center;
+  margin: 0 auto;
+  position: absolute;
+  width: 25px;
+  height: 50px;
+  position: absolute;
+  background-image: url(../playerone/img/liftbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.mainLabLift .btnLift:hover {
+  width: 30px;
+  height: 60px;
+  background-image: url(../playerone/img/liftbtnhl.webp);
+}
+
+.mainLabLift .btnLeft {
+  cursor: pointer;
+  top: 0;
+  bottom: 0;
+  left: 25px;
+  text-align: center;
+  margin: auto 0;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-image: url(../playerone/img/leftbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.mainLabLift .btnLeft:hover {
+  background-image: url(../playerone/img/leftbtnhl.webp);
+}
+
+.mainLabLift .btnRight {
+  cursor: pointer;
+  top: 0;
+  bottom: 0;
+  right: 25px;
+  text-align: center;
+  margin: auto 0;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-image: url(../playerone/img/backbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.mainLabLift .btnRight:hover {
+  background-image: url(../playerone/img/backbtnhl.webp);
+}
+.mainLabLift .btnDown {
+  bottom: 50px;
+  right: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  text-align: center;
+  margin: 0 auto;
+  position: absolute;
+  background-image: url(../playerone/img/downbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+
+.mainLabLift .btnDown:hover {
+  background-image: url(../playerone/img/downbtnhl.webp);
+}
+
+/* main lab work table yang ada polaroidnya */
+.mainLabWorktable{
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: url(../playerone/bg/mainlabworktable.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+
+.mainLabWorktable .btnLeft {
+  cursor: pointer;
+  top: 0;
+  bottom: 0;
+  left: 25px;
+  text-align: center;
+  margin: auto 0;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-image: url(../playerone/img/leftbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.mainLabWorktable .btnLeft:hover {
+  background-image: url(../playerone/img/leftbtnhl.webp);
+}
+
+.mainLabWorktable .btnRight {
+  cursor: pointer;
+  top: 0;
+  bottom: 0;
+  right: 25px;
+  text-align: center;
+  margin: auto 0;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-image: url(../playerone/img/backbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.mainLabWorktable .btnRight:hover {
+  background-image: url(../playerone/img/backbtnhl.webp);
+}
+
+.mainLabWorktable .btnDown {
+  bottom: 50px;
+  right: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  text-align: center;
+  margin: 0 auto;
+  position: absolute;
+  background-image: url(../playerone/img/downbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.mainLabWorktable .btnDown:hover {
+  background-image: url(../playerone/img/downbtnhl.webp);
+}
+
+/* mainlab with tabung chemical */
+.mainLabChemical{
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: url(../playerone/bg/mainlabchemical.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+
+.mainLabChemical .btnLeft {
+  cursor: pointer;
+  top: 0;
+  bottom: 0;
+  left: 25px;
+  text-align: center;
+  margin: auto 0;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-image: url(../playerone/img/leftbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.mainLabChemical .btnLeft:hover {
+  background-image: url(../playerone/img/leftbtnhl.webp);
+}
+
+.mainLabChemical .btnRight {
+  cursor: pointer;
+  top: 0;
+  bottom: 0;
+  right: 25px;
+  text-align: center;
+  margin: auto 0;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-image: url(../playerone/img/backbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.mainLabChemical .btnRight:hover {
+  background-image: url(../playerone/img/backbtnhl.webp);
+}
+
+.mainLabChemical .btnDown {
+  bottom: 50px;
+  right: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  text-align: center;
+  margin: 0 auto;
+  position: absolute;
+  background-image: url(../playerone/img/downbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.mainLabChemical .btnDown:hover {
+  background-image: url(../playerone/img/downbtnhl.webp);
+}
+
+/* ini tangga mainlab */
+.mainLabStairs{
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: url(../playerone/bg/mainlabstairs.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+
+.mainLabStairs .btnLeft {
+  cursor: pointer;
+  top: 0;
+  bottom: 0;
+  left: 25px;
+  text-align: center;
+  margin: auto 0;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-image: url(../playerone/img/leftbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.mainLabStairs .btnLeft:hover {
+  background-image: url(../playerone/img/leftbtnhl.webp);
+}
+
+.mainLabStairs .btnRight {
+  cursor: pointer;
+  top: 0;
+  bottom: 0;
+  right: 25px;
+  text-align: center;
+  margin: auto 0;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-image: url(../playerone/img/backbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.mainLabStairs .btnRight:hover {
+  background-image: url(../playerone/img/backbtnhl.webp);
+}
+
+.mainLabStairs .btnDown {
+  bottom: 50px;
+  right: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  text-align: center;
+  margin: 0 auto;
+  position: absolute;
+  background-image: url(../playerone/img/downbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.mainLabStairs .btnDown:hover {
+  background-image: url(../playerone/img/downbtnhl.webp);
+}
+.mainLabStairs .btnUp {
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  text-align: center;
+  margin: auto;
+  position: absolute;
+  background-image: url(../playerone/img/upbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.mainLabStairs .btnUp:hover {
+  background-image: url(../playerone/img/upbtnhl.webp);
+}
+
+/* ini monitor gede */
+.mainLabMonitor{
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: url(../playerone/bg/mainlabmonitor.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+
+.mainLabMonitor .btnLeft {
+  cursor: pointer;
+  top: 0;
+  bottom: 0;
+  left: 25px;
+  text-align: center;
+  margin: auto 0;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-image: url(../playerone/img/leftbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.mainLabMonitor .btnLeft:hover {
+  background-image: url(../playerone/img/leftbtnhl.webp);
+}
+
+.mainLabMonitor .btnRight {
+  cursor: pointer;
+  top: 0;
+  bottom: 0;
+  right: 25px;
+  text-align: center;
+  margin: auto 0;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-image: url(../playerone/img/backbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.mainLabMonitor .btnRight:hover {
+  background-image: url(../playerone/img/backbtnhl.webp);
+}
+
+.mainLabMonitor .btnDown {
+  bottom: 50px;
+  right: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  text-align: center;
+  margin: 0 auto;
+  position: absolute;
+  background-image: url(../playerone/img/downbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.mainLabMonitor .btnDown:hover {
+  background-image: url(../playerone/img/downbtnhl.webp);
+}
+
+/* mainlab whiteboard */
+.mainLabWhiteboard{
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: url(../playerone/bg/mainlabwhiteboard.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+
+.mainLabWhiteboard .btnLeft {
+  cursor: pointer;
+  top: 0;
+  bottom: 0;
+  left: 25px;
+  text-align: center;
+  margin: auto 0;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-image: url(../playerone/img/leftbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.mainLabWhiteboard .btnLeft:hover {
+  background-image: url(../playerone/img/leftbtnhl.webp);
+}
+
+.mainLabWhiteboard .btnRight {
+  cursor: pointer;
+  top: 0;
+  bottom: 0;
+  right: 25px;
+  text-align: center;
+  margin: auto 0;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-image: url(../playerone/img/backbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.mainLabWhiteboard .btnRight:hover {
+  background-image: url(../playerone/img/backbtnhl.webp);
+}
+
+.mainLabWhiteboard .btnDown {
+  bottom: 50px;
+  right: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  text-align: center;
+  margin: 0 auto;
+  position: absolute;
+  background-image: url(../playerone/img/downbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.mainLabWhiteboard .btnDown:hover {
+  background-image: url(../playerone/img/downbtnhl.webp);
+}
+
+/* main lab photos */
+.mainLabPhotos{
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: url(../playerone/bg/mainlabphoto.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+
+.mainLabPhotos .btnLeft {
+  cursor: pointer;
+  top: 0;
+  bottom: 0;
+  left: 25px;
+  text-align: center;
+  margin: auto 0;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-image: url(../playerone/img/leftbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.mainLabPhotos .btnLeft:hover {
+  background-image: url(../playerone/img/leftbtnhl.webp);
+}
+
+.mainLabPhotos .btnRight {
+  cursor: pointer;
+  top: 0;
+  bottom: 0;
+  right: 25px;
+  text-align: center;
+  margin: auto 0;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-image: url(../playerone/img/backbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.mainLabPhotos .btnRight:hover {
+  background-image: url(../playerone/img/backbtnhl.webp);
+}
+
+.mainLabPhotos .btnDown {
+  bottom: 50px;
+  right: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  text-align: center;
+  margin: 0 auto;
+  position: absolute;
+  background-image: url(../playerone/img/downbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.mainLabPhotos .btnDown:hover {
+  background-image: url(../playerone/img/downbtnhl.webp);
+}
+
+/* * ini jalur ke kiri */
+/* gerbang gede ke lobby */
+.act01 .bigDoorToLobby {
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: url(../playerone/bg/bigdoortolobby.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.bigDoorToLobby .btnDown {
+  bottom: 50px;
+  right: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  text-align: center;
+  margin: 0 auto;
+  position: absolute;
+  background-image: url(../playerone/img/downbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.bigDoorToLobby .btnDown:hover {
   background-image: url(../playerone/img/downbtnhl.webp);
 }
