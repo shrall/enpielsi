@@ -63,9 +63,7 @@ function closeInventorybox() {
   closeChatBlockTouch();
 }
 function closeUniversal() {
-  if (
-    $(".gameHUD .chatBox").css("visibility") != "visible"
-  ) {
+  if ($(".gameHUD .chatBox").css("visibility") != "visible") {
     closeInventorybox();
     closeJanitor();
   }
@@ -165,7 +163,6 @@ $(".inventoryBtn").click(function () {
   openInventorybox();
 });
 
-
 function addItem() {
   $(".gameHUD .itemBox" + inventoryIndex).css("background-image", acquiredItem);
   $(".gameHUD .itemBox").css(
@@ -206,7 +203,6 @@ $(".toiletBG .btnVent").click(function () {
 });
 
 $(".toiletVentBG .btnBack").click(function () {
-
   hide = ".toiletVentBG";
   show = ".toiletBG";
   changeBG(hide, show);

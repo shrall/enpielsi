@@ -1,6 +1,7 @@
 @import url("../abyssopelagic.otf");
 @import url("../exolight.otf");
 @import url("../exoregular.otf");
+@import url("../ailerons.otf");
 
 html {
   overflow: hidden;
@@ -275,9 +276,6 @@ centering {
 .janitorToolbox {
   cursor: pointer;
   position: absolute;
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-position: center top;
   top: 145px;
   left: 180px;
   width: 100px;

@@ -1,6 +1,7 @@
 @import url("../abyssopelagic.otf");
 @import url("../exolight.otf");
 @import url("../exoregular.otf");
+@import url("../ailerons.otf");
 
 html {
   overflow: hidden;
@@ -192,6 +193,83 @@ centering {
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: center top;
+}
+.questionTwo {
+  z-index: 4;
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  width: 404px;
+  height: 360px;
+  top: 100px;
+  position: absolute;
+  background-image: url(../playerone/img/popuptwo.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.popUpHeader{
+  font-family: "Ailerons";
+  color: #00374b;
+  font-size: 42px;
+  position: absolute;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  top: 20px;
+}
+.selectA{
+  cursor: pointer;
+  top: 130px;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+  width: 350px;
+  height: 75px;
+  position: absolute;
+  background-image: url(../playerone/img/popupa.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.selectA a{
+  font-family: "Exo";
+  color: #00374b;
+  position: absolute;
+  left: 90px;
+  font-size: 27px;
+  top: 19px;
+}
+.selectA:hover{
+  background-image: url(../playerone/img/popupahl.webp);
+}
+.selectB{
+  cursor: pointer;
+  top: 225px;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+  width: 350px;
+  height: 75px;
+  position: absolute;
+  background-image: url(../playerone/img/popupb.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.selectB a{
+  font-family: "Exo";
+  color: #00374b;
+  position: absolute;
+  left: 90px;
+  font-size: 27px;
+  top: 19px;
+}
+.selectB:hover{
+  background-image: url(../playerone/img/popupbhl.webp);
 }
 
 /* lab */
@@ -659,7 +737,7 @@ centering {
   top: 398px;
 }
 
-.panelLight{
+.panelLight {
   left: 535px;
   width: 40px;
   height: 40px;
@@ -672,22 +750,22 @@ centering {
   background-position: center top;
 }
 
-.panelLight1{
+.panelLight1 {
   top: 148px;
 }
-.panelLight2{
+.panelLight2 {
   top: 210px;
 }
-.panelLight3{
+.panelLight3 {
   top: 272px;
 }
-.panelLight4{
+.panelLight4 {
   top: 334px;
 }
-.panelLight5{
+.panelLight5 {
   top: 396px;
 }
-.panelLightCSS{
+.panelLightCSS {
   border-radius: 50%;
   width: 24px;
   height: 24px;
@@ -698,7 +776,7 @@ centering {
   top: 8px;
   left: 8px;
 }
-.panelSubmitBtn{
+.panelSubmitBtn {
   cursor: pointer;
   top: 342px;
   right: 222px;
@@ -712,7 +790,7 @@ centering {
   background-size: 100%;
   background-position: center top;
 }
-.panelSubmitBtn:hover{
+.panelSubmitBtn:hover {
   background-image: url(../playerone/img/panelbtnhl.webp);
 }
 .bridgePanelBG .btnBack {
@@ -736,7 +814,7 @@ centering {
 
 /* * de main lab */
 /* ini lift di mainlab */
-.mainLabLift{
+.mainLabLift {
   visibility: hidden;
   width: 100%;
   height: 100%;
@@ -825,7 +903,7 @@ centering {
 }
 
 /* main lab work table yang ada polaroidnya */
-.mainLabWorktable{
+.mainLabWorktable {
   visibility: hidden;
   width: 100%;
   height: 100%;
@@ -834,6 +912,25 @@ centering {
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: center top;
+}
+
+.mainLabWorktable .btnCamera {
+  cursor: pointer;
+  top: 360px;
+  left: 350px;
+  color: white;
+  text-align: center;
+  margin: 0 auto;
+  width: 130px;
+  height: 80px;
+  position: absolute;
+  background-image: url(../playerone/img/camera.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.btnCamera:hover {
+  background-image: url(../playerone/img/camerahl.webp);
 }
 
 .mainLabWorktable .btnLeft {
@@ -894,7 +991,7 @@ centering {
 }
 
 /* mainlab with tabung chemical */
-.mainLabChemical{
+.mainLabChemical {
   visibility: hidden;
   width: 100%;
   height: 100%;
@@ -905,6 +1002,25 @@ centering {
   background-position: center top;
 }
 
+.mainLabChemical .btnChemicals {
+  cursor: pointer;
+  top: 250px;
+  right: -100px;
+  left: 0;
+  color: white;
+  text-align: center;
+  margin: 0 auto;
+  width: 600px;
+  height: 190px;
+  position: absolute;
+  background-image: url(../playerone/img/labThings.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.btnChemicals:hover {
+  background-image: url(../playerone/img/labThingshl.webp);
+}
 .mainLabChemical .btnLeft {
   cursor: pointer;
   top: 0;
@@ -963,7 +1079,7 @@ centering {
 }
 
 /* ini tangga mainlab */
-.mainLabStairs{
+.mainLabStairs {
   visibility: hidden;
   width: 100%;
   height: 100%;
@@ -1051,7 +1167,7 @@ centering {
 }
 
 /* ini monitor gede */
-.mainLabMonitor{
+.mainLabMonitor {
   visibility: hidden;
   width: 100%;
   height: 100%;
@@ -1062,6 +1178,25 @@ centering {
   background-position: center top;
 }
 
+.mainLabMonitor .btnHugeMonitor {
+  cursor: pointer;
+  top: 10px;
+  right: 25px;
+  left: 0;
+  color: white;
+  text-align: center;
+  margin: 0 auto;
+  width: 700px;
+  height: 350px;
+  position: absolute;
+  background-image: url(../playerone/img/mainlabmonitor.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.btnHugeMonitor:hover {
+  background-image: url(../playerone/img/mainlabmonitorhl.webp);
+}
 .mainLabMonitor .btnLeft {
   cursor: pointer;
   top: 0;
@@ -1120,7 +1255,7 @@ centering {
 }
 
 /* mainlab whiteboard */
-.mainLabWhiteboard{
+.mainLabWhiteboard {
   visibility: hidden;
   width: 100%;
   height: 100%;
@@ -1129,6 +1264,61 @@ centering {
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: center top;
+}
+.mainLabWhiteboard .btnNoteVirus {
+  cursor: pointer;
+  top: 130px;
+  left: 300px;
+  color: white;
+  text-align: center;
+  margin: 0 auto;
+  width: 680px;
+  height: 400px;
+  position: absolute;
+  background-image: url(../playerone/img/chemicalevidence.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.btnNoteVirus:hover {
+  background-image: url(../playerone/img/checmicalevidencehl.webp);
+}
+.mainLabWhiteboard .btnNoteMom {
+  cursor: pointer;
+  bottom: 160px;
+  right: 280px;
+  color: white;
+  text-align: center;
+  margin: 0 auto;
+  width: 200px;
+  height: 60px;
+  position: absolute;
+  background-image: url(../playerone/img/mombirthday.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.btnNoteMom:hover {
+  background-image: url(../playerone/img/mombirthdayhl.webp);
+}
+.mainLabWhiteboard .btnNoteTrash {
+  cursor: pointer;
+  top: 130px;
+  left: 330px;
+  transform: rotate(350deg);
+  color: white;
+  text-align: center;
+  margin: 0 auto;
+  width: 130px;
+  height: 245px;
+  position: absolute;
+  background-image: url(../playerone/img/trashnote.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.btnNoteTrash:hover {
+  background-image: url(../playerone/img/trashnotehl.webp);
 }
 
 .mainLabWhiteboard .btnLeft {
@@ -1189,7 +1379,7 @@ centering {
 }
 
 /* main lab photos */
-.mainLabPhotos{
+.mainLabPhotos {
   visibility: hidden;
   width: 100%;
   height: 100%;
@@ -1198,6 +1388,25 @@ centering {
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: center top;
+}
+.mainLabPhotos .btnPhotoFrames {
+  cursor: pointer;
+  top: 100px;
+  right: 0;
+  left: 0;
+  color: white;
+  text-align: center;
+  margin: 0 auto;
+  width: 750px;
+  height: 500px;
+  position: absolute;
+  background-image: url(../playerone/img/mainlabphotos.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.btnPhotoFrames:hover {
+  background-image: url(../playerone/img/mainlabphotoshl.webp);
 }
 
 .mainLabPhotos .btnLeft {

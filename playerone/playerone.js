@@ -21,6 +21,13 @@ var guideAct01 = [
   "It's too far to reach..",
   "What is this place?",
   "Code..?",
+  "I hope the owner doesn't mind if I take this..",
+  "These chemicals seems dangerous..",
+  "Ini kata kata yang big monitor",
+  "Is that Mr.namabossnya's family?",
+  "I guess someone forgot to take out the trash.",
+  "There's only 31 days on January..",
+  "What is he trying to make..?",
 ];
 
 $(document).ready(function () {
@@ -84,6 +91,7 @@ function closeInventorybox() {
 function closeUniversal() {
   if ($(".gameHUD .chatBox").css("visibility") != "visible") {
     closeInventorybox();
+    closePopUpTwo();
   }
 }
 function sceneTransition() {
@@ -95,6 +103,17 @@ function clickTrusChatPopUp(chatArrayIndex) {
   guideZ = chatArrayIndex;
   openChatbox();
   setTimeout(typeWriter, 300);
+}
+
+function openCamera(confirmationClass) {
+  $(".act01 " + confirmationClass).css("visibility", "visible");
+  $(".act01 " + confirmationClass).animate({ opacity: "1" }, 300);
+  openChatBlockTouch();
+}
+function closePopUpTwo() {
+  $(".act01 .questionTwo").css("visibility", "hidden");
+  $(".act01 .questionTwo").animate({ opacity: "0" }, 300);
+  closeChatBlockTouch();
 }
 function typeWriter() {
   if (guideY < guideArray[guideZ].length) {
@@ -289,7 +308,7 @@ $(".doorToBridge .bridgeDoor").click(function () {
 
 var bridgepanel = 0;
 $(".bridgeToMainLab .bridgeLift").click(function () {
-  if (bridgepanel != 1) {
+  if (bridgepanel == 1) {
     chatArrayIndex = 10;
     clickTrusChatPopUp(chatArrayIndex);
   } else {
@@ -463,7 +482,13 @@ $(".bridgePanelBG .switch5").click(function () {
   });
 });
 $(".bridgePanelBG .panelSubmitBtn").click(function () {
-  if (switch1 == 1 && switch2 == 1 && switch3 == 1 && switch4 == 1 && switch5 == 1) {
+  if (
+    switch1 == 1 &&
+    switch2 == 1 &&
+    switch3 == 1 &&
+    switch4 == 1 &&
+    switch5 == 1
+  ) {
     bridgepanel = 1;
     $(".bridgeToMainLab").css(
       "background-image",
@@ -473,7 +498,8 @@ $(".bridgePanelBG .panelSubmitBtn").click(function () {
 });
 
 // * ini mainlab
-// ini pintu ke lift 
+var polaroid = 3;
+// ini pintu ke lift
 $(".mainLabLift .btnLift").click(function () {
   hide = ".mainLabLift";
   show = ".bridgeToMainLab";
@@ -496,6 +522,18 @@ $(".mainLabLift .btnDown").click(function () {
 });
 
 //ini meja yang ada polaroidnya
+
+var polaroidcamera = 0;
+$(".mainLabWorktable .btnCamera").click(function () {
+  if (polaroidcamera != 1) {
+    $(".btnCamera").css("visibility", "hidden");
+    acquiredItem = "url(../playerone/img/itemcamera.webp)";
+    polaroidcamera = 1;
+    addItem();
+    chatArrayIndex = 13;
+    clickTrusChatPopUp(chatArrayIndex);
+  }
+});
 $(".mainLabWorktable .btnLeft").click(function () {
   hide = ".mainLabWorktable";
   show = ".mainLabStairs";
@@ -513,6 +551,17 @@ $(".mainLabWorktable .btnDown").click(function () {
 });
 
 //ini meja yang banyak tabungnya
+
+$(".mainLabChemical .btnChemicals").click(function () {
+  if (polaroidcamera != 1) {
+    chatArrayIndex = 14;
+    clickTrusChatPopUp(chatArrayIndex);
+  } else {
+    if (polaroid > 0) {
+      openCamera(".confirmationChemical");
+    }
+  }
+});
 $(".mainLabChemical .btnLeft").click(function () {
   hide = ".mainLabChemical";
   show = ".mainLabLift";
@@ -552,6 +601,16 @@ $(".mainLabStairs .btnUp").click(function () {
 });
 
 // ini monitor gede di mainlab
+$(".mainLabMonitor .btnHugeMonitor").click(function () {
+  if (polaroidcamera != 1) {
+    chatArrayIndex = 15;
+    clickTrusChatPopUp(chatArrayIndex);
+  } else {
+    if (polaroid > 0) {
+      openCamera(".confirmationHugeMonitor");
+    }
+  }
+});
 $(".mainLabMonitor .btnLeft").click(function () {
   hide = ".mainLabMonitor";
   show = ".mainLabWhiteboard";
@@ -569,6 +628,16 @@ $(".mainLabMonitor .btnDown").click(function () {
 });
 
 // ini photophoto di mainlab
+$(".mainLabPhotos .btnPhotoFrames").click(function () {
+  if (polaroidcamera != 1) {
+    chatArrayIndex = 16;
+    clickTrusChatPopUp(chatArrayIndex);
+  } else {
+    if (polaroid > 0) {
+      openCamera(".confirmationPhotos");
+    }
+  }
+});
 $(".mainLabPhotos .btnLeft").click(function () {
   hide = ".mainLabPhotos";
   show = ".mainLabMonitor";
@@ -586,6 +655,36 @@ $(".mainLabPhotos .btnDown").click(function () {
 });
 
 //ini whiteboard di mainlab
+$(".mainLabWhiteboard .btnNoteVirus").click(function () {
+  if (polaroidcamera != 1) {
+    chatArrayIndex = 19;
+    clickTrusChatPopUp(chatArrayIndex);
+  } else {
+    if (polaroid > 0) {
+      openCamera(".confirmationNoteVirus");
+    }
+  }
+});
+$(".mainLabWhiteboard .btnNoteMom").click(function () {
+  if (polaroidcamera != 1) {
+    chatArrayIndex = 18;
+    clickTrusChatPopUp(chatArrayIndex);
+  } else {
+    if (polaroid > 0) {
+      openCamera(".confirmationNoteMom");
+    }
+  }
+});
+$(".mainLabWhiteboard .btnNoteTrash").click(function () {
+  if (polaroidcamera != 1) {
+    chatArrayIndex = 17;
+    clickTrusChatPopUp(chatArrayIndex);
+  } else {
+    if (polaroid > 0) {
+      openCamera(".confirmationNoteTrash");
+    }
+  }
+});
 $(".mainLabWhiteboard .btnLeft").click(function () {
   hide = ".mainLabWhiteboard";
   show = ".mainLabLift";
@@ -601,7 +700,6 @@ $(".mainLabWhiteboard .btnDown").click(function () {
   show = ".mainLabPhotos";
   changeBG(hide, show);
 });
-
 
 // ini jalan ke kiri
 
