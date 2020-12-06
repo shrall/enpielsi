@@ -23,12 +23,14 @@ var guideAct01 = [
   "Code..?",
   "I hope the owner doesn't mind if I take this..",
   "These chemicals seems dangerous..",
-  "Ini kata kata yang big monitor",
+  "Virus Progress.. Completed..?",
   "Is that Mr.namabossnya's family?",
   "I guess someone forgot to take out the trash.",
   "There's only 31 days on January..",
   "What is he trying to make..?",
+  "Now I need to wait the photo to dry.",
 ];
+
 
 $(document).ready(function () {
   setTimeout(function () {
@@ -106,6 +108,11 @@ function clickTrusChatPopUp(chatArrayIndex) {
 }
 
 function openCamera(confirmationClass) {
+  if (polaroid > 1) {
+    $(".popUpSubCamera").html("You can take " + polaroid + " more photos.");
+  } else{
+    $(".popUpSubCamera").html("You can take " + polaroid + " more photo.");
+  }
   $(".act01 " + confirmationClass).css("visibility", "visible");
   $(".act01 " + confirmationClass).animate({ opacity: "1" }, 300);
   openChatBlockTouch();
@@ -308,7 +315,7 @@ $(".doorToBridge .bridgeDoor").click(function () {
 
 var bridgepanel = 0;
 $(".bridgeToMainLab .bridgeLift").click(function () {
-  if (bridgepanel == 1) {
+  if (bridgepanel != 1) {
     chatArrayIndex = 10;
     clickTrusChatPopUp(chatArrayIndex);
   } else {
@@ -348,10 +355,11 @@ var switch4 = 0;
 var switch5 = 0;
 $(".bridgePanelBG .switch1").click(function () {
   $(".switch1").css("background-image", "url(../playerone/img/switchon.webp)");
+  var reiner01ans = $("#panelBridge1").val().replace(/\s+/g, '').toLowerCase();
   $.ajax({
     type: "post",
     url: "playerone.php?p=reiner01",
-    data: { stat: $("#panelBridge1").val() },
+    data: { stat: reiner01ans },
     dataType: "html",
     success: function (result) {
       dbcheck = result;
@@ -375,10 +383,11 @@ $(".bridgePanelBG .switch1").click(function () {
 });
 $(".bridgePanelBG .switch2").click(function () {
   $(".switch2").css("background-image", "url(../playerone/img/switchon.webp)");
+  var reiner02ans = $("#panelBridge2").val().replace(/\s+/g, '').toLowerCase();
   $.ajax({
     type: "post",
     url: "playerone.php?p=reiner02",
-    data: { stat: $("#panelBridge2").val() },
+    data: { stat: reiner02ans },
     dataType: "html",
     success: function (result) {
       dbcheck = result;
@@ -402,10 +411,10 @@ $(".bridgePanelBG .switch2").click(function () {
 });
 $(".bridgePanelBG .switch3").click(function () {
   $(".switch3").css("background-image", "url(../playerone/img/switchon.webp)");
-  $.ajax({
+  var reiner03ans = $("#panelBridge3").val().replace(/\s+/g, '').toLowerCase();$.ajax({
     type: "post",
     url: "playerone.php?p=reiner03",
-    data: { stat: $("#panelBridge3").val() },
+    data: { stat: reiner03ans },
     dataType: "html",
     success: function (result) {
       dbcheck = result;
@@ -429,10 +438,11 @@ $(".bridgePanelBG .switch3").click(function () {
 });
 $(".bridgePanelBG .switch4").click(function () {
   $(".switch4").css("background-image", "url(../playerone/img/switchon.webp)");
+  var reiner04ans = $("#panelBridge4").val().replace(/\s+/g, '').toLowerCase();
   $.ajax({
     type: "post",
     url: "playerone.php?p=reiner04",
-    data: { stat: $("#panelBridge4").val() },
+    data: { stat: reiner04ans },
     dataType: "html",
     success: function (result) {
       dbcheck = result;
@@ -456,10 +466,11 @@ $(".bridgePanelBG .switch4").click(function () {
 });
 $(".bridgePanelBG .switch5").click(function () {
   $(".switch5").css("background-image", "url(../playerone/img/switchon.webp)");
+  var reiner05ans = $("#panelBridge5").val().replace(/\s+/g, '').toLowerCase();
   $.ajax({
     type: "post",
     url: "playerone.php?p=reiner05",
-    data: { stat: $("#panelBridge5").val() },
+    data: { stat: reiner05ans },
     dataType: "html",
     success: function (result) {
       dbcheck = result;
@@ -499,6 +510,10 @@ $(".bridgePanelBG .panelSubmitBtn").click(function () {
 
 // * ini mainlab
 var polaroid = 3;
+var bonuspoints = 0;
+$(".selectClose").click(function () {
+  closeUniversal();
+});
 // ini pintu ke lift
 $(".mainLabLift .btnLift").click(function () {
   hide = ".mainLabLift";
@@ -552,16 +567,37 @@ $(".mainLabWorktable .btnDown").click(function () {
 
 //ini meja yang banyak tabungnya
 
+var photoChemical = 0;
 $(".mainLabChemical .btnChemicals").click(function () {
   if (polaroidcamera != 1) {
     chatArrayIndex = 14;
     clickTrusChatPopUp(chatArrayIndex);
   } else {
-    if (polaroid > 0) {
+    if (polaroid > 0 && photoChemical < 1) {
       openCamera(".confirmationChemical");
+    } else {
+      chatArrayIndex = 14;
+      clickTrusChatPopUp(chatArrayIndex);
     }
   }
 });
+$(".mainLabChemical .selectAChemical").click(function () {
+  polaroid--;
+  bonuspoints++;
+  $.ajax({
+    type: "post",
+    url: "playerone.php?p=bonuscamera",
+    data: { stat: bonuspoints },
+    dataType: "html",
+    success: function (result) {},
+  }).done(function () {
+    photoChemical++;
+    closePopUpTwo();
+    chatArrayIndex = 20;
+    clickTrusChatPopUp(chatArrayIndex);
+  });
+});
+
 $(".mainLabChemical .btnLeft").click(function () {
   hide = ".mainLabChemical";
   show = ".mainLabLift";
@@ -601,16 +637,37 @@ $(".mainLabStairs .btnUp").click(function () {
 });
 
 // ini monitor gede di mainlab
+var photoHugeMonitor = 0;
 $(".mainLabMonitor .btnHugeMonitor").click(function () {
   if (polaroidcamera != 1) {
     chatArrayIndex = 15;
     clickTrusChatPopUp(chatArrayIndex);
   } else {
-    if (polaroid > 0) {
+    if (polaroid > 0 && photoHugeMonitor < 1) {
       openCamera(".confirmationHugeMonitor");
+    } else {
+      chatArrayIndex = 15;
+      clickTrusChatPopUp(chatArrayIndex);
     }
   }
 });
+$(".mainLabMonitor .selectAHugeMonitor").click(function () {
+  polaroid--;
+  bonuspoints++;
+  $.ajax({
+    type: "post",
+    url: "playerone.php?p=bonuscamera",
+    data: { stat: bonuspoints },
+    dataType: "html",
+    success: function (result) {},
+  }).done(function () {
+    photoHugeMonitor++;
+    closePopUpTwo();
+    chatArrayIndex = 20;
+    clickTrusChatPopUp(chatArrayIndex);
+  });
+});
+
 $(".mainLabMonitor .btnLeft").click(function () {
   hide = ".mainLabMonitor";
   show = ".mainLabWhiteboard";
@@ -628,15 +685,26 @@ $(".mainLabMonitor .btnDown").click(function () {
 });
 
 // ini photophoto di mainlab
+var photoPhotoFrame = 0;
 $(".mainLabPhotos .btnPhotoFrames").click(function () {
   if (polaroidcamera != 1) {
     chatArrayIndex = 16;
     clickTrusChatPopUp(chatArrayIndex);
   } else {
-    if (polaroid > 0) {
+    if (polaroid > 0 && photoPhotoFrame < 1) {
       openCamera(".confirmationPhotos");
+    } else {
+      chatArrayIndex = 16;
+      clickTrusChatPopUp(chatArrayIndex);
     }
   }
+});
+$(".mainLabPhotos .selectAPhotos").click(function () {
+  polaroid--;
+  photoPhotoFrame++;
+  closePopUpTwo();
+  chatArrayIndex = 20;
+  clickTrusChatPopUp(chatArrayIndex);
 });
 $(".mainLabPhotos .btnLeft").click(function () {
   hide = ".mainLabPhotos";
@@ -655,36 +723,73 @@ $(".mainLabPhotos .btnDown").click(function () {
 });
 
 //ini whiteboard di mainlab
+var photoNoteVirus = 0;
 $(".mainLabWhiteboard .btnNoteVirus").click(function () {
   if (polaroidcamera != 1) {
     chatArrayIndex = 19;
     clickTrusChatPopUp(chatArrayIndex);
   } else {
-    if (polaroid > 0) {
+    if (polaroid > 0 && photoNoteVirus < 1) {
       openCamera(".confirmationNoteVirus");
+    } else {
+      chatArrayIndex = 19;
+      clickTrusChatPopUp(chatArrayIndex);
     }
   }
 });
+
+$(".mainLabWhiteboard .selectANoteVirus").click(function () {
+  polaroid--;
+  photoNoteVirus++;
+  closePopUpTwo();
+  chatArrayIndex = 20;
+  clickTrusChatPopUp(chatArrayIndex);
+});
+
+var photoNoteMom = 0;
 $(".mainLabWhiteboard .btnNoteMom").click(function () {
   if (polaroidcamera != 1) {
     chatArrayIndex = 18;
     clickTrusChatPopUp(chatArrayIndex);
   } else {
-    if (polaroid > 0) {
+    if (polaroid > 0 && photoNoteMom < 1) {
       openCamera(".confirmationNoteMom");
+    } else {
+      chatArrayIndex = 18;
+      clickTrusChatPopUp(chatArrayIndex);
     }
   }
 });
+$(".mainLabWhiteboard .selectANoteMom").click(function () {
+  polaroid--;
+  photoNoteMom++;
+  closePopUpTwo();
+  chatArrayIndex = 20;
+  clickTrusChatPopUp(chatArrayIndex);
+});
+
+var photoNoteTrash = 0;
 $(".mainLabWhiteboard .btnNoteTrash").click(function () {
   if (polaroidcamera != 1) {
     chatArrayIndex = 17;
     clickTrusChatPopUp(chatArrayIndex);
   } else {
-    if (polaroid > 0) {
+    if (polaroid > 0 && photoNoteTrash < 1) {
       openCamera(".confirmationNoteTrash");
+    } else {
+      chatArrayIndex = 17;
+      clickTrusChatPopUp(chatArrayIndex);
     }
   }
 });
+$(".mainLabWhiteboard .selectANoteTrash").click(function () {
+  polaroid--;
+  photoNoteTrash++;
+  closePopUpTwo();
+  chatArrayIndex = 20;
+  clickTrusChatPopUp(chatArrayIndex);
+});
+
 $(".mainLabWhiteboard .btnLeft").click(function () {
   hide = ".mainLabWhiteboard";
   show = ".mainLabLift";

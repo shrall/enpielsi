@@ -100,6 +100,7 @@ var guideAct01 = [
   "Ooh.. a screwdriver.. this could be handy..",
   "Urgh.. it's screwed tight..",
   "It won't budge..",
+  "Mr.blablablablabla"
 ];
 
 var guideArray = [];
@@ -172,10 +173,54 @@ function addItem() {
   inventoryIndex++;
   acquiredItem = "";
 }
+
+// ini toilet cowok
 $(".act01 .btnJanitor").click(function () {
   openJanitor();
 });
+$(".toiletBG .btnWallet").click(function () {
+  hide = ".toiletBG";
+  show = ".walletBG";
+  changeBG(hide, show);
+});
 
+$(".toiletBG .btnVent").click(function () {
+  if (screwdriver == 1) {
+    hide = ".toiletBG";
+    show = ".toiletVentBG";
+    changeBG(hide, show);
+  } else {
+    chatArrayIndex = 5;
+    clickTrusChatPopUp(chatArrayIndex);
+  }
+});
+
+// ini dompet
+
+$(".walletBG .btnWalletNote").click(function () {
+  hide = ".walletBG";
+  show = ".walletNoteBG";
+  changeBG(hide, show);
+});
+$(".walletBG .btnCard").click(function () {
+  chatArrayIndex = 7;
+  clickTrusChatPopUp(chatArrayIndex);
+});
+
+$(".walletBG .btnBack").click(function () {
+  hide = ".walletBG";
+  show = ".toiletBG";
+  changeBG(hide, show);
+});
+
+// ini note yang di wallet
+$(".walletNoteBG .btnBack").click(function () {
+  hide = ".walletNoteBG";
+  show = ".toiletBG";
+  changeBG(hide, show);
+});
+
+// ini janitor
 $(".janitorToolbox").click(function () {
   if (screwdriver != 1) {
     acquiredItem = "url(../playerthree/img/screwdriver.webp)";
@@ -191,23 +236,12 @@ $(".janitorToolbox").click(function () {
   }
 });
 
-$(".toiletBG .btnVent").click(function () {
-  if (screwdriver == 1) {
-    hide = ".toiletBG";
-    show = ".toiletVentBG";
-    changeBG(hide, show);
-  } else {
-    chatArrayIndex = 5;
-    clickTrusChatPopUp(chatArrayIndex);
-  }
-});
-
+// ini vent pertigaan
 $(".toiletVentBG .btnBack").click(function () {
   hide = ".toiletVentBG";
   show = ".toiletBG";
   changeBG(hide, show);
 });
-
 $(".toiletVentBG .btnLeft").click(function () {
   hide = ".toiletVentBG";
   show = ".toiletVentLeftBG";
@@ -219,13 +253,9 @@ $(".toiletVentBG .btnRight").click(function () {
   changeBG(hide, show);
 });
 
+// ini vent kekiri
 $(".toiletVentLeftBG .btnBack").click(function () {
   hide = ".toiletVentLeftBG";
-  show = ".toiletVentBG";
-  changeBG(hide, show);
-});
-$(".toiletVentRightBG .btnBack").click(function () {
-  hide = ".toiletVentRightBG";
   show = ".toiletVentBG";
   changeBG(hide, show);
 });
@@ -235,11 +265,19 @@ $(".toiletVentLeftBG .btnVent").click(function () {
   clickTrusChatPopUp(chatArrayIndex);
 });
 
+// ini vent kekanan
+$(".toiletVentRightBG .btnBack").click(function () {
+  hide = ".toiletVentRightBG";
+  show = ".toiletVentBG";
+  changeBG(hide, show);
+});
 $(".toiletVentRightBG .btnVent").click(function () {
   hide = ".toiletVentRightBG";
   show = ".toiletWomenBG";
   changeBG(hide, show);
 });
+
+// ini toilet cewek
 $(".toiletWomenBG .btnVent").click(function () {
   hide = ".toiletWomenBG";
   show = ".toiletBG";
