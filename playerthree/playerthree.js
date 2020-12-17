@@ -261,8 +261,27 @@ $(".toiletVentLeftBG .btnBack").click(function () {
 });
 
 $(".toiletVentLeftBG .btnVent").click(function () {
-  chatArrayIndex = 6;
-  clickTrusChatPopUp(chatArrayIndex);
+  hide = ".toiletVentLeftBG";
+  show = ".mechanicDoorBG";
+  changeBG(hide, show);
+});
+
+// ini di depan officenya mechanic
+$(".mechanicDoorBG .btnRight").click(function () {
+  hide = ".mechanicDoorBG";
+  show = ".bigDoorFromOfficeBG";
+  changeBG(hide, show);
+});
+$(".mechanicDoorBG .btnDown").click(function () {
+  hide = ".mechanicDoorBG";
+  show = ".toiletVentLeftBG";
+  changeBG(hide, show);
+});
+//ini gate besar yang ke pertigaan dari office
+$(".bigDoorFromOfficeBG .btnDown").click(function () {
+  hide = ".bigDoorFromOfficeBG";
+  show = ".mechanicDoorBG";
+  changeBG(hide, show);
 });
 
 // ini vent kekanan
@@ -280,6 +299,79 @@ $(".toiletVentRightBG .btnVent").click(function () {
 // ini toilet cewek
 $(".toiletWomenBG .btnVent").click(function () {
   hide = ".toiletWomenBG";
-  show = ".toiletBG";
+  show = ".toiletVentRightBG";
+  changeBG(hide, show);
+});
+$(".toiletWomenBG .btnLeft").click(function () {
+  hide = ".toiletWomenBG";
+  show = ".lobbyToiletBG";
+  changeBG(hide, show);
+});
+
+//ini lobby toilet
+$(".lobbyToiletBG .toiletWomenDoor").click(function () {
+  hide = ".lobbyToiletBG";
+  show = ".toiletWomenBG";
+  changeBG(hide, show);
+});
+$(".lobbyToiletBG .btnLeft").click(function () {
+  hide = ".lobbyToiletBG";
+  show = ".lobbyStationBG";
+  changeBG(hide, show);
+});
+$(".lobbyToiletBG .btnRight").click(function () {
+  hide = ".lobbyToiletBG";
+  show = ".lobbyWarehouseBG";
+  changeBG(hide, show);
+});
+
+// ini lobby warehouse
+$(".lobbyWarehouseBG .btnLeft").click(function () {
+  hide = ".lobbyWarehouseBG";
+  show = ".lobbyToiletBG";
+  changeBG(hide, show);
+});
+$(".lobbyWarehouseBG .btnRight").click(function () {
+  hide = ".lobbyWarehouseBG";
+  show = ".lobbyLabBG";
+  changeBG(hide, show);
+});
+
+// ini lobby lab
+$(".lobbyLabBG .btnLeft").click(function () {
+  hide = ".lobbyLabBG";
+  show = ".lobbyWarehouseBG";
+  changeBG(hide, show);
+});
+$(".lobbyLabBG .btnRight").click(function () {
+  hide = ".lobbyLabBG";
+  show = ".lobbyReceptionistBG";
+  changeBG(hide, show);
+});
+
+//ini lobby receptionist
+$(".lobbyReceptionistBG .btnMechanic").click(function () {
+  
+});
+$(".lobbyReceptionistBG .btnLeft").click(function () {
+  hide = ".lobbyReceptionistBG";
+  show = ".lobbyLabBG";
+  changeBG(hide, show);
+});
+$(".lobbyReceptionistBG .btnRight").click(function () {
+  hide = ".lobbyReceptionistBG";
+  show = ".lobbyStationBG";
+  changeBG(hide, show);
+});
+
+//ini lobby station
+$(".lobbyStationBG .btnLeft").click(function () {
+  hide = ".lobbyStationBG";
+  show = ".lobbyReceptionistBG";
+  changeBG(hide, show);
+});
+$(".lobbyStationBG .btnRight").click(function () {
+  hide = ".lobbyStationBG";
+  show = ".lobbyToiletBG";
   changeBG(hide, show);
 });

@@ -202,7 +202,7 @@ centering {
 .act01 {
   right: 0;
   left: 0;
-  top: 10px;
+  top: 0px;
   bottom: 0;
   margin-right: auto;
   margin-left: auto;
@@ -535,6 +535,131 @@ centering {
   background-image: url(../playerthree/img/insideventlidhl.webp);
 }
 
+/* * ini jalan ke kiri */
+/* pintunya ke office mechanic */
+.act01 .mechanicDoorBG {
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: url(../playerthree/bg/mechanicdoor.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.mechanicDoorBG .btnDown {
+  cursor: pointer;
+  bottom: 50px;
+  right: 0;
+  left: 0;
+  text-align: center;
+  margin: 0 auto;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-image: url(../playerone/img/downbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.mechanicDoorBG .btnDown:hover {
+  background-image: url(../playerone/img/downbtnhl.webp);
+}
+.mechanicDoorBG .btnRight {
+  cursor: pointer;
+  top: 0;
+  bottom: 0;
+  right: 25px;
+  text-align: center;
+  margin: auto 0;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-image: url(../playerone/img/backbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.mechanicDoorBG .btnRight:hover {
+  background-image: url(../playerone/img/backbtnhl.webp);
+}
+.mechanicOfficeDoor {
+  cursor: pointer;
+  top: 268px;
+  left: 325px;
+  color: white;
+  text-align: center;
+  margin: 0 auto;
+  width: 200px;
+  height: 311px;
+  position: absolute;
+  background-image: url(../playerone/img/bridgedoor.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.mechanicOfficeDoor:hover {
+  top: 262px;
+  left: 320px;
+  width: 210px;
+  height: 326px;
+  background-image: url(../playerone/img/bridgedoorhl.webp);
+}
+.mechanicDoorBG .mechanicDoorLock {
+  cursor: pointer;
+  top: 330px;
+  right: 0;
+  left: -125px;
+  text-align: center;
+  margin: 0 auto;
+  position: absolute;
+  width: 50px;
+  height: 101px;
+  position: absolute;
+  background-image: url(../playerone/img/bridgelock.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.mechanicDoorBG .mechanicDoorLock:hover {
+  width: 55px;
+  height: 111px;
+  background-image: url(../playerone/img/bridgelockhl.webp);
+}
+
+/* ini big door yang ke pertigaan dari office */
+.act01 .bigDoorFromOfficeBG {
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: url(../playerone/bg/bigdoortolobby.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.bigDoorFromOfficeBG .btnDown {
+  cursor: pointer;
+  bottom: 50px;
+  right: 0;
+  left: 0;
+  text-align: center;
+  margin: 0 auto;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-image: url(../playerone/img/downbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.bigDoorFromOfficeBG .btnDown:hover {
+  background-image: url(../playerone/img/downbtnhl.webp);
+}
+
+/* * ini jalan ke kanan */
 /* toilet cewek */
 .act01 .toiletWomenBG {
   visibility: hidden;
@@ -545,4 +670,343 @@ centering {
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: center top;
+}
+
+.toiletWomenBG .btnLeft {
+  cursor: pointer;
+  top: 0;
+  bottom: 0;
+  left: 25px;
+  text-align: center;
+  margin: auto 0;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-image: url(../playerone/img/leftbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+
+.toiletWomenBG .btnLeft:hover {
+  background-image: url(../playerone/img/leftbtnhl.webp);
+}
+
+/* ini lobby depan toilet */
+.lobbyToiletBG {
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: url(../playerthree/bg/lobbytoilet.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.toiletWomenDoor {
+  cursor: pointer;
+  top: 278px;
+  right: 275px;
+  color: white;
+  text-align: center;
+  margin: 0 auto;
+  width: 200px;
+  height: 300px;
+  position: absolute;
+  background-image: url(../playerone/img/bridgedoor.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.toiletWomenDoor:hover {
+  top: 272px;
+  right: 270px;
+  width: 210px;
+  height: 307px;
+  background-image: url(../playerone/img/bridgedoorhl.webp);
+}
+
+.lobbyToiletBG .btnLeft {
+  cursor: pointer;
+  top: 0;
+  bottom: 0;
+  left: 25px;
+  text-align: center;
+  margin: auto 0;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-image: url(../playerone/img/leftbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+
+.lobbyToiletBG .btnLeft:hover {
+  background-image: url(../playerone/img/leftbtnhl.webp);
+}
+
+.lobbyToiletBG .btnRight {
+  cursor: pointer;
+  top: 0;
+  bottom: 0;
+  right: 25px;
+  text-align: center;
+  margin: auto 0;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-image: url(../playerone/img/backbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.lobbyToiletBG .btnRight:hover {
+  background-image: url(../playerone/img/backbtnhl.webp);
+}
+
+/* ini lobby warehouse */
+.lobbyWarehouseBG {
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: url(../playerthree/bg/lobbywarehousegate.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+
+.lobbyWarehouseBG .btnLeft {
+  cursor: pointer;
+  top: 0;
+  bottom: 0;
+  left: 25px;
+  text-align: center;
+  margin: auto 0;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-image: url(../playerone/img/leftbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+
+.lobbyWarehouseBG .btnLeft:hover {
+  background-image: url(../playerone/img/leftbtnhl.webp);
+}
+
+.lobbyWarehouseBG .btnRight {
+  cursor: pointer;
+  top: 0;
+  bottom: 0;
+  right: 25px;
+  text-align: center;
+  margin: auto 0;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-image: url(../playerone/img/backbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.lobbyWarehouseBG .btnRight:hover {
+  background-image: url(../playerone/img/backbtnhl.webp);
+}
+
+/* ini lobby lab  */
+.lobbyLabBG {
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: url(../playerthree/bg/lobbylabgate.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+
+.lobbyLabBG .btnLeft {
+  cursor: pointer;
+  top: 0;
+  bottom: 0;
+  left: 25px;
+  text-align: center;
+  margin: auto 0;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-image: url(../playerone/img/leftbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+
+.lobbyLabBG .btnLeft:hover {
+  background-image: url(../playerone/img/leftbtnhl.webp);
+}
+
+.lobbyLabBG .btnRight {
+  cursor: pointer;
+  top: 0;
+  bottom: 0;
+  right: 25px;
+  text-align: center;
+  margin: auto 0;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-image: url(../playerone/img/backbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.lobbyLabBG .btnRight:hover {
+  background-image: url(../playerone/img/backbtnhl.webp);
+}
+
+/* ini lobby receptionist */
+.lobbyReceptionistBG {
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: url(../playerthree/bg/lobbyreceptionist.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+
+.btnMechanic {
+  cursor: pointer;
+  top: 278px;
+  right: 475px;
+  color: white;
+  text-align: center;
+  margin: 0 auto;
+  width: 150px;
+  height: 340px;
+  position: absolute;
+  background-image: url(../playerthree/img/mechanic.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.btnMechanic:hover {
+  right: 470px;
+  width: 160px;
+  height: 350px;
+  background-image: url(../playerthree/img/mechanichl.webp);
+}
+
+.lobbyReceptionistBG .btnLeft {
+  cursor: pointer;
+  top: 0;
+  bottom: 0;
+  left: 25px;
+  text-align: center;
+  margin: auto 0;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-image: url(../playerone/img/leftbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.lobbyReceptionistBG .btnLeft:hover {
+  background-image: url(../playerone/img/leftbtnhl.webp);
+}
+
+.lobbyReceptionistBG .btnRight {
+  cursor: pointer;
+  top: 0;
+  bottom: 0;
+  right: 25px;
+  text-align: center;
+  margin: auto 0;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-image: url(../playerone/img/backbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.lobbyReceptionistBG .btnRight:hover {
+  background-image: url(../playerone/img/backbtnhl.webp);
+}
+
+/* ini lobby station */
+.lobbyStationBG {
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: url(../playerthree/bg/lobbystationgate.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+
+.btnAndroid {
+  cursor: pointer;
+  top: 260px;
+  right: 210px;
+  color: white;
+  text-align: center;
+  margin: 0 auto;
+  width: 160px;
+  height: 354px;
+  position: absolute;
+  background-image: url(../playerthree/img/android.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.btnAndroid:hover {
+  right: 205px;
+  width: 170px;
+  height: 364px;
+  background-image: url(../playerthree/img/androidhl.webp);
+}
+
+.lobbyStationBG .btnLeft {
+  cursor: pointer;
+  top: 0;
+  bottom: 0;
+  left: 25px;
+  text-align: center;
+  margin: auto 0;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-image: url(../playerone/img/leftbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.lobbyStationBG .btnLeft:hover {
+  background-image: url(../playerone/img/leftbtnhl.webp);
+}
+
+.lobbyStationBG .btnRight {
+  cursor: pointer;
+  top: 0;
+  bottom: 0;
+  right: 25px;
+  text-align: center;
+  margin: auto 0;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-image: url(../playerone/img/backbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.lobbyStationBG .btnRight:hover {
+  background-image: url(../playerone/img/backbtnhl.webp);
 }
