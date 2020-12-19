@@ -92,15 +92,53 @@ function closeJanitor() {
 var guideY = 0;
 var guideZ = 0;
 var guideAct01 = [
+  //1
   "Oh damn, what was that?",
   "Crap, the door's blocked.",
   "Urgh.. Why did I drink that hot sauce...",
   "What should I do now...",
 
+  //5
   "Ooh.. a screwdriver.. this could be handy..",
+  //6
   "Urgh.. it's screwed tight..",
+  //7
   "It won't budge..",
-  "Mr.blablablablabla"
+  //8
+  "Mr.blablablablabla",
+
+  //9
+  "What're you doing here?",
+  "Are you one of the participants?",
+  "...",
+  "The station's gate is locked.",
+  "We need to recharge the android to force open the gates.",
+  "I need you to find me three powercells.",
+  "I'm sure with your build, you can go through the vents.",
+  "Use this card to get to my office.",
+  "You can find a powercell there.",
+  "There will also be a box in my table.",
+  "I need you to bring it to me.",
+  "Don't dawdle around, we don't have much time.",
+
+  //21
+  "I need you to find three powercells for the Android.",
+  "And don't forget my box.",
+
+  //23
+  "...",
+  "It's like a statue..",
+
+  //25
+  "'SCAN CARD HERE'",
+  //26
+  "I guess it's opened now.",
+  //27
+  "It's locked.",
+  //28
+  "How do I open this..?",
+  //29
+  "Huh. Weird looking battery."
 ];
 
 var guideArray = [];
@@ -121,6 +159,7 @@ function typeWriter() {
 }
 
 $(".gameHUD .chatBtn").click(function () {
+  $(".checkPlayerthree").load("checkPlayerthree.php");
   if (guideArray == guideAct01) {
     chatArrayIndex = 3;
   }
@@ -139,8 +178,22 @@ $(".gameHUD .chatBox").click(function () {
     isTyping = true;
     document.getElementById("chatGuide").innerHTML = "";
 
-    if (act01intro == 1 || guideZ == 4) {
-      act01intro = 1;
+    if (
+      guideZ == 4 ||
+      guideZ == 5 ||
+      guideZ == 6 ||
+      guideZ == 7 ||
+      guideZ == 8 ||
+      guideZ == 20 ||
+      guideZ == 22 ||
+      guideZ == 24 ||
+      guideZ == 25 ||
+      guideZ == 26 ||
+      guideZ == 27 ||
+      guideZ == 28 ||
+      guideZ == 29
+    ) {
+      // act01intro = 1;
       closeChatbox();
       closeUniversal();
     } else {
@@ -190,6 +243,7 @@ $(".toiletBG .btnVent").click(function () {
     show = ".toiletVentBG";
     changeBG(hide, show);
   } else {
+    $(".checkPlayerthree").load("checkPlayerthree.php");
     chatArrayIndex = 5;
     clickTrusChatPopUp(chatArrayIndex);
   }
@@ -203,6 +257,7 @@ $(".walletBG .btnWalletNote").click(function () {
   changeBG(hide, show);
 });
 $(".walletBG .btnCard").click(function () {
+  $(".checkPlayerthree").load("checkPlayerthree.php");
   chatArrayIndex = 7;
   clickTrusChatPopUp(chatArrayIndex);
 });
@@ -231,6 +286,7 @@ $(".janitorToolbox").click(function () {
     $(".janitorToolbox").css("cursor", "default");
     screwdriver = 1;
     addItem();
+    $(".checkPlayerthree").load("checkPlayerthree.php");
     chatArrayIndex = 4;
     clickTrusChatPopUp(chatArrayIndex);
   }
@@ -277,6 +333,140 @@ $(".mechanicDoorBG .btnDown").click(function () {
   show = ".toiletVentLeftBG";
   changeBG(hide, show);
 });
+
+var mechanicdoorlock = 0;
+$(".mechanicDoorBG .mechanicDoorLock").click(function () {
+  if (mechanickeycard != 1) {
+    chatArrayIndex = 24;
+    clickTrusChatPopUp(chatArrayIndex);
+  } else {
+    mechanicdoorlock = 1;
+    chatArrayIndex = 25;
+    clickTrusChatPopUp(chatArrayIndex);
+  }
+});
+$(".mechanicDoorBG .mechanicOfficeDoor").click(function () {
+  if (mechanicdoorlock != 1) {
+    chatArrayIndex = 26;
+    clickTrusChatPopUp(chatArrayIndex);
+  } else {
+    hide = ".mechanicDoorBG";
+    show = ".mechanicOfficeBG";
+    changeBG(hide, show);
+  }
+});
+
+// ini officenya si mechanic
+$(".mechanicOfficeBG .btnRight").click(function () {
+  hide = ".mechanicOfficeBG";
+  show = ".mechanicWorkshopDoorBG";
+  changeBG(hide, show);
+});
+$(".mechanicOfficeBG .btnDown").click(function () {
+  hide = ".mechanicOfficeBG";
+  show = ".mechanicDoorBG";
+  changeBG(hide, show);
+});
+var glassesbox = 0;
+$(".mechanicOfficeBG .btnGlassesBox").click(function () {
+  $(".mechanicOfficeBG .btnGlassesBox").css("display", "none");
+  acquiredItem = "url(../playerthree/img/itemglassesbox.webp)";
+  glassesbox = 1;
+  addItem();
+  chatArrayIndex = 27;
+  clickTrusChatPopUp(chatArrayIndex);
+});
+
+//ini pintu masuk ke dalem workshop
+$(".mechanicWorkshopDoorBG .btnRight").click(function () {
+  hide = ".mechanicWorkshopDoorBG";
+  show = ".mechanicDoorBG";
+  changeBG(hide, show);
+});
+$(".mechanicWorkshopDoorBG .btnDown").click(function () {
+  hide = ".mechanicWorkshopDoorBG";
+  show = ".mechanicOfficeBG";
+  changeBG(hide, show);
+});
+$(".mechanicWorkshopDoorBG .btnAndroidIpad").click(function () {
+  hide = ".mechanicWorkshopDoorBG";
+  show = ".androidIpadBG";
+  changeBG(hide, show);
+});
+
+var androidipadlock = 0;
+$(".mechanicWorkshopDoorBG .mechanicWorkshopDoor").click(function () {
+  if (androidipadlock == 1) {
+    hide = ".mechanicWorkshopDoorBG";
+    show = ".mechanicWorkshopBG";
+    changeBG(hide, show);
+  } else {
+    chatArrayIndex = 26;
+    clickTrusChatPopUp(chatArrayIndex);
+  }
+});
+
+// ini tempat main game qr android
+$(".androidIpadBG .btnBack").click(function () {
+  hide = ".androidIpadBG";
+  show = ".mechanicWorkshopDoorBG";
+  changeBG(hide, show);
+});
+$(".androidIpadBG .btnSubmitIpad").click(function () {
+  var androidipadans = $("#androidIpad")
+    .val()
+    .replace(/\s+/g, "")
+    .toLowerCase();
+  $.ajax({
+    type: "post",
+    url: "playerthree.php?p=androidipad",
+    data: { stat: androidipadans },
+    dataType: "html",
+    success: function (result) {
+      dbcheck = result;
+    },
+  }).done(function () {
+    setTimeout(function () {
+      if (dbcheck == "yes") {
+        //kalo bener
+        $("#androidGuide").html("Yay! You're correct! :>");
+        androidipadlock = 1;
+      } else {
+        //kalo submit trus salah
+        $("#androidGuide").html("Is that the best you can do? rofl.");
+      }
+    }, 1000);
+  });
+});
+
+//ini di depannya workshop
+$(".mechanicWorkshopDoorBG .btnRight").click(function () {
+  hide = ".mechanicWorkshopDoorBG";
+  show = ".mechanicDoorBG";
+  changeBG(hide, show);
+});
+$(".mechanicWorkshopDoorBG .btnDown").click(function () {
+  hide = ".mechanicWorkshopDoorBG";
+  show = ".mechanicOfficeBG";
+  changeBG(hide, show);
+});
+
+//ini di dalemnya workshop
+$(".mechanicWorkshopBG .btnDown").click(function () {
+  hide = ".mechanicWorkshopBG";
+  show = ".mechanicWorkshopDoorBG";
+  changeBG(hide, show);
+});
+var workshoppowercell = 0;
+$(".mechanicWorkshopBG .btnWorkshopPowercell").click(function () {
+  $(".mechanicWorkshopBG .btnWorkshopPowercell").css("display", "none");
+  acquiredItem = "url(../playerthree/img/itempowercellworkshop.webp)";
+  workshoppowercell = 1;
+  addItem();
+  chatArrayIndex = 28;
+  clickTrusChatPopUp(chatArrayIndex);
+});
+
 //ini gate besar yang ke pertigaan dari office
 $(".bigDoorFromOfficeBG .btnDown").click(function () {
   hide = ".bigDoorFromOfficeBG";
@@ -350,8 +540,19 @@ $(".lobbyLabBG .btnRight").click(function () {
 });
 
 //ini lobby receptionist
+var mechanickeycard = 0;
 $(".lobbyReceptionistBG .btnMechanic").click(function () {
-  
+  $(".checkPlayerthree").html("Mechanic");
+  if (mechanickeycard == 0) {
+    acquiredItem = "url(../playerthree/img/itemmechanickeycard.webp)";
+    mechanickeycard = 1;
+    addItem();
+    chatArrayIndex = 9;
+    clickTrusChatPopUp(chatArrayIndex);
+  } else {
+    chatArrayIndex = 20;
+    clickTrusChatPopUp(chatArrayIndex);
+  }
 });
 $(".lobbyReceptionistBG .btnLeft").click(function () {
   hide = ".lobbyReceptionistBG";
@@ -374,4 +575,9 @@ $(".lobbyStationBG .btnRight").click(function () {
   hide = ".lobbyStationBG";
   show = ".lobbyToiletBG";
   changeBG(hide, show);
+});
+$(".lobbyStationBG .btnAndroid").click(function () {
+  $(".checkPlayerthree").load("checkPlayerthree.php");
+  chatArrayIndex = 22;
+  clickTrusChatPopUp(chatArrayIndex);
 });

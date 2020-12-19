@@ -31,7 +31,6 @@ var guideAct01 = [
   "Now I need to wait the photo to dry.",
 ];
 
-
 $(document).ready(function () {
   setTimeout(function () {
     $(".checkPlayerone").load("checkPlayerone.php");
@@ -110,7 +109,7 @@ function clickTrusChatPopUp(chatArrayIndex) {
 function openCamera(confirmationClass) {
   if (polaroid > 1) {
     $(".popUpSubCamera").html("You can take " + polaroid + " more photos.");
-  } else{
+  } else {
     $(".popUpSubCamera").html("You can take " + polaroid + " more photo.");
   }
   $(".act01 " + confirmationClass).css("visibility", "visible");
@@ -355,7 +354,7 @@ var switch4 = 0;
 var switch5 = 0;
 $(".bridgePanelBG .switch1").click(function () {
   $(".switch1").css("background-image", "url(../playerone/img/switchon.webp)");
-  var reiner01ans = $("#panelBridge1").val().replace(/\s+/g, '').toLowerCase();
+  var reiner01ans = $("#panelBridge1").val().replace(/\s+/g, "").toLowerCase();
   $.ajax({
     type: "post",
     url: "playerone.php?p=reiner01",
@@ -383,7 +382,7 @@ $(".bridgePanelBG .switch1").click(function () {
 });
 $(".bridgePanelBG .switch2").click(function () {
   $(".switch2").css("background-image", "url(../playerone/img/switchon.webp)");
-  var reiner02ans = $("#panelBridge2").val().replace(/\s+/g, '').toLowerCase();
+  var reiner02ans = $("#panelBridge2").val().replace(/\s+/g, "").toLowerCase();
   $.ajax({
     type: "post",
     url: "playerone.php?p=reiner02",
@@ -411,7 +410,8 @@ $(".bridgePanelBG .switch2").click(function () {
 });
 $(".bridgePanelBG .switch3").click(function () {
   $(".switch3").css("background-image", "url(../playerone/img/switchon.webp)");
-  var reiner03ans = $("#panelBridge3").val().replace(/\s+/g, '').toLowerCase();$.ajax({
+  var reiner03ans = $("#panelBridge3").val().replace(/\s+/g, "").toLowerCase();
+  $.ajax({
     type: "post",
     url: "playerone.php?p=reiner03",
     data: { stat: reiner03ans },
@@ -438,7 +438,7 @@ $(".bridgePanelBG .switch3").click(function () {
 });
 $(".bridgePanelBG .switch4").click(function () {
   $(".switch4").css("background-image", "url(../playerone/img/switchon.webp)");
-  var reiner04ans = $("#panelBridge4").val().replace(/\s+/g, '').toLowerCase();
+  var reiner04ans = $("#panelBridge4").val().replace(/\s+/g, "").toLowerCase();
   $.ajax({
     type: "post",
     url: "playerone.php?p=reiner04",
@@ -466,7 +466,7 @@ $(".bridgePanelBG .switch4").click(function () {
 });
 $(".bridgePanelBG .switch5").click(function () {
   $(".switch5").css("background-image", "url(../playerone/img/switchon.webp)");
-  var reiner05ans = $("#panelBridge5").val().replace(/\s+/g, '').toLowerCase();
+  var reiner05ans = $("#panelBridge5").val().replace(/\s+/g, "").toLowerCase();
   $.ajax({
     type: "post",
     url: "playerone.php?p=reiner05",

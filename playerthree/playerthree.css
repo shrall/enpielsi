@@ -51,7 +51,6 @@ centering {
   height: 100%;
   position: absolute;
 }
-
 .chatBtn {
   cursor: pointer;
   position: absolute;
@@ -627,6 +626,306 @@ centering {
   height: 111px;
   background-image: url(../playerone/img/bridgelockhl.webp);
 }
+
+/* ini officenya si mechanic */
+.act01 .mechanicOfficeBG {
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: url(../playerthree/bg/mechanicoffice.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.mechanicOfficeBG .btnDown {
+  cursor: pointer;
+  bottom: 50px;
+  right: 0;
+  left: 0;
+  text-align: center;
+  margin: 0 auto;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-image: url(../playerone/img/downbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.mechanicOfficeBG .btnDown:hover {
+  background-image: url(../playerone/img/downbtnhl.webp);
+}
+.mechanicOfficeBG .btnRight {
+  cursor: pointer;
+  top: 0;
+  bottom: 0;
+  right: 25px;
+  text-align: center;
+  margin: auto 0;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-image: url(../playerone/img/backbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.mechanicOfficeBG .btnRight:hover {
+  background-image: url(../playerone/img/backbtnhl.webp);
+}
+.mechanicOfficeBG .btnGlassesBox {
+  cursor: pointer;
+  bottom: 232px;
+  right: -30px;
+  left: 0;
+  text-align: center;
+  margin: 0 auto;
+  position: absolute;
+  width: 80px;
+  height: 30px;
+  position: absolute;
+  background-image: url(../playerthree/img/glassesbox.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.mechanicOfficeBG .btnGlassesBox:hover {
+  background-image: url(../playerthree/img/glassesboxhl.webp);
+}
+
+/* ini didepannya workshop */
+.act01 .mechanicWorkshopDoorBG {
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: url(../playerthree/bg/mechanicworkshopdoor.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.mechanicWorkshopDoorBG .btnDown {
+  cursor: pointer;
+  bottom: 50px;
+  right: 0;
+  left: 0;
+  text-align: center;
+  margin: 0 auto;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-image: url(../playerone/img/downbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.mechanicWorkshopDoorBG .btnDown:hover {
+  background-image: url(../playerone/img/downbtnhl.webp);
+}
+.mechanicWorkshopDoorBG .btnRight {
+  cursor: pointer;
+  top: 0;
+  bottom: 0;
+  right: 25px;
+  text-align: center;
+  margin: auto 0;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-image: url(../playerone/img/backbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.mechanicWorkshopDoorBG .btnRight:hover {
+  background-image: url(../playerone/img/backbtnhl.webp);
+}
+.mechanicWorkshopDoor {
+  cursor: pointer;
+  top: 268px;
+  left: 335px;
+  color: white;
+  text-align: center;
+  margin: 0 auto;
+  width: 200px;
+  height: 311px;
+  position: absolute;
+  background-image: url(../playerone/img/bridgedoor.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.mechanicWorkshopDoor:hover {
+  top: 262px;
+  left: 330px;
+  width: 210px;
+  height: 326px;
+  background-image: url(../playerone/img/bridgedoorhl.webp);
+}
+.mechanicWorkshopDoorBG .btnAndroidIpad {
+  cursor: pointer;
+  top: 350px;
+  right: 0;
+  left: -80px;
+  text-align: center;
+  margin: 0 auto;
+  position: absolute;
+  width: 100px;
+  height: 65px;
+  position: absolute;
+  background-image: url(../playerthree/img/ipad.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.mechanicWorkshopDoorBG .btnAndroidIpad:hover {
+  background-image: url(../playerthree/img/ipadhl.webp);
+}
+
+/* ini tempat main qr yang ipad android */
+.act01 .androidIpadBG {
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: url(../playerthree/bg/ipadandroid.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.androidIpadBG .btnBack {
+  cursor: pointer;
+  top: 70px;
+  right: 10px;
+  padding: 5px;
+  color: white;
+  text-align: center;
+  margin: 0 auto;
+  width: 150px;
+  height: 38px;
+  position: absolute;
+  background-image: url(../playerone/img/backbtnbig.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.androidIpadBG .btnBack:hover {
+  background-image: url(../playerone/img/backbtnbighl.webp);
+}
+.androidIpadBG .btnSubmitIpad {
+  cursor: pointer;
+  left: 350px;
+  bottom: 180px;
+  text-align: center;
+  margin: 0 auto;
+  width: 150px;
+  height: 50px;
+  position: absolute;
+  background-image: url(../playerthree/img/ipadsubmit.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.androidIpadBG .btnSubmitIpad:hover {
+  background-image: url(../playerthree/img/ipadsubmithl.webp);
+}
+#androidGuide {
+  color: #00374B !important;
+  font-family: "Exo";
+  position: absolute;
+  width: 400px;
+  top: 205px;
+  right: 240px;
+  text-align: left;
+  font-size: 23px;
+}
+.androidInput {
+  left: 300px;
+  bottom: 250px;
+  width: 245px;
+  height: 35px;
+  text-align: center;
+  margin: 0 auto;
+  position: absolute;
+  background-image: url(../playerthree/img/ipadinput.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.androidIpadInput {
+  color: #00374B !important;
+  text-align: center;
+  font-family: "Exo";
+  font-size: 20px;
+  background: transparent;
+  text-align: left;
+  border: none;
+  width: inherit;
+  height: inherit;
+}
+
+.androidIpadInput:focus {
+  outline: none;
+}
+.androidIpadInput::placeholder {
+  color: #335F6F !important;
+}
+
+
+/* ini workshopnya mechanic */
+.act01 .mechanicWorkshopBG {
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: url(../playerthree/bg/mechanicworkshop.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.mechanicWorkshopBG .btnDown {
+  cursor: pointer;
+  bottom: 50px;
+  right: 0;
+  left: 0;
+  text-align: center;
+  margin: 0 auto;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-image: url(../playerone/img/downbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.mechanicWorkshopBG .btnDown:hover {
+  background-image: url(../playerone/img/downbtnhl.webp);
+}
+.mechanicWorkshopBG .btnWorkshopPowercell {
+  cursor: pointer;
+  top: 390px;
+  right: 0;
+  left: 0;
+  text-align: center;
+  margin: 0 auto;
+  position: absolute;
+  width: 80px;
+  height: 50px;
+  position: absolute;
+  background-image: url(../playerthree/img/powercellworkshop.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.mechanicWorkshopBG .btnWorkshopPowercell:hover {
+  background-image: url(../playerthree/img/powercellworkshophl.webp);
+}
+
+
 
 /* ini big door yang ke pertigaan dari office */
 .act01 .bigDoorFromOfficeBG {
