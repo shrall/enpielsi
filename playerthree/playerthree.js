@@ -138,10 +138,23 @@ var guideAct01 = [
   //28
   "How do I open this..?",
   //29
-  "Huh. Weird looking battery."
+  "Huh. Weird looking battery.",
 ];
 
 var guideArray = [];
+
+var androidGuideY = 0;
+var androidGuideZ = 0;
+
+var androidGuideArray = [
+  "Hi! Scan the QR Code to play with me and I'll tell you the password ^_^",
+  "Yay! You're correct! :>",
+  "Is that the best you can do? rofl.",
+  "You're incorrect. :<",
+  "Just give up lol.",
+  "CONGRATS! YOUR ANSWER IS WRONG! HAHA.",
+  "WRONG PASSWORD. >:("
+];
 
 function typeWriter() {
   if (guideY < guideArray[guideZ].length) {
@@ -158,11 +171,24 @@ function typeWriter() {
   }
 }
 
+function typeWriterAndroid() {
+  if (androidGuideY < androidGuideArray[androidGuideZ].length) {
+    document.getElementById("androidGuide").innerHTML += androidGuideArray[
+      androidGuideZ
+    ].charAt(androidGuideY);
+    androidGuideY++;
+    if (androidGuideY == androidGuideArray[androidGuideZ].length) {
+      isTyping = false;
+    }
+    if (isTyping != false) {
+      setTimeout(typeWriterAndroid, 50);
+    }
+  }
+}
+
 $(".gameHUD .chatBtn").click(function () {
   $(".checkPlayerthree").load("checkPlayerthree.php");
-  if (guideArray == guideAct01) {
-    chatArrayIndex = 3;
-  }
+  chatArrayIndex = 3;
   clickTrusChatPopUp(chatArrayIndex);
 });
 
@@ -193,7 +219,6 @@ $(".gameHUD .chatBox").click(function () {
       guideZ == 28 ||
       guideZ == 29
     ) {
-      // act01intro = 1;
       closeChatbox();
       closeUniversal();
     } else {
@@ -389,6 +414,11 @@ $(".mechanicWorkshopDoorBG .btnDown").click(function () {
   changeBG(hide, show);
 });
 $(".mechanicWorkshopDoorBG .btnAndroidIpad").click(function () {
+  androidGuideZ = 0;
+  androidGuideY = 0;
+  isTyping = true;
+  $("#androidGuide").html("");
+  setTimeout(typeWriterAndroid, 300);
   hide = ".mechanicWorkshopDoorBG";
   show = ".androidIpadBG";
   changeBG(hide, show);
@@ -429,11 +459,19 @@ $(".androidIpadBG .btnSubmitIpad").click(function () {
     setTimeout(function () {
       if (dbcheck == "yes") {
         //kalo bener
-        $("#androidGuide").html("Yay! You're correct! :>");
+        androidGuideZ = 1;
+        androidGuideY = 0;
+        isTyping = true;
+        $("#androidGuide").html("");
+        setTimeout(typeWriterAndroid, 300);
         androidipadlock = 1;
       } else {
         //kalo submit trus salah
-        $("#androidGuide").html("Is that the best you can do? rofl.");
+        androidGuideZ = Math.floor(Math.random() * 5) + 2;
+        androidGuideY = 0;
+        isTyping = true;
+        $("#androidGuide").html("");
+        setTimeout(typeWriterAndroid, 300);
       }
     }, 1000);
   });
@@ -540,7 +578,7 @@ $(".lobbyLabBG .btnRight").click(function () {
 });
 
 //ini lobby receptionist
-var mechanickeycard = 0;
+var mechanickeycard = 1;
 $(".lobbyReceptionistBG .btnMechanic").click(function () {
   $(".checkPlayerthree").html("Mechanic");
   if (mechanickeycard == 0) {
