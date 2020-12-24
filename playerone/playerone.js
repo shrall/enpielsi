@@ -594,6 +594,10 @@ $(".mainLabChemical .btnChemicals").click(function () {
   }
 });
 $(".mainLabChemical .selectAChemical").click(function () {
+  if(polaroid == 3){
+    acquiredItem = "url(../playerone/img/itemphotos.webp)";
+    addItem();
+  }
   polaroid--;
   bonuspoints++;
   $.ajax({
@@ -664,6 +668,10 @@ $(".mainLabMonitor .btnHugeMonitor").click(function () {
   }
 });
 $(".mainLabMonitor .selectAHugeMonitor").click(function () {
+  if(polaroid == 3){
+    acquiredItem = "url(../playerone/img/itemphotos.webp)";
+    addItem();
+  }
   polaroid--;
   bonuspoints++;
   $.ajax({
@@ -712,6 +720,10 @@ $(".mainLabPhotos .btnPhotoFrames").click(function () {
   }
 });
 $(".mainLabPhotos .selectAPhotos").click(function () {
+  if(polaroid == 3){
+    acquiredItem = "url(../playerone/img/itemphotos.webp)";
+    addItem();
+  }
   polaroid--;
   photoPhotoFrame++;
   closePopUpTwo();
@@ -751,6 +763,10 @@ $(".mainLabWhiteboard .btnNoteVirus").click(function () {
 });
 
 $(".mainLabWhiteboard .selectANoteVirus").click(function () {
+  if(polaroid == 3){
+    acquiredItem = "url(../playerone/img/itemphotos.webp)";
+    addItem();
+  }
   polaroid--;
   bonuspoints++;
   $.ajax({
@@ -782,6 +798,10 @@ $(".mainLabWhiteboard .btnNoteMom").click(function () {
   }
 });
 $(".mainLabWhiteboard .selectANoteMom").click(function () {
+  if(polaroid == 3){
+    acquiredItem = "url(../playerone/img/itemphotos.webp)";
+    addItem();
+  }
   polaroid--;
   photoNoteMom++;
   closePopUpTwo();
@@ -804,6 +824,10 @@ $(".mainLabWhiteboard .btnNoteTrash").click(function () {
   }
 });
 $(".mainLabWhiteboard .selectANoteTrash").click(function () {
+  if(polaroid == 3){
+    acquiredItem = "url(../playerone/img/itemphotos.webp)";
+    addItem();
+  }
   polaroid--;
   photoNoteTrash++;
   closePopUpTwo();
