@@ -210,6 +210,7 @@ centering {
   position: absolute;
 }
 
+/* ini control room  */
 .act01 .controlRoomBG {
   width: 100%;
   height: 100%;
@@ -219,6 +220,98 @@ centering {
   background-size: 100%;
   background-position: center top;
 }
+.btnAnna01 {
+  cursor: pointer;
+  right: 0;
+  left: 0;
+  bottom: 252px;
+  padding: 5px;
+  text-align: center;
+  margin: 0 auto;
+  width: 80px;
+  height: 69px;
+  position: absolute;
+  background-image: url(../playertwo/img/anna01panel.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.btnAnna01:hover {
+  background-image: url(../playertwo/img/anna01panelhl.webp);
+}
+.controlRoomBG .btnLocker {
+  cursor: pointer;
+  left: 5px;
+  bottom: 139px;
+  text-align: center;
+  margin: 0 auto;
+  width: 105px;
+  height: 221px;
+  position: absolute;
+  background-image: url(../playertwo/img/locker.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.controlRoomBG .btnLocker:hover {
+  bottom: 126px;
+  width: 111px;
+  height: 235px;
+  background-image: url(../playertwo/img/lockerhl.webp);
+}
+
+.controlRoomBG .btnControlPanel {
+  cursor: pointer;
+  right: 300px;
+  top: 280px;
+  text-align: center;
+  margin: 0 auto;
+  width: 275px;
+  height: 169px;
+  position: absolute;
+  background-image: url(../playertwo/img/controlpanel.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.btnControlPanel:hover {
+  background-image: url(../playertwo/img/controlpanelhl.webp);
+}
+
+.controlRoomBG .lockerBG {
+  z-index: 4;
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  height: 666px;
+  width: 341px;
+  top: 10px;
+  position: absolute;
+  background-image: url(../playertwo/img/controllocker.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.lockerBook {
+  cursor: pointer;
+  position: absolute;
+  top: 380px;
+  right: 50px;
+  width: 145px;
+  height: 42px;
+  background-image: url(../playertwo/img/lockerbook.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.lockerBook:hover {
+  background-image: url(../playertwo/img/lockerbookhl.webp);
+}
+
+/* ini komputer yang buat njawab riddlenya anna  */
 .act01 .anna01BG {
   color: #d2fffd;
   visibility: hidden;
@@ -262,25 +355,6 @@ centering {
   right: 70px;
   text-align: center;
   margin: 0 auto;
-}
-.btnAnna01 {
-  cursor: pointer;
-  right: 0;
-  left: 0;
-  bottom: 252px;
-  padding: 5px;
-  text-align: center;
-  margin: 0 auto;
-  width: 80px;
-  height: 69px;
-  position: absolute;
-  background-image: url(../playertwo/img/anna01panel.webp);
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-position: center top;
-}
-.btnAnna01:hover {
-  background-image: url(../playertwo/img/anna01panelhl.webp);
 }
 .anna01BG .input01 {
   font-family: "Abyssopelagic", Roboto;
@@ -502,77 +576,7 @@ centering {
   background-color: #333;
 }
 
-.controlRoomBG .btnLocker {
-  cursor: pointer;
-  left: 5px;
-  bottom: 139px;
-  text-align: center;
-  margin: 0 auto;
-  width: 105px;
-  height: 221px;
-  position: absolute;
-  background-image: url(../playertwo/img/locker.webp);
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-position: center top;
-}
-
-.controlRoomBG .btnLocker:hover {
-  bottom: 126px;
-  width: 111px;
-  height: 235px;
-  background-image: url(../playertwo/img/lockerhl.webp);
-}
-.btnControlPanel {
-  cursor: pointer;
-  right: 300px;
-  top: 280px;
-  text-align: center;
-  margin: 0 auto;
-  width: 275px;
-  height: 169px;
-  position: absolute;
-  background-image: url(../playertwo/img/controlpanel.webp);
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-position: center top;
-}
-.btnControlPanel:hover {
-  background-image: url(../playertwo/img/controlpanelhl.webp);
-}
-
-.controlRoomBG .lockerBG {
-  z-index: 4;
-  visibility: hidden;
-  opacity: 0;
-  position: absolute;
-  margin: 0 auto;
-  left: 0;
-  right: 0;
-  height: 666px;
-  width: 341px;
-  top: 10px;
-  position: absolute;
-  background-image: url(../playertwo/img/controllocker.webp);
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-position: center top;
-}
-.lockerBook {
-  cursor: pointer;
-  position: absolute;
-  top: 380px;
-  right: 50px;
-  width: 145px;
-  height: 42px;
-  background-image: url(../playertwo/img/lockerbook.webp);
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-position: center top;
-}
-.lockerBook:hover {
-  background-image: url(../playertwo/img/lockerbookhl.webp);
-}
+/* ini monitor yang gede. yang control panel  */
 .controlPanelBG {
   visibility: hidden;
   width: 100%;
@@ -603,7 +607,8 @@ centering {
   background-image: url(../playerone/img/backbtnbighl.webp);
 }
 
-.panelLoginScreen {
+/* ini yang ngisi password di control panel / login di awal  */
+.controlPanelBG .panelLoginScreen {
   position: absolute;
   top: 166px;
   margin: 0 auto;
@@ -616,7 +621,7 @@ centering {
   background-size: 100%;
   background-position: center top;
 }
-.passInput {
+.panelLoginScreen .passInput {
   right: 0;
   left: 0;
   bottom: 160px;
@@ -624,8 +629,8 @@ centering {
   margin: 0 auto;
   position: absolute;
 }
-.panelPassInput {
-  color: black;
+.panelLoginScreen .panelPassInput {
+  color: #00374b;
   text-align: center;
   font-family: "Exo";
   font-size: 20px;
@@ -639,72 +644,13 @@ centering {
   width: 220px;
   height: 21px;
 }
-.panelPassInput:focus {
+.panelLoginScreen .panelPassInput:focus {
   outline: none;
 }
-.panelLoggedinScreen {
-  visibility: hidden;
-  opacity: 0;
-  position: absolute;
-  top: 166px;
-  margin: 0 auto;
-  left: -50px;
-  right: 0;
-  width: 900px;
-  height: 500px;
-  background-image: url(../playertwo/img/controlpanelscreenloggedin.webp);
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-position: center top;
+.panelLoginScreen .panelPassInput::placeholder {
+  color: #335F6F !important;
 }
-.panelCCTV {
-  cursor: pointer;
-  position: absolute;
-  top: 105px;
-  margin: 0 auto;
-  left: 130px;
-  width: 230px;
-  height: 221px;
-  background-image: url(../playertwo/img/controlcctv.webp);
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-position: center top;
-}
-.panelCCTV:hover {
-  background-image: url(../playertwo/img/controlcctvhl.webp);
-}
-.panelMap {
-  cursor: pointer;
-  position: absolute;
-  top: 155px;
-  margin: 0 auto;
-  right: 60px;
-  width: 300px;
-  height: 200px;
-  background-image: url(../playertwo/img/controlmap.webp);
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-position: center top;
-}
-.panelMap:hover {
-  background-image: url(../playertwo/img/controlmaphl.webp);
-}
-
-.controlPanelBG .panelTime {
-  font-family: "Abyssopelagic", Roboto;
-  color: #99D4DF;
-  font-size: 60px;
-  -webkit-text-stroke: 4px#99D4DF;
-  position: absolute;
-  top: 40px;
-  right: -15px;
-  text-align: center;
-  margin: 0 auto;
-  width: 330px;
-  height: 140px;
-}
-
-.panelLoginScreen .submitInput{
+.panelLoginScreen .submitInput {
   cursor: pointer;
   right: 0;
   left: -15px;
@@ -722,4 +668,348 @@ centering {
 
 .panelLoginScreen .submitInput:hover {
   background-image: url(../playertwo/img/anna01submithl.webp);
+}
+
+/* ini yang abis login. yang ada tempat buat milih cctv & floor  */
+.controlPanelBG .panelLoggedinScreen {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  top: 166px;
+  margin: 0 auto;
+  left: -50px;
+  right: 0;
+  width: 900px;
+  height: 500px;
+  background-image: url(../playertwo/img/controlpanelscreenloggedin.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.panelLoggedinScreen .panelCCTV {
+  cursor: pointer;
+  position: absolute;
+  top: 105px;
+  margin: 0 auto;
+  left: 130px;
+  width: 230px;
+  height: 221px;
+  background-image: url(../playertwo/img/controlcctv.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.panelLoggedinScreen .panelCCTV:hover {
+  background-image: url(../playertwo/img/controlcctvhl.webp);
+}
+.panelLoggedinScreen .panelFloorBtn {
+  cursor: pointer;
+  position: absolute;
+  top: 155px;
+  margin: 0 auto;
+  right: 60px;
+  width: 300px;
+  height: 200px;
+  background-image: url(../playertwo/img/btnfloorselection.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.panelLoggedinScreen .panelFloorBtn:hover {
+  background-image: url(../playertwo/img/btnfloorselectionhl.webp);
+}
+
+.panelLoggedinScreen .panelTime {
+  font-family: "Abyssopelagic", Roboto;
+  color: #99d4df;
+  font-size: 60px;
+  -webkit-text-stroke: 4px#99D4DF;
+  position: absolute;
+  top: 40px;
+  right: -15px;
+  text-align: center;
+  margin: 0 auto;
+  width: 330px;
+  height: 140px;
+}
+
+/* ini yang milih floor  */
+.controlPanelBG .panelFloorSelectionScreen {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  top: 166px;
+  margin: 0 auto;
+  left: -50px;
+  right: 0;
+  width: 900px;
+  height: 500px;
+  background-image: url(../playertwo/img/floorselection.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.panelFloorSelectionScreen .floor5btn {
+  cursor: pointer;
+  position: absolute;
+  bottom: 60px;
+  margin: 0 auto;
+  left: -120px;
+  right: 0;
+  width: 80px;
+  height: 40px;
+  background-image: url(../playertwo/img/btnfloor5.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.panelFloorSelectionScreen .floor5btn:hover {
+  background-image: url(../playertwo/img/btnfloor5hl.webp);
+}
+.panelFloorSelectionScreen .btnScreenBack {
+  cursor: pointer;
+  top: 30px;
+  left: 10px;
+  padding: 5px;
+  color: white;
+  text-align: center;
+  margin: 0 auto;
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  background-image: url(../playertwo/img/btnback.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.panelFloorSelectionScreen .btnScreenBack:hover {
+  background-image: url(../playertwo/img/btnbackhl.webp);
+}
+
+/* ini yang buat buka gate  */
+.controlPanelBG .panelAccessPointsScreen {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  top: 166px;
+  margin: 0 auto;
+  left: -50px;
+  right: 0;
+  width: 900px;
+  height: 500px;
+  background-image: url(../playertwo/img/gateaccesscontrolscreen.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.panelAccessPointsScreen .floorSelectionWindow {
+  position: absolute;
+  top: 90px;
+  margin: 0 auto;
+  left: 24px;
+  width: 225px;
+  height: 265px;
+  background-image: url(../playertwo/img/floorselectionwindow.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.panelAccessPointsScreen .gateSelectionWindow {
+  position: absolute;
+  top: 90px;
+  margin: 0 auto;
+  left: 260px;
+  width: 351px;
+  height: 265px;
+  background-image: url(../playertwo/img/gateselectionwindow.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.panelAccessPointsScreen .gatePasswordWindow {
+  position: absolute;
+  top: 90px;
+  margin: 0 auto;
+  right: 18px;
+  width: 262px;
+  height: 265px;
+  background-image: url(../playertwo/img/gatepasswordwindow.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.panelAccessPointsScreen .gate05btn {
+  cursor: pointer;
+  position: absolute;
+  margin: 0 auto;
+  width: 105px;
+  height: 55px;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.panelAccessPointsScreen .lock{
+  top: 5px;
+  right: 10px;
+  width: 32px;
+  height: 40px;
+  position: absolute;
+  margin: 0 auto;
+  background-image: url(../playertwo/img/locked.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.panelAccessPointsScreen .gate05a {
+  top: 40px;
+  left: 10px;
+  background-image: url(../playertwo/img/gate05abtn.webp);
+}
+.panelAccessPointsScreen .gate05a:hover {
+  background-image: url(../playertwo/img/gate05abtnhl.webp);
+}
+.panelAccessPointsScreen .gate05b {
+  top: 40px;
+  left: 0;
+  right: 0;
+  background-image: url(../playertwo/img/gate05bbtn.webp);
+}
+.panelAccessPointsScreen .gate05b:hover {
+  background-image: url(../playertwo/img/gate05bbtnhl.webp);
+}
+.panelAccessPointsScreen .gate05c {
+  top: 40px;
+  right: 10px;
+  background-image: url(../playertwo/img/gate05cbtn.webp);
+}
+.panelAccessPointsScreen .gate05c:hover {
+  background-image: url(../playertwo/img/gate05cbtnhl.webp);
+}
+.panelAccessPointsScreen .gate05d {
+  top: 100px;
+  left: 10px;
+  background-image: url(../playertwo/img/gate05dbtn.webp);
+}
+.panelAccessPointsScreen .gate05d:hover {
+  background-image: url(../playertwo/img/gate05dbtnhl.webp);
+}
+.panelAccessPointsScreen .gate05e {
+  top: 100px;
+  left: 0;
+  right: 0;
+  background-image: url(../playertwo/img/gate05ebtn.webp);
+}
+.panelAccessPointsScreen .gate05e:hover {
+  background-image: url(../playertwo/img/gate05ebtnhl.webp);
+}
+.panelAccessPointsScreen .gate05f {
+  top: 100px;
+  right: 10px;
+  background-image: url(../playertwo/img/gate05fbtn.webp);
+}
+.panelAccessPointsScreen .gate05f:hover {
+  background-image: url(../playertwo/img/gate05fbtnhl.webp);
+}
+.panelAccessPointsScreen .gate05g {
+  top: 160px;
+  left: 10px;
+  background-image: url(../playertwo/img/gate05gbtn.webp);
+}
+.panelAccessPointsScreen .gate05g:hover {
+  background-image: url(../playertwo/img/gate05gbtnhl.webp);
+}
+.panelAccessPointsScreen .gate05h {
+  top: 160px;
+  left: 0;
+  right: 0;
+  background-image: url(../playertwo/img/gate05hbtn.webp);
+}
+.panelAccessPointsScreen .gate05h:hover {
+  background-image: url(../playertwo/img/gate05hbtnhl.webp);
+}
+.panelAccessPointsScreen .gate05i {
+  top: 160px;
+  right: 10px;
+  background-image: url(../playertwo/img/gate05ibtn.webp);
+}
+.panelAccessPointsScreen .gate05i:hover {
+  background-image: url(../playertwo/img/gate05ibtnhl.webp);
+}
+.panelAccessPointsScreen .gateName {
+  position: absolute;
+  font-family: "Ailerons";
+  color: #99d4df;
+  top: 50px;
+  left: 7px;
+  font-size: 32px;
+}
+.gateInput {
+  right: 0;
+  left: 0;
+  bottom: 60px;
+  width: 180px;
+  height: 35px;
+  text-align: center;
+  margin: 0 auto;
+  position: absolute;
+  background-image: url(../playertwo/img/gateinput.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.gatePassInput {
+  color: #00374B !important;
+  text-align: center;
+  font-family: "Exo";
+  font-size: 14px;
+  background: transparent;
+  text-align: center;
+  border: none;
+  padding: 0;
+  width: inherit;
+  height: inherit;
+}
+
+.gatePassInput:focus {
+  outline: none;
+}
+.gatePassInput::placeholder {
+  color: #335F6F !important;
+}
+.panelAccessPointsScreen .submitInput {
+  cursor: pointer;
+  right: 0;
+  left: 0;
+  bottom: 15px;
+  text-align: center;
+  margin: 0 auto;
+  width: 90px;
+  height: 35px;
+  position: absolute;
+  background-image: url(../playertwo/img/gatsubmitbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.panelAccessPointsScreen .submitInput:hover {
+  background-image: url(../playertwo/img/gatesubmitbtnhl.webp);
+}
+.panelAccessPointsScreen .btnScreenBack {
+  cursor: pointer;
+  top: 10px;
+  right: 20px;
+  padding: 5px;
+  color: white;
+  text-align: center;
+  margin: 0 auto;
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  background-image: url(../playertwo/img/btnback.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.panelAccessPointsScreen .btnScreenBack:hover {
+  background-image: url(../playertwo/img/btnbackhl.webp);
 }

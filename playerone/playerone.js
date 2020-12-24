@@ -29,6 +29,7 @@ var guideAct01 = [
   "There's only 31 days on January..",
   "What is he trying to make..?",
   "Now I need to wait the photo to dry.",
+  "Does this button do anything?",
 ];
 
 $(document).ready(function () {
@@ -93,7 +94,18 @@ function closeUniversal() {
   if ($(".gameHUD .chatBox").css("visibility") != "visible") {
     closeInventorybox();
     closePopUpTwo();
+    closeGateClue(gateName);
   }
+}
+function openGateClue(gateName) {
+  $(".act01 " + gateName).css("visibility", "visible");
+  $(".act01 " + gateName).animate({ opacity: "1" }, 300);
+  openChatBlockTouch();
+}
+function closeGateClue(gateName) {
+  $(".act01 " + gateName).css("visibility", "hidden");
+  $(".act01 " + gateName).animate({ opacity: "0" }, 300);
+  closeChatBlockTouch();
 }
 function sceneTransition() {
   $(".gameHUD .transitionBG").css("visibility", "visible");
@@ -264,7 +276,7 @@ $(".outsideLab .outsideBigDoor").click(function () {
 
 $(".threeLab .btnLeft").click(function () {
   hide = ".threeLab";
-  show = ".bigDoorToLobby";
+  show = ".gate05aBG";
   changeBG(hide, show);
 });
 $(".threeLab .btnRight").click(function () {
@@ -740,10 +752,19 @@ $(".mainLabWhiteboard .btnNoteVirus").click(function () {
 
 $(".mainLabWhiteboard .selectANoteVirus").click(function () {
   polaroid--;
-  photoNoteVirus++;
-  closePopUpTwo();
-  chatArrayIndex = 20;
-  clickTrusChatPopUp(chatArrayIndex);
+  bonuspoints++;
+  $.ajax({
+    type: "post",
+    url: "playerone.php?p=bonuscamera",
+    data: { stat: bonuspoints },
+    dataType: "html",
+    success: function (result) {},
+  }).done(function () {
+    photoNoteVirus++;
+    closePopUpTwo();
+    chatArrayIndex = 20;
+    clickTrusChatPopUp(chatArrayIndex);
+  });
 });
 
 var photoNoteMom = 0;
@@ -807,9 +828,34 @@ $(".mainLabWhiteboard .btnDown").click(function () {
 });
 
 // ini jalan ke kiri
-
-$(".bigDoorToLobby .btnDown").click(function () {
-  hide = ".bigDoorToLobby";
+$(".gate05aBG .btnGateIpad").click(function () {
+  gateName = ".gate05aClueBG";
+  openGateClue(gateName);
+});
+var gate05a = 0;
+$(".gate05aBG .btnGate").click(function () {
+  $.ajax({
+    type: "post",
+    url: "playerone.php?p=checkgate05a",
+    data: { stat: dbcheck },
+    dataType: "html",
+    success: function (result) {
+      dbcheck = result;
+    },
+  }).done(function () {
+    if (dbcheck == "1") {
+      gate05a = 1;
+      // hide = ".labBG";
+      // show = ".outsideLab";
+      // changeBG(hide, show);
+    } else {
+      chatArrayIndex = 21;
+      clickTrusChatPopUp(chatArrayIndex);
+    }
+  });
+});
+$(".gate05aBG .btnDown").click(function () {
+  hide = ".gate05aBG";
   show = ".threeLab";
   changeBG(hide, show);
 });

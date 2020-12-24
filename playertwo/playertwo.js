@@ -53,6 +53,15 @@ function changeBG(hide, show) {
     }, 600);
   }, 1);
 }
+function changeScreen(hideScreen, showScreen) {
+  setTimeout(function () {
+    $(".act01 " + hideScreen).css("visibility", "hidden");
+    $(".act01 " + showScreen).css("visibility", "inherit");
+  }, 300);
+  $(".act01 " + hideScreen).animate({ opacity: "0" }, 300);
+  $(".act01 " + showScreen).animate({ opacity: "1" }, 900);
+}
+
 function closeChatBlockTouch() {
   $(".gameHUD .chatBlockTouch").css("display", "none");
   $(".gameHUD .chatBlockTouch").css("opacity", "0");
@@ -188,7 +197,56 @@ function addItem() {
   inventoryIndex++;
   acquiredItem = "";
 }
+function currentTime() {
+  var date = new Date();
+  var hour = date.getHours();
+  var min = date.getMinutes();
+  hour = updateTime(hour);
+  min = updateTime(min);
+  if (hour < 10) {
+    hour -= 0;
+    $(".hourTime").text("0 " + hour);
+  } else if (hour < 20) {
+    hour -= 10;
+    $(".hourTime").text("1 " + hour);
+  } else {
+    hour -= 20;
+    $(".hourTime").text("2 " + hour);
+  }
+  if (min < 10) {
+    min -= 0;
+    $(".minuteTime").text("0 " + min);
+  } else if (min < 20) {
+    min -= 10;
+    $(".minuteTime").text("1 " + min);
+  } else if (min < 30) {
+    min -= 20;
+    $(".minuteTime").text("2 " + min);
+  } else if (min < 40) {
+    min -= 30;
+    $(".minuteTime").text("3 " + min);
+  } else if (min < 50) {
+    min -= 40;
+    $(".minuteTime").text("4 " + min);
+  } else if (min < 60) {
+    min -= 50;
+    $(".minuteTime").text("5 " + min);
+  }
+  var t = setTimeout(function () {
+    currentTime();
+  }, 1000);
+}
 
+function updateTime(k) {
+  if (k < 10) {
+    return "0" + k;
+  } else {
+    return k;
+  }
+}
+
+currentTime();
+// ini yang ada komputer buat njawab riddlenya anna
 $(".anna01BG .btn01").click(function () {
   if (parseInt($(".anna01BG .input01").text()) == 9) {
     $(".anna01BG .input01").html(1);
@@ -275,85 +333,37 @@ $(".anna01BG .btnSubmit").click(function () {
   }
 });
 
-$(".btnAnna01").click(function () {
-  hide = ".controlRoomBG";
-  show = ".anna01BG";
-  changeBG(hide, show);
-});
-
 $(".anna01BG .btnBack").click(function () {
   hide = ".anna01BG";
   show = ".controlRoomBG";
   changeBG(hide, show);
 });
 
-function currentTime() {
-  var date = new Date();
-  var hour = date.getHours();
-  var min = date.getMinutes();
-  hour = updateTime(hour);
-  min = updateTime(min);
-  if (hour < 10) {
-    hour -= 0;
-    $(".hourTime").text("0 " + hour);
-  } else if (hour < 20) {
-    hour -= 10;
-    $(".hourTime").text("1 " + hour);
-  } else {
-    hour -= 20;
-    $(".hourTime").text("2 " + hour);
-  }
-  if (min < 10) {
-    min -= 0;
-    $(".minuteTime").text("0 " + min);
-  } else if (min < 20) {
-    min -= 10;
-    $(".minuteTime").text("1 " + min);
-  } else if (min < 30) {
-    min -= 20;
-    $(".minuteTime").text("2 " + min);
-  } else if (min < 40) {
-    min -= 30;
-    $(".minuteTime").text("3 " + min);
-  } else if (min < 50) {
-    min -= 40;
-    $(".minuteTime").text("4 " + min);
-  } else if (min < 60) {
-    min -= 50;
-    $(".minuteTime").text("5 " + min);
-  }
-  var t = setTimeout(function () {
-    currentTime();
-  }, 1000);
-}
-
-function updateTime(k) {
-  if (k < 10) {
-    return "0" + k;
-  } else {
-    return k;
-  }
-}
-
-currentTime();
-
-$(".act01 .btnLocker").click(function () {
+// ini control room yang ada locker dllnya
+$(".controlRoomBG .btnAnna01").click(function () {
+  hide = ".controlRoomBG";
+  show = ".anna01BG";
+  changeBG(hide, show);
+});
+$(".controlRoomBG .btnLocker").click(function () {
   openLocker();
 });
 
-$(".act01 .btnControlPanel").click(function () {
+$(".controlRoomBG .btnControlPanel").click(function () {
   hide = ".controlRoomBG";
   show = ".controlPanelBG";
   changeBG(hide, show);
 });
 
+// ini control panel yang gede
 $(".controlPanelBG .btnBack").click(function () {
   hide = ".controlPanelBG";
   show = ".controlRoomBG";
   changeBG(hide, show);
 });
 
-$(".panelPassInput").keypress(function (event) {
+// ini screen yang pas mau login
+$(".panelLoginScreen .panelPassInput").keypress(function (event) {
   if (event.key === "Enter") {
     $.ajax({
       type: "post",
@@ -404,6 +414,93 @@ $(".panelLoginScreen .submitInput").click(function () {
             $(".act01 .panelLoggedinScreen").animate({ opacity: "1" }, 300);
           }, 600);
         }, 1);
+      }
+    }, 1000);
+  });
+});
+
+// ini yang abis login di control panel
+$(".panelLoggedinScreen .panelFloorBtn").click(function () {
+  hideScreen = ".panelLoggedinScreen";
+  showScreen = ".panelFloorSelectionScreen";
+  changeScreen(hideScreen, showScreen);
+});
+
+// ini yang waktu milih floor dan cuma bisa milih floor 5
+$(".panelFloorSelectionScreen .btnScreenBack").click(function () {
+  hideScreen = ".panelFloorSelectionScreen";
+  showScreen = ".panelLoggedinScreen";
+  changeScreen(hideScreen, showScreen);
+});
+$(".panelFloorSelectionScreen .floor5btn").click(function () {
+  hideScreen = ".panelFloorSelectionScreen";
+  showScreen = ".panelAccessPointsScreen";
+  changeScreen(hideScreen, showScreen);
+});
+
+// ini yang di tempat buat ngisi passwordnya gate
+$(".panelAccessPointsScreen .btnScreenBack").click(function () {
+  hideScreen = ".panelAccessPointsScreen";
+  showScreen = ".panelFloorSelectionScreen";
+  changeScreen(hideScreen, showScreen);
+});
+
+var gateSelected = "a";
+$(".panelAccessPointsScreen .gate05a").click(function () {
+  $(".panelAccessPointsScreen .gateName").html("05A");
+  gateSelected = "a";
+});
+$(".panelAccessPointsScreen .gate05b").click(function () {
+  $(".panelAccessPointsScreen .gateName").html("05B");
+  gateSelected = "b";
+});
+$(".panelAccessPointsScreen .gate05c").click(function () {
+  $(".panelAccessPointsScreen .gateName").html("05C");
+  gateSelected = "c";
+});
+$(".panelAccessPointsScreen .gate05d").click(function () {
+  $(".panelAccessPointsScreen .gateName").html("05D");
+  gateSelected = "d";
+});
+$(".panelAccessPointsScreen .gate05e").click(function () {
+  $(".panelAccessPointsScreen .gateName").html("05E");
+  gateSelected = "e";
+});
+$(".panelAccessPointsScreen .gate05f").click(function () {
+  $(".panelAccessPointsScreen .gateName").html("05F");
+  gateSelected = "f";
+});
+$(".panelAccessPointsScreen .gate05g").click(function () {
+  $(".panelAccessPointsScreen .gateName").html("05G");
+  gateSelected = "g";
+});
+$(".panelAccessPointsScreen .gate05h").click(function () {
+  $(".panelAccessPointsScreen .gateName").html("05H");
+  gateSelected = "h";
+});
+$(".panelAccessPointsScreen .gate05i").click(function () {
+  $(".panelAccessPointsScreen .gateName").html("05I");
+  gateSelected = "i";
+});
+
+$(".gatePasswordWindow .submitInput").click(function () {
+  var gatepassans = $(".gatePassInput").val().replace(/\s+/g, "").toLowerCase();
+  $.ajax({
+    type: "post",
+    url: "playertwo.php?p=gate05" + gateSelected,
+    data: { stat: gatepassans },
+    dataType: "html",
+    success: function (result) {
+      dbcheck = result;
+    },
+  }).done(function () {
+    setTimeout(function () {
+      if (dbcheck == "yes") {
+        //kalo bener
+        $(".gate05"+gateSelected+" .lock").css("background-image", "url(../playertwo/img/unlocked.webp)");
+      } else {
+        //kalo submit trus salah
+
       }
     }, 1000);
   });

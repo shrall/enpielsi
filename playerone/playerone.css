@@ -1478,17 +1478,73 @@ centering {
 
 /* * ini jalur ke kiri */
 /* gerbang gede ke lobby */
-.act01 .bigDoorToLobby {
+.act01 .gate05aBG {
   visibility: hidden;
   width: 100%;
   height: 100%;
   position: absolute;
-  background-image: url(../playerone/bg/bigdoortolobby.webp);
+  background-image: url(../playerone/bg/gate05a.webp);
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: center top;
 }
-.bigDoorToLobby .btnDown {
+.gate05aClueBG {
+  z-index: 4;
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  width: 800px;
+  height: 550px;
+  top: 50px;
+  position: absolute;
+  background-image: url(../playerone/img/gate05aclue.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.gate05aBG .btnGateIpad {
+  cursor: pointer;
+  top: 310px;
+  right: 0;
+  left: 230px;
+  color: white;
+  text-align: center;
+  margin: 0 auto;
+  width: 80px;
+  height: 65px;
+  position: absolute;
+  background-image: url(../playerone/img/gateipad.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.btnGateIpad:hover {
+  background-image: url(../playerone/img/gateipadhl.webp);
+}
+.gate05aBG .btnGate {
+  cursor: pointer;
+  top: 390px;
+  right: 250px;
+  left: 0;
+  color: white;
+  text-align: center;
+  margin: 0 auto;
+  width: 40px;
+  height: 35px;
+  position: absolute;
+  background-image: url(../playerone/img/btngate.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.btnGate:hover {
+  background-image: url(../playerone/img/btngatehl.webp);
+}
+
+.gate05aBG .btnDown {
   bottom: 50px;
   right: 0;
   left: 0;
@@ -1503,6 +1559,6 @@ centering {
   background-size: 100%;
   background-position: center top;
 }
-.bigDoorToLobby .btnDown:hover {
+.gate05aBG .btnDown:hover {
   background-image: url(../playerone/img/downbtnhl.webp);
 }

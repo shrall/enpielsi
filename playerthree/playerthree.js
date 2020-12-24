@@ -66,6 +66,7 @@ function closeUniversal() {
   if ($(".gameHUD .chatBox").css("visibility") != "visible") {
     closeInventorybox();
     closeJanitor();
+    closeGateClue(gateName)
   }
 }
 function sceneTransition() {
@@ -79,6 +80,16 @@ function clickTrusChatPopUp(chatArrayIndex) {
   setTimeout(typeWriter, 300);
 }
 
+function openGateClue(gateName) {
+  $(".act01 " + gateName).css("visibility", "visible");
+  $(".act01 " + gateName).animate({ opacity: "1" }, 300);
+  openChatBlockTouch();
+}
+function closeGateClue(gateName) {
+  $(".act01 " + gateName).css("visibility", "hidden");
+  $(".act01 " + gateName).animate({ opacity: "0" }, 300);
+  closeChatBlockTouch();
+}
 function openJanitor() {
   $(".act01 .janitorBG").css("visibility", "visible");
   $(".act01 .janitorBG").animate({ opacity: "1" }, 300);
@@ -139,6 +150,8 @@ var guideAct01 = [
   "How do I open this..?",
   //29
   "Huh. Weird looking battery.",
+  //30
+  "What does this button do?"
 ];
 
 var guideArray = [];
@@ -217,7 +230,8 @@ $(".gameHUD .chatBox").click(function () {
       guideZ == 26 ||
       guideZ == 27 ||
       guideZ == 28 ||
-      guideZ == 29
+      guideZ == 29 ||
+      guideZ == 30
     ) {
       closeChatbox();
       closeUniversal();
@@ -350,7 +364,7 @@ $(".toiletVentLeftBG .btnVent").click(function () {
 // ini di depan officenya mechanic
 $(".mechanicDoorBG .btnRight").click(function () {
   hide = ".mechanicDoorBG";
-  show = ".bigDoorFromOfficeBG";
+  show = ".gate05fBG";
   changeBG(hide, show);
 });
 $(".mechanicDoorBG .btnDown").click(function () {
@@ -506,8 +520,35 @@ $(".mechanicWorkshopBG .btnWorkshopPowercell").click(function () {
 });
 
 //ini gate besar yang ke pertigaan dari office
-$(".bigDoorFromOfficeBG .btnDown").click(function () {
-  hide = ".bigDoorFromOfficeBG";
+$(".gate05fBG .btnGateIpad").click(function () {
+  gateName = ".gate05fClueBG";
+  openGateClue(gateName);
+});
+var dbcheck = "";
+var gate05f = 0;
+$(".gate05fBG .btnGate").click(function () {
+  $.ajax({
+    type: "post",
+    url: "playerthree.php?p=checkgate05f",
+    data: { stat: dbcheck },
+    dataType: "html",
+    success: function (result) {
+      dbcheck = result;
+    },
+  }).done(function () {
+    if (dbcheck == "1") {
+      gate05f = 1;
+      // hide = ".labBG";
+      // show = ".outsideLab";
+      // changeBG(hide, show);
+    } else {
+      chatArrayIndex = 29;
+      clickTrusChatPopUp(chatArrayIndex);
+    }
+  });
+});
+$(".gate05fBG .btnDown").click(function () {
+  hide = ".gate05fBG";
   show = ".mechanicDoorBG";
   changeBG(hide, show);
 });
@@ -578,7 +619,7 @@ $(".lobbyLabBG .btnRight").click(function () {
 });
 
 //ini lobby receptionist
-var mechanickeycard = 1;
+var mechanickeycard = 0;
 $(".lobbyReceptionistBG .btnMechanic").click(function () {
   $(".checkPlayerthree").html("Mechanic");
   if (mechanickeycard == 0) {

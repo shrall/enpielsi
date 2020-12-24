@@ -93,3 +93,11 @@ if ($page == 'reiner05') {
      echo $check;
   }
 }
+if ($page == 'checkgate05a') {
+   $result = $conn->query("SELECT * FROM team WHERE team_id=" . $_SESSION['teamid']);
+   if ($result->num_rows > 0) {
+      $row = $result->fetch_assoc();
+      $gate05a = $row['gate05a'];
+      echo $gate05a;
+   }
+}

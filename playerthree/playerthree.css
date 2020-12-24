@@ -928,17 +928,73 @@ centering {
 
 
 /* ini big door yang ke pertigaan dari office */
-.act01 .bigDoorFromOfficeBG {
+.act01 .gate05fBG {
   visibility: hidden;
   width: 100%;
   height: 100%;
   position: absolute;
-  background-image: url(../playerone/bg/bigdoortolobby.webp);
+  background-image: url(../playerthree/bg/gate05f.webp);
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: center top;
 }
-.bigDoorFromOfficeBG .btnDown {
+.gate05fClueBG {
+  z-index: 4;
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  width: 800px;
+  height: 550px;
+  top: 50px;
+  position: absolute;
+  background-image: url(../playerthree/img/gate05fclue.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.gate05fBG .btnGateIpad {
+  cursor: pointer;
+  top: 310px;
+  right: 0;
+  left: 230px;
+  color: white;
+  text-align: center;
+  margin: 0 auto;
+  width: 80px;
+  height: 65px;
+  position: absolute;
+  background-image: url(../playerone/img/gateipad.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.btnGateIpad:hover {
+  background-image: url(../playerone/img/gateipadhl.webp);
+}
+.gate05fBG .btnGate {
+  cursor: pointer;
+  top: 390px;
+  right: 250px;
+  left: 0;
+  color: white;
+  text-align: center;
+  margin: 0 auto;
+  width: 40px;
+  height: 35px;
+  position: absolute;
+  background-image: url(../playerone/img/btngate.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.btnGate:hover {
+  background-image: url(../playerone/img/btngatehl.webp);
+}
+
+.gate05fBG .btnDown {
   cursor: pointer;
   bottom: 50px;
   right: 0;
@@ -954,7 +1010,7 @@ centering {
   background-size: 100%;
   background-position: center top;
 }
-.bigDoorFromOfficeBG .btnDown:hover {
+.gate05fBG .btnDown:hover {
   background-image: url(../playerone/img/downbtnhl.webp);
 }
 
