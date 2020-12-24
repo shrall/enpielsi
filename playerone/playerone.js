@@ -90,11 +90,24 @@ function closeInventorybox() {
   $(".gameHUD .inventoryBox").animate({ opacity: "0" }, 300);
   closeChatBlockTouch();
 }
+function openItemAcquired() {
+  $(".gameHUD .itemAcquiredName").html(acquiredItemName);
+  $(".gameHUD .itemAcquiredImage").css("background-image", acquiredItem);
+  $(".gameHUD .itemAcquiredBox").css("visibility", "visible");
+  $(".gameHUD .itemAcquiredBox").animate({ opacity: "1" }, 300);
+  openChatBlockTouch();
+}
+function closeItemAcquired() {
+  $(".gameHUD .itemAcquiredBox").css("visibility", "hidden");
+  $(".gameHUD .itemAcquiredBox").animate({ opacity: "0" }, 300);
+}
+
 function closeUniversal() {
   if ($(".gameHUD .chatBox").css("visibility") != "visible") {
     closeInventorybox();
     closePopUpTwo();
     closeGateClue(gateName);
+    closeItemAcquired();
   }
 }
 function openGateClue(gateName) {
@@ -148,11 +161,8 @@ function typeWriter() {
   }
 }
 function addItem() {
+  openItemAcquired();
   $(".gameHUD .itemBox" + inventoryIndex).css("background-image", acquiredItem);
-  $(".gameHUD .itemBox").css(
-    "background-image",
-    $(".gameHUD .itemBox" + inventoryIndex).css("background-image")
-  );
   inventoryIndex++;
   acquiredItem = "";
 }
@@ -191,6 +201,7 @@ $(".chatBox").click(function () {
     if (act01intro == 1 || guideZ == 4) {
       act01intro = 1;
       closeChatbox();
+      closeItemAcquired();
       closeUniversal();
     } else {
       setTimeout(typeWriter, 50);
@@ -201,7 +212,6 @@ $(".gameHUD .chatBlockTouch").click(function () {
   if ($(".gameHUD .inventoryBox").css("visibility") == "visible") {
     closeInventorybox();
   }
-  closeUniversal();
 });
 
 var inventoryIndex = 2;
@@ -214,6 +224,7 @@ var mainkeycard = 0;
 $(".btnLabCoat").click(function () {
   if (mainkeycard != 1) {
     acquiredItem = "url(../playerone/img/mainkeycard.webp)";
+    acquiredItemName = "Lab Keycard";
     mainkeycard = 1;
     addItem();
     chatArrayIndex = 5;
@@ -555,6 +566,7 @@ $(".mainLabWorktable .btnCamera").click(function () {
   if (polaroidcamera != 1) {
     $(".btnCamera").css("visibility", "hidden");
     acquiredItem = "url(../playerone/img/itemcamera.webp)";
+    acquiredItemName = "Camera";
     polaroidcamera = 1;
     addItem();
     chatArrayIndex = 13;
@@ -596,6 +608,7 @@ $(".mainLabChemical .btnChemicals").click(function () {
 $(".mainLabChemical .selectAChemical").click(function () {
   if(polaroid == 3){
     acquiredItem = "url(../playerone/img/itemphotos.webp)";
+    acquiredItemName = "Photos";
     addItem();
   }
   polaroid--;
@@ -670,6 +683,7 @@ $(".mainLabMonitor .btnHugeMonitor").click(function () {
 $(".mainLabMonitor .selectAHugeMonitor").click(function () {
   if(polaroid == 3){
     acquiredItem = "url(../playerone/img/itemphotos.webp)";
+    acquiredItemName = "Photos";
     addItem();
   }
   polaroid--;
@@ -722,6 +736,7 @@ $(".mainLabPhotos .btnPhotoFrames").click(function () {
 $(".mainLabPhotos .selectAPhotos").click(function () {
   if(polaroid == 3){
     acquiredItem = "url(../playerone/img/itemphotos.webp)";
+    acquiredItemName = "Photos";
     addItem();
   }
   polaroid--;
@@ -765,6 +780,7 @@ $(".mainLabWhiteboard .btnNoteVirus").click(function () {
 $(".mainLabWhiteboard .selectANoteVirus").click(function () {
   if(polaroid == 3){
     acquiredItem = "url(../playerone/img/itemphotos.webp)";
+    acquiredItemName = "Photos";
     addItem();
   }
   polaroid--;
@@ -800,6 +816,7 @@ $(".mainLabWhiteboard .btnNoteMom").click(function () {
 $(".mainLabWhiteboard .selectANoteMom").click(function () {
   if(polaroid == 3){
     acquiredItem = "url(../playerone/img/itemphotos.webp)";
+    acquiredItemName = "Photos";
     addItem();
   }
   polaroid--;
@@ -826,6 +843,7 @@ $(".mainLabWhiteboard .btnNoteTrash").click(function () {
 $(".mainLabWhiteboard .selectANoteTrash").click(function () {
   if(polaroid == 3){
     acquiredItem = "url(../playerone/img/itemphotos.webp)";
+    acquiredItemName = "Photos";
     addItem();
   }
   polaroid--;

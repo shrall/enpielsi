@@ -90,11 +90,24 @@ function closeInventorybox() {
   $(".gameHUD .inventoryBox").animate({ opacity: "0" }, 300);
   closeChatBlockTouch();
 }
+function openItemAcquired() {
+  $(".gameHUD .itemAcquiredName").html(acquiredItemName);
+  $(".gameHUD .itemAcquiredImage").css("background-image", acquiredItem);
+  $(".gameHUD .itemAcquiredBox").css("visibility", "visible");
+  $(".gameHUD .itemAcquiredBox").animate({ opacity: "1" }, 300);
+  openChatBlockTouch();
+}
+function closeItemAcquired() {
+  $(".gameHUD .itemAcquiredBox").css("visibility", "hidden");
+  $(".gameHUD .itemAcquiredBox").animate({ opacity: "0" }, 300);
+}
+
 function closeUniversal() {
   if ($(".gameHUD .chatBox").css("visibility") != "visible") {
     closeInventorybox();
     closeLocker();
     closeJanitor();
+    closeItemAcquired();
   }
 }
 
@@ -189,11 +202,8 @@ $(".inventoryBtn").click(function () {
   openInventorybox();
 });
 function addItem() {
+  openItemAcquired();
   $(".gameHUD .itemBox" + inventoryIndex).css("background-image", acquiredItem);
-  $(".gameHUD .itemBox").css(
-    "background-image",
-    $(".gameHUD .itemBox" + inventoryIndex).css("background-image")
-  );
   inventoryIndex++;
   acquiredItem = "";
 }

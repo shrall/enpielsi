@@ -62,11 +62,23 @@ function closeInventorybox() {
   $(".gameHUD .inventoryBox").animate({ opacity: "0" }, 300);
   closeChatBlockTouch();
 }
+function openItemAcquired() {
+  $(".gameHUD .itemAcquiredName").html(acquiredItemName);
+  $(".gameHUD .itemAcquiredImage").css("background-image", acquiredItem);
+  $(".gameHUD .itemAcquiredBox").css("visibility", "visible");
+  $(".gameHUD .itemAcquiredBox").animate({ opacity: "1" }, 300);
+  openChatBlockTouch();
+}
+function closeItemAcquired() {
+  $(".gameHUD .itemAcquiredBox").css("visibility", "hidden");
+  $(".gameHUD .itemAcquiredBox").animate({ opacity: "0" }, 300);
+}
 function closeUniversal() {
   if ($(".gameHUD .chatBox").css("visibility") != "visible") {
     closeInventorybox();
     closeJanitor();
     closeGateClue(gateName)
+    closeItemAcquired();
   }
 }
 function sceneTransition() {
@@ -237,6 +249,7 @@ $(".gameHUD .chatBox").click(function () {
       guideZ == 31
     ) {
       closeChatbox();
+      closeItemAcquired();
       closeUniversal();
     } else {
       setTimeout(typeWriter, 50);
@@ -260,11 +273,8 @@ $(".inventoryBtn").click(function () {
 });
 
 function addItem() {
+  openItemAcquired();
   $(".gameHUD .itemBox" + inventoryIndex).css("background-image", acquiredItem);
-  $(".gameHUD .itemBox").css(
-    "background-image",
-    $(".gameHUD .itemBox" + inventoryIndex).css("background-image")
-  );
   inventoryIndex++;
   acquiredItem = "";
 }
@@ -321,6 +331,7 @@ $(".walletNoteBG .btnBack").click(function () {
 $(".janitorToolbox").click(function () {
   if (screwdriver != 1) {
     acquiredItem = "url(../playerthree/img/screwdriver.webp)";
+    acquiredItemName = "Screwdriver";
     $(".janitorToolbox").css(
       "background-image",
       "url(../playerthree/img/janitortoolboxclicked.webp)"
@@ -416,6 +427,7 @@ $(".mechanicOfficeBG .btnGlassesBox").click(function () {
   $(".checkPlayerthree").load("checkPlayerthree.php");
   $(".mechanicOfficeBG .btnGlassesBox").css("display", "none");
   acquiredItem = "url(../playerthree/img/itemglassesbox.webp)";
+  acquiredItemName = "Mysterious Box";
   glassesbox = 1;
   addItem();
   chatArrayIndex = 27;
@@ -521,6 +533,7 @@ $(".mechanicWorkshopBG .btnWorkshopPowercell").click(function () {
   $(".checkPlayerthree").load("checkPlayerthree.php");
   $(".mechanicWorkshopBG .btnWorkshopPowercell").css("display", "none");
   acquiredItem = "url(../playerthree/img/itempowercellworkshop.webp)";
+  acquiredItemName = "Powercell";
   workshoppowercell = 1;
   addItem();
   chatArrayIndex = 28;
@@ -633,6 +646,7 @@ $(".lobbyReceptionistBG .btnMechanic").click(function () {
   $(".checkPlayerthree").html("Mechanic");
   if (mechanickeycard == 0) {
     acquiredItem = "url(../playerthree/img/itemmechanickeycard.webp)";
+    acquiredItemName = "Mechanic's Keycard";
     mechanickeycard = 1;
     addItem();
     chatArrayIndex = 9;

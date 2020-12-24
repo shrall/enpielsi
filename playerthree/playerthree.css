@@ -194,6 +194,55 @@ centering {
   background-size: 100%;
   background-position: center top;
 }
+.itemAcquiredBox {
+  z-index: 4;
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  top: 150px;
+  width: 400px;
+  height: 160px;
+  background-image: url(../playerone/img/itemacquired.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.itemAcquiredBox .itemAcquiredImage{
+  position: absolute;
+  background-image: url(../playerone/img/itemwalkietalkie.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+  width: 75px;
+  height: 75px;
+  top: 50px;
+  left: 30px;
+}
+.itemAcquiredBox .itemAcquiredText{
+  font-family: "Ailerons";
+  color: #00374b;
+  text-align: left;
+  font-size: 28px;
+  position: absolute;
+  margin: 0 auto;
+  left: 125px;
+  top: 40px;
+  width: 300px;
+}
+.itemAcquiredBox .itemAcquiredName{
+  font-family: "Exo";
+  color: #00374b;
+  text-align: left;
+  font-size: 20px;
+  position: absolute;
+  margin: 0 auto;
+  left: 130px;
+  top: 80px;
+  width: 300px;
+}
 
 /* PUZZLE COUNTERS */
 
