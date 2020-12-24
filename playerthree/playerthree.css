@@ -1233,6 +1233,24 @@ centering {
   background-size: 100%;
   background-position: center top;
 }
+.lobbyReceptionistBG .btnLift {
+  cursor: pointer;
+  top: 100px;
+  bottom: 0;
+  left: 200px;
+  text-align: center;
+  margin: auto 0;
+  width: 35px;
+  height: 45px;
+  position: absolute;
+  background-image: url(../playerthree/img/lobbyliftbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.lobbyReceptionistBG .btnLift:hover {
+  background-image: url(../playerthree/img/lobbyliftbtnhl.webp);
+}
 
 .btnMechanic {
   cursor: pointer;

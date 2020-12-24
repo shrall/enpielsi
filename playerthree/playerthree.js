@@ -116,7 +116,7 @@ var guideAct01 = [
   //7
   "It won't budge..",
   //8
-  "Mr.blablablablabla",
+  "'The Professor.'",
 
   //9
   "What're you doing here?",
@@ -151,7 +151,9 @@ var guideAct01 = [
   //29
   "Huh. Weird looking battery.",
   //30
-  "What does this button do?"
+  "What does this button do?",
+  //31
+  "The mechanic said to not use the elevator.."
 ];
 
 var guideArray = [];
@@ -231,7 +233,8 @@ $(".gameHUD .chatBox").click(function () {
       guideZ == 27 ||
       guideZ == 28 ||
       guideZ == 29 ||
-      guideZ == 30
+      guideZ == 30 ||
+      guideZ == 31
     ) {
       closeChatbox();
       closeUniversal();
@@ -375,6 +378,7 @@ $(".mechanicDoorBG .btnDown").click(function () {
 
 var mechanicdoorlock = 0;
 $(".mechanicDoorBG .mechanicDoorLock").click(function () {
+  $(".checkPlayerthree").load("checkPlayerthree.php");
   if (mechanickeycard != 1) {
     chatArrayIndex = 24;
     clickTrusChatPopUp(chatArrayIndex);
@@ -385,6 +389,7 @@ $(".mechanicDoorBG .mechanicDoorLock").click(function () {
   }
 });
 $(".mechanicDoorBG .mechanicOfficeDoor").click(function () {
+  $(".checkPlayerthree").load("checkPlayerthree.php");
   if (mechanicdoorlock != 1) {
     chatArrayIndex = 26;
     clickTrusChatPopUp(chatArrayIndex);
@@ -408,6 +413,7 @@ $(".mechanicOfficeBG .btnDown").click(function () {
 });
 var glassesbox = 0;
 $(".mechanicOfficeBG .btnGlassesBox").click(function () {
+  $(".checkPlayerthree").load("checkPlayerthree.php");
   $(".mechanicOfficeBG .btnGlassesBox").css("display", "none");
   acquiredItem = "url(../playerthree/img/itemglassesbox.webp)";
   glassesbox = 1;
@@ -440,6 +446,7 @@ $(".mechanicWorkshopDoorBG .btnAndroidIpad").click(function () {
 
 var androidipadlock = 0;
 $(".mechanicWorkshopDoorBG .mechanicWorkshopDoor").click(function () {
+  $(".checkPlayerthree").load("checkPlayerthree.php");
   if (androidipadlock == 1) {
     hide = ".mechanicWorkshopDoorBG";
     show = ".mechanicWorkshopBG";
@@ -511,6 +518,7 @@ $(".mechanicWorkshopBG .btnDown").click(function () {
 });
 var workshoppowercell = 0;
 $(".mechanicWorkshopBG .btnWorkshopPowercell").click(function () {
+  $(".checkPlayerthree").load("checkPlayerthree.php");
   $(".mechanicWorkshopBG .btnWorkshopPowercell").css("display", "none");
   acquiredItem = "url(../playerthree/img/itempowercellworkshop.webp)";
   workshoppowercell = 1;
@@ -542,6 +550,7 @@ $(".gate05fBG .btnGate").click(function () {
       // show = ".outsideLab";
       // changeBG(hide, show);
     } else {
+      $(".checkPlayerthree").load("checkPlayerthree.php");
       chatArrayIndex = 29;
       clickTrusChatPopUp(chatArrayIndex);
     }
@@ -632,6 +641,11 @@ $(".lobbyReceptionistBG .btnMechanic").click(function () {
     chatArrayIndex = 20;
     clickTrusChatPopUp(chatArrayIndex);
   }
+});
+$(".lobbyReceptionistBG .btnLift").click(function () {
+  $(".checkPlayerthree").load("checkPlayerthree.php");
+  chatArrayIndex = 30;
+  clickTrusChatPopUp(chatArrayIndex);
 });
 $(".lobbyReceptionistBG .btnLeft").click(function () {
   hide = ".lobbyReceptionistBG";
