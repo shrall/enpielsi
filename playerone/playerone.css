@@ -457,7 +457,7 @@ centering {
   background-size: 100%;
   background-position: center top;
 }
-.outsideBigDoor {
+.outsideLab .outsideBigDoor {
   cursor: pointer;
   top: 227px;
   left: 0;
@@ -473,7 +473,7 @@ centering {
   background-size: 100%;
   background-position: center top;
 }
-.outsideBigDoor:hover {
+.outsideLab .outsideBigDoor:hover {
   background-image: url(../playerone/img/bigdoorhl.webp);
 }
 .outsideLab .btnRight {

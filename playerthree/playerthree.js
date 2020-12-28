@@ -77,6 +77,7 @@ function closeUniversal() {
   if ($(".gameHUD .chatBox").css("visibility") != "visible") {
     closeInventorybox();
     closeJanitor();
+    closeElectricalBox();
     closeGateClue(gateName)
     closeItemAcquired();
   }
@@ -112,25 +113,35 @@ function closeJanitor() {
   $(".act01 .janitorBG").animate({ opacity: "0" }, 300);
   closeChatBlockTouch();
 }
+function openElectricalBox() {
+  $(".act01 .electricalBoxBG").css("visibility", "visible");
+  $(".act01 .electricalBoxBG").animate({ opacity: "1" }, 300);
+  openChatBlockTouch();
+}
+function closeElectricalBox() {
+  $(".act01 .electricalBoxBG").css("visibility", "hidden");
+  $(".act01 .electricalBoxBG").animate({ opacity: "0" }, 300);
+  closeChatBlockTouch();
+}
 var guideY = 0;
 var guideZ = 0;
 var guideAct01 = [
-  //1
+  //0
   "Oh damn, what was that?",
   "Crap, the door's blocked.",
   "Urgh.. Why did I drink that hot sauce...",
   "What should I do now...",
 
-  //5
+  //4
   "Ooh.. a screwdriver.. this could be handy..",
-  //6
+  //5
   "Urgh.. it's screwed tight..",
-  //7
+  //6
   "It won't budge..",
-  //8
+  //7
   "'The Professor.'",
 
-  //9
+  //8
   "What're you doing here?",
   "Are you one of the participants?",
   "...",
@@ -144,28 +155,30 @@ var guideAct01 = [
   "I need you to bring it to me.",
   "Don't dawdle around, we don't have much time.",
 
-  //21
+  //20
   "I need you to find three powercells for the Android.",
   "And don't forget my box.",
 
-  //23
+  //22
   "...",
   "It's like a statue..",
 
-  //25
+  //24
   "'SCAN CARD HERE'",
-  //26
+  //25
   "I guess it's opened now.",
-  //27
+  //26
   "It's locked.",
-  //28
+  //27
   "How do I open this..?",
-  //29
+  //28
   "Huh. Weird looking battery.",
-  //30
+  //29
   "What does this button do?",
+  //30
+  "The mechanic said to not use the elevator..",
   //31
-  "The mechanic said to not use the elevator.."
+  "The path's blocked.."
 ];
 
 var guideArray = [];
@@ -246,7 +259,8 @@ $(".gameHUD .chatBox").click(function () {
       guideZ == 28 ||
       guideZ == 29 ||
       guideZ == 30 ||
-      guideZ == 31
+      guideZ == 31 ||
+      guideZ == 32
     ) {
       closeChatbox();
       closeItemAcquired();
@@ -360,6 +374,120 @@ $(".toiletVentBG .btnRight").click(function () {
   hide = ".toiletVentBG";
   show = ".toiletVentRightBG";
   changeBG(hide, show);
+});
+
+// ini vent kekanan
+$(".toiletVentRightBG .btnBack").click(function () {
+  hide = ".toiletVentRightBG";
+  show = ".toiletVentBG";
+  changeBG(hide, show);
+});
+$(".toiletVentRightBG .btnVent").click(function () {
+  hide = ".toiletVentRightBG";
+  show = ".toiletWomenBG";
+  changeBG(hide, show);
+});
+
+// ini toilet cewek
+$(".toiletWomenBG .btnVent").click(function () {
+  hide = ".toiletWomenBG";
+  show = ".toiletVentRightBG";
+  changeBG(hide, show);
+});
+$(".toiletWomenBG .btnLeft").click(function () {
+  hide = ".toiletWomenBG";
+  show = ".lobbyToiletBG";
+  changeBG(hide, show);
+});
+
+//ini lobby toilet
+$(".lobbyToiletBG .toiletWomenDoor").click(function () {
+  hide = ".lobbyToiletBG";
+  show = ".toiletWomenBG";
+  changeBG(hide, show);
+});
+$(".lobbyToiletBG .btnLeft").click(function () {
+  hide = ".lobbyToiletBG";
+  show = ".lobbyStationBG";
+  changeBG(hide, show);
+});
+$(".lobbyToiletBG .btnRight").click(function () {
+  hide = ".lobbyToiletBG";
+  show = ".lobbyWarehouseBG";
+  changeBG(hide, show);
+});
+
+// ini lobby warehouse
+$(".lobbyWarehouseBG .btnLeft").click(function () {
+  hide = ".lobbyWarehouseBG";
+  show = ".lobbyToiletBG";
+  changeBG(hide, show);
+});
+$(".lobbyWarehouseBG .btnRight").click(function () {
+  hide = ".lobbyWarehouseBG";
+  show = ".lobbyLabBG";
+  changeBG(hide, show);
+});
+
+// ini lobby lab
+$(".lobbyLabBG .btnLeft").click(function () {
+  hide = ".lobbyLabBG";
+  show = ".lobbyWarehouseBG";
+  changeBG(hide, show);
+});
+$(".lobbyLabBG .btnRight").click(function () {
+  hide = ".lobbyLabBG";
+  show = ".lobbyReceptionistBG";
+  changeBG(hide, show);
+});
+
+//ini lobby receptionist
+var mechanickeycard = 0;
+$(".lobbyReceptionistBG .btnMechanic").click(function () {
+  $(".checkPlayerthree").html("Mechanic");
+  if (mechanickeycard == 0) {
+    acquiredItem = "url(../playerthree/img/itemmechanickeycard.webp)";
+    acquiredItemName = "Mechanic's Keycard";
+    mechanickeycard = 1;
+    addItem();
+    chatArrayIndex = 9;
+    clickTrusChatPopUp(chatArrayIndex);
+  } else {
+    chatArrayIndex = 20;
+    clickTrusChatPopUp(chatArrayIndex);
+  }
+});
+$(".lobbyReceptionistBG .btnLift").click(function () {
+  $(".checkPlayerthree").load("checkPlayerthree.php");
+  chatArrayIndex = 30;
+  clickTrusChatPopUp(chatArrayIndex);
+});
+$(".lobbyReceptionistBG .btnLeft").click(function () {
+  hide = ".lobbyReceptionistBG";
+  show = ".lobbyLabBG";
+  changeBG(hide, show);
+});
+$(".lobbyReceptionistBG .btnRight").click(function () {
+  hide = ".lobbyReceptionistBG";
+  show = ".lobbyStationBG";
+  changeBG(hide, show);
+});
+
+//ini lobby station
+$(".lobbyStationBG .btnLeft").click(function () {
+  hide = ".lobbyStationBG";
+  show = ".lobbyReceptionistBG";
+  changeBG(hide, show);
+});
+$(".lobbyStationBG .btnRight").click(function () {
+  hide = ".lobbyStationBG";
+  show = ".lobbyToiletBG";
+  changeBG(hide, show);
+});
+$(".lobbyStationBG .btnAndroid").click(function () {
+  $(".checkPlayerthree").load("checkPlayerthree.php");
+  chatArrayIndex = 22;
+  clickTrusChatPopUp(chatArrayIndex);
 });
 
 // ini vent kekiri
@@ -546,7 +674,6 @@ $(".gate05fBG .btnGateIpad").click(function () {
   openGateClue(gateName);
 });
 var dbcheck = "";
-var gate05f = 0;
 $(".gate05fBG .btnGate").click(function () {
   $.ajax({
     type: "post",
@@ -558,10 +685,9 @@ $(".gate05fBG .btnGate").click(function () {
     },
   }).done(function () {
     if (dbcheck == "1") {
-      gate05f = 1;
-      // hide = ".labBG";
-      // show = ".outsideLab";
-      // changeBG(hide, show);
+      hide = ".gate05fBG";
+      show = ".warehouseSectionBG";
+      changeBG(hide, show);
     } else {
       $(".checkPlayerthree").load("checkPlayerthree.php");
       chatArrayIndex = 29;
@@ -575,116 +701,162 @@ $(".gate05fBG .btnDown").click(function () {
   changeBG(hide, show);
 });
 
-// ini vent kekanan
-$(".toiletVentRightBG .btnBack").click(function () {
-  hide = ".toiletVentRightBG";
-  show = ".toiletVentBG";
+//ini diperempatan abis buka gate05f
+$(".warehouseSectionBG .btnDown").click(function () {
+  hide = ".warehouseSectionBG";
+  show = ".gate05fBG";
   changeBG(hide, show);
 });
-$(".toiletVentRightBG .btnVent").click(function () {
-  hide = ".toiletVentRightBG";
-  show = ".toiletWomenBG";
+$(".warehouseSectionBG .btnUp").click(function () {
+  hide = ".warehouseSectionBG";
+  show = ".gate05hBG";
   changeBG(hide, show);
 });
-
-// ini toilet cewek
-$(".toiletWomenBG .btnVent").click(function () {
-  hide = ".toiletWomenBG";
-  show = ".toiletVentRightBG";
+$(".warehouseSectionBG .btnLeft").click(function () {
+  hide = ".warehouseSectionBG";
+  show = ".gate05gBG";
   changeBG(hide, show);
 });
-$(".toiletWomenBG .btnLeft").click(function () {
-  hide = ".toiletWomenBG";
-  show = ".lobbyToiletBG";
-  changeBG(hide, show);
-});
-
-//ini lobby toilet
-$(".lobbyToiletBG .toiletWomenDoor").click(function () {
-  hide = ".lobbyToiletBG";
-  show = ".toiletWomenBG";
-  changeBG(hide, show);
-});
-$(".lobbyToiletBG .btnLeft").click(function () {
-  hide = ".lobbyToiletBG";
-  show = ".lobbyStationBG";
-  changeBG(hide, show);
-});
-$(".lobbyToiletBG .btnRight").click(function () {
-  hide = ".lobbyToiletBG";
-  show = ".lobbyWarehouseBG";
-  changeBG(hide, show);
-});
-
-// ini lobby warehouse
-$(".lobbyWarehouseBG .btnLeft").click(function () {
-  hide = ".lobbyWarehouseBG";
-  show = ".lobbyToiletBG";
-  changeBG(hide, show);
-});
-$(".lobbyWarehouseBG .btnRight").click(function () {
-  hide = ".lobbyWarehouseBG";
-  show = ".lobbyLabBG";
-  changeBG(hide, show);
-});
-
-// ini lobby lab
-$(".lobbyLabBG .btnLeft").click(function () {
-  hide = ".lobbyLabBG";
-  show = ".lobbyWarehouseBG";
-  changeBG(hide, show);
-});
-$(".lobbyLabBG .btnRight").click(function () {
-  hide = ".lobbyLabBG";
-  show = ".lobbyReceptionistBG";
-  changeBG(hide, show);
-});
-
-//ini lobby receptionist
-var mechanickeycard = 0;
-$(".lobbyReceptionistBG .btnMechanic").click(function () {
-  $(".checkPlayerthree").html("Mechanic");
-  if (mechanickeycard == 0) {
-    acquiredItem = "url(../playerthree/img/itemmechanickeycard.webp)";
-    acquiredItemName = "Mechanic's Keycard";
-    mechanickeycard = 1;
-    addItem();
-    chatArrayIndex = 9;
-    clickTrusChatPopUp(chatArrayIndex);
-  } else {
-    chatArrayIndex = 20;
-    clickTrusChatPopUp(chatArrayIndex);
-  }
-});
-$(".lobbyReceptionistBG .btnLift").click(function () {
-  $(".checkPlayerthree").load("checkPlayerthree.php");
-  chatArrayIndex = 30;
+$(".warehouseSectionBG .btnRight").click(function () {
+  chatArrayIndex = 31;
   clickTrusChatPopUp(chatArrayIndex);
 });
-$(".lobbyReceptionistBG .btnLeft").click(function () {
-  hide = ".lobbyReceptionistBG";
-  show = ".lobbyLabBG";
-  changeBG(hide, show);
+
+//ini gate05g yang mau ke storage 
+$(".gate05gBG .btnGateIpad").click(function () {
+  gateName = ".gate05gClueBG";
+  openGateClue(gateName);
 });
-$(".lobbyReceptionistBG .btnRight").click(function () {
-  hide = ".lobbyReceptionistBG";
-  show = ".lobbyStationBG";
+$(".gate05gBG .btnGate").click(function () {
+  $.ajax({
+    type: "post",
+    url: "playerthree.php?p=checkgate05g",
+    data: { stat: dbcheck },
+    dataType: "html",
+    success: function (result) {
+      dbcheck = result;
+    },
+  }).done(function () {
+    if (dbcheck == "1") {
+      hide = ".gate05gBG";
+      show = ".storageGateBG";
+      changeBG(hide, show);
+    } else {
+      $(".checkPlayerthree").load("checkPlayerthree.php");
+      chatArrayIndex = 29;
+      clickTrusChatPopUp(chatArrayIndex);
+    }
+  });
+});
+$(".gate05gBG .btnDown").click(function () {
+  hide = ".gate05gBG";
+  show = ".warehouseSectionBG";
   changeBG(hide, show);
 });
 
-//ini lobby station
-$(".lobbyStationBG .btnLeft").click(function () {
-  hide = ".lobbyStationBG";
-  show = ".lobbyReceptionistBG";
+// ini storage gate yang mau masuk kedalem storage room 
+$(".storageGateBG .btnDown").click(function () {
+  hide = ".storageGateBG";
+  show = ".gate05gBG";
   changeBG(hide, show);
 });
-$(".lobbyStationBG .btnRight").click(function () {
-  hide = ".lobbyStationBG";
-  show = ".lobbyToiletBG";
+$(".storageGateBG .btnGate").click(function () {
+  hide = ".storageGateBG";
+  show = ".storageRoomBG";
   changeBG(hide, show);
 });
-$(".lobbyStationBG .btnAndroid").click(function () {
+
+//ini storage room
+$(".storageRoomBG .btnDown").click(function () {
+  hide = ".storageRoomBG";
+  show = ".storageGateBG";
+  changeBG(hide, show);
+});
+var storagepowercell = 0;
+$(".storageRoomBG .btnStoragePowercell").click(function () {
   $(".checkPlayerthree").load("checkPlayerthree.php");
-  chatArrayIndex = 22;
+  $(".storageRoomBG .btnStoragePowercell").css("display", "none");
+  acquiredItem = "url(../playerthree/img/itempowercellstorage.webp)";
+  acquiredItemName = "Powercell";
+  storagepowercell = 1;
+  addItem();
+  chatArrayIndex = 28;
+  clickTrusChatPopUp(chatArrayIndex);
+});
+
+//ini gate05h yang mau ke electrical
+$(".gate05hBG .btnGateIpad").click(function () {
+  gateName = ".gate05hClueBG";
+  openGateClue(gateName);
+});
+$(".gate05hBG .btnGate").click(function () {
+  $.ajax({
+    type: "post",
+    url: "playerthree.php?p=checkgate05h",
+    data: { stat: dbcheck },
+    dataType: "html",
+    success: function (result) {
+      dbcheck = result;
+    },
+  }).done(function () {
+    if (dbcheck == "1") {
+      hide = ".gate05hBG";
+      show = ".electricalGateBG";
+      changeBG(hide, show);
+    } else {
+      $(".checkPlayerthree").load("checkPlayerthree.php");
+      chatArrayIndex = 29;
+      clickTrusChatPopUp(chatArrayIndex);
+    }
+  });
+});
+$(".gate05hBG .btnDown").click(function () {
+  hide = ".gate05hBG";
+  show = ".warehouseSectionBG";
+  changeBG(hide, show);
+});
+
+// ini electrical gate yang mau masuk kedalem electrical room 
+$(".electricalGateBG .btnDown").click(function () {
+  hide = ".electricalGateBG";
+  show = ".gate05hBG";
+  changeBG(hide, show);
+});
+$(".electricalGateBG .btnGate").click(function () {
+  hide = ".electricalGateBG";
+  show = ".electricalFrontRoomBG";
+  changeBG(hide, show);
+});
+
+//ini electrical room yang didepan
+$(".electricalFrontRoomBG .btnDown").click(function () {
+  hide = ".electricalFrontRoomBG";
+  show = ".electricalGateBG";
+  changeBG(hide, show);
+});
+$(".electricalFrontRoomBG .btnUp").click(function () {
+  hide = ".electricalFrontRoomBG";
+  show = ".electricalBackRoomBG";
+  changeBG(hide, show);
+});
+
+// ini electrical room yang dibelakang 
+$(".electricalBackRoomBG .btnDown").click(function () {
+  hide = ".electricalBackRoomBG";
+  show = ".electricalFrontRoomBG";
+  changeBG(hide, show);
+});
+$(".electricalBackRoomBG .btnLeft").click(function () {
+  openElectricalBox();
+});
+var electricalpowercell = 0;
+$(".electricalBackRoomBG .btnElectricalPowercell").click(function () {
+  $(".checkPlayerthree").load("checkPlayerthree.php");
+  $(".electricalBackRoomBG .btnElectricalPowercell").css("display", "none");
+  acquiredItem = "url(../playerthree/img/itempowercellelectrical.webp)";
+  acquiredItemName = "Powercell";
+  electricalpowercell = 1;
+  addItem();
+  chatArrayIndex = 28;
   clickTrusChatPopUp(chatArrayIndex);
 });

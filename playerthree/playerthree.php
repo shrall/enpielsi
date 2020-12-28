@@ -25,3 +25,19 @@ if ($page == 'checkgate05f') {
       echo $gate05f;
    }
 }
+if ($page == 'checkgate05g') {
+   $result = $conn->query("SELECT * FROM team WHERE team_id=" . $_SESSION['teamid']);
+   if ($result->num_rows > 0) {
+      $row = $result->fetch_assoc();
+      $gate05g = $row['gate05g'];
+      echo $gate05g;
+   }
+}
+if ($page == 'checkgate05h') {
+   $result = $conn->query("SELECT * FROM team WHERE team_id=" . $_SESSION['teamid']);
+   if ($result->num_rows > 0) {
+      $row = $result->fetch_assoc();
+      $gate05h = $row['gate05h'];
+      echo $gate05h;
+   }
+}
