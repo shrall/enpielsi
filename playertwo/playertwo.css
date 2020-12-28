@@ -269,6 +269,24 @@ centering {
   background-size: 100%;
   background-position: center top;
 }
+.controlRoomBG .btnLeft {
+  cursor: pointer;
+  top: -100px;
+  bottom: 0;
+  left: 25px;
+  text-align: center;
+  margin: auto 0;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-image: url(../playerone/img/leftbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.controlRoomBG .btnLeft:hover {
+  background-image: url(../playerone/img/leftbtnhl.webp);
+}
 .btnAnna01 {
   cursor: pointer;
   right: 0;
@@ -1061,4 +1079,96 @@ centering {
 }
 .panelAccessPointsScreen .btnScreenBack:hover {
   background-image: url(../playertwo/img/btnbackhl.webp);
+}
+
+/* ini tempat radio  */
+.act01 .radioRoomBG {
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: url(../playertwo/bg/radioroombg.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.radioRoomBG .btnRight {
+  cursor: pointer;
+  top: 0;
+  bottom: 0;
+  right: 25px;
+  text-align: center;
+  margin: auto 0;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-image: url(../playerone/img/backbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.radioRoomBG .btnRight:hover {
+  background-image: url(../playerone/img/backbtnhl.webp);
+}
+
+.radioRoomBG .btnRadio {
+  cursor: pointer;
+  position: absolute;
+  top: 268px;
+  right: 500px;
+  width: 145px;
+  height: 130px;
+  background-image: url(../playertwo/img/radiobox.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.radioRoomBG .btnRadio:hover {
+  background-image: url(../playertwo/img/radioboxhl.webp);
+}
+.radioRoomBG .btnGlyphs {
+  cursor: pointer;
+  position: absolute;
+  top: 150px;
+  left: 0;
+  width: 275px;
+  height: 350px;
+  background-image: url(../playertwo/img/glyphboard.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.radioRoomBG .btnGlyphs:hover {
+  background-image: url(../playertwo/img/glyphboardhl.webp);
+}
+
+/* ini papan glyph */
+.act01 .glyphBoardBG {
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: url(../playertwo/bg/glyphboardbg.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.glyphBoardBG .btnBack {
+  cursor: pointer;
+  top: 70px;
+  right: 10px;
+  padding: 5px;
+  color: white;
+  text-align: center;
+  margin: 0 auto;
+  width: 150px;
+  height: 38px;
+  position: absolute;
+  background-image: url(../playerone/img/backbtnbig.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.glyphBoardBG .btnBack:hover {
+  background-image: url(../playerone/img/backbtnbighl.webp);
 }

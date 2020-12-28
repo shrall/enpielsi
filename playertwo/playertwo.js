@@ -364,6 +364,11 @@ $(".controlRoomBG .btnControlPanel").click(function () {
   show = ".controlPanelBG";
   changeBG(hide, show);
 });
+$(".controlRoomBG .btnLeft").click(function () {
+  hide = ".controlRoomBG";
+  show = ".radioRoomBG";
+  changeBG(hide, show);
+});
 
 // ini control panel yang gede
 $(".controlPanelBG .btnBack").click(function () {
@@ -514,4 +519,23 @@ $(".gatePasswordWindow .submitInput").click(function () {
       }
     }, 1000);
   });
+});
+
+// ini radio room 
+$(".radioRoomBG .btnRight").click(function () {
+  hide = ".radioRoomBG";
+  show = ".controlRoomBG";
+  changeBG(hide, show);
+});
+$(".radioRoomBG .btnGlyphs").click(function () {
+  hide = ".radioRoomBG";
+  show = ".glyphBoardBG";
+  changeBG(hide, show);
+});
+
+// ini glyphboard 
+$(".glyphBoardBG .btnBack").click(function () {
+  hide = ".glyphBoardBG";
+  show = ".radioRoomBG";
+  changeBG(hide, show);
 });
