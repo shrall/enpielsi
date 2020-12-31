@@ -1123,10 +1123,14 @@ $(".specimenRoomFourBG .btnRight").click(function () {
   changeBG(hide, show);
 });
 // ini specimen room lima
-$(".specimenRoomFiveBG .btnDown").click(function () {});
-$(".specimenRoomFiveBG .btnUp").click(function () {
+$(".specimenRoomFiveBG .btnDown").click(function () {
   hide = ".specimenRoomFiveBG";
   show = ".specimenRoomFourBG";
+  changeBG(hide, show);
+});
+$(".specimenRoomFiveBG .btnUp").click(function () {
+  hide = ".specimenRoomFiveBG";
+  show = ".specimenRoomOneBG";
   changeBG(hide, show);
 });
 $(".specimenRoomFiveBG .btnLeft").click(function () {
