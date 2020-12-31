@@ -11,25 +11,47 @@ var guideAct01 = [
   "Uh oh, that doesn't sound good..",
   "Huh? Wait. Where's Mr. Clark?",
   "Uh... the door's closed...",
-  "I should look around...",
-  "Where should I go now..",
-  "Ooh a card.. Maybe I can use this later.",
-  "Just an ordinary lab coat.",
-  "Hmm.. it's locked.",
-  "Hmm.. it says 'SCAN CARD HERE'.",
-  "The door is now opened!",
-  "It's too far to reach..",
-  "What is this place?",
-  "Code..?",
-  "I hope the owner doesn't mind if I take this..",
-  "These chemicals seems dangerous..",
-  "Virus Progress.. Completed..?",
-  "Is that Mr.namabossnya's family?",
-  "I guess someone forgot to take out the trash.",
-  "There's only 31 days on January..",
-  "What is he trying to make..?",
-  "Now I need to wait the photo to dry.",
-  "Does this button do anything?",
+  "I should look around...", //4
+  "Where should I go now..", //5
+  "Ooh a card.. Maybe I can use this later.", //6
+  "Just an ordinary lab coat.", //7
+  "Hmm.. it's locked.", //8
+  "Hmm.. it says 'SCAN CARD HERE'.", //9
+  "The door is now opened!", //10
+  "It's too far to reach..", //11
+  "What is this place?", //12
+  "Code..?", //13
+  "I hope the owner doesn't mind if I take this..", //14
+  "These chemicals seems dangerous..", //15
+  "Virus Progress.. Completed..?", //16
+  "Is that Mr.namabossnya's family?", //17
+  "I guess someone forgot to take out the trash.", //18
+  "There's only 31 days on January..", //19
+  "What is he trying to make..?", //20
+  "Now I need to wait the photo to dry.", //21
+  "Does this button do anything?", //22
+  "It's blocked..", //23
+  "Who's there?!",
+  "...",
+  "Ah! You're one of the students!",
+  "I'm sorry if I startled you.",
+  "I can't see well without my glasses..",
+  "...",
+  "We need to get out of here quickly.",
+  "But, before that, I need your help.",
+  "Inside this room, there's a liquid tube.",
+  "I need you to get it for me.",
+  "It's my most precious research item.",
+  "If I could, I'd get it myself, but..",
+  "The lights inside went out and I don't have my glasses.",
+  "While you're looking for it,",
+  "I'll find a way to open the gate to the station.", //38
+  "I went inside a lot, and even though I can't see well..",
+  "I remember the pathing.",
+  "Go West, West, North, East, South.",
+  "You'll find it there.", //42
+  "What is this..? Orange juice?" //43
+  
 ];
 
 $(document).ready(function () {
@@ -170,6 +192,7 @@ function addItem() {
 //ngoding
 
 $(".gameHUD .chatBtn").click(function () {
+  $(".checkPlayerone").load("checkPlayerone.php");
   if (guideArray == guideAct01) {
     if (labdooropened == 1) {
       if (plocation == "bridge") {
@@ -198,8 +221,30 @@ $(".chatBox").click(function () {
     isTyping = true;
     document.getElementById("chatGuide").innerHTML = "";
 
-    if (act01intro == 1 || guideZ == 4) {
-      act01intro = 1;
+    if (
+      guideZ == 4 ||
+      guideZ == 5 ||
+      guideZ == 6 ||
+      guideZ == 7 ||
+      guideZ == 8 ||
+      guideZ == 9 ||
+      guideZ == 10 ||
+      guideZ == 11 ||
+      guideZ == 12 ||
+      guideZ == 13 ||
+      guideZ == 14 ||
+      guideZ == 15 ||
+      guideZ == 16 ||
+      guideZ == 17 ||
+      guideZ == 18 ||
+      guideZ == 19 ||
+      guideZ == 20 ||
+      guideZ == 21 ||
+      guideZ == 22 ||
+      guideZ == 23 ||
+      guideZ == 38 ||
+      guideZ == 42 ||
+      guideZ == 43) {
       closeChatbox();
       closeItemAcquired();
       closeUniversal();
@@ -212,6 +257,7 @@ $(".gameHUD .chatBlockTouch").click(function () {
   if ($(".gameHUD .inventoryBox").css("visibility") == "visible") {
     closeInventorybox();
   }
+  closeUniversal();
 });
 
 var inventoryIndex = 2;
@@ -222,6 +268,7 @@ $(".inventoryBtn").click(function () {
 });
 var mainkeycard = 0;
 $(".btnLabCoat").click(function () {
+  $(".checkPlayerone").load("checkPlayerone.php");
   if (mainkeycard != 1) {
     acquiredItem = "url(../playerone/img/mainkeycard.webp)";
     acquiredItemName = "Lab Keycard";
@@ -264,6 +311,7 @@ $(".labBG .btnBack").click(function () {
       show = ".outsideLab";
       changeBG(hide, show);
     } else {
+      $(".checkPlayerone").load("checkPlayerone.php");
       chatArrayIndex = 2;
       clickTrusChatPopUp(chatArrayIndex);
     }
@@ -311,6 +359,7 @@ $(".doorToBridge .btnDown").click(function () {
 
 var bridgedoorlock = 0;
 $(".doorToBridge .bridgeDoorLock").click(function () {
+  $(".checkPlayerone").load("checkPlayerone.php");
   if (mainkeycard != 1) {
     chatArrayIndex = 8;
     clickTrusChatPopUp(chatArrayIndex);
@@ -322,6 +371,7 @@ $(".doorToBridge .bridgeDoorLock").click(function () {
 });
 
 $(".doorToBridge .bridgeDoor").click(function () {
+  $(".checkPlayerone").load("checkPlayerone.php");
   if (bridgedoorlock != 1) {
     chatArrayIndex = 7;
     clickTrusChatPopUp(chatArrayIndex);
@@ -337,6 +387,7 @@ $(".doorToBridge .bridgeDoor").click(function () {
 
 var bridgepanel = 0;
 $(".bridgeToMainLab .bridgeLift").click(function () {
+  $(".checkPlayerone").load("checkPlayerone.php");
   if (bridgepanel != 1) {
     chatArrayIndex = 10;
     clickTrusChatPopUp(chatArrayIndex);
@@ -563,6 +614,7 @@ $(".mainLabLift .btnDown").click(function () {
 
 var polaroidcamera = 0;
 $(".mainLabWorktable .btnCamera").click(function () {
+  $(".checkPlayerone").load("checkPlayerone.php");
   if (polaroidcamera != 1) {
     $(".btnCamera").css("visibility", "hidden");
     acquiredItem = "url(../playerone/img/itemcamera.webp)";
@@ -593,6 +645,7 @@ $(".mainLabWorktable .btnDown").click(function () {
 
 var photoChemical = 0;
 $(".mainLabChemical .btnChemicals").click(function () {
+  $(".checkPlayerone").load("checkPlayerone.php");
   if (polaroidcamera != 1) {
     chatArrayIndex = 14;
     clickTrusChatPopUp(chatArrayIndex);
@@ -606,7 +659,7 @@ $(".mainLabChemical .btnChemicals").click(function () {
   }
 });
 $(".mainLabChemical .selectAChemical").click(function () {
-  if(polaroid == 3){
+  if (polaroid == 3) {
     acquiredItem = "url(../playerone/img/itemphotos.webp)";
     acquiredItemName = "Photos";
     addItem();
@@ -620,6 +673,7 @@ $(".mainLabChemical .selectAChemical").click(function () {
     dataType: "html",
     success: function (result) {},
   }).done(function () {
+    $(".checkPlayerone").load("checkPlayerone.php");
     photoChemical++;
     closePopUpTwo();
     chatArrayIndex = 20;
@@ -668,6 +722,7 @@ $(".mainLabStairs .btnUp").click(function () {
 // ini monitor gede di mainlab
 var photoHugeMonitor = 0;
 $(".mainLabMonitor .btnHugeMonitor").click(function () {
+  $(".checkPlayerone").load("checkPlayerone.php");
   if (polaroidcamera != 1) {
     chatArrayIndex = 15;
     clickTrusChatPopUp(chatArrayIndex);
@@ -681,7 +736,7 @@ $(".mainLabMonitor .btnHugeMonitor").click(function () {
   }
 });
 $(".mainLabMonitor .selectAHugeMonitor").click(function () {
-  if(polaroid == 3){
+  if (polaroid == 3) {
     acquiredItem = "url(../playerone/img/itemphotos.webp)";
     acquiredItemName = "Photos";
     addItem();
@@ -695,6 +750,7 @@ $(".mainLabMonitor .selectAHugeMonitor").click(function () {
     dataType: "html",
     success: function (result) {},
   }).done(function () {
+    $(".checkPlayerone").load("checkPlayerone.php");
     photoHugeMonitor++;
     closePopUpTwo();
     chatArrayIndex = 20;
@@ -721,6 +777,7 @@ $(".mainLabMonitor .btnDown").click(function () {
 // ini photophoto di mainlab
 var photoPhotoFrame = 0;
 $(".mainLabPhotos .btnPhotoFrames").click(function () {
+  $(".checkPlayerone").load("checkPlayerone.php");
   if (polaroidcamera != 1) {
     chatArrayIndex = 16;
     clickTrusChatPopUp(chatArrayIndex);
@@ -734,7 +791,8 @@ $(".mainLabPhotos .btnPhotoFrames").click(function () {
   }
 });
 $(".mainLabPhotos .selectAPhotos").click(function () {
-  if(polaroid == 3){
+  $(".checkPlayerone").load("checkPlayerone.php");
+  if (polaroid == 3) {
     acquiredItem = "url(../playerone/img/itemphotos.webp)";
     acquiredItemName = "Photos";
     addItem();
@@ -764,6 +822,7 @@ $(".mainLabPhotos .btnDown").click(function () {
 //ini whiteboard di mainlab
 var photoNoteVirus = 0;
 $(".mainLabWhiteboard .btnNoteVirus").click(function () {
+  $(".checkPlayerone").load("checkPlayerone.php");
   if (polaroidcamera != 1) {
     chatArrayIndex = 19;
     clickTrusChatPopUp(chatArrayIndex);
@@ -778,7 +837,7 @@ $(".mainLabWhiteboard .btnNoteVirus").click(function () {
 });
 
 $(".mainLabWhiteboard .selectANoteVirus").click(function () {
-  if(polaroid == 3){
+  if (polaroid == 3) {
     acquiredItem = "url(../playerone/img/itemphotos.webp)";
     acquiredItemName = "Photos";
     addItem();
@@ -792,6 +851,7 @@ $(".mainLabWhiteboard .selectANoteVirus").click(function () {
     dataType: "html",
     success: function (result) {},
   }).done(function () {
+    $(".checkPlayerone").load("checkPlayerone.php");
     photoNoteVirus++;
     closePopUpTwo();
     chatArrayIndex = 20;
@@ -801,6 +861,7 @@ $(".mainLabWhiteboard .selectANoteVirus").click(function () {
 
 var photoNoteMom = 0;
 $(".mainLabWhiteboard .btnNoteMom").click(function () {
+  $(".checkPlayerone").load("checkPlayerone.php");
   if (polaroidcamera != 1) {
     chatArrayIndex = 18;
     clickTrusChatPopUp(chatArrayIndex);
@@ -814,7 +875,8 @@ $(".mainLabWhiteboard .btnNoteMom").click(function () {
   }
 });
 $(".mainLabWhiteboard .selectANoteMom").click(function () {
-  if(polaroid == 3){
+  $(".checkPlayerone").load("checkPlayerone.php");
+  if (polaroid == 3) {
     acquiredItem = "url(../playerone/img/itemphotos.webp)";
     acquiredItemName = "Photos";
     addItem();
@@ -828,6 +890,7 @@ $(".mainLabWhiteboard .selectANoteMom").click(function () {
 
 var photoNoteTrash = 0;
 $(".mainLabWhiteboard .btnNoteTrash").click(function () {
+  $(".checkPlayerone").load("checkPlayerone.php");
   if (polaroidcamera != 1) {
     chatArrayIndex = 17;
     clickTrusChatPopUp(chatArrayIndex);
@@ -841,7 +904,8 @@ $(".mainLabWhiteboard .btnNoteTrash").click(function () {
   }
 });
 $(".mainLabWhiteboard .selectANoteTrash").click(function () {
-  if(polaroid == 3){
+  $(".checkPlayerone").load("checkPlayerone.php");
+  if (polaroid == 3) {
     acquiredItem = "url(../playerone/img/itemphotos.webp)";
     acquiredItemName = "Photos";
     addItem();
@@ -874,7 +938,6 @@ $(".gate05aBG .btnGateIpad").click(function () {
   gateName = ".gate05aClueBG";
   openGateClue(gateName);
 });
-var gate05a = 0;
 $(".gate05aBG .btnGate").click(function () {
   $.ajax({
     type: "post",
@@ -886,11 +949,11 @@ $(".gate05aBG .btnGate").click(function () {
     },
   }).done(function () {
     if (dbcheck == "1") {
-      gate05a = 1;
-      // hide = ".labBG";
-      // show = ".outsideLab";
-      // changeBG(hide, show);
+      hide = ".gate05aBG";
+      show = ".labSectionBG";
+      changeBG(hide, show);
     } else {
+      $(".checkPlayerone").load("checkPlayerone.php");
       chatArrayIndex = 21;
       clickTrusChatPopUp(chatArrayIndex);
     }
@@ -899,5 +962,209 @@ $(".gate05aBG .btnGate").click(function () {
 $(".gate05aBG .btnDown").click(function () {
   hide = ".gate05aBG";
   show = ".threeLab";
+  changeBG(hide, show);
+});
+
+//ini diperempatan abis buka gate05f
+$(".labSectionBG .btnDown").click(function () {
+  hide = ".labSectionBG";
+  show = ".gate05aBG";
+  changeBG(hide, show);
+});
+$(".labSectionBG .btnUp").click(function () {
+  $(".checkPlayerone").load("checkPlayerone.php");
+  chatArrayIndex = 22;
+  clickTrusChatPopUp(chatArrayIndex);
+});
+$(".labSectionBG .btnLeft").click(function () {
+  hide = ".labSectionBG";
+  show = ".gate05bBG";
+  changeBG(hide, show);
+});
+
+//ini gate05b yang mau ke specimen
+$(".gate05bBG .btnGateIpad").click(function () {
+  gateName = ".gate05bClueBG";
+  openGateClue(gateName);
+});
+$(".gate05bBG .btnGate").click(function () {
+  $.ajax({
+    type: "post",
+    url: "playerone.php?p=checkgate05b",
+    data: { stat: dbcheck },
+    dataType: "html",
+    success: function (result) {
+      dbcheck = result;
+    },
+  }).done(function () {
+    if (dbcheck == "1") {
+      hide = ".gate05bBG";
+      show = ".specimenGateBG";
+      changeBG(hide, show);
+    } else {
+      $(".checkPlayerone").load("checkPlayerone.php");
+      chatArrayIndex = 21;
+      clickTrusChatPopUp(chatArrayIndex);
+    }
+  });
+});
+$(".gate05bBG .btnDown").click(function () {
+  hide = ".gate05bBG";
+  show = ".labSectionBG";
+  changeBG(hide, show);
+});
+
+// ini specimen gate yang mau masuk kedalem specimen room
+$(".specimenGateBG .btnLeft").click(function () {
+  hide = ".specimenGateBG";
+  show = ".gate05bBG";
+  changeBG(hide, show);
+});
+var professorfirstinteraction = 0;
+$(".specimenGateBG .btnProfessor").click(function () {
+  $(".checkPlayerone").html("Professor");
+  if (professorfirstinteraction == 0) {
+    professorfirstinteraction = 1;
+    chatArrayIndex = 23;
+    clickTrusChatPopUp(chatArrayIndex);
+  } else {
+    chatArrayIndex = 38;
+    clickTrusChatPopUp(chatArrayIndex);
+  }
+});
+$(".specimenGateBG .btnGate").click(function () {
+  hide = ".specimenGateBG";
+  show = ".specimenRoomOneBG";
+  changeBG(hide, show);
+});
+
+// ini specimen room pertama
+$(".specimenRoomOneBG .btnDown").click(function () {
+  hide = ".specimenRoomOneBG";
+  show = ".specimenGateBG";
+  changeBG(hide, show);
+});
+$(".specimenRoomOneBG .btnUp").click(function () {
+  hide = ".specimenRoomOneBG";
+  show = ".specimenRoomOneBG";
+  changeBG(hide, show);
+});
+$(".specimenRoomOneBG .btnLeft").click(function () {
+  hide = ".specimenRoomOneBG";
+  show = ".specimenRoomTwoBG";
+  changeBG(hide, show);
+});
+$(".specimenRoomOneBG .btnRight").click(function () {
+  hide = ".specimenRoomOneBG";
+  show = ".specimenRoomOneBG";
+  changeBG(hide, show);
+});
+// ini specimen room kedua
+$(".specimenRoomTwoBG .btnDown").click(function () {
+  hide = ".specimenRoomTwoBG";
+  show = ".specimenRoomOneBG";
+  changeBG(hide, show);
+});
+$(".specimenRoomTwoBG .btnUp").click(function () {
+  hide = ".specimenRoomTwoBG";
+  show = ".specimenRoomThreeBG";
+  changeBG(hide, show);
+});
+$(".specimenRoomTwoBG .btnLeft").click(function () {
+  hide = ".specimenRoomTwoBG";
+  show = ".specimenRoomOneBG";
+  changeBG(hide, show);
+});
+$(".specimenRoomTwoBG .btnRight").click(function () {
+  hide = ".specimenRoomTwoBG";
+  show = ".specimenRoomOneBG";
+  changeBG(hide, show);
+});
+// ini specimen room tiga
+$(".specimenRoomThreeBG .btnDown").click(function () {
+  hide = ".specimenRoomThreeBG";
+  show = ".specimenRoomTwoBG";
+  changeBG(hide, show);
+});
+$(".specimenRoomThreeBG .btnUp").click(function () {
+  hide = ".specimenRoomThreeBG";
+  show = ".specimenRoomOneBG";
+  changeBG(hide, show);
+});
+$(".specimenRoomThreeBG .btnLeft").click(function () {
+  hide = ".specimenRoomThreeBG";
+  show = ".specimenRoomOneBG";
+  changeBG(hide, show);
+});
+$(".specimenRoomThreeBG .btnRight").click(function () {
+  hide = ".specimenRoomThreeBG";
+  show = ".specimenRoomFourBG";
+  changeBG(hide, show);
+});
+// ini specimen room empat
+$(".specimenRoomFourBG .btnDown").click(function () {
+  hide = ".specimenRoomFourBG";
+  show = ".specimenRoomThreeBG";
+  changeBG(hide, show);
+});
+$(".specimenRoomFourBG .btnUp").click(function () {
+  hide = ".specimenRoomFourBG";
+  show = ".specimenRoomOneBG";
+  changeBG(hide, show);
+});
+$(".specimenRoomFourBG .btnLeft").click(function () {
+  hide = ".specimenRoomFourBG";
+  show = ".specimenRoomOneBG";
+  changeBG(hide, show);
+});
+$(".specimenRoomFourBG .btnRight").click(function () {
+  hide = ".specimenRoomFourBG";
+  show = ".specimenRoomFiveBG";
+  changeBG(hide, show);
+});
+// ini specimen room lima
+$(".specimenRoomFiveBG .btnDown").click(function () {});
+$(".specimenRoomFiveBG .btnUp").click(function () {
+  hide = ".specimenRoomFiveBG";
+  show = ".specimenRoomFourBG";
+  changeBG(hide, show);
+});
+$(".specimenRoomFiveBG .btnLeft").click(function () {
+  hide = ".specimenRoomFiveBG";
+  show = ".specimenRoomOneBG";
+  changeBG(hide, show);
+});
+$(".specimenRoomFiveBG .btnRight").click(function () {
+  hide = ".specimenRoomFiveBG";
+  show = ".specimenRoomSixBG";
+  changeBG(hide, show);
+});
+// ini specimen room enam
+
+var virustube = 0;
+$(".specimenRoomSixBG .btnTube").click(function () {
+  $(".checkPlayerone").load("checkPlayerone.php");
+  $(".specimenRoomSixBG .btnTube").css("display", "none");
+  acquiredItem = "url(../playerone/img/itemvirustube.webp)";
+  acquiredItemName = "Liquid Tube";
+  virustube = 1;
+  addItem();
+  chatArrayIndex = 42;
+  clickTrusChatPopUp(chatArrayIndex);
+});
+
+$(".specimenRoomSixBG .btnDown").click(function () {
+  hide = ".specimenRoomSixBG";
+  show = ".specimenRoomFiveBG";
+  changeBG(hide, show);
+});
+$(".specimenRoomSixBG .btnLeft").click(function () {
+  hide = ".specimenRoomSixBG";
+  show = ".specimenRoomFourBG";
+  changeBG(hide, show);
+});
+$(".specimenRoomSixBG .btnRight").click(function () {
+  hide = ".specimenRoomSixBG";
+  show = ".specimenRoomThreeBG";
   changeBG(hide, show);
 });

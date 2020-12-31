@@ -101,3 +101,11 @@ if ($page == 'checkgate05a') {
       echo $gate05a;
    }
 }
+if ($page == 'checkgate05b') {
+   $result = $conn->query("SELECT * FROM team WHERE team_id=" . $_SESSION['teamid']);
+   if ($result->num_rows > 0) {
+      $row = $result->fetch_assoc();
+      $gate05b = $row['gate05b'];
+      echo $gate05b;
+   }
+}

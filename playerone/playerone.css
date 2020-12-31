@@ -1571,7 +1571,7 @@ centering {
   background-size: 100%;
   background-position: center top;
 }
-.btnGateIpad:hover {
+.gate05aBG .btnGateIpad:hover {
   background-image: url(../playerone/img/gateipadhl.webp);
 }
 .gate05aBG .btnGate {
@@ -1590,7 +1590,7 @@ centering {
   background-size: 100%;
   background-position: center top;
 }
-.btnGate:hover {
+.gate05aBG .btnGate:hover {
   background-image: url(../playerone/img/btngatehl.webp);
 }
 
@@ -1610,5 +1610,731 @@ centering {
   background-position: center top;
 }
 .gate05aBG .btnDown:hover {
+  background-image: url(../playerone/img/downbtnhl.webp);
+}
+
+/* ini pertigaan abis buka gate 05a  */
+.act01 .labSectionBG {
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: url(../playerone/bg/labsection.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.labSectionBG .btnUp {
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  text-align: center;
+  margin: auto;
+  position: absolute;
+  background-image: url(../playerone/img/upbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.labSectionBG .btnUp:hover {
+  background-image: url(../playerone/img/upbtnhl.webp);
+}
+.labSectionBG .btnLeft {
+  cursor: pointer;
+  top: 0;
+  bottom: 0;
+  left: 250px;
+  text-align: center;
+  margin: auto 0;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-image: url(../playerone/img/leftbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.labSectionBG .btnLeft:hover {
+  background-image: url(../playerone/img/leftbtnhl.webp);
+}
+.labSectionBG .btnDown {
+  bottom: 50px;
+  right: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  text-align: center;
+  margin: 0 auto;
+  position: absolute;
+  background-image: url(../playerone/img/downbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.labSectionBG .btnDown:hover {
+  background-image: url(../playerone/img/downbtnhl.webp);
+}
+/* ini gate05b yang belok kiri buat ke specimen room  */
+.act01 .gate05bBG {
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: url(../playerone/bg/gate05b.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.gate05bClueBG {
+  z-index: 4;
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  width: 800px;
+  height: 550px;
+  top: 50px;
+  position: absolute;
+  background-image: url(../playerone/img/gate05bclue.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.gate05bBG .btnGateIpad {
+  cursor: pointer;
+  top: 320px;
+  right: 0;
+  left: 230px;
+  color: white;
+  text-align: center;
+  margin: 0 auto;
+  width: 80px;
+  height: 65px;
+  position: absolute;
+  background-image: url(../playerone/img/gateipad.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.gate05bBG .btnGateIpad:hover {
+  background-image: url(../playerone/img/gateipadhl.webp);
+}
+.gate05bBG .btnGate {
+  cursor: pointer;
+  top: 390px;
+  right: 250px;
+  left: 0;
+  color: white;
+  text-align: center;
+  margin: 0 auto;
+  width: 40px;
+  height: 35px;
+  position: absolute;
+  background-image: url(../playerone/img/btngate.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.gate05bBG .btnGate:hover {
+  background-image: url(../playerone/img/btngatehl.webp);
+}
+
+.gate05bBG .btnDown {
+  bottom: 50px;
+  right: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  text-align: center;
+  margin: 0 auto;
+  position: absolute;
+  background-image: url(../playerone/img/downbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.gate05bBG .btnDown:hover {
+  background-image: url(../playerone/img/downbtnhl.webp);
+}
+
+/* ini yang buat masuk ke specimen room */
+.act01 .specimenGateBG {
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: url(../playerone/bg/specimengate.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.specimenGateBG .btnProfessor {
+  cursor: pointer;
+  bottom: 100px;
+  right: 0;
+  left: 600px;
+  text-align: center;
+  margin: 0 auto;
+  width: 95px;
+  height: 315px;
+  position: absolute;
+  background-image: url(../playerone/img/professor.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.specimenGateBG .btnProfessor:hover {
+  width: 108px;
+  height: 330px;
+  background-image: url(../playerone/img/professorhl.webp);
+}
+.specimenGateBG .btnLeft {
+  cursor: pointer;
+  top: 0;
+  bottom: 0;
+  left: 25px;
+  text-align: center;
+  margin: auto 0;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-image: url(../playerone/img/leftbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.specimenGateBG .btnLeft:hover {
+  background-image: url(../playerone/img/leftbtnhl.webp);
+}
+.specimenGateBG .btnGate{
+  cursor: pointer;
+  top: 227px;
+  left: 0;
+  right: -30px;
+  color: white;
+  text-align: center;
+  margin: 0 auto;
+  width: 400px;
+  height: 350px;
+  position: absolute;
+  background-image: url(../playerone/img/bigdoor.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.specimenGateBG .btnGate:hover {
+  background-image: url(../playerone/img/bigdoorhl.webp);
+}
+
+/* ini room specimen pertama  */
+.act01 .specimenRoomOneBG {
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: url(../playerone/bg/specimenroom1.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.specimenRoomOneBG .btnUp {
+  right: 0;
+  left: 350px;
+  top: 100px;
+  bottom: 0;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  text-align: center;
+  margin: auto;
+  position: absolute;
+  background-image: url(../playerone/img/upbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.specimenRoomOneBG .btnUp:hover {
+  background-image: url(../playerone/img/upbtnhl.webp);
+}
+.specimenRoomOneBG .btnLeft {
+  cursor: pointer;
+  top: 0;
+  bottom: 0;
+  left: 25px;
+  text-align: center;
+  margin: auto 0;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-image: url(../playerone/img/leftbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.specimenRoomOneBG .btnLeft:hover {
+  background-image: url(../playerone/img/leftbtnhl.webp);
+}
+.specimenRoomOneBG .btnRight {
+  cursor: pointer;
+  top: 0;
+  bottom: 0;
+  right: 25px;
+  text-align: center;
+  margin: auto 0;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-image: url(../playerone/img/backbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.specimenRoomOneBG .btnRight:hover {
+  background-image: url(../playerone/img/backbtnhl.webp);
+}
+.specimenRoomOneBG .btnDown {
+  bottom: 50px;
+  right: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  text-align: center;
+  margin: 0 auto;
+  position: absolute;
+  background-image: url(../playerone/img/downbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.specimenRoomOneBG .btnDown:hover {
+  background-image: url(../playerone/img/downbtnhl.webp);
+}
+/* ini room specimen kedua  */
+.act01 .specimenRoomTwoBG {
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: url(../playerone/bg/specimenroom2.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.specimenRoomTwoBG .btnUp {
+  right: 0;
+  left: 200px;
+  top: 50px;
+  bottom: 0;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  text-align: center;
+  margin: auto;
+  position: absolute;
+  background-image: url(../playerone/img/upbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.specimenRoomTwoBG .btnUp:hover {
+  background-image: url(../playerone/img/upbtnhl.webp);
+}
+.specimenRoomTwoBG .btnLeft {
+  cursor: pointer;
+  top: 0;
+  bottom: 0;
+  left: 25px;
+  text-align: center;
+  margin: auto 0;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-image: url(../playerone/img/leftbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.specimenRoomTwoBG .btnLeft:hover {
+  background-image: url(../playerone/img/leftbtnhl.webp);
+}
+.specimenRoomTwoBG .btnRight {
+  cursor: pointer;
+  top: 0;
+  bottom: 0;
+  right: 25px;
+  text-align: center;
+  margin: auto 0;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-image: url(../playerone/img/backbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.specimenRoomTwoBG .btnRight:hover {
+  background-image: url(../playerone/img/backbtnhl.webp);
+}
+.specimenRoomTwoBG .btnDown {
+  bottom: 50px;
+  right: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  text-align: center;
+  margin: 0 auto;
+  position: absolute;
+  background-image: url(../playerone/img/downbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.specimenRoomTwoBG .btnDown:hover {
+  background-image: url(../playerone/img/downbtnhl.webp);
+}
+/* ini room specimen ketiga  */
+.act01 .specimenRoomThreeBG {
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: url(../playerone/bg/specimenroom3.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.specimenRoomThreeBG .btnUp {
+  right: 200px;
+  left: 0;
+  top: 50px;
+  bottom: 0;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  text-align: center;
+  margin: auto;
+  position: absolute;
+  background-image: url(../playerone/img/upbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.specimenRoomThreeBG .btnUp:hover {
+  background-image: url(../playerone/img/upbtnhl.webp);
+}
+.specimenRoomThreeBG .btnLeft {
+  cursor: pointer;
+  top: 0;
+  bottom: 0;
+  left: 25px;
+  text-align: center;
+  margin: auto 0;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-image: url(../playerone/img/leftbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.specimenRoomThreeBG .btnLeft:hover {
+  background-image: url(../playerone/img/leftbtnhl.webp);
+}
+.specimenRoomThreeBG .btnRight {
+  cursor: pointer;
+  top: 0;
+  bottom: 0;
+  right: 25px;
+  text-align: center;
+  margin: auto 0;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-image: url(../playerone/img/backbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.specimenRoomThreeBG .btnRight:hover {
+  background-image: url(../playerone/img/backbtnhl.webp);
+}
+.specimenRoomThreeBG .btnDown {
+  bottom: 50px;
+  right: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  text-align: center;
+  margin: 0 auto;
+  position: absolute;
+  background-image: url(../playerone/img/downbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.specimenRoomThreeBG .btnDown:hover {
+  background-image: url(../playerone/img/downbtnhl.webp);
+}
+/* ini room specimen keempat  */
+.act01 .specimenRoomFourBG {
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: url(../playerone/bg/specimenroom4.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.specimenRoomFourBG .btnUp {
+  right: 0;
+  left: 100px;
+  top: 50px;
+  bottom: 0;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  text-align: center;
+  margin: auto;
+  position: absolute;
+  background-image: url(../playerone/img/upbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.specimenRoomFourBG .btnUp:hover {
+  background-image: url(../playerone/img/upbtnhl.webp);
+}
+.specimenRoomFourBG .btnLeft {
+  cursor: pointer;
+  top: 0;
+  bottom: 0;
+  left: 25px;
+  text-align: center;
+  margin: auto 0;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-image: url(../playerone/img/leftbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.specimenRoomFourBG .btnLeft:hover {
+  background-image: url(../playerone/img/leftbtnhl.webp);
+}
+.specimenRoomFourBG .btnRight {
+  cursor: pointer;
+  top: 0;
+  bottom: 0;
+  right: 25px;
+  text-align: center;
+  margin: auto 0;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-image: url(../playerone/img/backbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.specimenRoomFourBG .btnRight:hover {
+  background-image: url(../playerone/img/backbtnhl.webp);
+}
+.specimenRoomFourBG .btnDown {
+  bottom: 50px;
+  right: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  text-align: center;
+  margin: 0 auto;
+  position: absolute;
+  background-image: url(../playerone/img/downbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.specimenRoomFourBG .btnDown:hover {
+  background-image: url(../playerone/img/downbtnhl.webp);
+}
+/* ini room specimen kelima  */
+.act01 .specimenRoomFiveBG {
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: url(../playerone/bg/specimenroom5.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.specimenRoomFiveBG .btnUp {
+  right: 350px;
+  left: 0;
+  top: 50px;
+  bottom: 0;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  text-align: center;
+  margin: auto;
+  position: absolute;
+  background-image: url(../playerone/img/upbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.specimenRoomFiveBG .btnUp:hover {
+  background-image: url(../playerone/img/upbtnhl.webp);
+}
+.specimenRoomFiveBG .btnLeft {
+  cursor: pointer;
+  top: 0;
+  bottom: 0;
+  left: 25px;
+  text-align: center;
+  margin: auto 0;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-image: url(../playerone/img/leftbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.specimenRoomFiveBG .btnLeft:hover {
+  background-image: url(../playerone/img/leftbtnhl.webp);
+}
+.specimenRoomFiveBG .btnRight {
+  cursor: pointer;
+  top: 0;
+  bottom: 0;
+  right: 25px;
+  text-align: center;
+  margin: auto 0;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-image: url(../playerone/img/backbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.specimenRoomFiveBG .btnRight:hover {
+  background-image: url(../playerone/img/backbtnhl.webp);
+}
+.specimenRoomFiveBG .btnDown {
+  bottom: 50px;
+  right: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  text-align: center;
+  margin: 0 auto;
+  position: absolute;
+  background-image: url(../playerone/img/downbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.specimenRoomFiveBG .btnDown:hover {
+  background-image: url(../playerone/img/downbtnhl.webp);
+}
+/* ini room specimen keenam  */
+.act01 .specimenRoomSixBG {
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: url(../playerone/bg/specimenroom6.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.specimenRoomSixBG .btnTube {
+  cursor: pointer;
+  top: 320px;
+  right: 82px;
+  left: 0;
+  text-align: center;
+  margin: 0 auto;
+  width: 35px;
+  height: 85px;
+  position: absolute;
+  background-image: url(../playerone/img/virustube.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.specimenRoomSixBG .btnTube:hover {
+  background-image: url(../playerone/img/virustubehl.webp);
+}
+.specimenRoomSixBG .btnLeft {
+  cursor: pointer;
+  top: 0;
+  bottom: 0;
+  left: 25px;
+  text-align: center;
+  margin: auto 0;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-image: url(../playerone/img/leftbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.specimenRoomSixBG .btnLeft:hover {
+  background-image: url(../playerone/img/leftbtnhl.webp);
+}
+
+.specimenRoomSixBG .btnRight {
+  cursor: pointer;
+  top: 0;
+  bottom: 0;
+  right: 25px;
+  text-align: center;
+  margin: auto 0;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-image: url(../playerone/img/backbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.specimenRoomSixBG .btnRight:hover {
+  background-image: url(../playerone/img/backbtnhl.webp);
+}
+.specimenRoomSixBG .btnDown {
+  bottom: 50px;
+  right: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  text-align: center;
+  margin: 0 auto;
+  position: absolute;
+  background-image: url(../playerone/img/downbtn.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.specimenRoomSixBG .btnDown:hover {
   background-image: url(../playerone/img/downbtnhl.webp);
 }
