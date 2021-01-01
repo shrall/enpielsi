@@ -23,7 +23,6 @@ $(document).ready(function () {
 
 var anna01 = 0;
 var isTyping = true;
-var act01intro = 0;
 var chatArrayIndex = 0;
 var hide = "";
 var show = "";
@@ -136,8 +135,18 @@ var guideZ = 0;
 var guideAct01 = [
   "Oh crap, where am I..?",
   "Looks like a security room..",
-  "I should look around...",
-  "There's so many computers here..",
+  "I should look around...", //3
+  "There's so many computers here..", //4
+  "...*bzzt* '-ELLO!'",
+  "*crack* ..*bzzt*",
+  "..'is any' ..*bzzt* '-one there?'",
+  "..'in case-' *crack* '-nyone is hearing this'",
+  "'I'm M-' ..'from the Agency of-' *bzzt*",
+  "'You need to get-' *bzzt* 'QUICKLY!'",
+  "'BE CAREFUL-' *crack* *bzzt* 'THE PROFESSOR!'",
+  "'JUST GET OUT!'",
+  "*bzzzzzzzt*",
+  "...",//14
 ];
 var guideArray = [];
 
@@ -157,6 +166,7 @@ function typeWriter() {
 }
 
 $(".gameHUD .chatBtn").click(function () {
+  $(".checkPlayertwo").load("checkPlayertwo.php");
   if (guideArray == guideAct01) {
     if (anna01 == 1) {
       chatArrayIndex = 2;
@@ -179,8 +189,7 @@ $(".chatBox").click(function () {
     isTyping = true;
     document.getElementById("chatGuide").innerHTML = "";
 
-    if (act01intro == 1 || guideZ == 3) {
-      act01intro = 1;
+    if (guideZ == 3 || guideZ == 4 || guideZ == 14) {
       closeChatbox();
       closeUniversal();
     } else {
@@ -512,20 +521,27 @@ $(".gatePasswordWindow .submitInput").click(function () {
     setTimeout(function () {
       if (dbcheck == "yes") {
         //kalo bener
-        $(".gate05"+gateSelected+" .lock").css("background-image", "url(../playertwo/img/unlocked.webp)");
+        $(".gate05" + gateSelected + " .lock").css(
+          "background-image",
+          "url(../playertwo/img/unlocked.webp)"
+        );
       } else {
         //kalo submit trus salah
-
       }
     }, 1000);
   });
 });
 
-// ini radio room 
+// ini radio room
 $(".radioRoomBG .btnRight").click(function () {
   hide = ".radioRoomBG";
   show = ".controlRoomBG";
   changeBG(hide, show);
+});
+$(".radioRoomBG .btnRadio").click(function () {
+  $(".checkPlayertwo").html("???");
+  chatArrayIndex = 4;
+  clickTrusChatPopUp(chatArrayIndex);
 });
 $(".radioRoomBG .btnGlyphs").click(function () {
   hide = ".radioRoomBG";
@@ -533,7 +549,7 @@ $(".radioRoomBG .btnGlyphs").click(function () {
   changeBG(hide, show);
 });
 
-// ini glyphboard 
+// ini glyphboard
 $(".glyphBoardBG .btnBack").click(function () {
   hide = ".glyphBoardBG";
   show = ".radioRoomBG";
