@@ -78,7 +78,7 @@ function closeUniversal() {
     closeInventorybox();
     closeJanitor();
     closeElectricalBox();
-    closeGateClue(gateName)
+    closeGateClue(gateName);
     closeItemAcquired();
   }
 }
@@ -178,7 +178,9 @@ var guideAct01 = [
   //30
   "The mechanic said to not use the elevator..",
   //31
-  "The path's blocked.."
+  "The path's blocked..",
+  //32
+  "You can go and talk to the android when you're ready.",
 ];
 
 var guideArray = [];
@@ -193,7 +195,7 @@ var androidGuideArray = [
   "You're incorrect. :<",
   "Just give up lol.",
   "CONGRATS! YOUR ANSWER IS WRONG! HAHA.",
-  "WRONG PASSWORD. >:("
+  "WRONG PASSWORD. >:(",
 ];
 
 function typeWriter() {
@@ -260,7 +262,8 @@ $(".gameHUD .chatBox").click(function () {
       guideZ == 29 ||
       guideZ == 30 ||
       guideZ == 31 ||
-      guideZ == 32
+      guideZ == 32 ||
+      guideZ == 33
     ) {
       closeChatbox();
       closeItemAcquired();
@@ -443,6 +446,7 @@ $(".lobbyLabBG .btnRight").click(function () {
 
 //ini lobby receptionist
 var mechanickeycard = 0;
+var mechaniccutscene = 0;
 $(".lobbyReceptionistBG .btnMechanic").click(function () {
   $(".checkPlayerthree").html("Mechanic");
   if (mechanickeycard == 0) {
@@ -451,6 +455,18 @@ $(".lobbyReceptionistBG .btnMechanic").click(function () {
     mechanickeycard = 1;
     addItem();
     chatArrayIndex = 9;
+    clickTrusChatPopUp(chatArrayIndex);
+  } else if (
+    workshoppowercell == 1 &&
+    electricalpowercell == 1 &&
+    storagepowercell == 1 &&
+    glassesbox == 1 &&
+    mechaniccutscene == 0
+  ) {
+    mechaniccutscene = 1;
+    //disini play cutscene android.
+  } else if (mechaniccutscene == 1) {
+    chatArrayIndex = 32;
     clickTrusChatPopUp(chatArrayIndex);
   } else {
     chatArrayIndex = 20;
@@ -485,9 +501,14 @@ $(".lobbyStationBG .btnRight").click(function () {
   changeBG(hide, show);
 });
 $(".lobbyStationBG .btnAndroid").click(function () {
-  $(".checkPlayerthree").load("checkPlayerthree.php");
-  chatArrayIndex = 22;
-  clickTrusChatPopUp(chatArrayIndex);
+  if (mechaniccutscene == 1) {
+    // window.location.href = "finalstage.html"
+    window.open("finalstage.html");
+  } else {
+    $(".checkPlayerthree").load("checkPlayerthree.php");
+    chatArrayIndex = 22;
+    clickTrusChatPopUp(chatArrayIndex);
+  }
 });
 
 // ini vent kekiri
@@ -722,7 +743,7 @@ $(".warehouseSectionBG .btnRight").click(function () {
   clickTrusChatPopUp(chatArrayIndex);
 });
 
-//ini gate05g yang mau ke storage 
+//ini gate05g yang mau ke storage
 $(".gate05gBG .btnGateIpad").click(function () {
   gateName = ".gate05gClueBG";
   openGateClue(gateName);
@@ -754,7 +775,7 @@ $(".gate05gBG .btnDown").click(function () {
   changeBG(hide, show);
 });
 
-// ini storage gate yang mau masuk kedalem storage room 
+// ini storage gate yang mau masuk kedalem storage room
 $(".storageGateBG .btnDown").click(function () {
   hide = ".storageGateBG";
   show = ".gate05gBG";
@@ -816,7 +837,7 @@ $(".gate05hBG .btnDown").click(function () {
   changeBG(hide, show);
 });
 
-// ini electrical gate yang mau masuk kedalem electrical room 
+// ini electrical gate yang mau masuk kedalem electrical room
 $(".electricalGateBG .btnDown").click(function () {
   hide = ".electricalGateBG";
   show = ".gate05hBG";
@@ -840,7 +861,7 @@ $(".electricalFrontRoomBG .btnUp").click(function () {
   changeBG(hide, show);
 });
 
-// ini electrical room yang dibelakang 
+// ini electrical room yang dibelakang
 $(".electricalBackRoomBG .btnDown").click(function () {
   hide = ".electricalBackRoomBG";
   show = ".electricalFrontRoomBG";

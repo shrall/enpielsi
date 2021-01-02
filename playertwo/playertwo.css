@@ -14,6 +14,33 @@ html {
   user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
 }
 
+body{
+  background-image: url(img/bg.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+
+.frame{
+  right: 0;
+  left: 0;
+  text-align: center;
+  margin: 0 auto;
+  width: 1305px;
+  height: 730px;
+  padding-top: 15px;
+  background: 
+      /* top */
+      url(img/frametop.png) top left repeat-x, 
+      /* bottom */
+      url(img/framebot.png) bottom left repeat-x, 
+      /* left side */
+      url(img/frameleft.png) top left repeat-y, 
+      /* right side */
+      url(img/frameright.png) top right repeat-y;
+      
+}
+
 centering {
   right: 0;
   left: 0;
@@ -22,6 +49,7 @@ centering {
   position: absolute;
 }
 /* GAME MENU */
+
 .container {
   right: 0;
   left: 0;
@@ -268,6 +296,23 @@ centering {
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: center top;
+}
+.controlRoomBG .btnGate {
+  cursor: pointer;
+  top: 310px;
+  left: 340px;
+  text-align: center;
+  margin: auto 0;
+  width: 200px;
+  height: 265px;
+  position: absolute;
+  background-image: url(../playertwo/img/bunkergate.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.controlRoomBG .btnGate:hover {
+  background-image: url(../playertwo/img/bunkergatehl.webp);
 }
 .controlRoomBG .btnLeft {
   cursor: pointer;

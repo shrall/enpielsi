@@ -10,6 +10,12 @@ if ($page == 'androidipad') {
       $check = $row['androidipad'];
    }
    if ($stat == $check) {
+      $stat = 1;
+      $teamid = $_SESSION['teamid'];
+      $stmt = $db->prepare("UPDATE team SET qrcode=? WHERE team_id=?");
+      $stmt->bindParam(1, $stat);
+      $stmt->bindParam(2, $teamid);
+      $stmt->execute();
       $check = "yes";
       echo $check;
    } else {

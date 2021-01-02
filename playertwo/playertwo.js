@@ -144,9 +144,11 @@ var guideAct01 = [
   "'I'm M-' ..'from the Agency of-' *bzzt*",
   "'You need to get-' *bzzt* 'QUICKLY!'",
   "'BE CAREFUL-' *crack* *bzzt* 'THE PROFESSOR!'",
-  "'JUST GET OUT!'",
+  "'GO TO THE STATION AND GET OUT!'",
   "*bzzzzzzzt*",
-  "...",//14
+  "...", //14
+  "Just an ordinary book.", //15
+  "I still need to do something else.", //16
 ];
 var guideArray = [];
 
@@ -189,7 +191,13 @@ $(".chatBox").click(function () {
     isTyping = true;
     document.getElementById("chatGuide").innerHTML = "";
 
-    if (guideZ == 3 || guideZ == 4 || guideZ == 14) {
+    if (
+      guideZ == 3 ||
+      guideZ == 4 ||
+      guideZ == 14 ||
+      guideZ == 15 ||
+      guideZ == 16
+    ) {
       closeChatbox();
       closeUniversal();
     } else {
@@ -377,6 +385,32 @@ $(".controlRoomBG .btnLeft").click(function () {
   hide = ".controlRoomBG";
   show = ".radioRoomBG";
   changeBG(hide, show);
+});
+$(".controlRoomBG .lockerBook").click(function () {
+  $(".checkPlayertwo").load("checkPlayertwo.php");
+  chatArrayIndex = 14;
+  clickTrusChatPopUp(chatArrayIndex);
+});
+
+$(".controlRoomBG .btnGate").click(function () {
+  $.ajax({
+    type: "post",
+    url: "playertwo.php?p=checkall",
+    data: { stat: dbcheck },
+    dataType: "html",
+    success: function (result) {
+      dbcheck = result;
+    },
+  }).done(function () {
+    if (dbcheck == "8") {
+      // window.location.href = "finalstage.html"
+    window.open("finalstage.html");
+    } else {
+      $(".checkPlayertwo").load("checkPlayertwo.php");
+      chatArrayIndex = 15;
+      clickTrusChatPopUp(chatArrayIndex);
+    }
+  });
 });
 
 // ini control panel yang gede

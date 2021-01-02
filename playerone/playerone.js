@@ -1027,7 +1027,9 @@ $(".specimenGateBG .btnProfessor").click(function () {
     professorfirstinteraction = 1;
     chatArrayIndex = 23;
     clickTrusChatPopUp(chatArrayIndex);
-  } else {
+  } else if(virustube == 1){
+    window.open("finalstage.html");
+  } else{
     chatArrayIndex = 38;
     clickTrusChatPopUp(chatArrayIndex);
   }

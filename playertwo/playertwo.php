@@ -26,6 +26,12 @@ if ($page == 'panelpw') {
       $check = $row['panelpw'];
    }
    if ($stat == $check) {
+      $stat = 1;
+      $teamid = $_SESSION['teamid'];
+      $stmt = $db->prepare("UPDATE team SET byu=? WHERE team_id=?");
+      $stmt->bindParam(1, $stat);
+      $stmt->bindParam(2, $teamid);
+      $stmt->execute();
       $check = "yes";
       echo $check;
    } else {
@@ -151,5 +157,22 @@ if ($page == 'gate05h') {
    } else {
       $check = "no";
       echo $check;
+   }
+}
+
+if ($page == 'checkall') {
+   $result = $conn->query("SELECT * FROM team WHERE team_id=" . $_SESSION['teamid']);
+   if ($result->num_rows > 0) {
+      $row = $result->fetch_assoc();
+      $counter = 0;
+      $counter += $row['anna01'];
+      $counter += $row['gate05a'];
+      $counter += $row['gate05b'];
+      $counter += $row['gate05f'];
+      $counter += $row['gate05g'];
+      $counter += $row['gate05h'];
+      $counter += $row['qrcode'];
+      $counter += $row['byu'];
+      echo $counter;
    }
 }
