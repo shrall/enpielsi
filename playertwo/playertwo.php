@@ -5,9 +5,11 @@ $conn = conn();
 if ($page == 'anna01') {
    $stat = $_POST['stat'];
    $teamid = $_SESSION['teamid'];
-   $stmt = $db->prepare("UPDATE team SET anna01=? WHERE team_id=?");
+   $date = date("Y-m-d H:i:s");
+   $stmt = $db->prepare("UPDATE team SET anna01=?, updated_at=? WHERE team_id=?");
    $stmt->bindParam(1, $stat);
-   $stmt->bindParam(2, $teamid);
+   $stmt->bindParam(2, $date);
+   $stmt->bindParam(3, $teamid);
    $stmt->execute();
 }
 if ($page == 'checkAnna01') {
@@ -28,9 +30,11 @@ if ($page == 'panelpw') {
    if ($stat == $check) {
       $stat = 1;
       $teamid = $_SESSION['teamid'];
-      $stmt = $db->prepare("UPDATE team SET byu=? WHERE team_id=?");
+      $date = date("Y-m-d H:i:s");
+      $stmt = $db->prepare("UPDATE team SET byu=?, updated_at=? WHERE team_id=?");
       $stmt->bindParam(1, $stat);
-      $stmt->bindParam(2, $teamid);
+      $stmt->bindParam(2, $date);
+      $stmt->bindParam(3, $teamid);
       $stmt->execute();
       $check = "yes";
       echo $check;
@@ -64,9 +68,11 @@ if ($page == 'gate05a') {
    if ($stat == $check) {
       $stat = 1;
       $teamid = $_SESSION['teamid'];
-      $stmt = $db->prepare("UPDATE team SET gate05a=? WHERE team_id=?");
+      $date = date("Y-m-d H:i:s");
+      $stmt = $db->prepare("UPDATE team SET gate05a=?, updated_at=? WHERE team_id=?");
       $stmt->bindParam(1, $stat);
-      $stmt->bindParam(2, $teamid);
+      $stmt->bindParam(2, $date);
+      $stmt->bindParam(3, $teamid);
       $stmt->execute();
       $check = "yes";
       echo $check;
@@ -85,9 +91,11 @@ if ($page == 'gate05b') {
    if ($stat == $check) {
       $stat = 1;
       $teamid = $_SESSION['teamid'];
-      $stmt = $db->prepare("UPDATE team SET gate05b=? WHERE team_id=?");
+      $date = date("Y-m-d H:i:s");
+      $stmt = $db->prepare("UPDATE team SET gate05b=?, updated_at=? WHERE team_id=?");
       $stmt->bindParam(1, $stat);
-      $stmt->bindParam(2, $teamid);
+      $stmt->bindParam(2, $date);
+      $stmt->bindParam(3, $teamid);
       $stmt->execute();
       $check = "yes";
       echo $check;
@@ -106,9 +114,11 @@ if ($page == 'gate05f') {
    if ($stat == $check) {
       $stat = 1;
       $teamid = $_SESSION['teamid'];
-      $stmt = $db->prepare("UPDATE team SET gate05f=? WHERE team_id=?");
+      $date = date("Y-m-d H:i:s");
+      $stmt = $db->prepare("UPDATE team SET gate05f=?, updated_at=? WHERE team_id=?");
       $stmt->bindParam(1, $stat);
-      $stmt->bindParam(2, $teamid);
+      $stmt->bindParam(2, $date);
+      $stmt->bindParam(3, $teamid);
       $stmt->execute();
       $check = "yes";
       echo $check;
@@ -127,9 +137,11 @@ if ($page == 'gate05g') {
    if ($stat == $check) {
       $stat = 1;
       $teamid = $_SESSION['teamid'];
-      $stmt = $db->prepare("UPDATE team SET gate05g=? WHERE team_id=?");
+      $date = date("Y-m-d H:i:s");
+      $stmt = $db->prepare("UPDATE team SET gate05g=?, updated_at=? WHERE team_id=?");
       $stmt->bindParam(1, $stat);
-      $stmt->bindParam(2, $teamid);
+      $stmt->bindParam(2, $date);
+      $stmt->bindParam(3, $teamid);
       $stmt->execute();
       $check = "yes";
       echo $check;
@@ -148,9 +160,11 @@ if ($page == 'gate05h') {
    if ($stat == $check) {
       $stat = 1;
       $teamid = $_SESSION['teamid'];
-      $stmt = $db->prepare("UPDATE team SET gate05h=? WHERE team_id=?");
+      $date = date("Y-m-d H:i:s");
+      $stmt = $db->prepare("UPDATE team SET gate05h=?, updated_at=? WHERE team_id=?");
       $stmt->bindParam(1, $stat);
-      $stmt->bindParam(2, $teamid);
+      $stmt->bindParam(2, $date);
+      $stmt->bindParam(3, $teamid);
       $stmt->execute();
       $check = "yes";
       echo $check;
@@ -175,4 +189,15 @@ if ($page == 'checkall') {
       $counter += $row['byu'];
       echo $counter;
    }
+}
+
+if ($page == 'finalptwo') {
+   $stat = 1;
+   $teamid = $_SESSION['teamid'];
+   $date = date("Y-m-d H:i:s");
+   $stmt = $db->prepare("UPDATE team SET finalptwo=?, updated_at=? WHERE team_id=?");
+   $stmt->bindParam(1, $stat);
+   $stmt->bindParam(2, $date);
+   $stmt->bindParam(3, $teamid);
+   $stmt->execute();
 }

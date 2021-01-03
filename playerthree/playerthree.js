@@ -502,8 +502,17 @@ $(".lobbyStationBG .btnRight").click(function () {
 });
 $(".lobbyStationBG .btnAndroid").click(function () {
   if (mechaniccutscene == 1) {
-    // window.location.href = "finalstage.html"
-    window.open("finalstage.html");
+    $.ajax({
+      type: "post",
+      url: "playerthree.php?p=finalpthree",
+      data: { stat: dbcheck },
+      dataType: "html",
+      success: function (result) {
+        dbcheck = result;
+      },
+    }).done(function () {
+      window.open("finalstage.html");
+    });
   } else {
     $(".checkPlayerthree").load("checkPlayerthree.php");
     chatArrayIndex = 22;

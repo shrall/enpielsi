@@ -12,9 +12,11 @@ if ($page == 'androidipad') {
    if ($stat == $check) {
       $stat = 1;
       $teamid = $_SESSION['teamid'];
-      $stmt = $db->prepare("UPDATE team SET qrcode=? WHERE team_id=?");
+      $date = date("Y-m-d H:i:s");
+      $stmt = $db->prepare("UPDATE team SET qrcode=?, updated_at=? WHERE team_id=?");
       $stmt->bindParam(1, $stat);
-      $stmt->bindParam(2, $teamid);
+      $stmt->bindParam(2, $date);
+      $stmt->bindParam(3, $teamid);
       $stmt->execute();
       $check = "yes";
       echo $check;
@@ -46,4 +48,15 @@ if ($page == 'checkgate05h') {
       $gate05h = $row['gate05h'];
       echo $gate05h;
    }
+}
+
+if ($page == 'finalpthree') {
+   $stat = 1;
+   $teamid = $_SESSION['teamid'];
+   $date = date("Y-m-d H:i:s");
+   $stmt = $db->prepare("UPDATE team SET finalpthree=?, updated_at=? WHERE team_id=?");
+   $stmt->bindParam(1, $stat);
+   $stmt->bindParam(2, $date);
+   $stmt->bindParam(3, $teamid);
+   $stmt->execute();
 }

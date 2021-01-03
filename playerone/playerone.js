@@ -1028,7 +1028,17 @@ $(".specimenGateBG .btnProfessor").click(function () {
     chatArrayIndex = 23;
     clickTrusChatPopUp(chatArrayIndex);
   } else if(virustube == 1){
-    window.open("finalstage.html");
+    $.ajax({
+      type: "post",
+      url: "playerone.php?p=finalpone",
+      data: { stat: dbcheck },
+      dataType: "html",
+      success: function (result) {
+        dbcheck = result;
+      },
+    }).done(function () {
+      window.open("finalstage.html");
+    });
   } else{
     chatArrayIndex = 38;
     clickTrusChatPopUp(chatArrayIndex);

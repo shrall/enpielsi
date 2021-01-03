@@ -109,3 +109,13 @@ if ($page == 'checkgate05b') {
       echo $gate05b;
    }
 }
+if ($page == 'finalpone') {
+   $stat = 1;
+   $teamid = $_SESSION['teamid'];
+   $date = date("Y-m-d H:i:s");
+   $stmt = $db->prepare("UPDATE team SET finalpone=?, updated_at=? WHERE team_id=?");
+   $stmt->bindParam(1, $stat);
+   $stmt->bindParam(2, $date);
+   $stmt->bindParam(3, $teamid);
+   $stmt->execute();
+}

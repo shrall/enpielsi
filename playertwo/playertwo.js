@@ -403,8 +403,17 @@ $(".controlRoomBG .btnGate").click(function () {
     },
   }).done(function () {
     if (dbcheck == "8") {
-      // window.location.href = "finalstage.html"
-    window.open("finalstage.html");
+      $.ajax({
+        type: "post",
+        url: "playertwo.php?p=finalptwo",
+        data: { stat: dbcheck },
+        dataType: "html",
+        success: function (result) {
+          dbcheck = result;
+        },
+      }).done(function () {
+        window.open("finalstage.html");
+      });
     } else {
       $(".checkPlayertwo").load("checkPlayertwo.php");
       chatArrayIndex = 15;
