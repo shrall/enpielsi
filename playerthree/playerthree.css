@@ -15,6 +15,35 @@ html {
   -ms-user-select: none; /* Internet Explorer/Edge */
   user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
 }
+body {
+  background-image: url(img/bg.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+
+.frame {
+  right: 0;
+  left: 0;
+  text-align: center;
+  margin: 0 auto;
+  width: 1305px;
+  height: 730px;
+  padding-top: 15px;
+  background: 
+    /* top left corner */ url(../playertwo/img/topleft.webp) top
+      left no-repeat,
+    /* top right corner */ url(../playertwo/img/topright.webp) top right
+      no-repeat,
+    /* bottom left corner */ url(../playertwo/img/bottomleft.webp) bottom left
+      no-repeat,
+    /* bottom right corner */ url(../playertwo/img/bottomright.webp) bottom
+      right no-repeat,
+    /* top */ url(../playertwo/img/top.webp) top left repeat-x,
+    /* bottom */ url(../playertwo/img/bottom.webp) bottom left repeat-x,
+    /* left side */ url(../playertwo/img/left.webp) top left repeat-y,
+    /* right side */ url(../playertwo/img/right.webp) top right repeat-y;
+}
 
 centering {
   right: 0;
