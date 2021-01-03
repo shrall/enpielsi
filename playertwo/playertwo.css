@@ -1269,3 +1269,195 @@ centering {
 .glyphBoardBG .btnBack:hover {
   background-image: url(../playerone/img/backbtnbighl.webp);
 }
+
+/*! ini final stage */
+.finalStage {
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin-right: auto;
+  margin-left: auto;
+  width: 1280px;
+  height: 720px;
+  position: absolute;
+}
+/* waiting for other players */
+.finalStage .finalPromptBG {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: url(../final/bg/finalprompt.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.finalStage .promptMenu {
+  visibility: hidden;
+  opacity: 0;
+}
+.finalPromptBG .promptTitle{
+  z-index: 5;
+  top: 40px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  margin: 0 auto;
+  width: 1100px;
+  height: 100px;
+  position: absolute;
+  background-image: url(../final/img/prompttext.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.finalStage .playerFrame {
+  z-index: 5;
+  font-family: "Ailerons";
+  color: #00374b;
+  cursor: pointer;
+  top: 140px;
+  text-align: center;
+  margin: 0 auto;
+  width: 300px;
+  height: 420px;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.playerFrame .playerName {
+  font-size: 36px;
+  position: absolute;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  bottom: 95px;
+}
+.playerFrame.framePlayerOne {
+  left: 100px;
+  background-image: url(../final/img/a.webp);
+}
+.playerFrame.framePlayerTwo {
+  left: 0;
+  right: 0;
+  background-image: url(../final/img/b.webp);
+}
+.playerFrame.framePlayerThree {
+  right: 100px;
+  background-image: url(../final/img/c.webp);
+}
+
+.finalPromptBG .playerIndicator {
+  z-index: 5;
+  top: 570px;
+  text-align: center;
+  margin: 0 auto;
+  width: 300px;
+  height: 40px;
+  position: absolute;
+  background-image: url(../final/img/finalindicator.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.playerIndicator.indicatorPlayerOne {
+  left: 100px;
+}
+.playerIndicator.indicatorPlayerTwo {
+  right: 0;
+  left: 0;
+}
+.playerIndicator.indicatorPlayerThree {
+  right: 100px;
+}
+
+.playerIndicator .indicatorLight {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 295px;
+  height: 35px;
+  border-radius: 10px;
+  background-color: #d96368;
+}
+
+.finalPromptBG .btnStart{
+  z-index: 5;
+  cursor: pointer;
+  bottom: 10px;
+  right: 0;
+  left: 0;
+  text-align: center;
+  margin: 0 auto;
+  width: 250px;
+  height: 75px;
+  position: absolute;
+  background-image: url(../final/img/finalstart.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.finalPromptBG .btnStart:hover {
+  background-image: url(../final/img/finalstarthl.webp);
+}
+/* final choice */
+.finalStage .podStationBG {
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: url(../final/bg/finalchoice.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.finalStage .finalChoiceMenu {
+  visibility: hidden;
+  opacity: 0;
+}
+.podStationBG .choiceTitle{
+  z-index: 5;
+  top: 40px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  margin: 0 auto;
+  width: 1100px;
+  height: 100px;
+  position: absolute;
+  background-image: url(../final/img/choicetext.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.podStationBG .btnConfirm{
+  z-index: 5;
+  cursor: pointer;
+  bottom: 10px;
+  right: 0;
+  left: 0;
+  text-align: center;
+  margin: 0 auto;
+  width: 250px;
+  height: 75px;
+  position: absolute;
+  background-image: url(../final/img/finalconfirm.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.podStationBG .btnConfirm:hover {
+  background-image: url(../final/img/finalconfirmhl.webp);
+}
+
+/* jeng jeng jeng jeng */
+.finalStage .finalWaitBG {
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: #00374b;
+}
