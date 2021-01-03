@@ -16,7 +16,7 @@ html {
   user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
 }
 body {
-  background-image: url(img/bg.png);
+  background-image: url(../playertwo/img/bg.png);
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: center top;
