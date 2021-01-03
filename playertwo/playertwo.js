@@ -419,6 +419,18 @@ $(".controlPanelBG .btnBack").click(function () {
   show = ".controlRoomBG";
   changeBG(hide, show);
 });
+$(".controlPanelBG .btnByU").click(function () {
+  hide = ".controlPanelBG";
+  show = ".byUBG";
+  changeBG(hide, show);
+});
+
+//ini notesnya byu
+$(".byUBG .btnBack").click(function () {
+  hide = ".byUBG";
+  show = ".controlPanelBG";
+  changeBG(hide, show);
+});
 
 // ini screen yang pas mau login
 $(".panelLoginScreen .panelPassInput").keypress(function (event) {

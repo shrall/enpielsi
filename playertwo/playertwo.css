@@ -14,14 +14,14 @@ html {
   user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
 }
 
-body{
+body {
   background-image: url(img/bg.png);
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: center top;
 }
 
-.frame{
+.frame {
   right: 0;
   left: 0;
   text-align: center;
@@ -30,15 +30,18 @@ body{
   height: 730px;
   padding-top: 15px;
   background: 
-      /* top */
-      url(img/frametop.png) top left repeat-x, 
-      /* bottom */
-      url(img/framebot.png) bottom left repeat-x, 
-      /* left side */
-      url(img/frameleft.png) top left repeat-y, 
-      /* right side */
-      url(img/frameright.png) top right repeat-y;
-      
+    /* top left corner */ url(../playertwo/img/topleft.webp) top
+      left no-repeat,
+    /* top right corner */ url(../playertwo/img/topright.webp) top right
+      no-repeat,
+    /* bottom left corner */ url(../playertwo/img/bottomleft.webp) bottom left
+      no-repeat,
+    /* bottom right corner */ url(../playertwo/img/bottomright.webp) bottom
+      right no-repeat,
+    /* top */ url(../playertwo/img/top.webp) top left repeat-x,
+    /* bottom */ url(../playertwo/img/bottom.webp) bottom left repeat-x,
+    /* left side */ url(../playertwo/img/left.webp) top left repeat-y,
+    /* right side */ url(../playertwo/img/right.webp) top right repeat-y;
 }
 
 centering {
@@ -237,7 +240,7 @@ centering {
   background-size: 100%;
   background-position: center top;
 }
-.itemAcquiredBox .itemAcquiredImage{
+.itemAcquiredBox .itemAcquiredImage {
   position: absolute;
   background-image: url(../playerone/img/itemwalkietalkie.webp);
   background-repeat: no-repeat;
@@ -248,7 +251,7 @@ centering {
   top: 50px;
   left: 30px;
 }
-.itemAcquiredBox .itemAcquiredText{
+.itemAcquiredBox .itemAcquiredText {
   font-family: "Ailerons";
   color: #00374b;
   text-align: left;
@@ -259,7 +262,7 @@ centering {
   top: 40px;
   width: 300px;
 }
-.itemAcquiredBox .itemAcquiredName{
+.itemAcquiredBox .itemAcquiredName {
   font-family: "Exo";
   color: #00374b;
   text-align: left;
@@ -688,6 +691,37 @@ centering {
   background-color: #333;
 }
 
+/* ini notenya byu  */
+.byUBG {
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: url(../playertwo/bg/byunotes.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.byUBG .btnBack {
+  cursor: pointer;
+  top: 70px;
+  right: 10px;
+  padding: 5px;
+  color: white;
+  text-align: center;
+  margin: 0 auto;
+  width: 150px;
+  height: 38px;
+  position: absolute;
+  background-image: url(../playerone/img/backbtnbig.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.byUBG .btnBack:hover {
+  background-image: url(../playerone/img/backbtnbighl.webp);
+}
+
 /* ini monitor yang gede. yang control panel  */
 .controlPanelBG {
   visibility: hidden;
@@ -698,6 +732,24 @@ centering {
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: center top;
+}
+.controlPanelBG .btnByU {
+  cursor: pointer;
+  bottom: 30px;
+  right: 120px;
+  padding: 5px;
+  text-align: center;
+  margin: 0 auto;
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  background-image: url(../playertwo/img/btnbyu.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.controlPanelBG .btnByU:hover {
+  background-image: url(../playertwo/img/btnbyuhl.webp);
 }
 .controlPanelBG .btnBack {
   cursor: pointer;
@@ -760,7 +812,7 @@ centering {
   outline: none;
 }
 .panelLoginScreen .panelPassInput::placeholder {
-  color: #335F6F !important;
+  color: #335f6f !important;
 }
 .panelLoginScreen .submitInput {
   cursor: pointer;
@@ -960,7 +1012,7 @@ centering {
   background-size: 100%;
   background-position: center top;
 }
-.panelAccessPointsScreen .lock{
+.panelAccessPointsScreen .lock {
   top: 5px;
   right: 10px;
   width: 32px;
@@ -1070,7 +1122,7 @@ centering {
   background-position: center top;
 }
 .gatePassInput {
-  color: #00374B !important;
+  color: #00374b !important;
   text-align: center;
   font-family: "Exo";
   font-size: 14px;
@@ -1086,7 +1138,7 @@ centering {
   outline: none;
 }
 .gatePassInput::placeholder {
-  color: #335F6F !important;
+  color: #335f6f !important;
 }
 .panelAccessPointsScreen .submitInput {
   cursor: pointer;
