@@ -2,6 +2,11 @@
 @import url("../exolight.otf");
 @import url("../exoregular.otf");
 @import url("../ailerons.otf");
+
+@font-face { font-family: abyssopelagic; src: url("../abyssopelagic.otf"); }
+@font-face { font-family: ailerons; src: url("../ailerons.otf"); }
+@font-face { font-family: exo; src: url("../exoregular.otf"); }
+
 html {
   overflow: hidden;
 }
