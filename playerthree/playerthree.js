@@ -1,4 +1,24 @@
+var bgMusic = new Audio("../audio/music/bgm.mp3");
+bgMusic.loop = true;
+var screwSFX = new Audio("../audio/sfx/screwvent.mp3");
+var grabItemSFX = new Audio("../audio/sfx/getitem.mp3");
+var zipperSFX = new Audio("../audio/sfx/backpack.mp3");
+var cardScanSFX = new Audio("../audio/sfx/cardscan.mp3");
+var gateOpenSFX = new Audio("../audio/sfx/gate.mp3");
+var openVentSFX = new Audio("../audio/sfx/screwvent.mp3");
+var ventMoveSFX = new Audio("../audio/sfx/ventmovement.mp3");
+var walkSFX = new Audio("../audio/sfx/walk.mp3");
+var correctSFX = new Audio("../audio/sfx/correct.mp3");
+var wrongSFX = new Audio("../audio/sfx/wrong.mp3");
+
+function playSFX(sfx){
+  sfx.pause();
+  sfx.currentTime = 0;
+  sfx.play();
+};
+
 $(document).ready(function () {
+  bgMusic.play();
   setTimeout(function () {
     $(".checkPlayerthree").load("checkPlayerthree.php");
   }, 1);
@@ -63,6 +83,7 @@ function closeInventorybox() {
   closeChatBlockTouch();
 }
 function openItemAcquired() {
+  playSFX(grabItemSFX);
   $(".gameHUD .itemAcquiredName").html(acquiredItemName);
   $(".gameHUD .itemAcquiredImage").css("background-image", acquiredItem);
   $(".gameHUD .itemAcquiredBox").css("visibility", "visible");
@@ -286,6 +307,7 @@ var acquiredItem = "";
 var screwdriver = 0;
 
 $(".inventoryBtn").click(function () {
+  playSFX(zipperSFX);
   openInventorybox();
 });
 
@@ -308,6 +330,7 @@ $(".toiletBG .btnWallet").click(function () {
 
 $(".toiletBG .btnVent").click(function () {
   if (screwdriver == 1) {
+    playSFX(screwSFX);
     hide = ".toiletBG";
     show = ".toiletVentBG";
     changeBG(hide, show);
@@ -369,11 +392,13 @@ $(".toiletVentBG .btnBack").click(function () {
   changeBG(hide, show);
 });
 $(".toiletVentBG .btnLeft").click(function () {
+  playSFX(ventMoveSFX);
   hide = ".toiletVentBG";
   show = ".toiletVentLeftBG";
   changeBG(hide, show);
 });
 $(".toiletVentBG .btnRight").click(function () {
+  playSFX(ventMoveSFX);
   hide = ".toiletVentBG";
   show = ".toiletVentRightBG";
   changeBG(hide, show);
@@ -381,11 +406,13 @@ $(".toiletVentBG .btnRight").click(function () {
 
 // ini vent kekanan
 $(".toiletVentRightBG .btnBack").click(function () {
+  playSFX(ventMoveSFX);
   hide = ".toiletVentRightBG";
   show = ".toiletVentBG";
   changeBG(hide, show);
 });
 $(".toiletVentRightBG .btnVent").click(function () {
+  playSFX(screwSFX);
   hide = ".toiletVentRightBG";
   show = ".toiletWomenBG";
   changeBG(hide, show);
@@ -393,11 +420,13 @@ $(".toiletVentRightBG .btnVent").click(function () {
 
 // ini toilet cewek
 $(".toiletWomenBG .btnVent").click(function () {
+  playSFX(screwSFX);
   hide = ".toiletWomenBG";
   show = ".toiletVentRightBG";
   changeBG(hide, show);
 });
 $(".toiletWomenBG .btnLeft").click(function () {
+  playSFX(walkSFX);
   hide = ".toiletWomenBG";
   show = ".lobbyToiletBG";
   changeBG(hide, show);
@@ -405,16 +434,19 @@ $(".toiletWomenBG .btnLeft").click(function () {
 
 //ini lobby toilet
 $(".lobbyToiletBG .toiletWomenDoor").click(function () {
+  playSFX(walkSFX);
   hide = ".lobbyToiletBG";
   show = ".toiletWomenBG";
   changeBG(hide, show);
 });
 $(".lobbyToiletBG .btnLeft").click(function () {
+  playSFX(walkSFX);
   hide = ".lobbyToiletBG";
   show = ".lobbyStationBG";
   changeBG(hide, show);
 });
 $(".lobbyToiletBG .btnRight").click(function () {
+  playSFX(walkSFX);
   hide = ".lobbyToiletBG";
   show = ".lobbyWarehouseBG";
   changeBG(hide, show);
@@ -422,11 +454,13 @@ $(".lobbyToiletBG .btnRight").click(function () {
 
 // ini lobby warehouse
 $(".lobbyWarehouseBG .btnLeft").click(function () {
+  playSFX(walkSFX);
   hide = ".lobbyWarehouseBG";
   show = ".lobbyToiletBG";
   changeBG(hide, show);
 });
 $(".lobbyWarehouseBG .btnRight").click(function () {
+  playSFX(walkSFX);
   hide = ".lobbyWarehouseBG";
   show = ".lobbyLabBG";
   changeBG(hide, show);
@@ -434,11 +468,13 @@ $(".lobbyWarehouseBG .btnRight").click(function () {
 
 // ini lobby lab
 $(".lobbyLabBG .btnLeft").click(function () {
+  playSFX(walkSFX);
   hide = ".lobbyLabBG";
   show = ".lobbyWarehouseBG";
   changeBG(hide, show);
 });
 $(".lobbyLabBG .btnRight").click(function () {
+  playSFX(walkSFX);
   hide = ".lobbyLabBG";
   show = ".lobbyReceptionistBG";
   changeBG(hide, show);
@@ -479,11 +515,13 @@ $(".lobbyReceptionistBG .btnLift").click(function () {
   clickTrusChatPopUp(chatArrayIndex);
 });
 $(".lobbyReceptionistBG .btnLeft").click(function () {
+  playSFX(walkSFX);
   hide = ".lobbyReceptionistBG";
   show = ".lobbyLabBG";
   changeBG(hide, show);
 });
 $(".lobbyReceptionistBG .btnRight").click(function () {
+  playSFX(walkSFX);
   hide = ".lobbyReceptionistBG";
   show = ".lobbyStationBG";
   changeBG(hide, show);
@@ -491,11 +529,13 @@ $(".lobbyReceptionistBG .btnRight").click(function () {
 
 //ini lobby station
 $(".lobbyStationBG .btnLeft").click(function () {
+  playSFX(walkSFX);
   hide = ".lobbyStationBG";
   show = ".lobbyReceptionistBG";
   changeBG(hide, show);
 });
 $(".lobbyStationBG .btnRight").click(function () {
+  playSFX(walkSFX);
   hide = ".lobbyStationBG";
   show = ".lobbyToiletBG";
   changeBG(hide, show);
@@ -522,12 +562,14 @@ $(".lobbyStationBG .btnAndroid").click(function () {
 
 // ini vent kekiri
 $(".toiletVentLeftBG .btnBack").click(function () {
+  playSFX(ventMoveSFX);
   hide = ".toiletVentLeftBG";
   show = ".toiletVentBG";
   changeBG(hide, show);
 });
 
 $(".toiletVentLeftBG .btnVent").click(function () {
+  playSFX(screwSFX);
   hide = ".toiletVentLeftBG";
   show = ".mechanicDoorBG";
   changeBG(hide, show);
@@ -535,11 +577,13 @@ $(".toiletVentLeftBG .btnVent").click(function () {
 
 // ini di depan officenya mechanic
 $(".mechanicDoorBG .btnRight").click(function () {
+  playSFX(walkSFX);
   hide = ".mechanicDoorBG";
   show = ".gate05fBG";
   changeBG(hide, show);
 });
 $(".mechanicDoorBG .btnDown").click(function () {
+  playSFX(walkSFX);
   hide = ".mechanicDoorBG";
   show = ".toiletVentLeftBG";
   changeBG(hide, show);
@@ -552,6 +596,7 @@ $(".mechanicDoorBG .mechanicDoorLock").click(function () {
     chatArrayIndex = 24;
     clickTrusChatPopUp(chatArrayIndex);
   } else {
+    playSFX(cardScanSFX);
     mechanicdoorlock = 1;
     chatArrayIndex = 25;
     clickTrusChatPopUp(chatArrayIndex);
@@ -571,11 +616,13 @@ $(".mechanicDoorBG .mechanicOfficeDoor").click(function () {
 
 // ini officenya si mechanic
 $(".mechanicOfficeBG .btnRight").click(function () {
+  playSFX(walkSFX);
   hide = ".mechanicOfficeBG";
   show = ".mechanicWorkshopDoorBG";
   changeBG(hide, show);
 });
 $(".mechanicOfficeBG .btnDown").click(function () {
+  playSFX(walkSFX);
   hide = ".mechanicOfficeBG";
   show = ".mechanicDoorBG";
   changeBG(hide, show);
@@ -594,11 +641,13 @@ $(".mechanicOfficeBG .btnGlassesBox").click(function () {
 
 //ini pintu masuk ke dalem workshop
 $(".mechanicWorkshopDoorBG .btnRight").click(function () {
+  playSFX(walkSFX);
   hide = ".mechanicWorkshopDoorBG";
   show = ".mechanicDoorBG";
   changeBG(hide, show);
 });
 $(".mechanicWorkshopDoorBG .btnDown").click(function () {
+  playSFX(walkSFX);
   hide = ".mechanicWorkshopDoorBG";
   show = ".mechanicOfficeBG";
   changeBG(hide, show);
@@ -618,6 +667,7 @@ var androidipadlock = 0;
 $(".mechanicWorkshopDoorBG .mechanicWorkshopDoor").click(function () {
   $(".checkPlayerthree").load("checkPlayerthree.php");
   if (androidipadlock == 1) {
+    playSFX(walkSFX);
     hide = ".mechanicWorkshopDoorBG";
     show = ".mechanicWorkshopBG";
     changeBG(hide, show);
@@ -650,6 +700,7 @@ $(".androidIpadBG .btnSubmitIpad").click(function () {
     setTimeout(function () {
       if (dbcheck == "yes") {
         //kalo bener
+        playSFX(correctSFX);
         androidGuideZ = 1;
         androidGuideY = 0;
         isTyping = true;
@@ -658,6 +709,7 @@ $(".androidIpadBG .btnSubmitIpad").click(function () {
         androidipadlock = 1;
       } else {
         //kalo submit trus salah
+        playSFX(wrongSFX);
         androidGuideZ = Math.floor(Math.random() * 5) + 2;
         androidGuideY = 0;
         isTyping = true;
@@ -670,11 +722,13 @@ $(".androidIpadBG .btnSubmitIpad").click(function () {
 
 //ini di depannya workshop
 $(".mechanicWorkshopDoorBG .btnRight").click(function () {
+  playSFX(walkSFX);
   hide = ".mechanicWorkshopDoorBG";
   show = ".mechanicDoorBG";
   changeBG(hide, show);
 });
 $(".mechanicWorkshopDoorBG .btnDown").click(function () {
+  playSFX(walkSFX);
   hide = ".mechanicWorkshopDoorBG";
   show = ".mechanicOfficeBG";
   changeBG(hide, show);
@@ -682,6 +736,7 @@ $(".mechanicWorkshopDoorBG .btnDown").click(function () {
 
 //ini di dalemnya workshop
 $(".mechanicWorkshopBG .btnDown").click(function () {
+  playSFX(walkSFX);
   hide = ".mechanicWorkshopBG";
   show = ".mechanicWorkshopDoorBG";
   changeBG(hide, show);
@@ -715,6 +770,7 @@ $(".gate05fBG .btnGate").click(function () {
     },
   }).done(function () {
     if (dbcheck == "1") {
+      playSFX(gateOpenSFX);
       hide = ".gate05fBG";
       show = ".warehouseSectionBG";
       changeBG(hide, show);
@@ -726,6 +782,7 @@ $(".gate05fBG .btnGate").click(function () {
   });
 });
 $(".gate05fBG .btnDown").click(function () {
+  playSFX(walkSFX);
   hide = ".gate05fBG";
   show = ".mechanicDoorBG";
   changeBG(hide, show);
@@ -733,16 +790,19 @@ $(".gate05fBG .btnDown").click(function () {
 
 //ini diperempatan abis buka gate05f
 $(".warehouseSectionBG .btnDown").click(function () {
+  playSFX(walkSFX);
   hide = ".warehouseSectionBG";
   show = ".gate05fBG";
   changeBG(hide, show);
 });
 $(".warehouseSectionBG .btnUp").click(function () {
+  playSFX(walkSFX);
   hide = ".warehouseSectionBG";
   show = ".gate05hBG";
   changeBG(hide, show);
 });
 $(".warehouseSectionBG .btnLeft").click(function () {
+  playSFX(walkSFX);
   hide = ".warehouseSectionBG";
   show = ".gate05gBG";
   changeBG(hide, show);
@@ -768,6 +828,7 @@ $(".gate05gBG .btnGate").click(function () {
     },
   }).done(function () {
     if (dbcheck == "1") {
+      gateOpenSFX.play();
       hide = ".gate05gBG";
       show = ".storageGateBG";
       changeBG(hide, show);
@@ -779,6 +840,7 @@ $(".gate05gBG .btnGate").click(function () {
   });
 });
 $(".gate05gBG .btnDown").click(function () {
+  playSFX(walkSFX);
   hide = ".gate05gBG";
   show = ".warehouseSectionBG";
   changeBG(hide, show);
@@ -786,11 +848,13 @@ $(".gate05gBG .btnDown").click(function () {
 
 // ini storage gate yang mau masuk kedalem storage room
 $(".storageGateBG .btnDown").click(function () {
+  playSFX(walkSFX);
   hide = ".storageGateBG";
   show = ".gate05gBG";
   changeBG(hide, show);
 });
 $(".storageGateBG .btnGate").click(function () {
+  playSFX(gateOpenSFX);
   hide = ".storageGateBG";
   show = ".storageRoomBG";
   changeBG(hide, show);
@@ -798,6 +862,7 @@ $(".storageGateBG .btnGate").click(function () {
 
 //ini storage room
 $(".storageRoomBG .btnDown").click(function () {
+  playSFX(walkSFX);
   hide = ".storageRoomBG";
   show = ".storageGateBG";
   changeBG(hide, show);
@@ -830,6 +895,7 @@ $(".gate05hBG .btnGate").click(function () {
     },
   }).done(function () {
     if (dbcheck == "1") {
+      playSFX(gateOpenSFX);
       hide = ".gate05hBG";
       show = ".electricalGateBG";
       changeBG(hide, show);
@@ -841,6 +907,7 @@ $(".gate05hBG .btnGate").click(function () {
   });
 });
 $(".gate05hBG .btnDown").click(function () {
+  playSFX(walkSFX);
   hide = ".gate05hBG";
   show = ".warehouseSectionBG";
   changeBG(hide, show);
@@ -848,11 +915,13 @@ $(".gate05hBG .btnDown").click(function () {
 
 // ini electrical gate yang mau masuk kedalem electrical room
 $(".electricalGateBG .btnDown").click(function () {
+  playSFX(walkSFX);
   hide = ".electricalGateBG";
   show = ".gate05hBG";
   changeBG(hide, show);
 });
 $(".electricalGateBG .btnGate").click(function () {
+  playSFX(gateOpenSFX);
   hide = ".electricalGateBG";
   show = ".electricalFrontRoomBG";
   changeBG(hide, show);
@@ -860,11 +929,13 @@ $(".electricalGateBG .btnGate").click(function () {
 
 //ini electrical room yang didepan
 $(".electricalFrontRoomBG .btnDown").click(function () {
+  playSFX(walkSFX);
   hide = ".electricalFrontRoomBG";
   show = ".electricalGateBG";
   changeBG(hide, show);
 });
 $(".electricalFrontRoomBG .btnUp").click(function () {
+  playSFX(walkSFX);
   hide = ".electricalFrontRoomBG";
   show = ".electricalBackRoomBG";
   changeBG(hide, show);
@@ -872,6 +943,7 @@ $(".electricalFrontRoomBG .btnUp").click(function () {
 
 // ini electrical room yang dibelakang
 $(".electricalBackRoomBG .btnDown").click(function () {
+  playSFX(walkSFX);
   hide = ".electricalBackRoomBG";
   show = ".electricalFrontRoomBG";
   changeBG(hide, show);

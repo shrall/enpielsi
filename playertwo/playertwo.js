@@ -1,5 +1,26 @@
+var bgMusic = new Audio("../audio/music/bgm.mp3");
+bgMusic.loop = true;
+var grabItemSFX = new Audio("../audio/sfx/getitem.mp3");
+var zipperSFX = new Audio("../audio/sfx/backpack.mp3");
+var walkSFX = new Audio("../audio/sfx/walk.mp3");
+var correctSFX = new Audio("../audio/sfx/correct.mp3");
+var wrongSFX = new Audio("../audio/sfx/wrong.mp3");
+var labCorrectSFX = new Audio("../audio/sfx/annacorrect.mp3");
+var labWrongSFX = new Audio("../audio/sfx/annawrong.mp3");
+var successGateSFX = new Audio("../audio/sfx/successgatelock.mp3");
+var failedGateSFX = new Audio("../audio/sfx/failedgatelock.mp3");
+var radioSFX = new Audio("../audio/sfx/radio.mp3");
+var lockerSFX = new Audio("../audio/sfx/locker.mp3");
+
+function playSFX(sfx) {
+  sfx.pause();
+  sfx.currentTime = 0;
+  sfx.play();
+}
+
 $(document).ready(function () {
   setTimeout(function () {
+    bgMusic.play();
     $(".checkPlayertwo").load("checkPlayertwo.php");
     $.ajax({
       type: "post",
@@ -62,6 +83,8 @@ function changeScreen(hideScreen, showScreen) {
 }
 
 function closeChatBlockTouch() {
+  radioSFX.pause();
+  radioSFX.currentTime = 0;
   $(".gameHUD .chatBlockTouch").css("display", "none");
   $(".gameHUD .chatBlockTouch").css("opacity", "0");
 }
@@ -90,6 +113,7 @@ function closeInventorybox() {
   closeChatBlockTouch();
 }
 function openItemAcquired() {
+  playSFX(grabItemSFX);
   $(".gameHUD .itemAcquiredName").html(acquiredItemName);
   $(".gameHUD .itemAcquiredImage").css("background-image", acquiredItem);
   $(".gameHUD .itemAcquiredBox").css("visibility", "visible");
@@ -216,6 +240,7 @@ var inventoryIndex = 2;
 var acquiredItem = "";
 
 $(".inventoryBtn").click(function () {
+  playSFX(zipperSFX);
   openInventorybox();
 });
 function addItem() {
@@ -344,6 +369,7 @@ $(".anna01BG .btnSubmit").click(function () {
     }).done(function () {
       setTimeout(function () {
         if (dbcheck == "yes") {
+          playSFX(labCorrectSFX);
           $(".anna01BG .indicator").animate({ backgroundColor: "green" }, 100);
           anna01 = 1;
           $.ajax({
@@ -352,6 +378,7 @@ $(".anna01BG .btnSubmit").click(function () {
             data: { stat: 1 },
           });
         } else {
+          playSFX(labWrongSFX);
           $(".anna01BG .indicator").animate({ backgroundColor: "red" }, 100);
           $(".anna01BG .indicator").animate({ backgroundColor: "#333" }, 5000);
         }
@@ -373,6 +400,7 @@ $(".controlRoomBG .btnAnna01").click(function () {
   changeBG(hide, show);
 });
 $(".controlRoomBG .btnLocker").click(function () {
+  playSFX(lockerSFX);
   openLocker();
 });
 
@@ -382,6 +410,7 @@ $(".controlRoomBG .btnControlPanel").click(function () {
   changeBG(hide, show);
 });
 $(".controlRoomBG .btnLeft").click(function () {
+  playSFX(walkSFX);
   hide = ".controlRoomBG";
   show = ".radioRoomBG";
   changeBG(hide, show);
@@ -455,6 +484,7 @@ $(".panelLoginScreen .panelPassInput").keypress(function (event) {
     }).done(function () {
       setTimeout(function () {
         if (dbcheck == "yes") {
+          playSFX(correctSFX);
           setTimeout(function () {
             $(".act01 .panelLoginScreen").animate({ opacity: "0" }, 300);
             setTimeout(function () {
@@ -465,6 +495,8 @@ $(".panelLoginScreen .panelPassInput").keypress(function (event) {
               $(".act01 .panelLoggedinScreen").animate({ opacity: "1" }, 300);
             }, 600);
           }, 1);
+        } else {
+          playSFX(wrongSFX);
         }
       }, 1000);
     });
@@ -483,6 +515,7 @@ $(".panelLoginScreen .submitInput").click(function () {
   }).done(function () {
     setTimeout(function () {
       if (dbcheck == "yes") {
+        playSFX(correctSFX);
         setTimeout(function () {
           $(".act01 .panelLoginScreen").animate({ opacity: "0" }, 300);
           setTimeout(function () {
@@ -493,6 +526,8 @@ $(".panelLoginScreen .submitInput").click(function () {
             $(".act01 .panelLoggedinScreen").animate({ opacity: "1" }, 300);
           }, 600);
         }, 1);
+      } else {
+        playSFX(wrongSFX);
       }
     }, 1000);
   });
@@ -576,12 +611,15 @@ $(".gatePasswordWindow .submitInput").click(function () {
     setTimeout(function () {
       if (dbcheck == "yes") {
         //kalo bener
+        playSFX(successGateSFX);
+        playSFX(correctSFX);
         $(".gate05" + gateSelected + " .lock").css(
           "background-image",
           "url(../playertwo/img/unlocked.webp)"
         );
       } else {
         //kalo submit trus salah
+        playSFX(wrongSFX);
       }
     }, 1000);
   });
@@ -589,11 +627,13 @@ $(".gatePasswordWindow .submitInput").click(function () {
 
 // ini radio room
 $(".radioRoomBG .btnRight").click(function () {
+  playSFX(walkSFX);
   hide = ".radioRoomBG";
   show = ".controlRoomBG";
   changeBG(hide, show);
 });
 $(".radioRoomBG .btnRadio").click(function () {
+  playSFX(radioSFX);
   $(".checkPlayertwo").html("???");
   chatArrayIndex = 4;
   clickTrusChatPopUp(chatArrayIndex);

@@ -1,3 +1,26 @@
+var bgMusic = new Audio("../audio/music/bgm.mp3");
+bgMusic.loop = true;
+var grabItemSFX = new Audio("../audio/sfx/getitem.mp3");
+var zipperSFX = new Audio("../audio/sfx/backpack.mp3");
+var walkSFX = new Audio("../audio/sfx/walk.mp3");
+var gateOpenSFX = new Audio("../audio/sfx/gate.mp3");
+var cardScanSFX = new Audio("../audio/sfx/cardscan.mp3");
+var liftSFX = new Audio("../audio/sfx/elevator.mp3");
+var bridgeSFX = new Audio("../audio/sfx/bridge.mp3");
+var switchClickSFX = new Audio("../audio/sfx/switchclick.mp3");
+var buttonPressSFX = new Audio("../audio/sfx/buttonpress.mp3");
+var bubbleSFX = new Audio("../audio/sfx/bubbles.mp3");
+bubbleSFX.loop = true;
+var cameraSFX = new Audio("../audio/sfx/camerashutter.mp3");
+var correctSFX = new Audio("../audio/sfx/correct.mp3");
+var wrongSFX = new Audio("../audio/sfx/wrong.mp3");
+
+function playSFX(sfx) {
+  sfx.pause();
+  sfx.currentTime = 0;
+  sfx.play();
+}
+
 var isTyping = true;
 var act01intro = 0;
 var plocation = "lab051";
@@ -50,11 +73,11 @@ var guideAct01 = [
   "I remember the pathing.",
   "Go West, West, North, East, South.",
   "You'll find it there.", //42
-  "What is this..? Orange juice?" //43
-  
+  "What is this..? Orange juice?", //43
 ];
 
 $(document).ready(function () {
+  bgMusic.play();
   setTimeout(function () {
     $(".checkPlayerone").load("checkPlayerone.php");
   }, 1);
@@ -103,6 +126,7 @@ function closeChatbox() {
   closeChatBlockTouch();
 }
 function openInventorybox() {
+  playSFX(zipperSFX);
   $(".gameHUD .inventoryBox").css("visibility", "visible");
   $(".gameHUD .inventoryBox").animate({ opacity: "1" }, 300);
   openChatBlockTouch();
@@ -113,6 +137,7 @@ function closeInventorybox() {
   closeChatBlockTouch();
 }
 function openItemAcquired() {
+  playSFX(grabItemSFX);
   $(".gameHUD .itemAcquiredName").html(acquiredItemName);
   $(".gameHUD .itemAcquiredImage").css("background-image", acquiredItem);
   $(".gameHUD .itemAcquiredBox").css("visibility", "visible");
@@ -244,7 +269,8 @@ $(".chatBox").click(function () {
       guideZ == 23 ||
       guideZ == 38 ||
       guideZ == 42 ||
-      guideZ == 43) {
+      guideZ == 43
+    ) {
       closeChatbox();
       closeItemAcquired();
       closeUniversal();
@@ -270,6 +296,7 @@ var mainkeycard = 0;
 $(".btnLabCoat").click(function () {
   $(".checkPlayerone").load("checkPlayerone.php");
   if (mainkeycard != 1) {
+    playSFX(grabItemSFX);
     acquiredItem = "url(../playerone/img/mainkeycard.webp)";
     acquiredItemName = "Lab Keycard";
     mainkeycard = 1;
@@ -306,6 +333,7 @@ $(".labBG .btnBack").click(function () {
     },
   }).done(function () {
     if (dbcheck == "1") {
+      playSFX(gateOpenSFX);
       labdooropened = 1;
       hide = ".labBG";
       show = ".outsideLab";
@@ -321,11 +349,13 @@ $(".labBG .btnBack").click(function () {
 // outside
 
 $(".outsideLab .btnRight").click(function () {
+  playSFX(walkSFX);
   hide = ".outsideLab";
   show = ".threeLab";
   changeBG(hide, show);
 });
 $(".outsideLab .outsideBigDoor").click(function () {
+  playSFX(gateOpenSFX);
   hide = ".outsideLab";
   show = ".labBG";
   changeBG(hide, show);
@@ -334,16 +364,19 @@ $(".outsideLab .outsideBigDoor").click(function () {
 // pertigaan
 
 $(".threeLab .btnLeft").click(function () {
+  playSFX(walkSFX);
   hide = ".threeLab";
   show = ".gate05aBG";
   changeBG(hide, show);
 });
 $(".threeLab .btnRight").click(function () {
+  playSFX(walkSFX);
   hide = ".threeLab";
   show = ".doorToBridge";
   changeBG(hide, show);
 });
 $(".threeLab .btnDown").click(function () {
+  playSFX(walkSFX);
   hide = ".threeLab";
   show = ".outsideLab";
   changeBG(hide, show);
@@ -352,6 +385,7 @@ $(".threeLab .btnDown").click(function () {
 // otw ke bridge
 
 $(".doorToBridge .btnDown").click(function () {
+  playSFX(walkSFX);
   hide = ".doorToBridge";
   show = ".threeLab";
   changeBG(hide, show);
@@ -364,6 +398,7 @@ $(".doorToBridge .bridgeDoorLock").click(function () {
     chatArrayIndex = 8;
     clickTrusChatPopUp(chatArrayIndex);
   } else {
+    playSFX(cardScanSFX);
     bridgedoorlock = 1;
     chatArrayIndex = 9;
     clickTrusChatPopUp(chatArrayIndex);
@@ -376,6 +411,7 @@ $(".doorToBridge .bridgeDoor").click(function () {
     chatArrayIndex = 7;
     clickTrusChatPopUp(chatArrayIndex);
   } else {
+    playSFX(walkSFX);
     plocation = "bridge";
     hide = ".doorToBridge";
     show = ".bridgeToMainLab";
@@ -392,6 +428,7 @@ $(".bridgeToMainLab .bridgeLift").click(function () {
     chatArrayIndex = 10;
     clickTrusChatPopUp(chatArrayIndex);
   } else {
+    playSFX(liftSFX);
     hide = ".bridgeToMainLab";
     show = ".mainLabLift";
     changeBG(hide, show);
@@ -427,6 +464,7 @@ var switch3 = 0;
 var switch4 = 0;
 var switch5 = 0;
 $(".bridgePanelBG .switch1").click(function () {
+  playSFX(switchClickSFX);
   $(".switch1").css("background-image", "url(../playerone/img/switchon.webp)");
   var reiner01ans = $("#panelBridge1").val().replace(/\s+/g, "").toLowerCase();
   $.ajax({
@@ -441,9 +479,11 @@ $(".bridgePanelBG .switch1").click(function () {
     setTimeout(function () {
       if (dbcheck == "yes") {
         //kalo bener
+        playSFX(correctSFX);
         switch1 = 1;
         $(".panelLightCSS1").animate({ backgroundColor: "green" }, 100);
       } else {
+        playSFX(wrongSFX);
         $(".panelLightCSS1").animate({ backgroundColor: "red" }, 100);
         $(".panelLightCSS1").animate({ backgroundColor: "#333" }, 2000);
         $(".switch1").css(
@@ -455,6 +495,7 @@ $(".bridgePanelBG .switch1").click(function () {
   });
 });
 $(".bridgePanelBG .switch2").click(function () {
+  playSFX(switchClickSFX);
   $(".switch2").css("background-image", "url(../playerone/img/switchon.webp)");
   var reiner02ans = $("#panelBridge2").val().replace(/\s+/g, "").toLowerCase();
   $.ajax({
@@ -469,9 +510,11 @@ $(".bridgePanelBG .switch2").click(function () {
     setTimeout(function () {
       if (dbcheck == "yes") {
         //kalo bener
+        playSFX(correctSFX);
         switch2 = 1;
         $(".panelLightCSS2").animate({ backgroundColor: "green" }, 100);
       } else {
+        playSFX(wrongSFX);
         $(".panelLightCSS2").animate({ backgroundColor: "red" }, 100);
         $(".panelLightCSS2").animate({ backgroundColor: "#333" }, 2000);
         $(".switch2").css(
@@ -483,6 +526,7 @@ $(".bridgePanelBG .switch2").click(function () {
   });
 });
 $(".bridgePanelBG .switch3").click(function () {
+  playSFX(switchClickSFX);
   $(".switch3").css("background-image", "url(../playerone/img/switchon.webp)");
   var reiner03ans = $("#panelBridge3").val().replace(/\s+/g, "").toLowerCase();
   $.ajax({
@@ -497,9 +541,11 @@ $(".bridgePanelBG .switch3").click(function () {
     setTimeout(function () {
       if (dbcheck == "yes") {
         //kalo bener
+        playSFX(correctSFX);
         switch3 = 1;
         $(".panelLightCSS3").animate({ backgroundColor: "green" }, 100);
       } else {
+        playSFX(wrongSFX);
         $(".panelLightCSS3").animate({ backgroundColor: "red" }, 100);
         $(".panelLightCSS3").animate({ backgroundColor: "#333" }, 2000);
         $(".switch3").css(
@@ -511,6 +557,7 @@ $(".bridgePanelBG .switch3").click(function () {
   });
 });
 $(".bridgePanelBG .switch4").click(function () {
+  playSFX(switchClickSFX);
   $(".switch4").css("background-image", "url(../playerone/img/switchon.webp)");
   var reiner04ans = $("#panelBridge4").val().replace(/\s+/g, "").toLowerCase();
   $.ajax({
@@ -525,9 +572,11 @@ $(".bridgePanelBG .switch4").click(function () {
     setTimeout(function () {
       if (dbcheck == "yes") {
         //kalo bener
+        playSFX(correctSFX);
         switch4 = 1;
         $(".panelLightCSS4").animate({ backgroundColor: "green" }, 100);
       } else {
+        playSFX(wrongSFX);
         $(".panelLightCSS4").animate({ backgroundColor: "red" }, 100);
         $(".panelLightCSS4").animate({ backgroundColor: "#333" }, 2000);
         $(".switch4").css(
@@ -539,6 +588,7 @@ $(".bridgePanelBG .switch4").click(function () {
   });
 });
 $(".bridgePanelBG .switch5").click(function () {
+  playSFX(switchClickSFX);
   $(".switch5").css("background-image", "url(../playerone/img/switchon.webp)");
   var reiner05ans = $("#panelBridge5").val().replace(/\s+/g, "").toLowerCase();
   $.ajax({
@@ -553,9 +603,11 @@ $(".bridgePanelBG .switch5").click(function () {
     setTimeout(function () {
       if (dbcheck == "yes") {
         //kalo bener
+        playSFX(correctSFX);
         switch5 = 1;
         $(".panelLightCSS5").animate({ backgroundColor: "green" }, 100);
       } else {
+        playSFX(wrongSFX);
         $(".panelLightCSS5").animate({ backgroundColor: "red" }, 100);
         $(".panelLightCSS5").animate({ backgroundColor: "#333" }, 2000);
         $(".switch5").css(
@@ -567,6 +619,7 @@ $(".bridgePanelBG .switch5").click(function () {
   });
 });
 $(".bridgePanelBG .panelSubmitBtn").click(function () {
+  playSFX(buttonPressSFX);
   if (
     switch1 == 1 &&
     switch2 == 1 &&
@@ -574,11 +627,13 @@ $(".bridgePanelBG .panelSubmitBtn").click(function () {
     switch4 == 1 &&
     switch5 == 1
   ) {
+    playSFX(bridgeSFX);
     bridgepanel = 1;
     $(".bridgeToMainLab").css(
       "background-image",
       "url(../playerone/bg/bridgetolab.webp)"
     );
+  } else{
   }
 });
 
@@ -590,21 +645,25 @@ $(".selectClose").click(function () {
 });
 // ini pintu ke lift
 $(".mainLabLift .btnLift").click(function () {
+  playSFX(liftSFX);
   hide = ".mainLabLift";
   show = ".bridgeToMainLab";
   changeBG(hide, show);
 });
 $(".mainLabLift .btnLeft").click(function () {
+  playSFX(walkSFX);
   hide = ".mainLabLift";
   show = ".mainLabWorktable";
   changeBG(hide, show);
 });
 $(".mainLabLift .btnRight").click(function () {
+  playSFX(walkSFX);
   hide = ".mainLabLift";
   show = ".mainLabChemical";
   changeBG(hide, show);
 });
 $(".mainLabLift .btnDown").click(function () {
+  playSFX(walkSFX);
   hide = ".mainLabLift";
   show = ".mainLabStairs";
   changeBG(hide, show);
@@ -626,16 +685,19 @@ $(".mainLabWorktable .btnCamera").click(function () {
   }
 });
 $(".mainLabWorktable .btnLeft").click(function () {
+  playSFX(walkSFX);
   hide = ".mainLabWorktable";
   show = ".mainLabStairs";
   changeBG(hide, show);
 });
 $(".mainLabWorktable .btnRight").click(function () {
+  playSFX(walkSFX);
   hide = ".mainLabWorktable";
   show = ".mainLabLift";
   changeBG(hide, show);
 });
 $(".mainLabWorktable .btnDown").click(function () {
+  playSFX(walkSFX);
   hide = ".mainLabWorktable";
   show = ".mainLabChemical";
   changeBG(hide, show);
@@ -673,6 +735,7 @@ $(".mainLabChemical .selectAChemical").click(function () {
     dataType: "html",
     success: function (result) {},
   }).done(function () {
+    playSFX(cameraSFX);
     $(".checkPlayerone").load("checkPlayerone.php");
     photoChemical++;
     closePopUpTwo();
@@ -682,16 +745,19 @@ $(".mainLabChemical .selectAChemical").click(function () {
 });
 
 $(".mainLabChemical .btnLeft").click(function () {
+  playSFX(walkSFX);
   hide = ".mainLabChemical";
   show = ".mainLabLift";
   changeBG(hide, show);
 });
 $(".mainLabChemical .btnRight").click(function () {
+  playSFX(walkSFX);
   hide = ".mainLabChemical";
   show = ".mainLabStairs";
   changeBG(hide, show);
 });
 $(".mainLabChemical .btnDown").click(function () {
+  playSFX(walkSFX);
   hide = ".mainLabChemical";
   show = ".mainLabWorktable";
   changeBG(hide, show);
@@ -699,21 +765,25 @@ $(".mainLabChemical .btnDown").click(function () {
 
 //ini tangga di mainlab
 $(".mainLabStairs .btnLeft").click(function () {
+  playSFX(walkSFX);
   hide = ".mainLabStairs";
   show = ".mainLabChemical";
   changeBG(hide, show);
 });
 $(".mainLabStairs .btnRight").click(function () {
+  playSFX(walkSFX);
   hide = ".mainLabStairs";
   show = ".mainLabWorktable";
   changeBG(hide, show);
 });
 $(".mainLabStairs .btnDown").click(function () {
+  playSFX(walkSFX);
   hide = ".mainLabStairs";
   show = ".mainLabLift";
   changeBG(hide, show);
 });
 $(".mainLabStairs .btnUp").click(function () {
+  playSFX(walkSFX);
   hide = ".mainLabStairs";
   show = ".mainLabMonitor";
   changeBG(hide, show);
@@ -750,6 +820,7 @@ $(".mainLabMonitor .selectAHugeMonitor").click(function () {
     dataType: "html",
     success: function (result) {},
   }).done(function () {
+    playSFX(cameraSFX);
     $(".checkPlayerone").load("checkPlayerone.php");
     photoHugeMonitor++;
     closePopUpTwo();
@@ -759,16 +830,19 @@ $(".mainLabMonitor .selectAHugeMonitor").click(function () {
 });
 
 $(".mainLabMonitor .btnLeft").click(function () {
+  playSFX(walkSFX);
   hide = ".mainLabMonitor";
   show = ".mainLabWhiteboard";
   changeBG(hide, show);
 });
 $(".mainLabMonitor .btnRight").click(function () {
+  playSFX(walkSFX);
   hide = ".mainLabMonitor";
   show = ".mainLabPhotos";
   changeBG(hide, show);
 });
 $(".mainLabMonitor .btnDown").click(function () {
+  playSFX(walkSFX);
   hide = ".mainLabMonitor";
   show = ".mainLabLift";
   changeBG(hide, show);
@@ -797,6 +871,7 @@ $(".mainLabPhotos .selectAPhotos").click(function () {
     acquiredItemName = "Photos";
     addItem();
   }
+  playSFX(cameraSFX);
   polaroid--;
   photoPhotoFrame++;
   closePopUpTwo();
@@ -804,16 +879,19 @@ $(".mainLabPhotos .selectAPhotos").click(function () {
   clickTrusChatPopUp(chatArrayIndex);
 });
 $(".mainLabPhotos .btnLeft").click(function () {
+  playSFX(walkSFX);
   hide = ".mainLabPhotos";
   show = ".mainLabMonitor";
   changeBG(hide, show);
 });
 $(".mainLabPhotos .btnRight").click(function () {
+  playSFX(walkSFX);
   hide = ".mainLabPhotos";
   show = ".mainLabLift";
   changeBG(hide, show);
 });
 $(".mainLabPhotos .btnDown").click(function () {
+  playSFX(walkSFX);
   hide = ".mainLabPhotos";
   show = ".mainLabWhiteboard";
   changeBG(hide, show);
@@ -851,6 +929,7 @@ $(".mainLabWhiteboard .selectANoteVirus").click(function () {
     dataType: "html",
     success: function (result) {},
   }).done(function () {
+    playSFX(cameraSFX);
     $(".checkPlayerone").load("checkPlayerone.php");
     photoNoteVirus++;
     closePopUpTwo();
@@ -881,6 +960,7 @@ $(".mainLabWhiteboard .selectANoteMom").click(function () {
     acquiredItemName = "Photos";
     addItem();
   }
+  playSFX(cameraSFX);
   polaroid--;
   photoNoteMom++;
   closePopUpTwo();
@@ -910,6 +990,7 @@ $(".mainLabWhiteboard .selectANoteTrash").click(function () {
     acquiredItemName = "Photos";
     addItem();
   }
+  playSFX(cameraSFX);
   polaroid--;
   photoNoteTrash++;
   closePopUpTwo();
@@ -918,16 +999,19 @@ $(".mainLabWhiteboard .selectANoteTrash").click(function () {
 });
 
 $(".mainLabWhiteboard .btnLeft").click(function () {
+  playSFX(walkSFX);
   hide = ".mainLabWhiteboard";
   show = ".mainLabLift";
   changeBG(hide, show);
 });
 $(".mainLabWhiteboard .btnRight").click(function () {
+  playSFX(walkSFX);
   hide = ".mainLabWhiteboard";
   show = ".mainLabMonitor";
   changeBG(hide, show);
 });
 $(".mainLabWhiteboard .btnDown").click(function () {
+  playSFX(walkSFX);
   hide = ".mainLabWhiteboard";
   show = ".mainLabPhotos";
   changeBG(hide, show);
@@ -949,6 +1033,7 @@ $(".gate05aBG .btnGate").click(function () {
     },
   }).done(function () {
     if (dbcheck == "1") {
+      playSFX(gateOpenSFX);
       hide = ".gate05aBG";
       show = ".labSectionBG";
       changeBG(hide, show);
@@ -960,6 +1045,7 @@ $(".gate05aBG .btnGate").click(function () {
   });
 });
 $(".gate05aBG .btnDown").click(function () {
+  playSFX(walkSFX);
   hide = ".gate05aBG";
   show = ".threeLab";
   changeBG(hide, show);
@@ -967,6 +1053,7 @@ $(".gate05aBG .btnDown").click(function () {
 
 //ini diperempatan abis buka gate05f
 $(".labSectionBG .btnDown").click(function () {
+  playSFX(walkSFX);
   hide = ".labSectionBG";
   show = ".gate05aBG";
   changeBG(hide, show);
@@ -977,6 +1064,7 @@ $(".labSectionBG .btnUp").click(function () {
   clickTrusChatPopUp(chatArrayIndex);
 });
 $(".labSectionBG .btnLeft").click(function () {
+  playSFX(walkSFX);
   hide = ".labSectionBG";
   show = ".gate05bBG";
   changeBG(hide, show);
@@ -998,6 +1086,7 @@ $(".gate05bBG .btnGate").click(function () {
     },
   }).done(function () {
     if (dbcheck == "1") {
+      playSFX(gateOpenSFX);
       hide = ".gate05bBG";
       show = ".specimenGateBG";
       changeBG(hide, show);
@@ -1009,6 +1098,7 @@ $(".gate05bBG .btnGate").click(function () {
   });
 });
 $(".gate05bBG .btnDown").click(function () {
+  playSFX(walkSFX);
   hide = ".gate05bBG";
   show = ".labSectionBG";
   changeBG(hide, show);
@@ -1016,6 +1106,7 @@ $(".gate05bBG .btnDown").click(function () {
 
 // ini specimen gate yang mau masuk kedalem specimen room
 $(".specimenGateBG .btnLeft").click(function () {
+  playSFX(walkSFX);
   hide = ".specimenGateBG";
   show = ".gate05bBG";
   changeBG(hide, show);
@@ -1027,7 +1118,7 @@ $(".specimenGateBG .btnProfessor").click(function () {
     professorfirstinteraction = 1;
     chatArrayIndex = 23;
     clickTrusChatPopUp(chatArrayIndex);
-  } else if(virustube == 1){
+  } else if (virustube == 1) {
     $.ajax({
       type: "post",
       url: "playerone.php?p=finalpone",
@@ -1039,12 +1130,14 @@ $(".specimenGateBG .btnProfessor").click(function () {
     }).done(function () {
       window.open("finalstage.html");
     });
-  } else{
+  } else {
     chatArrayIndex = 38;
     clickTrusChatPopUp(chatArrayIndex);
   }
 });
 $(".specimenGateBG .btnGate").click(function () {
+  playSFX(gateOpenSFX);
+  bubbleSFX.play();
   hide = ".specimenGateBG";
   show = ".specimenRoomOneBG";
   changeBG(hide, show);
@@ -1052,105 +1145,127 @@ $(".specimenGateBG .btnGate").click(function () {
 
 // ini specimen room pertama
 $(".specimenRoomOneBG .btnDown").click(function () {
+  playSFX(walkSFX);
+  bubbleSFX.pause();
+  bubbleSFX.currentTime = 0;
   hide = ".specimenRoomOneBG";
   show = ".specimenGateBG";
   changeBG(hide, show);
 });
 $(".specimenRoomOneBG .btnUp").click(function () {
+  playSFX(walkSFX);
   hide = ".specimenRoomOneBG";
   show = ".specimenRoomOneBG";
   changeBG(hide, show);
 });
 $(".specimenRoomOneBG .btnLeft").click(function () {
+  playSFX(walkSFX);
   hide = ".specimenRoomOneBG";
   show = ".specimenRoomTwoBG";
   changeBG(hide, show);
 });
 $(".specimenRoomOneBG .btnRight").click(function () {
+  playSFX(walkSFX);
   hide = ".specimenRoomOneBG";
   show = ".specimenRoomOneBG";
   changeBG(hide, show);
 });
 // ini specimen room kedua
 $(".specimenRoomTwoBG .btnDown").click(function () {
+  playSFX(walkSFX);
   hide = ".specimenRoomTwoBG";
   show = ".specimenRoomOneBG";
   changeBG(hide, show);
 });
 $(".specimenRoomTwoBG .btnUp").click(function () {
+  playSFX(walkSFX);
   hide = ".specimenRoomTwoBG";
   show = ".specimenRoomThreeBG";
   changeBG(hide, show);
 });
 $(".specimenRoomTwoBG .btnLeft").click(function () {
+  playSFX(walkSFX);
   hide = ".specimenRoomTwoBG";
   show = ".specimenRoomOneBG";
   changeBG(hide, show);
 });
 $(".specimenRoomTwoBG .btnRight").click(function () {
+  playSFX(walkSFX);
   hide = ".specimenRoomTwoBG";
   show = ".specimenRoomOneBG";
   changeBG(hide, show);
 });
 // ini specimen room tiga
 $(".specimenRoomThreeBG .btnDown").click(function () {
+  playSFX(walkSFX);
   hide = ".specimenRoomThreeBG";
   show = ".specimenRoomTwoBG";
   changeBG(hide, show);
 });
 $(".specimenRoomThreeBG .btnUp").click(function () {
+  playSFX(walkSFX);
   hide = ".specimenRoomThreeBG";
   show = ".specimenRoomOneBG";
   changeBG(hide, show);
 });
 $(".specimenRoomThreeBG .btnLeft").click(function () {
+  playSFX(walkSFX);
   hide = ".specimenRoomThreeBG";
   show = ".specimenRoomOneBG";
   changeBG(hide, show);
 });
 $(".specimenRoomThreeBG .btnRight").click(function () {
+  playSFX(walkSFX);
   hide = ".specimenRoomThreeBG";
   show = ".specimenRoomFourBG";
   changeBG(hide, show);
 });
 // ini specimen room empat
 $(".specimenRoomFourBG .btnDown").click(function () {
+  playSFX(walkSFX);
   hide = ".specimenRoomFourBG";
   show = ".specimenRoomThreeBG";
   changeBG(hide, show);
 });
 $(".specimenRoomFourBG .btnUp").click(function () {
+  playSFX(walkSFX);
   hide = ".specimenRoomFourBG";
   show = ".specimenRoomOneBG";
   changeBG(hide, show);
 });
 $(".specimenRoomFourBG .btnLeft").click(function () {
+  playSFX(walkSFX);
   hide = ".specimenRoomFourBG";
   show = ".specimenRoomOneBG";
   changeBG(hide, show);
 });
 $(".specimenRoomFourBG .btnRight").click(function () {
+  playSFX(walkSFX);
   hide = ".specimenRoomFourBG";
   show = ".specimenRoomFiveBG";
   changeBG(hide, show);
 });
 // ini specimen room lima
 $(".specimenRoomFiveBG .btnDown").click(function () {
+  playSFX(walkSFX);
   hide = ".specimenRoomFiveBG";
   show = ".specimenRoomFourBG";
   changeBG(hide, show);
 });
 $(".specimenRoomFiveBG .btnUp").click(function () {
+  playSFX(walkSFX);
   hide = ".specimenRoomFiveBG";
   show = ".specimenRoomOneBG";
   changeBG(hide, show);
 });
 $(".specimenRoomFiveBG .btnLeft").click(function () {
+  playSFX(walkSFX);
   hide = ".specimenRoomFiveBG";
   show = ".specimenRoomOneBG";
   changeBG(hide, show);
 });
 $(".specimenRoomFiveBG .btnRight").click(function () {
+  playSFX(walkSFX);
   hide = ".specimenRoomFiveBG";
   show = ".specimenRoomSixBG";
   changeBG(hide, show);
@@ -1170,16 +1285,19 @@ $(".specimenRoomSixBG .btnTube").click(function () {
 });
 
 $(".specimenRoomSixBG .btnDown").click(function () {
+  playSFX(walkSFX);
   hide = ".specimenRoomSixBG";
   show = ".specimenRoomFiveBG";
   changeBG(hide, show);
 });
 $(".specimenRoomSixBG .btnLeft").click(function () {
+  playSFX(walkSFX);
   hide = ".specimenRoomSixBG";
   show = ".specimenRoomFourBG";
   changeBG(hide, show);
 });
 $(".specimenRoomSixBG .btnRight").click(function () {
+  playSFX(walkSFX);
   hide = ".specimenRoomSixBG";
   show = ".specimenRoomThreeBG";
   changeBG(hide, show);
