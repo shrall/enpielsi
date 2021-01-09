@@ -210,7 +210,7 @@ var androidGuideY = 0;
 var androidGuideZ = 0;
 
 var androidGuideArray = [
-  "Hi! Scan the QR Code to play with me and I'll tell you the password ^_^",
+  "Hi! Ask the committee member to play with you to get the password ^_^",
   "Yay! You're correct! :>",
   "Is that the best you can do? rofl.",
   "You're incorrect. :<",
