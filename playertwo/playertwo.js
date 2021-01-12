@@ -472,11 +472,15 @@ $(".byUBG .btnBack").click(function () {
 
 // ini screen yang pas mau login
 $(".panelLoginScreen .panelPassInput").keypress(function (event) {
+  var panelans = $(".panelPassInput")
+    .val()
+    .replace(/\s+/g, "")
+    .toLowerCase();
   if (event.key === "Enter") {
     $.ajax({
       type: "post",
       url: "playertwo.php?p=panelpw",
-      data: { stat: $(".panelPassInput").val() },
+      data: { stat: panelans },
       dataType: "html",
       success: function (result) {
         dbcheck = result;
