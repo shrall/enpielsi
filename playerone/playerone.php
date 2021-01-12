@@ -119,3 +119,20 @@ if ($page == 'finalpone') {
    $stmt->bindParam(3, $teamid);
    $stmt->execute();
 }
+
+
+if ($page == 'trial') {
+   $stat = $_POST['stat'];
+   $result = $conn->query("SELECT trial FROM password WHERE id=1");
+   if ($result->num_rows > 0) {
+      $row = $result->fetch_assoc();
+      $check = $row['trial'];
+   }
+   if ($stat == $check) {
+      $check = "yes";
+      echo $check;
+   } else {
+      $check = "no";
+      echo $check;
+   }
+ }

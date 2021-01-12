@@ -1302,3 +1302,33 @@ $(".specimenRoomSixBG .btnRight").click(function () {
   show = ".specimenRoomThreeBG";
   changeBG(hide, show);
 });
+
+// ! trial 
+
+$(".clueBG .trialInput").keypress(function (event) {
+  var trialans = $("#trialPDA")
+    .val()
+    .replace(/\s+/g, "")
+    .toLowerCase();
+  if (event.key === "Enter") {
+    $.ajax({
+      type: "post",
+      url: "playerone.php?p=trial",
+      data: { stat: trialans },
+      dataType: "html",
+      success: function (result) {
+        dbcheck = result;
+      },
+    }).done(function () {
+      setTimeout(function () {
+        if (dbcheck == "yes") {
+          playSFX(correctSFX);
+          $(".textIndicatorPDA").html("Thank you for playing. :>");
+        } else {
+          playSFX(wrongSFX);
+          $(".textIndicatorPDA").html("WRONG PASSWORD! :<");
+        }
+      }, 1000);
+    });
+  }
+});
