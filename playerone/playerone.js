@@ -47,7 +47,7 @@ var guideAct01 = [
   "I hope the owner doesn't mind if I take this..", //14
   "These chemicals seems dangerous..", //15
   "Virus Progress.. Completed..?", //16
-  "Is that Mr.namabossnya's family?", //17
+  "Is that The Professor's family?", //17
   "I guess someone forgot to take out the trash.", //18
   "There's only 31 days on January..", //19
   "What is he trying to make..?", //20
