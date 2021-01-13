@@ -1,0 +1,362 @@
+/* 
+    Document   : style
+    Created on : Jul 20, 2012, 9:34:06 AM
+    Author     : santos
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+body{
+    padding: 0px;
+    margin: 0px;
+}
+a{
+    text-decoration: none;
+}
+
+#copyright{
+    
+}
+
+#wrapper{
+    /*
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    border-left: 1px solid grey;
+    border-right: 1px solid grey;
+    border-bottom: 1px solid grey;
+    */
+    width: 1010px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid orange;
+    padding:0 5px 0 5px;
+    background-color: orange;
+}
+#center{
+    /*
+    width: 1000px;
+    overflow: hidden;
+    background-color: #f7f7f7;
+    */
+    width: 1010px;
+    overflow: hidden;
+    background-color: orange;
+}
+
+#nav{
+    /*
+    padding: 10px;
+    width: 180px;
+    
+    */
+    padding:10px 10px 20px 10px;
+    border-radius:10px;
+    width: 180px;
+    border-bottom:1px solid #333;
+    float: left;
+    background-color: white;
+}
+
+#content{
+    /*
+    width: 760px;
+    padding: 0px 20px 20px 20px;
+    float: left;
+    background-color: white;
+    */
+    width: 765px;
+    margin-left:5px;
+    min-height:400px;
+    padding: 10px 20px;
+    float: left;
+    border-radius:10px;
+    background-color: white;
+}
+
+#footer{
+    /*
+    padding: 10px 30px 10px 30px;
+    clear: both;
+    height: 80px;
+    width: 940px;
+    background-color: grey;
+    
+    */
+    text-align: center;
+    clear: both;
+    font-size:12px;
+    padding-left:10px;
+    padding-bottom:10px;
+    margin-top:5px;
+    border-radius:10px;
+    border-bottom-left-radius:0;
+    border-bottom-right-radius:0;
+    font-size: 10pt;
+    border: 1px solid #ddd;
+    background-color: white;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    
+}
+
+.menu{
+    padding: 0px;
+}
+
+.menu ul{
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+}
+
+.menu  ul li a, .judul, #clock, #welcome{
+    padding: 5px 10px 5px 10px;
+    margin: 0 -10px 0 -10px;
+    display: block;
+    background:url(images/navbg.png) repeat-x orange;
+    background-position:0 0;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    color: #444;
+}
+
+.menu li a:hover{
+    /*text-shadow: 0px 0px 0px;
+    background: rgba(123,123,123,1);*/
+    background-position:0 30px;
+    color:white;
+    text-indent:5px;
+}
+.menu li a:active {
+    background:silver;
+    text-indent:20px;
+}
+
+.judul{
+    background:url(images/judulbg.png);
+    color:#eee;
+    font-weight:normal;
+    text-transform:uppercase;
+    font-size:11px;
+}
+
+.cleaner{
+    clear: both;
+}
+
+
+input[type="submit"],input[type="button"]
+{
+    background:#2c679d url(images/button.jpg) bottom repeat-x;
+    padding:5px 8px 5px 8px;
+    border:0;
+    color:white;
+    font-weight:bold;
+    text-shadow:1px 1px 1px #1d466b;
+    border-radius:5px;
+}
+input[type="submit"]:hover,input[type="button"]:hover {
+    background:#357ec0;
+    text-shadow:0px 0px 2px #fff;
+    cursor:pointer;
+}
+
+
+input[type="text"],input[type="password"],textarea
+{
+    border:1px solid #aaa;
+    border-radius:2px;
+}
+
+input[type="text"]:focus,input[type="password"]:focus,textarea:focus{
+    border-color:black;
+}
+textarea{
+    resize: none;
+}
+input[type="button"]
+{
+    width:120px;
+    margin-left:35px;
+    display:block;
+}
+
+.label{
+    text-align: right;
+}
+
+.button{
+    padding: 5px;
+    background-color: blue;
+    color: white;
+    border-style: solid;
+    border-width: 1px;
+    -moz-border-radius-topright: 6px; 
+    -webkit-border-top-right-radius: 6px; 
+    -khtml-border-top-right-radius: 6px; 
+    border-top-right-radius: 6px;
+
+    -moz-border-radius-bottomright: 6px; 
+    -webkit-border-bottom-right-radius: 6px; 
+    -khtml-border-bottom-right-radius: 6px; 
+    border-bottom-right-radius: 6px;
+
+    -moz-border-radius-topleft: 6px; 
+    -webkit-border-top-left-radius: 6px; 
+    -khtml-border-top-left-radius: 6px; 
+    border-top-left-radius: 6px;
+
+    -moz-border-radius-bottomleft: 6px; 
+    -webkit-border-bottom-left-radius: 6px; 
+    -khtml-border-bottom-left-radius: 6px; 
+    border-bottom-left-radius: 6px;
+}
+
+.tabel
+{
+    border-collapse:collapse;
+    border: solid 2px grey;
+}
+
+.tabel th
+{
+    background-color:#A2ABC0;
+    color:#FFFFFF;
+}
+
+.tabel td
+{
+    border: solid thin;
+    border-color:#888;
+}
+
+#clock{
+    /*
+    text-align: center;
+    font-weight: bold;
+    font-size: large;
+    border: 1px solid grey;
+    padding: 10px;
+    background-color: grey;
+    color: white;
+    */
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.tabel2
+{
+    border-collapse:collapse;
+}
+
+.tabel2 td
+{
+    /*border: solid thin;
+    border-color:white;*/
+}
+.title{
+    /*background-color: #b3c7e1;*/
+    vertical-align: top;
+    text-align: right;
+}
+
+#login_box{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 26em;
+    height: 12em;
+    border: 1px solid black;
+    background-color: #b3c7e1;
+    margin-top: -6em;
+    margin-left: -13em;
+    text-align: center;
+}
+
+#login_box h1{
+    background-color: #A2ABC0;
+    margin: 0px;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#form_login{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -8em;
+    width: 16em;
+}
+
+.score{
+    background-image: url(../images/style/score.png);
+}
+
+.info, .success, .warning, .error, .validation {
+    border: 1px solid;
+    margin: 10px 0px;
+    padding:7px 10px 7px 50px;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    
+    -moz-border-radius-topright: 6px; 
+    -webkit-border-top-right-radius: 6px; 
+    -khtml-border-top-right-radius: 6px; 
+    border-top-right-radius: 6px;
+
+    -moz-border-radius-bottomright: 6px; 
+    -webkit-border-bottom-right-radius: 6px; 
+    -khtml-border-bottom-right-radius: 6px; 
+    border-bottom-right-radius: 6px;
+
+    -moz-border-radius-topleft: 6px; 
+    -webkit-border-top-left-radius: 6px; 
+    -khtml-border-top-left-radius: 6px; 
+    border-top-left-radius: 6px;
+
+    -moz-border-radius-bottomleft: 6px; 
+    -webkit-border-bottom-left-radius: 6px; 
+    -khtml-border-bottom-left-radius: 6px; 
+    border-bottom-left-radius: 6px;
+}
+.info {
+    color: #00529B;
+    background-color: #BDE5F8;
+    background-image: url(../images/style/information.png);
+}
+.success {
+    color: #4F8A10;
+    background-color: #DFF2BF;
+    background-image:url(../images/style/success.png);
+}
+.warning {
+    color: #9F6000;
+    background-color: #FEEFB3;
+    background-image: url(../images/style/warning.png)
+}
+.error {
+    color: #D8000C;
+    background-color: #FFBABA;
+    background-image: url(../images/style/error.png);
+}
+
+.judul_manager{
+    background-color: #A2ABC0;
+    padding: 10px;
+    color: white;
+}
+
+.toolbar_manager{
+    background-color: #A2ABC0;
+    padding: 2px;
+}
