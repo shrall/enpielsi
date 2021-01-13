@@ -147,11 +147,16 @@ function closeElectricalBox() {
 var guideY = 0;
 var guideZ = 0;
 var guideAct01 = [
-  //0
-  "Oh damn, what was that?",
-  "Crap, the door's blocked.",
-  "Urgh.. Why did I drink that hot sauce...",
-  "What should I do now...",
+  //! ini final
+  // "Oh damn, what was that?",
+  // "Crap, the door's blocked.",
+  // "Urgh.. Why did I drink that hot sauce...",
+  // "What should I do now...",
+  //? ini trial
+  "Welcome to the Trial for the Final Stage of the 8th NPLC!",
+  "You will go through a puzzle with both of your friends.",
+  "Teamwork and communication is the key to solve the puzzle.",
+  "Goodluck and have fun!",
 
   //4
   "Ooh.. a screwdriver.. this could be handy..",

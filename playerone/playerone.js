@@ -31,10 +31,17 @@ var guideY = 0;
 var guideZ = 0;
 var guideArray = [];
 var guideAct01 = [
-  "Uh oh, that doesn't sound good..",
-  "Huh? Wait. Where's Mr. Clark?",
-  "Uh... the door's closed...",
-  "I should look around...", //4
+  //! final
+  // "Uh oh, that doesn't sound good..",
+  // "Huh? Wait. Where's Mr. Clark?",
+  // "Uh... the door's closed...",
+  // "I should look around...",
+  //? trial
+  "Welcome to the Trial for the Final Stage of the 8th NPLC!",
+  "You will go through a puzzle with both of your friends.",
+  "Teamwork and communication is the key to solve the puzzle.",
+  "Goodluck and have fun!",
+  //4
   "Where should I go now..", //5
   "Ooh a card.. Maybe I can use this later.", //6
   "Just an ordinary lab coat.", //7
@@ -633,7 +640,7 @@ $(".bridgePanelBG .panelSubmitBtn").click(function () {
       "background-image",
       "url(../playerone/bg/bridgetolab.webp)"
     );
-  } else{
+  } else {
   }
 });
 
@@ -1303,13 +1310,10 @@ $(".specimenRoomSixBG .btnRight").click(function () {
   changeBG(hide, show);
 });
 
-// ! trial 
+// ! trial
 
 $(".clueBG .trialInput").keypress(function (event) {
-  var trialans = $("#trialPDA")
-    .val()
-    .replace(/\s+/g, "")
-    .toLowerCase();
+  var trialans = $("#trialPDA").val().replace(/\s+/g, "").toLowerCase();
   if (event.key === "Enter") {
     $.ajax({
       type: "post",

@@ -184,7 +184,6 @@ centering {
   background-position: center top;
 }
 .inventoryBox .items {
-  cursor: pointer;
   position: absolute;
   background-repeat: no-repeat;
   background-size: 100%;
@@ -1487,4 +1486,64 @@ centering {
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: center top;
+}
+.clueBG .btnA {
+  cursor: pointer;
+  position: absolute;
+  top: 215px;
+  left: 420px;
+  width: 145px;
+  height: 145px;
+  background-image: url(../trial/img/a.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.clueBG .btnA:hover {
+  background-image: url(../trial/img/ahl.webp);
+}
+.clueBG .btnB {
+  cursor: pointer;
+  position: absolute;
+  top: 385px;
+  left: 420px;
+  width: 145px;
+  height: 145px;
+  background-image: url(../trial/img/b.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.clueBG .btnB:hover {
+  background-image: url(../trial/img/bhl.webp);
+}
+.clueBG .btnC {
+  cursor: pointer;
+  position: absolute;
+  top: 215px;
+  left: 750px;
+  width: 145px;
+  height: 145px;
+  background-image: url(../trial/img/c.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.clueBG .btnC:hover {
+  background-image: url(../trial/img/chl.webp);
+}
+.clueBG .btnD {
+  cursor: pointer;
+  position: absolute;
+  top: 385px;
+  left: 750px;
+  width: 145px;
+  height: 145px;
+  background-image: url(../trial/img/d.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.clueBG .btnD:hover {
+  background-image: url(../trial/img/dhl.webp);
 }

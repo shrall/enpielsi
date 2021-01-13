@@ -157,9 +157,15 @@ function closeLocker() {
 var guideY = 0;
 var guideZ = 0;
 var guideAct01 = [
-  "Oh crap, where am I..?",
-  "Looks like a security room..",
-  "I should look around...", //3
+  //! final
+  // "Oh crap, where am I..?",
+  // "Looks like a security room..",
+  // "I should look around...", 
+  //? trial
+  "Welcome to the Trial for the Final Stage of the 8th NPLC!",
+  "Teamwork and communication is the key to solve the puzzle.",
+  "Goodluck and have fun!",
+  //3
   "There's so many computers here..", //4
   "...*bzzt* '-ELLO!'",
   "*crack* ..*bzzt*",
@@ -173,6 +179,10 @@ var guideAct01 = [
   "...", //14
   "Just an ordinary book.", //15
   "I still need to do something else.", //16
+  "This symbol is equal to the letter 'A'.",
+  "This symbol is equal to the letter 'B'.",
+  "This symbol is equal to the letter 'C'.",
+  "This symbol is equal to the letter 'D'.",
 ];
 var guideArray = [];
 
@@ -220,7 +230,11 @@ $(".chatBox").click(function () {
       guideZ == 4 ||
       guideZ == 14 ||
       guideZ == 15 ||
-      guideZ == 16
+      guideZ == 16 ||
+      guideZ == 17 ||
+      guideZ == 18 ||
+      guideZ == 19 ||
+      guideZ == 20
     ) {
       closeChatbox();
       closeUniversal();
@@ -653,4 +667,27 @@ $(".glyphBoardBG .btnBack").click(function () {
   hide = ".glyphBoardBG";
   show = ".radioRoomBG";
   changeBG(hide, show);
+});
+
+//?trial
+
+$(".clueBG .btnA").click(function () {
+  $(".checkPlayertwo").load("checkPlayertwo.php");
+  chatArrayIndex = 16;
+  clickTrusChatPopUp(chatArrayIndex);
+});
+$(".clueBG .btnB").click(function () {
+  $(".checkPlayertwo").load("checkPlayertwo.php");
+  chatArrayIndex = 17;
+  clickTrusChatPopUp(chatArrayIndex);
+});
+$(".clueBG .btnC").click(function () {
+  $(".checkPlayertwo").load("checkPlayertwo.php");
+  chatArrayIndex = 18;
+  clickTrusChatPopUp(chatArrayIndex);
+});
+$(".clueBG .btnD").click(function () {
+  $(".checkPlayertwo").load("checkPlayertwo.php");
+  chatArrayIndex = 19;
+  clickTrusChatPopUp(chatArrayIndex);
 });
