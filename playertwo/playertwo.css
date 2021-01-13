@@ -184,7 +184,6 @@ centering {
   background-position: center top;
 }
 .inventoryBox .items {
-  cursor: pointer;
   position: absolute;
   background-repeat: no-repeat;
   background-size: 100%;
