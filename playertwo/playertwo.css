@@ -867,9 +867,6 @@ centering {
   background-size: 100%;
   background-position: center top;
 }
-.panelLoggedinScreen .panelCCTV:hover {
-  background-image: url(../playertwo/img/controlcctvhl.webp);
-}
 .panelLoggedinScreen .panelFloorBtn {
   cursor: pointer;
   position: absolute;
