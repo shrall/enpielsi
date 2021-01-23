@@ -2562,3 +2562,58 @@ centering {
   position: absolute;
   background-color: #00374b;
 }
+.finalWaitBG .waitTitle {
+  z-index: 5;
+  font-size: 50px;
+  font-family: "Ailerons";
+  color: #eee;
+  text-align: center;
+  margin: 0 auto;
+  top: 240px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 1000px;
+  height: 120px;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.finalWaitBG .btnContinue {
+  visibility: hidden;
+  opacity: 0;
+  z-index: 4;
+  cursor: pointer;
+  bottom: 200px;
+  right: 0;
+  left: 0;
+  text-align: center;
+  margin: 0 auto;
+  width: 250px;
+  height: 75px;
+  position: absolute;
+  background-image: url(../final/img/continue.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.finalWaitBG .btnContinue:hover {
+  background-image: url(../final/img/continuehl.webp);
+}
+.videoCase {
+  z-index: 6;
+  width: 1280px;
+  height: 720px;
+  visibility: hidden;
+  opacity: 0;
+}
+#vidA, #vidB {
+  position: absolute;
+  left: 0;
+  z-index: 6;
+  width: 1280px;
+  height: 720px;
+  visibility: hidden;
+  opacity: 0;
+}

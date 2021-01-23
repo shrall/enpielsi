@@ -74,3 +74,40 @@ if ($page == 'finalchoice') {
     $stmt->bindParam(3, $teamid);
     $stmt->execute();
 }
+
+if ($page == 'finalchoicepone') {
+    $result = $conn->query("SELECT * FROM team WHERE team_id=" . $_SESSION['teamid']);
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $p1final = $row['ponechoice'];
+        echo $p1final;
+    }
+}
+if ($page == 'finalchoiceptwo') {
+    $result = $conn->query("SELECT * FROM team WHERE team_id=" . $_SESSION['teamid']);
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $p2final = $row['ptwochoice'];
+        echo $p2final;
+    }
+}
+if ($page == 'finalchoicepthree') {
+    $result = $conn->query("SELECT * FROM team WHERE team_id=" . $_SESSION['teamid']);
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $p3final = $row['pthreechoice'];
+        echo $p3final;
+    }
+}
+
+if ($page == 'checkfinalchoice') {
+    $result = $conn->query("SELECT * FROM team WHERE team_id=" . $_SESSION['teamid']);
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $p1final = $row['ponechoice'];
+        $p2final = $row['ptwochoice'];
+        $p3final = $row['pthreechoice'];
+        $pfinal = $p1final . $p2final . $p3final;
+        echo $pfinal;
+    }
+}
