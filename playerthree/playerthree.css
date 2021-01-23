@@ -3,9 +3,18 @@
 @import url("../exoregular.otf");
 @import url("../ailerons.otf");
 
-@font-face { font-family: abyssopelagic; src: url("../abyssopelagic.otf"); }
-@font-face { font-family: ailerons; src: url("../ailerons.otf"); }
-@font-face { font-family: exo; src: url("../exoregular.otf"); }
+@font-face {
+  font-family: abyssopelagic;
+  src: url("../abyssopelagic.otf");
+}
+@font-face {
+  font-family: ailerons;
+  src: url("../ailerons.otf");
+}
+@font-face {
+  font-family: exo;
+  src: url("../exoregular.otf");
+}
 
 html {
   overflow: hidden;
@@ -57,7 +66,7 @@ centering {
   position: absolute;
 }
 /* GAME MENU */
-.container{
+.container {
   right: 0;
   left: 0;
   text-align: center;
@@ -242,7 +251,7 @@ centering {
   background-size: 100%;
   background-position: center top;
 }
-.itemAcquiredBox .itemAcquiredImage{
+.itemAcquiredBox .itemAcquiredImage {
   position: absolute;
   background-image: url(../playerone/img/itemwalkietalkie.webp);
   background-repeat: no-repeat;
@@ -253,7 +262,7 @@ centering {
   top: 50px;
   left: 30px;
 }
-.itemAcquiredBox .itemAcquiredText{
+.itemAcquiredBox .itemAcquiredText {
   font-family: "Ailerons";
   color: #00374b;
   text-align: left;
@@ -264,7 +273,7 @@ centering {
   top: 40px;
   width: 300px;
 }
-.itemAcquiredBox .itemAcquiredName{
+.itemAcquiredBox .itemAcquiredName {
   font-family: "Exo";
   color: #00374b;
   text-align: left;
@@ -319,7 +328,7 @@ centering {
   background-image: url(../playerthree/img/ventlidhl.webp);
 }
 
-.btnWallet{
+.btnWallet {
   cursor: pointer;
   position: absolute;
   bottom: 110px;
@@ -495,7 +504,6 @@ centering {
 .janitorToolbox:hover {
   background-image: url(../playerthree/img/janitortoolboxhl.webp);
 }
-
 
 /* vent yang pertigaan */
 .act01 .toiletVentBG {
@@ -1283,7 +1291,7 @@ centering {
   background-image: url(../playerthree/img/ipadsubmithl.webp);
 }
 #androidGuide {
-  color: #00374B !important;
+  color: #00374b !important;
   font-family: "Exo";
   position: absolute;
   width: 380px;
@@ -1306,7 +1314,7 @@ centering {
   background-position: center top;
 }
 .androidIpadInput {
-  color: #00374B !important;
+  color: #00374b !important;
   text-align: center;
   font-family: "Exo";
   font-size: 20px;
@@ -1321,9 +1329,8 @@ centering {
   outline: none;
 }
 .androidIpadInput::placeholder {
-  color: #335F6F !important;
+  color: #335f6f !important;
 }
-
 
 /* ini workshopnya mechanic */
 .act01 .mechanicWorkshopBG {
@@ -1374,8 +1381,6 @@ centering {
 .mechanicWorkshopBG .btnWorkshopPowercell:hover {
   background-image: url(../playerthree/img/powercellworkshophl.webp);
 }
-
-
 
 /* ini big door yang ke pertigaan dari office */
 .act01 .gate05fBG {
@@ -1636,7 +1641,6 @@ centering {
   background-image: url(../playerone/img/downbtnhl.webp);
 }
 
-
 /* ini gate buat masuk storage  */
 .act01 .storageGateBG {
   visibility: hidden;
@@ -1667,7 +1671,7 @@ centering {
 .storageGateBG .btnDown:hover {
   background-image: url(../playerone/img/downbtnhl.webp);
 }
-.storageGateBG .btnGate{
+.storageGateBG .btnGate {
   cursor: pointer;
   top: 227px;
   left: 0;
@@ -1823,7 +1827,6 @@ centering {
   background-image: url(../playerone/img/downbtnhl.webp);
 }
 
-
 /* ini gate buat masuk electrical  */
 .act01 .electricalGateBG {
   visibility: hidden;
@@ -1854,7 +1857,7 @@ centering {
 .electricalGateBG .btnDown:hover {
   background-image: url(../playerone/img/downbtnhl.webp);
 }
-.electricalGateBG .btnGate{
+.electricalGateBG .btnGate {
   cursor: pointer;
   top: 227px;
   left: 0;
@@ -2029,7 +2032,7 @@ centering {
   visibility: hidden;
   opacity: 0;
 }
-.finalPromptBG .promptTitle{
+.finalPromptBG .promptTitle {
   z-index: 5;
   top: 40px;
   left: 0;
@@ -2118,7 +2121,7 @@ centering {
   background-color: #d96368;
 }
 
-.finalPromptBG .btnStart{
+.finalPromptBG .btnStart {
   z-index: 5;
   cursor: pointer;
   bottom: 10px;
@@ -2152,7 +2155,7 @@ centering {
   visibility: hidden;
   opacity: 0;
 }
-.podStationBG .choiceTitle{
+.podStationBG .choiceTitle {
   z-index: 5;
   top: 40px;
   left: 0;
@@ -2167,7 +2170,7 @@ centering {
   background-size: 100%;
   background-position: center top;
 }
-.podStationBG .btnConfirm{
+.podStationBG .btnConfirm {
   z-index: 5;
   cursor: pointer;
   bottom: 10px;
@@ -2194,4 +2197,59 @@ centering {
   height: 100%;
   position: absolute;
   background-color: #00374b;
+}
+.finalWaitBG .waitTitle {
+  z-index: 5;
+  font-size: 50px;
+  font-family: "Ailerons";
+  color: #eee;
+  text-align: center;
+  margin: 0 auto;
+  top: 240px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 1000px;
+  height: 120px;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.finalWaitBG .btnContinue {
+  visibility: hidden;
+  opacity: 0;
+  z-index: 4;
+  cursor: pointer;
+  bottom: 200px;
+  right: 0;
+  left: 0;
+  text-align: center;
+  margin: 0 auto;
+  width: 250px;
+  height: 75px;
+  position: absolute;
+  background-image: url(../final/img/continue.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.finalWaitBG .btnContinue:hover {
+  background-image: url(../final/img/continuehl.webp);
+}
+.videoCase {
+  z-index: 6;
+  width: 1280px;
+  height: 720px;
+  visibility: hidden;
+  opacity: 0;
+}
+#vidA, #vidB {
+  position: absolute;
+  left: 0;
+  z-index: 6;
+  width: 1280px;
+  height: 720px;
+  visibility: hidden;
+  opacity: 0;
 }
