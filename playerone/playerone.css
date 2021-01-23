@@ -3,9 +3,18 @@
 @import url("../exoregular.otf");
 @import url("../ailerons.otf");
 
-@font-face { font-family: abyssopelagic; src: url("../abyssopelagic.otf"); }
-@font-face { font-family: ailerons; src: url("../ailerons.otf"); }
-@font-face { font-family: exo; src: url("../exoregular.otf"); }
+@font-face {
+  font-family: abyssopelagic;
+  src: url("../abyssopelagic.otf");
+}
+@font-face {
+  font-family: ailerons;
+  src: url("../ailerons.otf");
+}
+@font-face {
+  font-family: exo;
+  src: url("../exoregular.otf");
+}
 
 html {
   overflow: hidden;
@@ -242,7 +251,7 @@ centering {
   background-size: 100%;
   background-position: center top;
 }
-.itemAcquiredBox .itemAcquiredImage{
+.itemAcquiredBox .itemAcquiredImage {
   position: absolute;
   background-image: url(../playerone/img/itemwalkietalkie.webp);
   background-repeat: no-repeat;
@@ -253,7 +262,7 @@ centering {
   top: 50px;
   left: 30px;
 }
-.itemAcquiredBox .itemAcquiredText{
+.itemAcquiredBox .itemAcquiredText {
   font-family: "Ailerons";
   color: #00374b;
   text-align: left;
@@ -264,7 +273,7 @@ centering {
   top: 40px;
   width: 300px;
 }
-.itemAcquiredBox .itemAcquiredName{
+.itemAcquiredBox .itemAcquiredName {
   font-family: "Exo";
   color: #00374b;
   text-align: left;
@@ -293,7 +302,7 @@ centering {
   background-size: 100%;
   background-position: center top;
 }
-.popUpHeader{
+.popUpHeader {
   font-family: "Ailerons";
   color: #00374b;
   font-size: 42px;
@@ -303,7 +312,7 @@ centering {
   right: 0;
   top: 20px;
 }
-.popUpSub{
+.popUpSub {
   font-family: "Exo";
   color: #00374b;
   font-size: 20px;
@@ -313,7 +322,7 @@ centering {
   right: 0;
   top: 83px;
 }
-.selectA{
+.selectA {
   cursor: pointer;
   top: 130px;
   right: 0;
@@ -327,7 +336,7 @@ centering {
   background-size: 100%;
   background-position: center top;
 }
-.selectA a{
+.selectA a {
   font-family: "Exo";
   color: #00374b;
   position: absolute;
@@ -335,10 +344,10 @@ centering {
   font-size: 27px;
   top: 19px;
 }
-.selectA:hover{
+.selectA:hover {
   background-image: url(../playerone/img/popupahl.webp);
 }
-.selectB{
+.selectB {
   cursor: pointer;
   top: 225px;
   right: 0;
@@ -352,7 +361,7 @@ centering {
   background-size: 100%;
   background-position: center top;
 }
-.selectB a{
+.selectB a {
   font-family: "Exo";
   color: #00374b;
   position: absolute;
@@ -360,7 +369,7 @@ centering {
   font-size: 27px;
   top: 19px;
 }
-.selectB:hover{
+.selectB:hover {
   background-image: url(../playerone/img/popupbhl.webp);
 }
 
@@ -1846,7 +1855,7 @@ centering {
 .specimenGateBG .btnLeft:hover {
   background-image: url(../playerone/img/leftbtnhl.webp);
 }
-.specimenGateBG .btnGate{
+.specimenGateBG .btnGate {
   cursor: pointer;
   top: 227px;
   left: 0;
@@ -2396,7 +2405,7 @@ centering {
   visibility: hidden;
   opacity: 0;
 }
-.finalPromptBG .promptTitle{
+.finalPromptBG .promptTitle {
   z-index: 5;
   top: 40px;
   left: 0;
@@ -2485,7 +2494,7 @@ centering {
   background-color: #d96368;
 }
 
-.finalPromptBG .btnStart{
+.finalPromptBG .btnStart {
   z-index: 5;
   cursor: pointer;
   bottom: 10px;
@@ -2519,7 +2528,7 @@ centering {
   visibility: hidden;
   opacity: 0;
 }
-.podStationBG .choiceTitle{
+.podStationBG .choiceTitle {
   z-index: 5;
   top: 40px;
   left: 0;
@@ -2534,7 +2543,7 @@ centering {
   background-size: 100%;
   background-position: center top;
 }
-.podStationBG .btnConfirm{
+.podStationBG .btnConfirm {
   z-index: 5;
   cursor: pointer;
   bottom: 10px;
@@ -2608,7 +2617,8 @@ centering {
   visibility: hidden;
   opacity: 0;
 }
-#vidA, #vidB {
+#vidA,
+#vidB {
   position: absolute;
   left: 0;
   z-index: 6;
@@ -2616,4 +2626,12 @@ centering {
   height: 720px;
   visibility: hidden;
   opacity: 0;
+}
+
+.openingVideoBG {
+  z-index: 100;
+  position: absolute;
+}
+video::-webkit-media-controls {
+  display: none;
 }

@@ -20,7 +20,6 @@ function playSFX(sfx) {
 
 $(document).ready(function () {
   setTimeout(function () {
-    bgMusic.play();
     $(".checkPlayertwo").load("checkPlayertwo.php");
     $.ajax({
       type: "post",
@@ -51,7 +50,13 @@ var dbcheck = "";
 
 window.onload = function () {
   sceneTransition();
+};
+
+function openingEnded() {
+  bgMusic.play();
+  $(".openingVideoBG #vidOpening").animate({ opacity: "0" }, 300);
   setTimeout(function () {
+    $(".openingVideoBG").css("display", "none");
     setTimeout(function () {
       $(".gameHUD .transitionBG").css("visibility", "hidden");
       openChatbox();
@@ -59,7 +64,7 @@ window.onload = function () {
       setTimeout(typeWriter, 300);
     }, 300);
   }, 600);
-};
+}
 
 function changeBG(hide, show) {
   setTimeout(function () {
@@ -472,10 +477,7 @@ $(".byUBG .btnBack").click(function () {
 
 // ini screen yang pas mau login
 $(".panelLoginScreen .panelPassInput").keypress(function (event) {
-  var panelans = $(".panelPassInput")
-    .val()
-    .replace(/\s+/g, "")
-    .toLowerCase();
+  var panelans = $(".panelPassInput").val().replace(/\s+/g, "").toLowerCase();
   if (event.key === "Enter") {
     $.ajax({
       type: "post",

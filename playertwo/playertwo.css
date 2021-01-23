@@ -3,9 +3,18 @@
 @import url("../exoregular.otf");
 @import url("../ailerons.otf");
 
-@font-face { font-family: abyssopelagic; src: url("../abyssopelagic.otf"); }
-@font-face { font-family: ailerons; src: url("../ailerons.otf"); }
-@font-face { font-family: exo; src: url("../exoregular.otf"); }
+@font-face {
+  font-family: abyssopelagic;
+  src: url("../abyssopelagic.otf");
+}
+@font-face {
+  font-family: ailerons;
+  src: url("../ailerons.otf");
+}
+@font-face {
+  font-family: exo;
+  src: url("../exoregular.otf");
+}
 
 html {
   overflow: hidden;
@@ -1296,7 +1305,7 @@ centering {
   visibility: hidden;
   opacity: 0;
 }
-.finalPromptBG .promptTitle{
+.finalPromptBG .promptTitle {
   z-index: 5;
   top: 40px;
   left: 0;
@@ -1385,7 +1394,7 @@ centering {
   background-color: #d96368;
 }
 
-.finalPromptBG .btnStart{
+.finalPromptBG .btnStart {
   z-index: 5;
   cursor: pointer;
   bottom: 10px;
@@ -1419,7 +1428,7 @@ centering {
   visibility: hidden;
   opacity: 0;
 }
-.podStationBG .choiceTitle{
+.podStationBG .choiceTitle {
   z-index: 5;
   top: 40px;
   left: 0;
@@ -1434,7 +1443,7 @@ centering {
   background-size: 100%;
   background-position: center top;
 }
-.podStationBG .btnConfirm{
+.podStationBG .btnConfirm {
   z-index: 5;
   cursor: pointer;
   bottom: 10px;
@@ -1508,7 +1517,8 @@ centering {
   visibility: hidden;
   opacity: 0;
 }
-#vidA, #vidB {
+#vidA,
+#vidB {
   position: absolute;
   left: 0;
   z-index: 6;
@@ -1516,4 +1526,12 @@ centering {
   height: 720px;
   visibility: hidden;
   opacity: 0;
+}
+
+.openingVideoBG {
+  z-index: 100;
+  position: absolute;
+}
+video::-webkit-media-controls {
+  display: none;
 }

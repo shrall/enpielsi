@@ -11,14 +11,13 @@ var walkSFX = new Audio("../audio/sfx/walk.mp3");
 var correctSFX = new Audio("../audio/sfx/correct.mp3");
 var wrongSFX = new Audio("../audio/sfx/wrong.mp3");
 
-function playSFX(sfx){
+function playSFX(sfx) {
   sfx.pause();
   sfx.currentTime = 0;
   sfx.play();
-};
+}
 
 $(document).ready(function () {
-  bgMusic.play();
   setTimeout(function () {
     $(".checkPlayerthree").load("checkPlayerthree.php");
   }, 1);
@@ -32,7 +31,13 @@ var show = "";
 
 window.onload = function () {
   sceneTransition();
+};
+
+function openingEnded() {
+  bgMusic.play();
+  $(".openingVideoBG #vidOpening").animate({ opacity: "0" }, 300);
   setTimeout(function () {
+    $(".openingVideoBG").css("display", "none");
     setTimeout(function () {
       $(".gameHUD .transitionBG").css("visibility", "hidden");
       openChatbox();
@@ -40,7 +45,7 @@ window.onload = function () {
       setTimeout(typeWriter, 300);
     }, 300);
   }, 600);
-};
+}
 function changeBG(hide, show) {
   setTimeout(function () {
     sceneTransition();
