@@ -1,5 +1,7 @@
 var dbresult = "";
 $(document).ready(function () {
+  document.getElementById("vidA").pause();
+  document.getElementById("vidB").pause();
   setInterval(function () {
     $.ajax({
       type: "post",
@@ -130,6 +132,13 @@ function changeBG(hide, show) {
 }
 
 // waiting for other players
+var p1choicecounter = 0;
+var p2choicecounter = 0;
+var p3choicecounter = 0;
+var p1choice = 0;
+var p2choice = 0;
+var p3choice = 0;
+var continuebuttoncounter = 0;
 
 $(".finalPromptBG .btnStart").click(function () {
   $.ajax({
@@ -147,6 +156,62 @@ $(".finalPromptBG .btnStart").click(function () {
       show = ".podStationBG";
       changeBG(hide, show);
       openChoiceMenu();
+      setInterval(function () {
+        $.ajax({
+          type: "post",
+          url: "final.php?p=finalchoicepone",
+          data: { stat: dbresult },
+          dataType: "html",
+          success: function (result) {
+            dbresult = result;
+          },
+        }).done(function () {
+          if (dbresult != "0") {
+            p1choicecounter = 1;
+            p1choice = dbresult;
+          } else {
+          }
+        });
+        $.ajax({
+          type: "post",
+          url: "final.php?p=finalchoiceptwo",
+          data: { stat: dbresult },
+          dataType: "html",
+          success: function (result) {
+            dbresult = result;
+          },
+        }).done(function () {
+          if (dbresult != "0") {
+            p2choicecounter = 1;
+            p2choice = dbresult;
+          } else {
+          }
+        });
+        $.ajax({
+          type: "post",
+          url: "final.php?p=finalchoicepthree",
+          data: { stat: dbresult },
+          dataType: "html",
+          success: function (result) {
+            dbresult = result;
+          },
+        }).done(function () {
+          if (dbresult != "0") {
+            p3choicecounter = 1;
+            p3choice = dbresult;
+          } else {
+          }
+        });
+        if (
+          p1choicecounter == 1 &&
+          p2choicecounter == 1 &&
+          p3choicecounter == 1 &&
+          continuebuttoncounter == 0
+        ) {
+          $(".finalWaitBG .btnContinue").css("visibility", "inherit");
+          $(".finalWaitBG .btnContinue").animate({ opacity: "1" }, 300);
+        }
+      }, 1000);
     }
   });
 });
@@ -201,18 +266,39 @@ $(".podStationBG .framePlayerThree").click(function () {
 });
 
 $(".podStationBG .btnConfirm").click(function () {
-  $.ajax({
-    type: "post",
-    url: "final.php?p=finalchoice",
-    data: { stat: choice },
-    dataType: "html",
-    success: function (result) {
-      dbresult = result;
-    },
-  }).done(function () {
-    closeChoiceMenu();
-    hide = ".podStationBG";
-    show = ".finalWaitBG";
-    changeBG(hide, show);
-  });
+  if (choice != 0) {
+    $.ajax({
+      type: "post",
+      url: "final.php?p=finalchoice",
+      data: { stat: choice },
+      dataType: "html",
+      success: function (result) {
+        dbresult = result;
+      },
+    }).done(function () {
+      closeChoiceMenu();
+      hide = ".podStationBG";
+      show = ".finalWaitBG";
+      changeBG(hide, show);
+    });
+  }
+});
+
+$(".finalWaitBG .btnContinue").click(function () {
+  //!load video ending
+  continuebuttoncounter = 1;
+  $(".finalWaitBG .waitTitle").css("visibility", "hidden");
+  $(".finalWaitBG .waitTitle").animate({ opacity: "0" }, 300);
+  $(".finalWaitBG .btnContinue").css("visibility", "hidden");
+  $(".finalWaitBG .btnContinue").animate({ opacity: "0" }, 300);
+  closeChatBlockTouch();
+  if (p1choice + "" + p2choice + "" + p3choice == "312") {
+    $(".finalWaitBG #vidA").css("visibility", "visible");
+    $(".finalWaitBG #vidA").animate({ opacity: "1" }, 300);
+    document.getElementById("vidA").play();
+  } else {
+    $(".finalWaitBG #vidB").css("visibility", "visible");
+    $(".finalWaitBG #vidB").animate({ opacity: "1" }, 300);
+    document.getElementById("vidB").play();
+  }
 });
