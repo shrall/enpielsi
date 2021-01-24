@@ -77,14 +77,20 @@ $(document).ready(function () {
 
 window.onload = function () {
   sceneTransition();
+};
+
+function openingEnded() {
+  $(".openingVideoBG #vidOpening").animate({ opacity: "0" }, 300);
   openChatBlockTouch();
   setTimeout(function () {
+    $(".openingVideoBG").css("display", "none");
     setTimeout(function () {
       $(".gameHUD .transitionBG").css("visibility", "hidden");
       openPromptMenu();
     }, 300);
   }, 600);
-};
+}
+
 
 function sceneTransition() {
   $(".gameHUD .transitionBG").css("visibility", "visible");
