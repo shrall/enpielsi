@@ -864,7 +864,6 @@ centering {
   background-position: center top;
 }
 .panelLoggedinScreen .panelCCTV {
-  cursor: pointer;
   position: absolute;
   top: 105px;
   margin: 0 auto;
