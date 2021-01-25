@@ -2625,3 +2625,29 @@ centering {
 .trialPDAInput:focus {
   outline: none;
 }
+
+.videoCase {
+  z-index: 6;
+  width: 1280px;
+  height: 720px;
+  visibility: hidden;
+  opacity: 0;
+}
+#vidA,
+#vidB {
+  position: absolute;
+  left: 0;
+  z-index: 6;
+  width: 1280px;
+  height: 720px;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.openingVideoBG {
+  z-index: 100;
+  position: absolute;
+}
+video::-webkit-media-controls {
+  display: none;
+}

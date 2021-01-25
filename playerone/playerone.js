@@ -84,7 +84,6 @@ var guideAct01 = [
 ];
 
 $(document).ready(function () {
-  bgMusic.play();
   setTimeout(function () {
     $(".checkPlayerone").load("checkPlayerone.php");
   }, 1);
@@ -92,7 +91,13 @@ $(document).ready(function () {
 
 window.onload = function () {
   sceneTransition();
+};
+
+function openingEnded() {
+  bgMusic.play();
+  $(".openingVideoBG #vidOpening").animate({ opacity: "0" }, 300);
   setTimeout(function () {
+    $(".openingVideoBG").css("display", "none");
     setTimeout(function () {
       $(".gameHUD .transitionBG").css("visibility", "hidden");
       openChatbox();
@@ -100,7 +105,7 @@ window.onload = function () {
       setTimeout(typeWriter, 300);
     }, 300);
   }, 600);
-};
+}
 
 function changeBG(hide, show) {
   setTimeout(function () {

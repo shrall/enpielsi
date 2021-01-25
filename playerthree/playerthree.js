@@ -18,7 +18,6 @@ function playSFX(sfx){
 };
 
 $(document).ready(function () {
-  bgMusic.play();
   setTimeout(function () {
     $(".checkPlayerthree").load("checkPlayerthree.php");
   }, 1);
@@ -32,7 +31,13 @@ var show = "";
 
 window.onload = function () {
   sceneTransition();
+};
+
+function openingEnded() {
+  bgMusic.play();
+  $(".openingVideoBG #vidOpening").animate({ opacity: "0" }, 300);
   setTimeout(function () {
+    $(".openingVideoBG").css("display", "none");
     setTimeout(function () {
       $(".gameHUD .transitionBG").css("visibility", "hidden");
       openChatbox();
@@ -40,7 +45,8 @@ window.onload = function () {
       setTimeout(typeWriter, 300);
     }, 300);
   }, 600);
-};
+}
+
 function changeBG(hide, show) {
   setTimeout(function () {
     sceneTransition();
