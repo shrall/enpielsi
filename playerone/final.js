@@ -2,6 +2,7 @@ var dbresult = "";
 $(document).ready(function () {
   document.getElementById("vidA").pause();
   document.getElementById("vidB").pause();
+  document.getElementById("vidTransition").pause();
   setInterval(function () {
     $.ajax({
       type: "post",
@@ -157,69 +158,77 @@ $(".finalPromptBG .btnStart").click(function () {
   }).done(function () {
     if (dbresult == "111") {
       closePromptMenu();
+      closeChatBlockTouch();
       hide = ".finalPromptBG";
-      show = ".podStationBG";
+      show = ".finalTransitionBG";
       changeBG(hide, show);
-      openChoiceMenu();
-      setInterval(function () {
-        $.ajax({
-          type: "post",
-          url: "final.php?p=finalchoicepone",
-          data: { stat: dbresult },
-          dataType: "html",
-          success: function (result) {
-            dbresult = result;
-          },
-        }).done(function () {
-          if (dbresult != "0") {
-            p1choicecounter = 1;
-            p1choice = dbresult;
-          } else {
-          }
-        });
-        $.ajax({
-          type: "post",
-          url: "final.php?p=finalchoiceptwo",
-          data: { stat: dbresult },
-          dataType: "html",
-          success: function (result) {
-            dbresult = result;
-          },
-        }).done(function () {
-          if (dbresult != "0") {
-            p2choicecounter = 1;
-            p2choice = dbresult;
-          } else {
-          }
-        });
-        $.ajax({
-          type: "post",
-          url: "final.php?p=finalchoicepthree",
-          data: { stat: dbresult },
-          dataType: "html",
-          success: function (result) {
-            dbresult = result;
-          },
-        }).done(function () {
-          if (dbresult != "0") {
-            p3choicecounter = 1;
-            p3choice = dbresult;
-          } else {
-          }
-        });
-        if (
-          p1choicecounter == 1 &&
-          p2choicecounter == 1 &&
-          p3choicecounter == 1 &&
-          continuebuttoncounter == 0
-        ) {
-          $(".finalWaitBG .btnContinue").css("visibility", "inherit");
-          $(".finalWaitBG .btnContinue").animate({ opacity: "1" }, 300);
-        }
-      }, 1000);
+      document.getElementById("vidTransition").play();
     }
   });
 });
+function transitionEnded() {
+  hide = ".finalTransitionBG";
+  show = ".podStationBG";
+  changeBG(hide, show);
+  openChoiceMenu();
+  openChatBlockTouch();
+  setInterval(function () {
+    $.ajax({
+      type: "post",
+      url: "final.php?p=finalchoicepone",
+      data: { stat: dbresult },
+      dataType: "html",
+      success: function (result) {
+        dbresult = result;
+      },
+    }).done(function () {
+      if (dbresult != "0") {
+        p1choicecounter = 1;
+        p1choice = dbresult;
+      } else {
+      }
+    });
+    $.ajax({
+      type: "post",
+      url: "final.php?p=finalchoiceptwo",
+      data: { stat: dbresult },
+      dataType: "html",
+      success: function (result) {
+        dbresult = result;
+      },
+    }).done(function () {
+      if (dbresult != "0") {
+        p2choicecounter = 1;
+        p2choice = dbresult;
+      } else {
+      }
+    });
+    $.ajax({
+      type: "post",
+      url: "final.php?p=finalchoicepthree",
+      data: { stat: dbresult },
+      dataType: "html",
+      success: function (result) {
+        dbresult = result;
+      },
+    }).done(function () {
+      if (dbresult != "0") {
+        p3choicecounter = 1;
+        p3choice = dbresult;
+      } else {
+      }
+    });
+    if (
+      p1choicecounter == 1 &&
+      p2choicecounter == 1 &&
+      p3choicecounter == 1 &&
+      continuebuttoncounter == 0
+    ) {
+      $(".finalWaitBG .btnContinue").css("visibility", "inherit");
+      $(".finalWaitBG .btnContinue").animate({ opacity: "1" }, 300);
+    }
+  }, 1000);
+}
 
 // final choice
 var choice = 0;
