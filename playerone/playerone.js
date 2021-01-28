@@ -297,6 +297,16 @@ var acquiredItem = "";
 $(".inventoryBtn").click(function () {
   openInventorybox();
 });
+$(".soundBtn").click(function () {
+  $(".soundBtn").css("display", "none");
+  $(".muteBtn").css("display", "block");
+  bgMusic.pause();
+});
+$(".muteBtn").click(function () {
+  $(".muteBtn").css("display", "none");
+  $(".soundBtn").css("display", "block");
+  bgMusic.play();
+});
 var mainkeycard = 0;
 $(".btnLabCoat").click(function () {
   $(".checkPlayerone").load("checkPlayerone.php");

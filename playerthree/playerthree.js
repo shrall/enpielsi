@@ -316,6 +316,17 @@ $(".inventoryBtn").click(function () {
   openInventorybox();
 });
 
+$(".soundBtn").click(function () {
+  $(".soundBtn").css("display", "none");
+  $(".muteBtn").css("display", "block");
+  bgMusic.pause();
+});
+$(".muteBtn").click(function () {
+  $(".muteBtn").css("display", "none");
+  $(".soundBtn").css("display", "block");
+  bgMusic.play();
+});
+
 function addItem() {
   openItemAcquired();
   $(".gameHUD .itemBox" + inventoryIndex).css("background-image", acquiredItem);
