@@ -307,6 +307,12 @@ $(".muteBtn").click(function () {
   $(".soundBtn").css("display", "block");
   bgMusic.play();
 });
+$(".skipBtn").click(function () {
+  document.getElementById("vidOpening").pause();
+  $(".skipBtn").css("visibility", "hidden");
+  $(".skipBtn").animate({ opacity: "0" }, 300);
+  openingEnded();
+});
 var mainkeycard = 0;
 $(".btnLabCoat").click(function () {
   $(".checkPlayerone").load("checkPlayerone.php");

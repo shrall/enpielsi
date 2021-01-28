@@ -177,7 +177,7 @@ centering {
 .soundBtn {
   cursor: pointer;
   position: absolute;
-  right: 25px;
+  left: 25px;
   top: 25px;
   width: 100px;
   height: 100px;
@@ -193,7 +193,7 @@ centering {
   display: none;
   cursor: pointer;
   position: absolute;
-  right: 25px;
+  left: 25px;
   top: 25px;
   width: 100px;
   height: 100px;
@@ -204,6 +204,22 @@ centering {
 }
 .muteBtn:hover {
   background-image: url(../final/img/btnmutehl.webp);
+}
+.skipBtn {
+  z-index: 9999;
+  cursor: pointer;
+  position: absolute;
+  left: 25px;
+  top: 25px;
+  width: 100px;
+  height: 40px;
+  background-image: url(../final/img/btnskip.webp);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center top;
+}
+.skipBtn:hover {
+  background-image: url(../final/img/btnskiphl.webp);
 }
 .inventoryBox {
   z-index: 4;
