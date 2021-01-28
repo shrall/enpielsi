@@ -446,6 +446,7 @@ $(".controlRoomBG .btnGate").click(function () {
           dbcheck = result;
         },
       }).done(function () {
+        bgMusic.pause();
         window.open("finalstage.html");
       });
     } else {

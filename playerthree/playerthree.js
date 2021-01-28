@@ -501,12 +501,9 @@ $(".lobbyReceptionistBG .btnMechanic").click(function () {
     workshoppowercell == 1 &&
     electricalpowercell == 1 &&
     storagepowercell == 1 &&
-    glassesbox == 1 &&
-    mechaniccutscene == 0
+    glassesbox == 1
   ) {
     mechaniccutscene = 1;
-    //disini play cutscene android.
-  } else if (mechaniccutscene == 1) {
     chatArrayIndex = 32;
     clickTrusChatPopUp(chatArrayIndex);
   } else {
@@ -556,6 +553,7 @@ $(".lobbyStationBG .btnAndroid").click(function () {
         dbcheck = result;
       },
     }).done(function () {
+      bgMusic.pause();
       window.open("finalstage.html");
     });
   } else {
