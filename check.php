@@ -23,6 +23,9 @@ $sql1 = "UPDATE user SET is_login = 1 WHERE user_id='$userid'";
 $conn->query($sql1);
 $sql2 = "SELECT score FROM team WHERE team_id ='$teamID'";
 $result2 = $conn->query($sql2);
+$date = date("Y-m-d H:i:s");
+$sql3 = "UPDATE user SET login_at = '$date' WHERE user_id='$userid'";
+$conn->query($sql3);
 while ($row1 = $result2->fetch_assoc()) {
     $_SESSION['score'] = $row1['score'];
 }
