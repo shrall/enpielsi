@@ -88,6 +88,8 @@ window.onload = function () {
 
 function openingEnded() {
   bgMusic.play();
+  $(".skipBtn").css("visibility", "hidden");
+  $(".skipBtn").animate({ opacity: "0" }, 300);
   $(".openingVideoBG #vidOpening").animate({ opacity: "0" }, 300);
   setTimeout(function () {
     $(".openingVideoBG").css("display", "none");
@@ -309,8 +311,6 @@ $(".muteBtn").click(function () {
 });
 $(".skipBtn").click(function () {
   document.getElementById("vidOpening").pause();
-  $(".skipBtn").css("visibility", "hidden");
-  $(".skipBtn").animate({ opacity: "0" }, 300);
   openingEnded();
 });
 var mainkeycard = 0;
