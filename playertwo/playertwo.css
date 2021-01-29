@@ -541,6 +541,8 @@ centering {
   width: 60px;
   height: 80px;
   background-color: #33859f;
+  border: solid 0px;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
 }
 .anna01BG .input02 {
   font-family: "Abyssopelagic", Roboto;
@@ -553,6 +555,7 @@ centering {
   width: 60px;
   height: 80px;
   background-color: #33859f;
+  border-radius: 50% / 10%;
 }
 .anna01BG .input03 {
   font-family: "Abyssopelagic", Roboto;
@@ -565,6 +568,7 @@ centering {
   height: 80px;
   background-color: #33859f;
 }
+
 .anna01BG .labInput01 {
   font-family: "Abyssopelagic", Roboto;
   font-size: 62px;
@@ -1380,7 +1384,7 @@ centering {
   background-size: 100%;
   background-position: center top;
 }
-.finalChoiceMenu .playerFrame{
+.finalChoiceMenu .playerFrame {
   cursor: pointer;
 }
 .playerFrame .playerName {
