@@ -308,12 +308,23 @@ $(".finalWaitBG .btnContinue").click(function () {
     p1choice + "" + p2choice + "" + p3choice == "312" ||
     p1choice + "" + p2choice + "" + p3choice == "231"
   ) {
-    ending = 'good';
-  } else if (p1choice + "" + p2choice + "" + p3choice == "123") {
-    ending = 'bad';
+    ending = "good";
+  } else if (
+    p1choice + "" + p2choice + "" + p3choice == "123" ||
+    p1choice + "" + p2choice + "" + p3choice == "132" ||
+    p1choice + "" + p2choice + "" + p3choice == "321" ||
+    p1choice + "" + p2choice + "" + p3choice == "213" ||
+    p1choice + "" + p2choice + "" + p3choice == "113" ||
+    p1choice + "" + p2choice + "" + p3choice == "121" ||
+    p1choice + "" + p2choice + "" + p3choice == "223" ||
+    p1choice + "" + p2choice + "" + p3choice == "122" ||
+    p1choice + "" + p2choice + "" + p3choice == "133" ||
+    p1choice + "" + p2choice + "" + p3choice == "323"
+  ) {
+    ending = "bad";
   } else {
-    ending = 'normal';
-  }  
+    ending = "normal";
+  }
   $.ajax({
     type: "post",
     url: "final.php?p=endingresult",
@@ -337,7 +348,12 @@ $(".finalWaitBG .btnContinue").click(function () {
     $(".finalWaitBG #vidA").css("visibility", "visible");
     $(".finalWaitBG #vidA").animate({ opacity: "1" }, 300);
     document.getElementById("vidA").play();
-  } else if (p1choice + "" + p2choice + "" + p3choice == "123") {
+  } else if (
+    p1choice + "" + p2choice + "" + p3choice == "123" ||
+    p1choice + "" + p2choice + "" + p3choice == "132" ||
+    p1choice + "" + p2choice + "" + p3choice == "321" ||
+    p1choice + "" + p2choice + "" + p3choice == "213"
+  ) {
     $(".finalWaitBG #vidC").css("visibility", "visible");
     $(".finalWaitBG #vidC").animate({ opacity: "1" }, 300);
     document.getElementById("vidC").play();
