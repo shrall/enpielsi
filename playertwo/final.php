@@ -110,3 +110,12 @@ if ($page == 'checkfinalchoice') {
         echo $pfinal;
     }
 }
+
+if ($page == 'endingresult') {
+    $stat = $_POST['stat'];
+    $teamid = $_SESSION['teamid'];
+    $stmt = $db->prepare("UPDATE team SET endingresult=? WHERE team_id=?");
+    $stmt->bindParam(1, $stat);
+    $stmt->bindParam(2, $teamid);
+    $stmt->execute();
+}

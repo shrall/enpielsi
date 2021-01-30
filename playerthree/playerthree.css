@@ -2301,7 +2301,8 @@ centering {
   opacity: 0;
 }
 #vidA,
-#vidB {
+#vidB,
+#vidC {
   position: absolute;
   left: 0;
   z-index: 6;

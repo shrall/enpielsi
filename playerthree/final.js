@@ -2,6 +2,7 @@ var dbresult = "";
 $(document).ready(function () {
   document.getElementById("vidA").pause();
   document.getElementById("vidB").pause();
+  document.getElementById("vidC").pause();
   document.getElementById("vidTransition").pause();
   setInterval(function () {
     $.ajax({
@@ -299,18 +300,47 @@ $(".podStationBG .btnConfirm").click(function () {
   }
 });
 
+var ending = "";
+
 $(".finalWaitBG .btnContinue").click(function () {
   //!load video ending
-  continuebuttoncounter = 1;
+  if (
+    p1choice + "" + p2choice + "" + p3choice == "312" ||
+    p1choice + "" + p2choice + "" + p3choice == "231"
+  ) {
+    ending = 'good';
+  } else if (p1choice + "" + p2choice + "" + p3choice == "123") {
+    ending = 'bad';
+  } else {
+    ending = 'normal';
+  }  
+  $.ajax({
+    type: "post",
+    url: "final.php?p=endingresult",
+    data: { stat: ending },
+    dataType: "html",
+    success: function (result) {
+      dbresult = result;
+    },
+  }).done(function () {
+    continuebuttoncounter = 1;
+  });
   $(".finalWaitBG .waitTitle").css("visibility", "hidden");
   $(".finalWaitBG .waitTitle").animate({ opacity: "0" }, 300);
   $(".finalWaitBG .btnContinue").css("visibility", "hidden");
   $(".finalWaitBG .btnContinue").animate({ opacity: "0" }, 300);
   closeChatBlockTouch();
-  if (p1choice + "" + p2choice + "" + p3choice == "312") {
+  if (
+    p1choice + "" + p2choice + "" + p3choice == "312" ||
+    p1choice + "" + p2choice + "" + p3choice == "231"
+  ) {
     $(".finalWaitBG #vidA").css("visibility", "visible");
     $(".finalWaitBG #vidA").animate({ opacity: "1" }, 300);
     document.getElementById("vidA").play();
+  } else if (p1choice + "" + p2choice + "" + p3choice == "123") {
+    $(".finalWaitBG #vidC").css("visibility", "visible");
+    $(".finalWaitBG #vidC").animate({ opacity: "1" }, 300);
+    document.getElementById("vidC").play();
   } else {
     $(".finalWaitBG #vidB").css("visibility", "visible");
     $(".finalWaitBG #vidB").animate({ opacity: "1" }, 300);
