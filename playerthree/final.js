@@ -1,7 +1,9 @@
 var dbresult = "";
 $(document).ready(function () {
   document.getElementById("vidA").pause();
-  document.getElementById("vidB").pause();
+  document.getElementById("vidB1").pause();
+  document.getElementById("vidB2").pause();
+  document.getElementById("vidB3").pause();
   document.getElementById("vidC").pause();
   document.getElementById("vidTransition").pause();
   setInterval(function () {
@@ -352,14 +354,40 @@ $(".finalWaitBG .btnContinue").click(function () {
     p1choice + "" + p2choice + "" + p3choice == "123" ||
     p1choice + "" + p2choice + "" + p3choice == "132" ||
     p1choice + "" + p2choice + "" + p3choice == "321" ||
-    p1choice + "" + p2choice + "" + p3choice == "213"
+    p1choice + "" + p2choice + "" + p3choice == "213" ||
+    p1choice + "" + p2choice + "" + p3choice == "113" ||
+    p1choice + "" + p2choice + "" + p3choice == "121" ||
+    p1choice + "" + p2choice + "" + p3choice == "223" ||
+    p1choice + "" + p2choice + "" + p3choice == "122" ||
+    p1choice + "" + p2choice + "" + p3choice == "133" ||
+    p1choice + "" + p2choice + "" + p3choice == "323"
   ) {
     $(".finalWaitBG #vidC").css("visibility", "visible");
     $(".finalWaitBG #vidC").animate({ opacity: "1" }, 300);
     document.getElementById("vidC").play();
+  } else if (
+    p1choice + "" + p2choice + "" + p3choice == "111" ||
+    p1choice + "" + p2choice + "" + p3choice == "112" ||
+    p1choice + "" + p2choice + "" + p3choice == "131" ||
+    p1choice + "" + p2choice + "" + p3choice == "211" ||
+    p1choice + "" + p2choice + "" + p3choice == "311"
+    ){
+    $(".finalWaitBG #vidB1").css("visibility", "visible");
+    $(".finalWaitBG #vidB1").animate({ opacity: "1" }, 300);
+    document.getElementById("vidB1").play();
+  } else if (
+    p1choice + "" + p2choice + "" + p3choice == "222" ||
+    p1choice + "" + p2choice + "" + p3choice == "322" ||
+    p1choice + "" + p2choice + "" + p3choice == "221" ||
+    p1choice + "" + p2choice + "" + p3choice == "212" ||
+    p1choice + "" + p2choice + "" + p3choice == "232"
+    ){
+    $(".finalWaitBG #vidB2").css("visibility", "visible");
+    $(".finalWaitBG #vidB2").animate({ opacity: "1" }, 300);
+    document.getElementById("vidB2").play();
   } else {
-    $(".finalWaitBG #vidB").css("visibility", "visible");
-    $(".finalWaitBG #vidB").animate({ opacity: "1" }, 300);
-    document.getElementById("vidB").play();
+    $(".finalWaitBG #vidB3").css("visibility", "visible");
+    $(".finalWaitBG #vidB3").animate({ opacity: "1" }, 300);
+    document.getElementById("vidB3").play();
   }
 });

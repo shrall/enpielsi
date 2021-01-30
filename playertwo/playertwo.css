@@ -1577,7 +1577,9 @@ centering {
   opacity: 0;
 }
 #vidA,
-#vidB,
+#vidB1,
+#vidB2,
+#vidB3,
 #vidC {
   position: absolute;
   left: 0;
